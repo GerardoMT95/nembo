@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ServiceProtocolloInformaticoservImplService" targetNamespace="http://service.gaaserv.agricoltura.aizoon.it/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.gaaserv.agricoltura.aizoon.it/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.gaaserv.agricoltura.aizoon.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addAllegati" type="tns:addAllegati"/>
+      <xs:element name="addAllegatiResponse" type="tns:addAllegatiResponse"/>
+      <xs:element name="getByNumeroProtocollo" type="tns:getByNumeroProtocollo"/>
+      <xs:element name="getByNumeroProtocolloResponse" type="tns:getByNumeroProtocolloResponse"/>
+      <xs:element name="getDocument" type="tns:getDocument"/>
+      <xs:element name="getDocumentResponse" type="tns:getDocumentResponse"/>
+      <xs:element name="insertProtocollo" type="tns:insertProtocollo"/>
+      <xs:element name="insertProtocolloResponse" type="tns:insertProtocolloResponse"/>
+      <xs:element name="isAlive" type="tns:isAlive"/>
+      <xs:element name="isAliveResponse" type="tns:isAliveResponse"/>
+      <xs:element name="notificaByPec" type="tns:notificaByPec"/>
+      <xs:element name="notificaByPecResponse" type="tns:notificaByPecResponse"/>
+      <xs:element name="testResources" type="tns:testResources"/>
+      <xs:element name="testResourcesResponse" type="tns:testResourcesResponse"/>
+      <xs:complexType name="isAlive">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="isAliveResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDocument">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:getDocumentRequestVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDocumentRequestVO">
+        <xs:sequence>
+          <xs:element name="documentID" type="xs:string"/>
+          <xs:element name="usernameTokenVO" type="tns:usernameTokenVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="usernameTokenVO">
+        <xs:sequence>
+          <xs:element name="passwordAccountProtocollo" type="xs:string"/>
+          <xs:element name="userAccountProtocollo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDocumentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:getDocumentResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getDocumentResponseVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="allegato" type="tns:documentoVO"/>
+          <xs:element minOccurs="0" name="documento" type="tns:documentoVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="documentoVO">
+        <xs:sequence>
+          <xs:element name="binario" type="xs:base64Binary"/>
+          <xs:element name="descrizione" type="xs:string"/>
+          <xs:element name="mimetype" type="xs:string"/>
+          <xs:element name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getByNumeroProtocollo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:numeroProtocolloRequestVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="numeroProtocolloRequestVO">
+        <xs:sequence>
+          <xs:element name="numeroProtocolloVO" type="tns:numeroProtocolloVO"/>
+          <xs:element name="usernameToken" type="tns:usernameTokenVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="numeroProtocolloVO">
+        <xs:sequence>
+          <xs:element name="anno" type="xs:int"/>
+          <xs:element name="numero" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getByNumeroProtocolloResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:protocolloResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="protocolloResponseVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="allegati" nillable="true" type="tns:documentoVO"/>
+          <xs:element minOccurs="0" name="annotazioni" type="xs:string"/>
+          <xs:element minOccurs="0" name="annullato" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="areaOrganizzativaOmogenea" type="tns:areaOrganizzativaOmogeneaVO"/>
+          <xs:element minOccurs="0" name="dataProtocollo" type="xs:date"/>
+          <xs:element minOccurs="0" name="dataRicezione" type="tns:dataVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destinatari" nillable="true" type="tns:destinatarioVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fascicoli" nillable="true" type="tns:fascicoloVO"/>
+          <xs:element minOccurs="0" name="mittente" type="tns:mittenteVO"/>
+          <xs:element minOccurs="0" name="numeroProtocollo" type="tns:numeroProtocolloVO"/>
+          <xs:element minOccurs="0" name="oggetto" type="xs:string"/>
+          <xs:element minOccurs="0" name="oraProtocollazione" type="xs:time"/>
+          <xs:element minOccurs="0" name="privacy" type="xs:boolean"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="protocolliCollegati" nillable="true" type="tns:numeroProtocolloVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="refAllegati" nillable="true" type="tns:documentoRefVO"/>
+          <xs:element minOccurs="0" name="refDocumento" type="tns:documentoRefVO"/>
+          <xs:element minOccurs="0" name="tipoDocumento" type="tns:tipoDocumentoVO"/>
+          <xs:element minOccurs="0" name="tipoProtocollo" type="tns:tipoProtocolloVO"/>
+          <xs:element minOccurs="0" name="ufficioProtocollazione" type="tns:ufficioProtocollazioneVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="areaOrganizzativaOmogeneaVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="codiceAOO" type="xs:string"/>
+          <xs:element minOccurs="0" name="codiceAmministrazione" type="xs:string"/>
+          <xs:element minOccurs="0" name="denominazione" type="xs:string"/>
+          <xs:element minOccurs="0" name="indirizzoVO" type="tns:indirizzoVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="indirizzoVO">
+        <xs:sequence>
+          <xs:element name="comune" type="tns:comuneVO"/>
+          <xs:element name="numeroCivico" type="xs:string"/>
+          <xs:element name="via" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="comuneVO">
+        <xs:sequence>
+          <xs:element name="cap" type="xs:integer"/>
+          <xs:element name="codiceISTAT" type="xs:string"/>
+          <xs:element name="nome" type="xs:string"/>
+          <xs:element name="provincia" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="dataVO">
+        <xs:sequence>
+          <xs:element name="data" type="xs:date"/>
+          <xs:element minOccurs="0" name="ora" type="xs:time"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="destinatarioVO">
+        <xs:complexContent>
+          <xs:extension base="tns:recordRubricaVO">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="recordRubricaVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="annotazioni" type="xs:string"/>
+          <xs:element minOccurs="0" name="attivo" type="xs:boolean"/>
+          <xs:element name="denominazione" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="email" nillable="true" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fax" nillable="true" type="xs:string"/>
+          <xs:element name="id" type="xs:long"/>
+          <xs:element name="indirizzo" type="tns:indirizzoVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="telefono" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="fascicoloVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="classificazioneVO" type="tns:classificazioneVO"/>
+          <xs:element minOccurs="0" name="codice" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="classificazioneVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="listLivelloClassificazioneVO" nillable="true" type="tns:livelloClassificazioneVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="livelloClassificazioneVO">
+        <xs:sequence>
+          <xs:element name="codice" type="xs:int"/>
+          <xs:element minOccurs="0" name="id" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="mittenteVO">
+        <xs:complexContent>
+          <xs:extension base="tns:recordRubricaVO">
+            <xs:sequence/>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="documentoRefVO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="descrizione" type="xs:string"/>
+          <xs:element minOccurs="0" name="mimetype" type="xs:string"/>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="ref" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="tipoDocumentoVO">
+        <xs:sequence>
+          <xs:element name="codice" type="xs:string"/>
+          <xs:element name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ufficioProtocollazioneVO">
+        <xs:sequence>
+          <xs:element name="codice" type="xs:string"/>
+          <xs:element name="nome" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="testResources">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="testResourcesResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insertProtocollo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:insertProtocolloRequestVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insertProtocolloRequestVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="allegato" nillable="true" type="tns:documentoVO"/>
+          <xs:element minOccurs="0" name="annotazioni" type="xs:string"/>
+          <xs:element minOccurs="0" name="dataRicezione" type="tns:dataVO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destinatari" nillable="true" type="tns:destinatarioVO"/>
+          <xs:element name="documentoDaProtocollare" type="tns:documentoVO"/>
+          <xs:element minOccurs="0" name="mittente" type="tns:mittenteVO"/>
+          <xs:element name="oggetto" type="xs:string"/>
+          <xs:element name="privacy" type="xs:boolean"/>
+          <xs:element name="tipoDocumento" type="tns:tipoDocumentoVO"/>
+          <xs:element name="tipoProtocollo" type="tns:tipoProtocolloVO"/>
+          <xs:element name="ufficioProtocollazione" type="tns:ufficioProtocollazioneVO"/>
+          <xs:element name="usernameToken" type="tns:usernameTokenVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="insertProtocolloResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:protocolloResponseVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addAllegati">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:addAllegatiRequestVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addAllegatiRequestVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="allegato" type="tns:documentoVO"/>
+          <xs:element minOccurs="0" name="numeroProtocollo" type="tns:numeroProtocolloVO"/>
+          <xs:element name="usernameToken" type="tns:usernameTokenVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addAllegatiResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificaByPec">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:notificaByPecRequestVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificaByPecRequestVO">
+        <xs:sequence>
+          <xs:element name="destinatarioPecA" type="xs:string"/>
+          <xs:element minOccurs="0" name="listaDestinatariPecCC" type="tns:listaDestinatariPecCCVO"/>
+          <xs:element minOccurs="0" name="listaDocumentiAllegati" type="tns:listaDocumentiVO"/>
+          <xs:element name="mittenteDenominazione" type="xs:string"/>
+          <xs:element name="mittentePassword" type="xs:string"/>
+          <xs:element name="mittentePec" type="xs:string"/>
+          <xs:element name="oggetto" type="xs:string"/>
+          <xs:element name="testo" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listaDestinatariPecCCVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="destinatarioPecCC" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="listaDocumentiVO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="allegato" nillable="true" type="tns:documentoVO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificaByPecResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="tipoProtocolloVO">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ENTRATA"/>
+          <xs:enumeration value="USCITA"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="Exception" type="tns:Exception"/>
+      <xs:complexType name="Exception">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ProtocolloInformaticoException" type="tns:ProtocolloInformaticoException"/>
+      <xs:complexType name="ProtocolloInformaticoException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="errorCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="testResourcesResponse">
+    <wsdl:part element="tns:testResourcesResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getDocument">
+    <wsdl:part element="tns:getDocument" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="testResources">
+    <wsdl:part element="tns:testResources" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="insertProtocollo">
+    <wsdl:part element="tns:insertProtocollo" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ProtocolloInformaticoException">
+    <wsdl:part element="tns:ProtocolloInformaticoException" name="ProtocolloInformaticoException"/>
+  </wsdl:message>
+  <wsdl:message name="isAliveResponse">
+    <wsdl:part element="tns:isAliveResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="insertProtocolloResponse">
+    <wsdl:part element="tns:insertProtocolloResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getByNumeroProtocolloResponse">
+    <wsdl:part element="tns:getByNumeroProtocolloResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception"/>
+  </wsdl:message>
+  <wsdl:message name="getDocumentResponse">
+    <wsdl:part element="tns:getDocumentResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="notificaByPecResponse">
+    <wsdl:part element="tns:notificaByPecResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="isAlive">
+    <wsdl:part element="tns:isAlive" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getByNumeroProtocollo">
+    <wsdl:part element="tns:getByNumeroProtocollo" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addAllegatiResponse">
+    <wsdl:part element="tns:addAllegatiResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addAllegati">
+    <wsdl:part element="tns:addAllegati" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="notificaByPec">
+    <wsdl:part element="tns:notificaByPec" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="ServiceProtocolloInformaticoserv">
+    <wsdl:operation name="isAlive">
+      <wsdl:input message="tns:isAlive" name="isAlive"/>
+      <wsdl:output message="tns:isAliveResponse" name="isAliveResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+    <wsdl:operation name="getDocument">
+      <wsdl:input message="tns:getDocument" name="getDocument"/>
+      <wsdl:output message="tns:getDocumentResponse" name="getDocumentResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+    <wsdl:operation name="getByNumeroProtocollo">
+      <wsdl:input message="tns:getByNumeroProtocollo" name="getByNumeroProtocollo"/>
+      <wsdl:output message="tns:getByNumeroProtocolloResponse" name="getByNumeroProtocolloResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+    <wsdl:operation name="testResources">
+      <wsdl:input message="tns:testResources" name="testResources"/>
+      <wsdl:output message="tns:testResourcesResponse" name="testResourcesResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+    <wsdl:operation name="insertProtocollo">
+      <wsdl:input message="tns:insertProtocollo" name="insertProtocollo"/>
+      <wsdl:output message="tns:insertProtocolloResponse" name="insertProtocolloResponse"/>
+      <wsdl:fault message="tns:ProtocolloInformaticoException" name="ProtocolloInformaticoException"/>
+    </wsdl:operation>
+    <wsdl:operation name="addAllegati">
+      <wsdl:input message="tns:addAllegati" name="addAllegati"/>
+      <wsdl:output message="tns:addAllegatiResponse" name="addAllegatiResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+    <wsdl:operation name="notificaByPec">
+      <wsdl:input message="tns:notificaByPec" name="notificaByPec"/>
+      <wsdl:output message="tns:notificaByPecResponse" name="notificaByPecResponse"/>
+      <wsdl:fault message="tns:Exception" name="Exception"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceProtocolloInformaticoservImplServiceSoapBinding" type="tns:ServiceProtocolloInformaticoserv">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="isAlive">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="isAlive">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="isAliveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDocument">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDocument">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDocumentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getByNumeroProtocollo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getByNumeroProtocollo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getByNumeroProtocolloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="testResources">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="testResources">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testResourcesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="insertProtocollo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="insertProtocollo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="insertProtocolloResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ProtocolloInformaticoException">
+        <soap:fault name="ProtocolloInformaticoException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addAllegati">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addAllegati">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addAllegatiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="notificaByPec">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="notificaByPec">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="notificaByPecResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceProtocolloInformaticoservImplService">
+    <wsdl:port binding="tns:ServiceProtocolloInformaticoservImplServiceSoapBinding" name="ServiceProtocolloInformaticoservImplPort">
+      <soap:address location="http://localhost:8330/gaaserv/ServiceProtocolloInformaticoservImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

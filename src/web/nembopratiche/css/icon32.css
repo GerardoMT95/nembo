@@ -1,0 +1,243 @@
+.ico32
+{
+	text-decoration:none;
+  display:inline-block;
+  background-size:32px 32px;
+  width:32px;
+  height:32px;
+}
+/* ICON ico_image */
+.ico32.ico_image
+{
+  background:url('../img/32/image.png');
+}
+
+/* ICON ico_pdf */
+.ico32.ico_pdf
+{
+  background:url('../img/32/pdf.png');
+}
+
+/* ICON ico_excel */
+.ico32.ico_excel
+{
+  background:url('../img/32/excel.png');
+}
+
+/* ICON ico_word */
+.ico32.ico_word
+{
+  background:url('../img/32/word.png');
+}
+
+/* ICON ico_text */
+.ico32.ico_text
+{
+  background:url('../img/32/text.png');
+}
+
+/* ICON ico_file */
+.ico32.ico_file
+{
+  background:url('../img/32/file.png');
+}
+
+/* ICON ico_trash */
+.ico32.ico_trash
+{
+  background:url('../img/32/trash.png');
+}
+
+/* ICON ico_modify */
+.ico32.ico_modify
+{
+  background:url('../img/32/modify.png');
+}
+
+/* ICON ico_modify_red */
+.ico16.ico_modify_euro_red
+{
+  background:url('../img/32/modify_euro_red.png');
+}
+
+/* ICON ico_modify_blue */
+.ico16.ico_modify_euro_blue
+{
+  background:url('../img/32/modify_euro_blue.png');
+}
+
+/* ICON ico_modify */
+.ico32.ico_divider
+{
+  background:url('../img/32/divider.png');
+}
+
+/* ICON ico_add */
+.ico32.ico_add
+{
+  background:url('../img/32/add.png');
+}
+/* ICON ico_add_white */
+.ico32.ico_add
+{
+  background:url('../img/32/add_white.png');
+}
+/* ICON ico_print */
+.ico32.ico_print
+{
+  background:url('../img/32/print.png');
+}
+/* ICON ico_document */
+.ico32.ico_document
+{
+  background:url('../img/32/document.png');
+}
+
+/* ICON ico_lock */
+.ico32.ico_lock
+{
+  background:url('../img/32/lock.png');
+}
+
+/* ICON ico_lock_temporaneo */
+.ico32.ico_lock_temporaneo
+{
+  background:url('../img/32/lock_temporaneo.png');
+}
+
+/* ICON ico_unlock */
+.ico32.ico_unlock
+{
+  background:url('../img/32/unlock.png');
+}
+
+/* ICON ico_magnify */
+.ico32.ico_magnify
+{
+  background:url('../img/32/magnify.png');
+}
+
+/* ICON ico_map_point */
+.ico32.ico_map_point
+{
+  background:url('../img/32/map_point.png');
+}
+
+/* ICON ico_clip */
+.ico32.ico_clip
+{
+  background:url('../img/32/clip.png');
+}
+
+/* ICON ico_youvegotmail */
+.ico32.ico_youvegotmail
+{
+  background:url('../img/32/youvegotmail.png');
+}
+
+
+/* ICON ico_pleasewait */
+.ico32.ico_pleasewait
+{
+  background:url('../img/32/pleasewait.gif');
+}
+
+/* ICON ico_docwait */
+.ico32.ico_docwait
+{
+  background:url('../img/32/docwait.png');
+}
+
+/* ICON ico_docalert */
+.ico32.ico_docalert
+{
+  background:url('../img/32/docalert.png');
+}
+
+/* ICON ico_docdelete */
+.ico32.ico_docdelete
+{
+  background:url('../img/32/docdelete.png');
+}
+
+/* ICON ico_docsend */
+.ico32.ico_docsend
+{
+  background:url('../img/32/docsend.png');
+}
+
+/* ICON ico_cancel */
+.ico32.ico_cancel
+{
+  background:url('../img/32/cancel.png');
+}
+
+/* ICON ico_docsignature */
+.ico32.ico_docsignature
+{
+  background:url('../img/32/docsignature.png');
+}
+
+/* ICON ico_copy */
+.ico32.ico_copy
+{
+  background:url('../img/32/copy.png');
+}
+
+/* ICON ico_percent */
+.ico32.ico_percent
+{
+  background:url('../img/32/percent.png');
+}
+
+/* ICON ico_warning */
+.ico32.ico_warning
+{
+  background:url('../img/32/warning.png');
+}
+
+/* ICON ico_fail */
+.ico32.ico_fail
+{
+  background:url('../img/32/fail.png');
+}
+
+/* ICON ico_success */
+.ico32.ico_success
+{
+  background:url('../img/32/success.png');
+}
+
+
+/* ICON ico_graphic */
+.ico32.ico_graphic
+{
+  background:url('../img/32/graphic.png');
+    background-repeat: no-repeat;
+  background-position: center;
+  
+}
+
+/* ICON ico_help */
+.ico32.ico_help
+{
+  background:url('../img/32/help.png');
+}
+
+/* ICON ico_agriwell */
+.ico32.ico_agriwell
+{
+  background:url('../img/32/folder_agriwell.png');
+}
+
+/* ICON ico_ok */
+.ico32.ico_ok
+{
+  background:url('../img/32/ok.png');
+}
+
+/* ICON ico_excel */
+.ico32.ico_excel_pg
+{
+  background:url('../img/32/excelpg.png');
+}

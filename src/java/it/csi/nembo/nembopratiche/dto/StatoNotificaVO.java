@@ -1,0 +1,36 @@
+package it.csi.nembo.nembopratiche.dto;
+
+import it.csi.nembo.nembopratiche.dto.internal.ILoggable;
+
+public class StatoNotificaVO implements ILoggable
+{
+
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 7048395105781721238L;
+
+  private long              id;
+  private String            descrizione;
+
+  public String getDescrizione()
+  {
+    return descrizione;
+  }
+
+  public void setDescrizione(String descrizione)
+  {
+    this.descrizione = descrizione;
+  }
+
+  public long getId()
+  {
+    return id;
+  }
+
+  public void setId(long id)
+  {
+    this.id = id;
+  }
+
+}
