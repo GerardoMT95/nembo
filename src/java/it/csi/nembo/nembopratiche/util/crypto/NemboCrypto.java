@@ -1,68 +1,67 @@
-import java.nio.charset.StandardCharsets;
-import java.security.KeyFactory;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.MGF1ParameterSpec;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.X509EncodedKeySpec;
+package it.csi.nembo.nembopratiche.util.crypto;
+
 import javax.crypto.Cipher;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+
 import org.apache.commons.codec.binary.Base64;
 
+public class NemboCrypto
+{
+  private static String KEY         = "9ake63iY$$6%?^§";
+  private static String INIT_VECTOR = "RandomInitVector";
 
-public class NemboCrypto {
-    private static String PUBLIC_KEY = "9ake63iY$$6%?^§";
-    private static String PRIVATE_KEY = "RandomInitVector";
+  public static String defaultEncrypt(String value)
+  {
+    return encrypt(KEY, INIT_VECTOR, value);
+  }
 
-    public static String defaultEncrypt(String value) {
-        return encrypt(PUBLIC_KEY, value);
+  public static String defaultDecrypt(String encrypted)
+  {
+    return decrypt(KEY, INIT_VECTOR, encrypted);
+  }
+
+  public static String encrypt(String key, String initVector, String value)
+  {
+    try
+    {
+      IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+      SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
+
+      Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+      cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
+
+      byte[] encrypted = cipher.doFinal(value.getBytes());
+
+      return Base64.encodeBase64String(encrypted);
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace();
     }
 
-    public static String defaultDecrypt(String encrypted) {
-        return decrypt(PRIVATE_KEY, encrypted);
+    return null;
+  }
+
+  public static String decrypt(String key, String initVector, String encrypted)
+  {
+    try
+    {
+      IvParameterSpec iv = new IvParameterSpec(initVector.getBytes("UTF-8"));
+      SecretKeySpec skeySpec = new SecretKeySpec(key.getBytes("UTF-8"), "AES");
+
+      Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+      cipher.init(Cipher.DECRYPT_MODE, skeySpec, iv);
+
+      byte[] original = cipher.doFinal(Base64.decodeBase64(encrypted));
+
+      return new String(original);
+    }
+    catch (Exception ex)
+    {
+      ex.printStackTrace();
     }
 
-    public static String encrypt(String publicKey, String value) {
-        try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            byte[] publicKeyBytes = Base64.decodeBase64(publicKey);
-            X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
-            RSAPublicKey rsaPublicKey = (RSAPublicKey) keyFactory.generatePublic(publicKeySpec);
-
-            Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING");
-            OAEPParameterSpec oaepParams = new OAEPParameterSpec(
-                "SHA-256", "MGF1", new MGF1ParameterSpec("SHA-1"), PSource.PSpecified.DEFAULT);
-            cipher.init(Cipher.ENCRYPT_MODE, rsaPublicKey, oaepParams);
-
-            byte[] encryptedBytes = cipher.doFinal(value.getBytes(StandardCharsets.UTF_8));
-            return Base64.encodeBase64String(encryptedBytes);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static String decrypt(String privateKey, String encrypted) {
-        try {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-            byte[] privateKeyBytes = Base64.decodeBase64(privateKey);
-            PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(privateKeyBytes);
-            RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) keyFactory.generatePrivate(privateKeySpec);
-
-            Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING");
-            OAEPParameterSpec oaepParams = new OAEPParameterSpec(
-                "SHA-256", "MGF1", new MGF1ParameterSpec("SHA-1"), PSource.PSpecified.DEFAULT);
-            cipher.init(Cipher.DECRYPT_MODE, rsaPrivateKey, oaepParams);
-
-            byte[] encryptedBytes = Base64.decodeBase64(encrypted);
-            byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
-            return new String(decryptedBytes, StandardCharsets.UTF_8);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
-    }
+    return null;
+  }
 }
