@@ -46,7 +46,7 @@ public class ServiceProtocolloInformaticoservImpl implements ServiceProtocolloIn
         } 
         catch (java.lang.Exception ex) {
         	logger.error("-- Exception in ServiceProtocolloInformaticoservImpl.isAlive "+ex.getMessage());
-            ex.printStackTrace();
+            //ex.printStackTrace();
             throw new RuntimeException(ex);
         }
         finally{
