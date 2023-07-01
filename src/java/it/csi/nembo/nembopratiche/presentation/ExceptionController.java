@@ -83,7 +83,7 @@ public class ExceptionController extends BaseController
     else
     {
       logger.error(
-          "[ExceptionController::internalError] Si è verificato un errore nell'accesso alla pagina "
+          "[ExceptionController::internalError] Si ï¿½ verificato un errore nell'accesso alla pagina "
               + request.getRequestURL(),
           exception);
     }
@@ -105,7 +105,7 @@ public class ExceptionController extends BaseController
       }
       else
       {
-        model.put("messaggio", "Si è verificato un errore interno del server");
+        model.put("messaggio", "Si ï¿½ verificato un errore interno del server");
         model.put("manage_mail", "manage_mail");
       }
     }
@@ -242,11 +242,11 @@ public class ExceptionController extends BaseController
     }
     catch (FileNotFoundException e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
     catch (IOException e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
 
     session.removeAttribute(SESSION_PARAM_EXCEPTION);

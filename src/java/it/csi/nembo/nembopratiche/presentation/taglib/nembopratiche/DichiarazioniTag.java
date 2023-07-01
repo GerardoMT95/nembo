@@ -34,7 +34,7 @@ public class DichiarazioniTag extends BaseTag
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
       throw new JspException(e);
     }
 

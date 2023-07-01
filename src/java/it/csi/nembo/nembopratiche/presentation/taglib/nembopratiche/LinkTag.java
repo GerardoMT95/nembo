@@ -32,7 +32,7 @@ public class LinkTag extends BaseTag
     {
       onclickTxt = " onClick=\"" + onClick + "\" ";
     }
-    // Se il caso d'uso è di scrittura ma l'utente è di sola lettura allora esco
+    // Se il caso d'uso ï¿½ di scrittura ma l'utente ï¿½ di sola lettura allora esco
     if (readWrite.booleanValue()
         && NemboUtils.PAPUASERV.isUtenteReadOnly(utenteAbilitazioni))
       return super.doEndTag();
@@ -63,7 +63,7 @@ public class LinkTag extends BaseTag
       }
       catch (IOException e)
       {
-        e.printStackTrace();
+        ////e.printStackTrace();
         throw new JspException(e);
       }
     }

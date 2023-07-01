@@ -50,7 +50,7 @@ public class CUNEMBO302IInserisciPrestitiAgrariController extends CUNEMBO302Base
 			dateMax = sdf.parse("01/01/2200");
 		} catch (ParseException e)
 		{
-			e.printStackTrace();
+			////e.printStackTrace();
 		}
 		
 		String fieldFinalitaPrestito = request.getParameter(fieldNameFinalitaPrestito);

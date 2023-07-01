@@ -86,7 +86,7 @@ class GenericDatabaseObjectReader<T>
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
       throw new DataRetrievalFailureException("Reflection error", e);
     }
     return obj;
@@ -204,7 +204,7 @@ class GenericDatabaseObjectReader<T>
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
   }
 

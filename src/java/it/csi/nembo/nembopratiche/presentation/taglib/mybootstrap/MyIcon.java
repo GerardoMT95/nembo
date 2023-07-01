@@ -30,7 +30,7 @@ public class MyIcon extends SimpleTagSupport
     }
     catch (IOException e)
     {
-      e.printStackTrace();
+      //e.printStackTrace();
       throw new JspException(e);
     }
   }

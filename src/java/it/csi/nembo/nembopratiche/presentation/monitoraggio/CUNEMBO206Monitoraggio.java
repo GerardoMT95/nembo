@@ -110,16 +110,16 @@ public class CUNEMBO206Monitoraggio extends BaseController
           {
             if (isTst)
             {
-              return "Il pacchetto è stato prodotto per l'ambiente di PRODUZIONE ma è stata rilevata la presenza sospetta della stringa \"tst-\" (che in genere indica i server di test) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non è necessariamente un errore ma si prega di verificare";
+              return "Il pacchetto ï¿½ stato prodotto per l'ambiente di PRODUZIONE ma ï¿½ stata rilevata la presenza sospetta della stringa \"tst-\" (che in genere indica i server di test) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non ï¿½ necessariamente un errore ma si prega di verificare";
             }
             else
             {
-              return "Il pacchetto è stato prodotto per l'ambiente di PRODUZIONE ma è stata rilevata la presenza sospetta della stringa \"test\" (che in genere indica i server di test) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non è necessariamente un errore ma si prega di verificare";
+              return "Il pacchetto ï¿½ stato prodotto per l'ambiente di PRODUZIONE ma ï¿½ stata rilevata la presenza sospetta della stringa \"test\" (che in genere indica i server di test) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non ï¿½ necessariamente un errore ma si prega di verificare";
             }
           }
           if (url.contains("coll-"))
           {
-            return "Il pacchetto è stato prodotto per l'ambiente di PRODUZIONE ma è stata rilevata la presenza sospetta della stringa \"coll-\" (che in genere indica i server di collaudo) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non è necessariamente un errore ma si prega di verificare";
+            return "Il pacchetto ï¿½ stato prodotto per l'ambiente di PRODUZIONE ma ï¿½ stata rilevata la presenza sospetta della stringa \"coll-\" (che in genere indica i server di collaudo) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non ï¿½ necessariamente un errore ma si prega di verificare";
           }
         }
       }
@@ -144,7 +144,7 @@ public class CUNEMBO206Monitoraggio extends BaseController
           url = url.toLowerCase();
           if (url.contains("tst-"))
           {
-            return "Il pacchetto è stato prodotto per l'ambiente di COLLAUDO ma è stata rilevata la presenza sospetta della stringa \"tst-\" (che in genere indica i server di test) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non è necessariamente un errore ma si prega di verificare";
+            return "Il pacchetto ï¿½ stato prodotto per l'ambiente di COLLAUDO ma ï¿½ stata rilevata la presenza sospetta della stringa \"tst-\" (che in genere indica i server di test) in almeno uno dei puntamenti dei servizi, potrebbe esserci un problema... N.B. Non ï¿½ necessariamente un errore ma si prega di verificare";
           }
         }
       }
@@ -195,7 +195,7 @@ public class CUNEMBO206Monitoraggio extends BaseController
     }
     catch (IOException e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
     return null;
   }
@@ -282,7 +282,7 @@ public class CUNEMBO206Monitoraggio extends BaseController
     }
     catch (LogoutException_Exception e)
     {
-      result[1] = IMAGE_SUCCESS; // LogoutException non è un malfunzionamento
+      result[1] = IMAGE_SUCCESS; // LogoutException non ï¿½ un malfunzionamento
                                  // del servizio
       return result;
     }

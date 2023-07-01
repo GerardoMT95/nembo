@@ -55,7 +55,7 @@ public class MyErrorBox extends MyAbstractTag
         }
         if (GenericValidator.isBlankOrNull(bodyContent))
         {
-          bodyContent = "Sono stati rilevati degli errori nei dati inseriti. I campi errati sono stati contrassegnati in rosso, è necessario correggerli per proseguire";
+          bodyContent = "Sono stati rilevati degli errori nei dati inseriti. I campi errati sono stati contrassegnati in rosso, ï¿½ necessario correggerli per proseguire";
         }
         writeErrorBox(sb, bodyContent);
       }
@@ -70,7 +70,7 @@ public class MyErrorBox extends MyAbstractTag
       }
       catch (IOException e)
       {
-        e.printStackTrace();
+        ////e.printStackTrace();
         throw new JspException(e);
       }
     }

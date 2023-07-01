@@ -80,7 +80,7 @@ public class CUNEMBO302MModificaPrestitiAgrariController extends CUNEMBO302BaseC
 				dateMax = sdf.parse("01/01/2200");
 			} catch (ParseException e)
 			{
-				e.printStackTrace();
+				////e.printStackTrace();
 			}
 		  for(String idPrestitiAgrari : arrayIdPrestitiAgrari)
 		  {

@@ -259,8 +259,8 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       Procedimento p = dao.getProcedimento(idProcedimento);
       if (p.getIdStatoOggetto() != NemboConstants.STATO.ITER.ID.IN_BOZZA)
       {
-        // Se non lo è ==> Eccezione, non posso modificare l'amministrazione di
-        // competenza. (Se la jsp ha permesso di inserire il dato è probabile
+        // Se non lo ï¿½ ==> Eccezione, non posso modificare l'amministrazione di
+        // competenza. (Se la jsp ha permesso di inserire il dato ï¿½ probabile
         // che qualche
         // utente non abbia cambiato lo stato del procedimento)
         throw new NemboPermissionException(
@@ -270,7 +270,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       // farei l'inserimento (inutile leggere e decidere dato che nel caso
       // peggiore farei 3
       // accessi al db e 2 in media)
-      // lo faccio solo se l'amm competenza è stato modificato!
+      // lo faccio solo se l'amm competenza ï¿½ stato modificato!
       Long oldIdAmmCompetenza = dao
           .getIdAmmCompetenzaProcedimento(p.getIdProcedimento());
       if (oldIdAmmCompetenza != null
@@ -280,7 +280,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
             idProcedimentoOggetto, idAmmCompetenza, extIdUtenteAggiornamento);
         if (!updateOK)
         {
-          // Non è avvenuto nessun update su db ==> il record non esiste ==> lo
+          // Non ï¿½ avvenuto nessun update su db ==> il record non esiste ==> lo
           // inserisco
           dao.insertAmmCompetenzaProcedimento(idProcedimento, idAmmCompetenza,
               extIdUtenteAggiornamento);
@@ -474,9 +474,9 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
               && (dettaglio.getValoriInseriti() == null
                   || dettaglio.getValoriInseriti().size() <= 0))
           {
-            // è inutile salvare nel database le informazioni obbligatorie che
+            // ï¿½ inutile salvare nel database le informazioni obbligatorie che
             // non prevedono parametri in quanto ritrovabili agevolmente
-            // attraverso le informazioni relative al bando ed all’oggetto
+            // attraverso le informazioni relative al bando ed allï¿½oggetto
             // corrente
             continue;
           }
@@ -605,7 +605,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       if (idSelezione == null)
       {
         throw new InternalUnexpectedException(
-            "Tentativo di inserire un allegato NON OBBLIGATORIO di cui non è già presente l'ID_SELEZIONE_INFO.",
+            "Tentativo di inserire un allegato NON OBBLIGATORIO di cui non ï¿½ giï¿½ presente l'ID_SELEZIONE_INFO.",
             new LogParameter[]
             { new LogParameter("idProcedimentoOggetto", idProcedimentoOggetto),
                 new LogParameter("fileAllegatiDTO", fileAllegatiDTO)
@@ -673,7 +673,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     }
     else
     {
-      // Se no, non c'è nulla da fare, è già stato eliminato da qualcun altro
+      // Se no, non c'ï¿½ nulla da fare, ï¿½ giï¿½ stato eliminato da qualcun altro
     }
   }
 
@@ -792,7 +792,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         if (procedimentoOggetto.getDataFine() == null)
         {
           throw new ApplicationException(
-              "L'oggetto non è chiuso, impossibile eliminare la stampa");
+              "L'oggetto non ï¿½ chiuso, impossibile eliminare la stampa");
         }
       }
       ProcedimOggettoStampaDTO stampa = dao
@@ -832,13 +832,13 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         // quello passato per 'idProcedimentoOggetto
         // corrente e, nel caso che il parametro soloInseriteDaUtente sia true
         // verifica che sia legato ad un record di NEMBO_r_oggetto_icona il
-        // cui cdu è NEMBO-126-I.
+        // cui cdu ï¿½ NEMBO-126-I.
         int numDelete = dao.deleteStampeOggetto(
             stampa.getIdProcedimentoOggetto(),
             stampa.getIdProcedimOggettoStampa(), soloInseriteDaUtente);
         if ((idDocumentoIndex != null) && (numDelete > 0))
         {
-          // Se ho eliminato qualcosa è segno che gli id passati sono corretti
+          // Se ho eliminato qualcosa ï¿½ segno che gli id passati sono corretti
           // ==> elimino anche il file su index.
           AgriWellEsitoVO esito = null;
           try
@@ -852,7 +852,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
                 + " Errore nell'accesso a AGRIWELL, rilevata eccezione "
                 + e.getMessage(), e);
             throw new ApplicationException(
-                "Si è verificato un errore nell'accesso al servizio di cancellazione AGRIWELL, se il problema persistesse si prega di contattare l'assistenza tecnica");
+                "Si ï¿½ verificato un errore nell'accesso al servizio di cancellazione AGRIWELL, se il problema persistesse si prega di contattare l'assistenza tecnica");
           }
           Integer codice = esito == null ? null : esito.getEsito();
           if (codice == null
@@ -867,7 +867,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
                 + " Errore nell'accesso a AGRIWELL, codice di errore = "
                 + codice + ", messaggio = " + messaggio);
             throw new ApplicationException(
-                "Si è verificato un errore nell'accesso al servizio di cancellazione AGRIWELL, se il problema persistesse si prega di contattare l'assistenza tecnica");
+                "Si ï¿½ verificato un errore nell'accesso al servizio di cancellazione AGRIWELL, se il problema persistesse si prega di contattare l'assistenza tecnica");
           }
         }
       }
@@ -904,19 +904,19 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         Long idDocumentoIndex = stampa.getExtIdDocumentoIndex();
         if (idDocumentoIndex == null)
         {
-          // Procedo solo non c'è il documento index
+          // Procedo solo non c'ï¿½ il documento index
           if (stampa
               .getIdStatoStampa() == NemboConstants.STATO.STAMPA.ID.GENERAZIONE_STAMPA_IN_CORSO)
           {
-            // Se lo stato è generazione in corso, per aggiornare il record deve
+            // Se lo stato ï¿½ generazione in corso, per aggiornare il record deve
             // essere passato un certo tempo (10 minuti di default)
-            // Non è ancora passato il lasso di tempo per permettere la
-            // rigenerazione == > non faccio nulla, una stampa è già in corso
-            // Questo caso, se non ci sono errori è dovuto al fatto che più
+            // Non ï¿½ ancora passato il lasso di tempo per permettere la
+            // rigenerazione == > non faccio nulla, una stampa ï¿½ giï¿½ in corso
+            // Questo caso, se non ci sono errori ï¿½ dovuto al fatto che piï¿½
             // utenti abbiano richiesto la rigenerazione in contemporanea,
             // partono entrambi da una situazione valida per richiedere la
             // rigenerazione ma il secondo che arriva si trova il record
-            // già aggiornato, quindi non fa nulla.
+            // giï¿½ aggiornato, quindi non fa nulla.
             if (NemboUtils.DATE.diffInSeconds(new Date(), stampa
                 .getDataInizio()) > NemboConstants.TEMPO.SECONDI_PRIMA_DI_RIGENERARE_UNA_STAMPA) // 10
                                                                                                     // minuti
@@ -933,7 +933,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
           else
           {
             // Non mi metto a controllare lo stato, TANTO NON ESSENDOCI
-            // EXT_ID_DOCUMENTO_INDEX non può essere andato bene... ==> RIGENERO
+            // EXT_ID_DOCUMENTO_INDEX non puï¿½ essere andato bene... ==> RIGENERO
             dao.ripristinaProcedimOggettoStampaByIdOggetoIcona(
                 idProcedimentoOggetto, idOggettoIcona, idUtenteLogin);
             return true;
@@ -1070,7 +1070,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
             .getTestataProcedimento(po.getProcedimento().getIdProcedimento());
         sb = new StringBuilder("Per l'azienda ")
             .append(testataProcedimento.getCuaa())
-            .append(" è stato cancellato il procedimento oggetto con id: ")
+            .append(" ï¿½ stato cancellato il procedimento oggetto con id: ")
             .append(idProcedimentoOggetto)
             .append(" e descrizione: ")
             .append(po.getProcedimentoOggetto().getDescrizione())
@@ -1146,7 +1146,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     dao.lockOggettoIcona(idOggettoIcona);
     if (!dao.canInsertProcedimentoOggettoStampa(idOggettoIcona, stampa.getIdProcedimentoOggetto()))
     {
-      return "E' già presente un documento allegato per la tipologia prescelta! Se lo si desidera cambiare si prega di eliminare prima quello presente";
+      return "E' giï¿½ presente un documento allegato per la tipologia prescelta! Se lo si desidera cambiare si prega di eliminare prima quello presente";
     }
     try
     {
@@ -1162,7 +1162,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     {
       DumpUtils.logGenericException(logger, null, e, new LogParameter[]{new LogParameter("stampa", stampa)}, null, THIS_METHOD);
       sessionContext.setRollbackOnly();
-      return "Si è verificato un problema nella registrazione del documento. Se il problema persistesse si prega di contattare l'assistenza tecnica";
+      return "Si ï¿½ verificato un problema nella registrazione del documento. Se il problema persistesse si prega di contattare l'assistenza tecnica";
     }
   }
 
@@ -1185,13 +1185,13 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
           return completeRiaperturaProcedimentoOggetto(idProcedimentoOggetto,
               idUtente);
         case NemboConstants.SQL.RESULT_CODE.ERRORE_CRITICO:
-          return "<br />Si è verificato un errore di sistema. Contattare l'assistenza comunicando il seguente messaggio: "
+          return "<br />Si ï¿½ verificato un errore di sistema. Contattare l'assistenza comunicando il seguente messaggio: "
               + result.getMessaggio();
         case NemboConstants.SQL.RESULT_CODE.ERRORE_GRAVE:
           return "<br />E' stato riscontrato il seguente errore: "
               + result.getMessaggio();
         default:
-          return "<br />Si è verificato un problema grave nella riapertura dell'oggetto, se il problema persistesse contattare l'assistenza tecnica.";
+          return "<br />Si ï¿½ verificato un problema grave nella riapertura dell'oggetto, se il problema persistesse contattare l'assistenza tecnica.";
       }
     }
     catch (Exception e)
@@ -1200,7 +1200,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       { new LogParameter("idProcedimentoOggetto", idProcedimentoOggetto) },
           null, THIS_METHOD);
       sessionContext.setRollbackOnly();
-      return "Si è verificato un problema nella riapertura dell'oggetto. Se il problema persistesse si prega di contattare l'assistenza tecnica";
+      return "Si ï¿½ verificato un problema nella riapertura dell'oggetto. Se il problema persistesse si prega di contattare l'assistenza tecnica";
     }
     finally
     {
@@ -1332,7 +1332,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       { new LogParameter("idProcedimentoOggetto", idProcedimentoOggetto) },
           null, THIS_METHOD);
       sessionContext.setRollbackOnly();
-      return "Si è verificato un problema nella riapertura dell'oggetto. Si prega di contattare l'assistenza tecnica";
+      return "Si ï¿½ verificato un problema nella riapertura dell'oggetto. Si prega di contattare l'assistenza tecnica";
     }
     finally
     {
@@ -1363,20 +1363,20 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 	{
 	    if (utenteAbilitazioni.getRuolo().isUtenteTitolareCf() || utenteAbilitazioni.getRuolo().isUtenteLegaleRappresentante())
 	    {
-	      // Se l'utente è un beneficiario in proprio (quindi con ruolo titolare CF o legale rappresentante)
+	      // Se l'utente ï¿½ un beneficiario in proprio (quindi con ruolo titolare CF o legale rappresentante)
 	      // deve avere potere di firma per poter trasmettere la domanda in quanto il sistema segna la domanda come firmata con firma semplice dall'utente connesso 
 	      
 	    	if (!dao.isBeneficiarioAbilitatoATrasmettere(utenteAbilitazioni.getCodiceFiscale(), idProcedimentoOggetto))
 	      {
 	        // Nel caso non ce l'abbia ==> errore (comunque non dovrebbe mai accadere in quanto a monte l'utente non dovrebbe vedere l'icona di trasmissione)
-	        return "L'utente corrente non è autorizzato a firmare per conto dell'azienda, impossibile proseguire con l'operazione di trasmissione";
+	        return "L'utente corrente non ï¿½ autorizzato a firmare per conto dell'azienda, impossibile proseguire con l'operazione di trasmissione";
 	      }
 	    }
 		dao.lockProcedimentoOggetto(idProcedimentoOggetto);
 		ProcedimentoOggetto po = dao.getProcedimentoOggetto(idProcedimentoOggetto);
 		if (po.getIdStatoOggetto().longValue()>= NemboConstants.STATO.OGGETTO.ID.TRASMESSO)
 		{
-		  return "L'oggetto non si trova nello stato corretto per la trasmissione o è già stato trasmesso. Impossibile proseguire con l'operazione";
+		  return "L'oggetto non si trova nello stato corretto per la trasmissione o ï¿½ giï¿½ stato trasmesso. Impossibile proseguire con l'operazione";
 		}
 		Date dataFine = dao.updateDataFineIterProcedimentoOggetto(idProcedimentoOggetto);
 		dao.insertIterProcedimOggetto(idProcedimentoOggetto, NemboConstants.STATO.OGGETTO.ID.TRASMESSO, dataFine, null, null, utenteAbilitazioni.getIdUtenteLogin());
@@ -1424,7 +1424,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 		if(!trovataStampa && dao.isObbligatorioInserireStampaFirmata(po.getIdOggettoProcOgg())  )
 		{
 			   sessionContext.setRollbackOnly();
-		      return"Per procedere è necessario inserire la stampa firmata.";
+		      return"Per procedere ï¿½ necessario inserire la stampa firmata.";
 		}
 		
 		 
@@ -1434,7 +1434,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     {
       DumpUtils.logGenericException(logger, null, e, new LogParameter[]{new LogParameter("idProcedimentoOggetto", idProcedimentoOggetto)}, null, THIS_METHOD);
       sessionContext.setRollbackOnly();
-      return "Si è verificato un problema nella trasmissione dell'istanza. Se il problema persistesse si prega di contattare l'assistenza tecnica";
+      return "Si ï¿½ verificato un problema nella trasmissione dell'istanza. Se il problema persistesse si prega di contattare l'assistenza tecnica";
     }
 	finally
     {
@@ -1662,9 +1662,9 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 					 }					 
 				 }
 				 else{
-					 logger.error( " si è verificato un problema durante il richiamo al servizio di protocollazione. idProcedimOggettoStampa="+idProcedimOggettoStampa);
+					 logger.error( " si ï¿½ verificato un problema durante il richiamo al servizio di protocollazione. idProcedimOggettoStampa="+idProcedimOggettoStampa);
 					 sessionContext.setRollbackOnly();
-					 return "si è verificato un problema durante il richiamo al servizio di protocollazione.";
+					 return "si ï¿½ verificato un problema durante il richiamo al servizio di protocollazione.";
 				 }
 				 
 				 
@@ -1697,17 +1697,17 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 			  }
 			  catch(java.lang.Exception ex){
 				  sessionContext.setRollbackOnly();
-				  ex.printStackTrace();
+				  //ex.printStackTrace();
 				 logger.error( " Eccezione con la chiamata al servizio insertProtocollo() in protocollaStampaAllegati ="+ex.getMessage());
-				 return " si è verificato un problema durante il richiamo al servizio di protocollazione.";
+				 return " si ï¿½ verificato un problema durante il richiamo al servizio di protocollazione.";
 			  }
 			
 		} 
 		catch (java.lang.Exception ex) {
 			sessionContext.setRollbackOnly();
-			ex.printStackTrace();
+			//ex.printStackTrace();
 			logger.error("-- Exception in generaPdfNuovoCorso ="+ ex.getMessage());		
-			 return " si è verificato un problema durante il richiamo al servizio di protocollazione.";
+			 return " si ï¿½ verificato un problema durante il richiamo al servizio di protocollazione.";
 		} 
 		finally {
 			logger.debug( "END generaPdfNuovoCorso");
@@ -1792,7 +1792,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         catch (Exception e)
         {
           throw new InternalUnexpectedException(
-              "Si è verificato un errore durante la composizione della PEC. Si prega di contattate l'assistenza tecnica.",
+              "Si ï¿½ verificato un errore durante la composizione della PEC. Si prega di contattate l'assistenza tecnica.",
               e);
         }
       }
@@ -1843,7 +1843,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         catch (Exception e)
         {
           throw new InternalUnexpectedException(
-              "Si è verificato un errore durante la composizione della PEC. Si prega di contattate l'assistenza tecnica.",
+              "Si ï¿½ verificato un errore durante la composizione della PEC. Si prega di contattate l'assistenza tecnica.",
               e);
         }
 
@@ -2134,7 +2134,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
           null, THIS_METHOD);
       sessionContext.setRollbackOnly();
       throw new InternalUnexpectedException(
-          "Si è verificato un errore durante l'aggiornamento dei dati.", e);
+          "Si ï¿½ verificato un errore durante l'aggiornamento dei dati.", e);
     }
     finally
     {
@@ -2186,7 +2186,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
           null, THIS_METHOD);
       sessionContext.setRollbackOnly();
       throw new InternalUnexpectedException(
-          "Si è verificato un errore durante l'aggiornamento dei dati.", e);
+          "Si ï¿½ verificato un errore durante l'aggiornamento dei dati.", e);
     }
     finally
     {
@@ -3034,7 +3034,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 			
 			if(trovato >1)
 			{
-				//Ho già un oggetto simile nel procedimento -> gestisco esito P e N
+				//Ho giï¿½ un oggetto simile nel procedimento -> gestisco esito P e N
 				if(NemboConstants.STATO.ESITO.ID.TIPO_ESITO_O.POSITIVO == po.getIdEsito())
 				{
 					dao.updateProcedimentoOggetto(idProcedimentoOggetto,  NemboConstants.STATO.ESITO.ID.APPROVATA_POSITIVO, utenteAbilitazioni.getIdUtenteLogin());
@@ -3059,12 +3059,12 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 				{
 				  logger.error(THIS_METHOD + " Errore nel gestire il cambiamento di stato per il procedimento con id_procedimento_oggetto = " + idProcedimentoOggetto);
                 sessionContext.setRollbackOnly();
-                return "Si è verificato un problema durante la storicizzazione del procedimento. Se il problema persistesse si prega di contattare l'assistenza tecnica";
+                return "Si ï¿½ verificato un problema durante la storicizzazione del procedimento. Se il problema persistesse si prega di contattare l'assistenza tecnica";
 				}
 			}
 			else
 			{
-				//NON ho già un oggetto simile nel procedimento -> gestisco esito P ,N, PN
+				//NON ho giï¿½ un oggetto simile nel procedimento -> gestisco esito P ,N, PN
 				if(NemboConstants.STATO.ESITO.ID.TIPO_ESITO_O.POSITIVO == po.getIdEsito())
 				{
 					dao.updateProcedimentoOggetto(idProcedimentoOggetto,  NemboConstants.STATO.ESITO.ID.APPROVATA_POSITIVO, utenteAbilitazioni.getIdUtenteLogin());
@@ -3089,7 +3089,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 				{
 				  logger.error(THIS_METHOD + " Errore nel gestire il cambiamento di stato per il procedimento con id_procedimento_oggetto = " + idProcedimentoOggetto);
                 sessionContext.setRollbackOnly();
-                return "Si è verificato un problema durante la storicizzazione del procedimento. Se il problema persistesse si prega di contattare l'assistenza tecnica";
+                return "Si ï¿½ verificato un problema durante la storicizzazione del procedimento. Se il problema persistesse si prega di contattare l'assistenza tecnica";
 				}
 			}
 			
@@ -3144,7 +3144,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 	    {
 			DumpUtils.logGenericException(logger, null, e, new LogParameter[]{new LogParameter("idProcedimentoOggetto", idProcedimentoOggetto)}, null, THIS_METHOD);
 	    	sessionContext.setRollbackOnly();
-	    	return "Si è verificato un problema nell'approvazione. Se il problema persistesse si prega di contattare l'assistenza tecnica";
+	    	return "Si ï¿½ verificato un problema nell'approvazione. Se il problema persistesse si prega di contattare l'assistenza tecnica";
 	    }
 		finally
 	  {
@@ -3879,7 +3879,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       throws InternalUnexpectedException
   {
 
-    // controllo se non è collegato a proc_ogg posso eliminare gli allegati e il
+    // controllo se non ï¿½ collegato a proc_ogg posso eliminare gli allegati e il
     // doc
     if (canDeleteDocSpesa(idDocumentoSpesa))
       eliminaAllegatiDocumentoSpesaById(idDocumentoSpesa);
@@ -4438,12 +4438,12 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
           dao.deleteRDocSpesaIntRic(
               intervento.getIntervento().getIdIntervento(),
               doc.getIdDocumentoSpesa(), r.getIdRicevutaPagamento());
-          // se un intervento è stato rimosso e quindi non più associato al
+          // se un intervento ï¿½ stato rimosso e quindi non piï¿½ associato al
           // documento??
           // cancello tutti i record su NEMBO_R_DOC_SPESA_INT_RICEV_PA che non
           // hanno corrispondenza su NEMBO_R_DOCUMENTO_SPESA_INTERV
           dao.deleteImportiVecchiInterventi();
-          // se l'importo è zero lo inserisco cmq, se null NO
+          // se l'importo ï¿½ zero lo inserisco cmq, se null NO
           if (r.getImportoDaAssociare() != null)
             dao.insertRDocSpesaIntRic(
                 intervento.getIntervento().getIdIntervento(),
@@ -4589,7 +4589,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
               doc.getImportoAssociatoRic().subtract(impRendNoFilter));
 
         /*
-         * Mostro l'icona dell'euro solo se il doc non è stato già completamente
+         * Mostro l'icona dell'euro solo se il doc non ï¿½ stato giï¿½ completamente
          * rendicontato
          */
         if (flagRendicontazioneConIva != null)
@@ -4656,7 +4656,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
      * esiste un record in NEMBO_T_DOCUMENTO_SPESA_FILE con ID_DOCUMENTO_SPESA
      * del documento di spesa selezionato presente in
      * NEMBO_R_DOC_SPESA_PROC_OGG, ma lo stato del procedimento oggetto
-     * collegato non valido (non è between 10 and 90)
+     * collegato non valido (non ï¿½ between 10 and 90)
      */
     List<DocumentoSpesaVO> allegs = dao
         .getElencoAllegatiDocSpesaWithPONotIn1090(doc.getIdDocumentoSpesa());
@@ -4666,11 +4666,11 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     /*
      * sommatoria di NEMBO_R_DOC_SPESA_INT_RICEV_PA.IMPORTO con
      * ID_DOCUMENTO_SPESA = NEMBO_T_DETT_DOCUMENTO_SPESA.IMPORTO_SPESA se
-     * NEMBO_T_PROCEDIMENTO.FLAG_RENDICONTAZIONE_CON_IVA = ‘N’ oppure sommatoria
+     * NEMBO_T_PROCEDIMENTO.FLAG_RENDICONTAZIONE_CON_IVA = ï¿½Nï¿½ oppure sommatoria
      * di NEMBO_R_DOC_SPESA_INT_RICEV_PA.IMPORTO con ID_DOCUMENTO_SPESA =
      * NEMBO_T_DETT_DOCUMENTO_SPESA.IMPORTO_SPESA +
      * NEMBO_T_DETT_DOCUMENTO_SPESA.IMPORTO_IVA_SPESA se
-     * NEMBO_T_PROCEDIMENTO.FLAG_RENDICONTAZIONE_CON_IVA = ‘S’) e non esiste un
+     * NEMBO_T_PROCEDIMENTO.FLAG_RENDICONTAZIONE_CON_IVA = ï¿½Sï¿½) e non esiste un
      * record in NEMBO_T_DOCUMENTO_SPESA_FILE con ID_DOCUMENTO_SPESA del
      * documento di spesa selezionato non ancora presente in
      * NEMBO_R_DOC_SPESA_PROC_OGG.
@@ -4771,7 +4771,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
       throws InternalUnexpectedException
   {
 
-    if (dao.canDeleteFile(idDocumentoSpesaFile) // se non ci sia già un record
+    if (dao.canDeleteFile(idDocumentoSpesaFile) // se non ci sia giï¿½ un record
                                                 // collegato nella tabella
                                                 // NEMBO_R_DOC_SPESA_PROC_OGG
         &&
@@ -4828,7 +4828,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   public boolean canDeleteAllegato(long idDocumentoSpesaFile)
       throws InternalUnexpectedException
   {
-    if (dao.canDeleteFile(idDocumentoSpesaFile) // se non ci sia già un record
+    if (dao.canDeleteFile(idDocumentoSpesaFile) // se non ci sia giï¿½ un record
                                                 // collegato nella tabella
                                                 // NEMBO_R_DOC_SPESA_PROC_OGG
         &&

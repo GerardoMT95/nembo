@@ -56,7 +56,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
       {
         /*
          * Ops ci sono dei messaggi da leggere obbligatoriamente ==> Non posso
-         * lasciare andare avanti l'utente finchè non li ha letti ==> metto
+         * lasciare andare avanti l'utente finchï¿½ non li ha letti ==> metto
          * l'elenco messaggi nel model e lascio che la pagina jsp li visualizzi
          */
         model.addAttribute("messaggi",
@@ -67,7 +67,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
         /*
          * Non ci sono messaggi bloccanti da leggere ==> metto in sessione la
          * hashmap con i dati della messaggistica in modo che il logout manager
-         * da ora in poi trovi la hashmap in sessione e quindi sappia che si è
+         * da ora in poi trovi la hashmap in sessione e quindi sappia che si ï¿½
          * fatto accesso correttamente. Imposto il timeout a 0 in modo che il
          * logout manager richiami immediatamente i servizi di papua per avere i
          * dati di messaggi di testata.
@@ -87,11 +87,11 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
     }
     catch (MalformedURLException e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
     catch (InternalException_Exception e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
     catch (LogoutException_Exception e)
     {
@@ -108,7 +108,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
     return "messaggistica/login/lista";
   }

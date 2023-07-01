@@ -157,7 +157,7 @@ public class CUNEMBO305MModificaColtureAziendali extends BaseController
 					}
 					catch(Exception e)
 					{
-						e.printStackTrace();
+						////e.printStackTrace();
 						percentualeDanno = BigDecimal.ZERO;
 					}
 					colturaModificata.setPercentualeDanno(percentualeDanno);
@@ -168,7 +168,7 @@ public class CUNEMBO305MModificaColtureAziendali extends BaseController
 					}
 					else if(percentualeDanno.compareTo(new BigDecimal("-999.99")) < 0)
 					{
-						errors.addError("errorPercentualeMax", "La percentuale di danno calcolata su alcune colture è inferiore al valore minimo di -999.99%. Modificare i dati inseriti e riprovare");
+						errors.addError("errorPercentualeMax", "La percentuale di danno calcolata su alcune colture ï¿½ inferiore al valore minimo di -999.99%. Modificare i dati inseriti e riprovare");
 					}
 				}
 				else

@@ -1431,7 +1431,7 @@ public class QuadroNewDAO extends QuadroDAO
                   }
                   catch (InternalUnexpectedException e)
                   {
-                    e.printStackTrace();
+                    ////e.printStackTrace();
                     return null;
                   }
                   // doc.setImportoDaRendicontare(rs.getBigDecimal("IMPORTO_INTERVENTO"));
@@ -2371,7 +2371,7 @@ public class QuadroNewDAO extends QuadroDAO
 
     // idsDegliOggettiPerCuiVisualizzareAllegatiESommareImportoRendicontato
     /*
-     * è tipo formato dal CriterioNumIdentificativo___CodiceRaggruppamento
+     * ï¿½ tipo formato dal CriterioNumIdentificativo___CodiceRaggruppamento
      * separati da &&& relativi a NEMBO_D_OGGETTO_NEMBO_T_PROCEDIMENTO_OGGETTO
      */
     final String QUERY = "   SELECT                                                                                                                                                              \n"
@@ -3729,7 +3729,7 @@ public class QuadroNewDAO extends QuadroDAO
                   }
                   catch (InternalUnexpectedException e)
                   {
-                    e.printStackTrace();
+                    //////e.printStackTrace();
                     return null;
                   }
                   // doc.setImportoDaRendicontare(rs.getBigDecimal("IMPORTO_INTERVENTO"));

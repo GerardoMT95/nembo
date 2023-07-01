@@ -350,7 +350,7 @@ public class TableTag extends BaseTag
       }
       catch (Exception e)
       {
-        e.printStackTrace();
+        ////e.printStackTrace();
       }
       metodi.put(nomeProprieta, metodo);
     }
@@ -409,7 +409,7 @@ public class TableTag extends BaseTag
       }
       catch (Exception e)
       {
-        e.printStackTrace();
+        ////e.printStackTrace();
       }
     }
     return valoreProprieta;

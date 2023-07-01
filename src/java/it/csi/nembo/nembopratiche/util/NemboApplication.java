@@ -70,7 +70,7 @@ public final class NemboApplication
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
       Logger.getLogger(NemboConstants.LOGGIN.LOGGER_NAME + ".util")
           .error("Errore nelle crazione della lista di cdu", e);
     }
@@ -94,7 +94,7 @@ public final class NemboApplication
     }
     catch (Exception e)
     {
-      e.printStackTrace();
+      //////e.printStackTrace();
       Logger.getLogger(NemboConstants.LOGGIN.LOGGER_NAME + ".util").error(
           "Errore nelle crazione della lista e mappa di segnaposto per le stampe",
           e);
@@ -207,7 +207,7 @@ public final class NemboApplication
 	  switch(idProcedimentoAgricolo)
 	  {
 	  case NemboConstants.TIPO_PROCEDIMENTO_AGRICOLO.AVVERSITA_ATMOSFERICHE:
-		  nomeApplicativo="Avversità atmosferiche";
+		  nomeApplicativo="Avversitï¿½ atmosferiche";
 		  break;
 	  case NemboConstants.TIPO_PROCEDIMENTO_AGRICOLO.AIUTI_DI_STATO:
 		  nomeApplicativo="Aiuti di Stato";

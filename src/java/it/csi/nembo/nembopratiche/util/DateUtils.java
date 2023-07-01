@@ -11,8 +11,8 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
- * Classe astratta per le funzioni di utilità sulle date. La classe è abstract
- * perchè non deve essere usata direttamente ma solo dalla sua implementazione
+ * Classe astratta per le funzioni di utilitï¿½ sulle date. La classe ï¿½ abstract
+ * perchï¿½ non deve essere usata direttamente ma solo dalla sua implementazione
  * nella costante Utils.DATE
  * 
  * @author Stefano Einaudi (Matr. 70399)
@@ -36,7 +36,7 @@ public abstract class DateUtils
     }
     catch (Throwable e)
     {
-      e.printStackTrace();
+      ////e.printStackTrace();
     }
   }
 
@@ -77,19 +77,19 @@ public abstract class DateUtils
     }
     catch (ParseException ex1)
     {
-      // Non è una data in formato DATE_TIME_FORMAT_STRING
+      // Non ï¿½ una data in formato DATE_TIME_FORMAT_STRING
       if (timeIsOptional)
       {
-        // Ma se l'ora è opzionale potrebbe essere una data in formato
+        // Ma se l'ora ï¿½ opzionale potrebbe essere una data in formato
         // DATE_FORMAT_STRING
         try
         {
           return DATE_FORMAT.parse(date);
-          // Infatti lo è, ritorno l'oggetto date corrispondente
+          // Infatti lo ï¿½, ritorno l'oggetto date corrispondente
         }
         catch (ParseException ex2)
         {
-          // Non lo è, ritorno null alla fine metedo
+          // Non lo ï¿½, ritorno null alla fine metedo
         }
       }
     }
@@ -109,9 +109,9 @@ public abstract class DateUtils
       /*
        * Purtroppo devo fare il controllo sulla lunghezza a causa di una
        * gestione "strana" nella parsificazione effettuata dalla
-       * SimpleDateFormat (con un numero di y > 2 nel pattern non controlla più
+       * SimpleDateFormat (con un numero di y > 2 nel pattern non controlla piï¿½
        * la coerenza tra numero di y e numero di cifre dell'anno, ma accetta
-       * qualsiasi cosa, quindi con un pattern con yyyy non dà errore se
+       * qualsiasi cosa, quindi con un pattern con yyyy non dï¿½ errore se
        * inserisco 100000 come anno)
        */
       if (date.length() == 10)
