@@ -105,8 +105,8 @@ public class MessaggisticaManager extends BaseManager
     if (mapMessaggistica == null)
     {
       /*
-       * Non c'è in sessione l'hashmap della messaggista ==> Non si è passati
-       * per la pagina della messaggistica di login ==> Non è il percorso
+       * Non c'ï¿½ in sessione l'hashmap della messaggista ==> Non si ï¿½ passati
+       * per la pagina della messaggistica di login ==> Non ï¿½ il percorso
        * standard di accesso all'applicativo (link nei preferiti?!?!?) ==> Non
        * ho certezza che non ci siano messaggi da leggere obbligatori ==> SI
        * RITORNA AL LOGIN!
@@ -125,9 +125,9 @@ public class MessaggisticaManager extends BaseManager
     else
     {
       /*
-       * Se il metodo checkMessaggistica ha restituito una stringa !=null è
-       * perchè è in corso un logout forzato, quindi redirigo sulla pagina di
-       * logout dove verrà visualizzato il messaggio restituito dal servizio
+       * Se il metodo checkMessaggistica ha restituito una stringa !=null ï¿½
+       * perchï¿½ ï¿½ in corso un logout forzato, quindi redirigo sulla pagina di
+       * logout dove verrï¿½ visualizzato il messaggio restituito dal servizio
        * (passato come cookie)
        */
       redirectToLoggedOutPage(response, logoutErrorMessage);
@@ -140,6 +140,7 @@ public class MessaggisticaManager extends BaseManager
   {
     final Cookie cookie = new Cookie(LOGOUT_ERROR_MESSAGE, logoutErrorMessage);
     cookie.setMaxAge(-1);
+    c.setHttpOnly(true);
     response.addCookie(cookie);
     response.sendRedirect(
         "/" + NemboConstants.NEMBOPRATICHE.WEB_CONTEXT + "/cunembo201/logout.do");
@@ -156,7 +157,7 @@ public class MessaggisticaManager extends BaseManager
     final long deltaTimestamp = TIMESTAMP - timestamp;
     if (deltaTimestamp > MINUTI_VERIFICA_NUOVI_MESSAGGI * 60 * 1000)
     {
-      // Se eseguo un refresh dovrò aggiornare i dati in sessione
+      // Se eseguo un refresh dovrï¿½ aggiornare i dati in sessione
       // (indipendentemente che sia andato bene o male)
       refreshSession = true;
       try
@@ -227,13 +228,13 @@ public class MessaggisticaManager extends BaseManager
         }
         catch (LogoutException_Exception e)
         {
-          // Se eseguo un logout dovrò aggiornare i dati in sessione
+          // Se eseguo un logout dovrï¿½ aggiornare i dati in sessione
           refreshSession = true;
           return performLogout(session, e);
         }
         catch (Exception e)
         {
-          // Se eseguo un refresh dovrò aggiornare i dati in sessione
+          // Se eseguo un refresh dovrï¿½ aggiornare i dati in sessione
           refreshSession = true;
           logger.warn(
               THIS_METHOD
@@ -278,7 +279,7 @@ public class MessaggisticaManager extends BaseManager
     Enumeration<String> attrNames = session.getAttributeNames();
     /*
      * Richiesto un Logout ==> CANCELLO/DISINTEGRO la sessione utente in modo
-     * che non possa fare più nulla!
+     * che non possa fare piï¿½ nulla!
      */
     if (attrNames != null)
     {
