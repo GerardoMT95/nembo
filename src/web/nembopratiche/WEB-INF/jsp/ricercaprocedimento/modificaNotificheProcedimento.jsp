@@ -13,8 +13,8 @@
 <body>
   <r:include resourceProvider="portal" url="/staticresources/assets/global/include/portal_header-small.html"/>
   <r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/${sessionScope.headerProcedimento}"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" integrity="sha384-UM1JrZIpBwVf5jj9dTKVvGiiZPZTLVoq4sfdvIe9SBumsvCuv6AHDNtEiIb5h1kU" crossorigin="anonymous"></script>
+ 
 <p:utente/>
 
 	<div class="container-fluid">
@@ -56,7 +56,7 @@
 					label="Notifica *" name="descrizione" preferRequestValues="${prfvalues}">${notifica.note}</m:textarea>
 				 
 				 <m:radio-list id="idGravita" name="gravita" list="${elencoGravita}" selectedValue="${idGravitaSelezionato}" 
-					label="Gravità *" inline="true"  labelSize="2" controlSize="10" valueProperty="id" textProperty="gravita" preferRequestValues="${prfvalues}"/>
+					label="Gravitï¿½ *" inline="true"  labelSize="2" controlSize="10" valueProperty="id" textProperty="gravita" preferRequestValues="${prfvalues}"/>
 					
 				<m:select label="Visibile a *" name="visibilita"
 					list="${elencoVisibilita}" id="id"
@@ -72,9 +72,9 @@
 <script type="text/javascript">
 $( document ).ready(function() {
 
-	$("#idGravita_1").parent().after("&nbsp;<span style=\"padding-right:2em;\"><a style=\"vertical-align: middle;\" class=\"ico24 ico_warning \" rel=\"tooltip\" data-placement=\"right\"  title=\"Le notifiche warning non bloccano l'operatività sugli oggetti del procedimento.\"></a></span>");
-	$("#idGravita_3").parent().after("&nbsp;<span style=\"padding-right:2em;\"><a style=\"vertical-align: middle;\"  class=\"ico24 ico_errorB\" rel=\"tooltip\" data-placement=\"right\"  title=\"Le notifiche bloccanti bloccano l'operatività su tutti gli oggetti di tipo istruttoria del procedimento.\"></a></span>");
-	$("#idGravita_2").parent().after("&nbsp;<span style=\"padding-right:2em;\"><a style=\"vertical-align: middle;\"  class=\"ico24 ico_errorG\" rel=\"tooltip\" data-placement=\"right\"  title=\"Le notifiche gravi bloccano l'operatività su tutti gli oggetti del procedimento.\"></a></span>");
+	$("#idGravita_1").parent().after("&nbsp;<span style=\"padding-right:2em;\"><a style=\"vertical-align: middle;\" class=\"ico24 ico_warning \" rel=\"tooltip\" data-placement=\"right\"  title=\"Le notifiche warning non bloccano l'operativitï¿½ sugli oggetti del procedimento.\"></a></span>");
+	$("#idGravita_3").parent().after("&nbsp;<span style=\"padding-right:2em;\"><a style=\"vertical-align: middle;\"  class=\"ico24 ico_errorB\" rel=\"tooltip\" data-placement=\"right\"  title=\"Le notifiche bloccanti bloccano l'operativitï¿½ su tutti gli oggetti di tipo istruttoria del procedimento.\"></a></span>");
+	$("#idGravita_2").parent().after("&nbsp;<span style=\"padding-right:2em;\"><a style=\"vertical-align: middle;\"  class=\"ico24 ico_errorG\" rel=\"tooltip\" data-placement=\"right\"  title=\"Le notifiche gravi bloccano l'operativitï¿½ su tutti gli oggetti del procedimento.\"></a></span>");
 	
 	 $(function () {
 	        $("[rel='tooltip']").tooltip();

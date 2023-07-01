@@ -10,8 +10,8 @@
 <body>
   <r:include resourceProvider="portal" url="/staticresources/assets/global/include/portal_header-small.html"/>
   <r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/${sessionScope.headerProcedimento}"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" integrity="sha384-UM1JrZIpBwVf5jj9dTKVvGiiZPZTLVoq4sfdvIe9SBumsvCuv6AHDNtEiIb5h1kU" crossorigin="anonymous"></script>
+
 <p:utente/>
 	<div class="container-fluid">
         <div class="row">
@@ -55,7 +55,7 @@
 					</p:abilitazione-cdu>
 					</th>
 					<th>Notifica</th>
-					<th>Gravità</th>
+					<th>Gravitï¿½</th>
 					<th>Visibile a</th>
 					<th>Data inizio</th>
 					<th>Data fine</th>
