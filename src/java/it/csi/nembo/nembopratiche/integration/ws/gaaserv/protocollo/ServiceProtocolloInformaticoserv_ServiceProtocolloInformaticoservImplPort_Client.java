@@ -43,7 +43,7 @@ public final class ServiceProtocolloInformaticoserv_ServiceProtocolloInformatico
                     wsdlURL = new URL(args[0]);
                 }
             } catch (MalformedURLException e) {
-                ////e.printStackTrace();
+                //e.printStackTrace();
             }
         }
       

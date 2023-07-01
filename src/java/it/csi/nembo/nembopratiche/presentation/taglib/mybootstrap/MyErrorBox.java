@@ -70,7 +70,7 @@ public class MyErrorBox extends MyAbstractTag
       }
       catch (IOException e)
       {
-        ////e.printStackTrace();
+        //e.printStackTrace();
         throw new JspException(e);
       }
     }

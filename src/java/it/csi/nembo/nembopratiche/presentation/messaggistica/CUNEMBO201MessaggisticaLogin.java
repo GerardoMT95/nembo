@@ -87,11 +87,11 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
     }
     catch (MalformedURLException e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
     catch (InternalException_Exception e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
     catch (LogoutException_Exception e)
     {
@@ -108,7 +108,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
     }
     catch (Exception e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
     return "messaggistica/login/lista";
   }

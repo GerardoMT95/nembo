@@ -1431,7 +1431,7 @@ public class QuadroNewDAO extends QuadroDAO
                   }
                   catch (InternalUnexpectedException e)
                   {
-                    ////e.printStackTrace();
+                    //e.printStackTrace();
                     return null;
                   }
                   // doc.setImportoDaRendicontare(rs.getBigDecimal("IMPORTO_INTERVENTO"));
@@ -3729,7 +3729,7 @@ public class QuadroNewDAO extends QuadroDAO
                   }
                   catch (InternalUnexpectedException e)
                   {
-                    //////e.printStackTrace();
+                    //e.printStackTrace();
                     return null;
                   }
                   // doc.setImportoDaRendicontare(rs.getBigDecimal("IMPORTO_INTERVENTO"));

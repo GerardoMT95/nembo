@@ -63,7 +63,7 @@ public class LinkTag extends BaseTag
       }
       catch (IOException e)
       {
-        ////e.printStackTrace();
+        //e.printStackTrace();
         throw new JspException(e);
       }
     }

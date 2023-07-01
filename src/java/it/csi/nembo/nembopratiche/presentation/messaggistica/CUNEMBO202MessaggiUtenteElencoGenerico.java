@@ -54,11 +54,11 @@ public class CUNEMBO202MessaggiUtenteElencoGenerico
     }
     catch (MalformedURLException e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
     catch (InternalException_Exception e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
     catch (LogoutException_Exception e)
     {

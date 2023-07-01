@@ -70,7 +70,7 @@ public final class NemboApplication
     }
     catch (Exception e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
       Logger.getLogger(NemboConstants.LOGGIN.LOGGER_NAME + ".util")
           .error("Errore nelle crazione della lista di cdu", e);
     }
@@ -94,7 +94,7 @@ public final class NemboApplication
     }
     catch (Exception e)
     {
-      //////e.printStackTrace();
+      //e.printStackTrace();
       Logger.getLogger(NemboConstants.LOGGIN.LOGGER_NAME + ".util").error(
           "Errore nelle crazione della lista e mappa di segnaposto per le stampe",
           e);

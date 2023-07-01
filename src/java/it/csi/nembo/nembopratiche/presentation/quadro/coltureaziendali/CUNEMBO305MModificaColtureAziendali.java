@@ -157,7 +157,7 @@ public class CUNEMBO305MModificaColtureAziendali extends BaseController
 					}
 					catch(Exception e)
 					{
-						////e.printStackTrace();
+						//e.printStackTrace();
 						percentualeDanno = BigDecimal.ZERO;
 					}
 					colturaModificata.setPercentualeDanno(percentualeDanno);

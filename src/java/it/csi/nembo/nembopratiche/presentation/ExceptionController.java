@@ -242,11 +242,11 @@ public class ExceptionController extends BaseController
     }
     catch (FileNotFoundException e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
     catch (IOException e)
     {
-      ////e.printStackTrace();
+      //e.printStackTrace();
     }
 
     session.removeAttribute(SESSION_PARAM_EXCEPTION);
