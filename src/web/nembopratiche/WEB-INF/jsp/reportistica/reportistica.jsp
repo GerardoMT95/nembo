@@ -8,7 +8,6 @@
 <%@taglib prefix="m" uri="/WEB-INF/mybootstrap.tld"%>
 <r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/head.html"/>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" integrity="sha384-UM1JrZIpBwVf5jj9dTKVvGiiZPZTLVoq4sfdvIe9SBumsvCuv6AHDNtEiIb5h1kU" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="/nembopratiche/js/nemboReportistica.js"></script>
 <body>
 
