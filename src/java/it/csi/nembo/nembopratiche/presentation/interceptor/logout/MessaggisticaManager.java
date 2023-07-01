@@ -140,7 +140,7 @@ public class MessaggisticaManager extends BaseManager
   {
     final Cookie cookie = new Cookie(LOGOUT_ERROR_MESSAGE, logoutErrorMessage);
     cookie.setMaxAge(-1);
-    c.setHttpOnly(true);
+    cookie.setHttpOnly(true);
     response.addCookie(cookie);
     response.sendRedirect(
         "/" + NemboConstants.NEMBOPRATICHE.WEB_CONTEXT + "/cunembo201/logout.do");

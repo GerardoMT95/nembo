@@ -56,7 +56,7 @@ public class CtrlLogin
     Identita identita = (Identita) session.getAttribute("identita");
     /*
      * Imposto il 6 bit del livello di autenticazione a 0, come convenzione per
-     * papua se questo bit è a 1 significa che l'utente ha fatto login tramite
+     * papua se questo bit ï¿½ a 1 significa che l'utente ha fatto login tramite
      * SPID
      */
     identita.setLivelloAutenticazione(
@@ -75,7 +75,7 @@ public class CtrlLogin
     Identita identita = (Identita) session.getAttribute("identita");
     /*
      * Imposto il 6 bit del livello di autenticazione a 0, come convenzione per
-     * papua se questo bit è a 1 significa che l'utente ha fatto login tramite
+     * papua se questo bit ï¿½ a 1 significa che l'utente ha fatto login tramite
      * SPID
      */
     identita.setLivelloAutenticazione(
@@ -94,7 +94,7 @@ public class CtrlLogin
     Identita identita = (Identita) session.getAttribute("identita");
     /*
      * Imposto il 6 bit del livello di autenticazione a 1, come convenzione per
-     * papua se questo bit è a 1 significa che l'utente ha fatto login tramite
+     * papua se questo bit ï¿½ a 1 significa che l'utente ha fatto login tramite
      * SPID (Non crea problemi in quanto il livello di autenticazione di
      * shibboleth/iride2 usa solo i primi 5 bit.
      */
@@ -115,6 +115,7 @@ public class CtrlLogin
         portal);
     cookie.setPath("/" + NemboConstants.NEMBOPRATICHE.WEB_CONTEXT);
     cookie.setMaxAge(8 * 60 * 60);
+    cookie.setHttpOnly(true);
     response.addCookie(cookie);
   }
 
@@ -181,7 +182,7 @@ public class CtrlLogin
     catch (Exception e)
     {
       throw new InternalServiceException(
-          "Si è verificato un errore interno durante l'accesso ai servizi di autenticazione di PAPUA",
+          "Si ï¿½ verificato un errore interno durante l'accesso ai servizi di autenticazione di PAPUA",
           InternalException.GENERIC_ERROR, e);
     }
     return "redirect:../cunembo201/index.do";
@@ -214,7 +215,7 @@ public class CtrlLogin
     catch (Exception e)
     {
       throw new InternalServiceException(
-          "Si è verificato un errore interno durante l'accesso ai servizi di autenticazione di PAPUA",
+          "Si ï¿½ verificato un errore interno durante l'accesso ai servizi di autenticazione di PAPUA",
           InternalException.GENERIC_ERROR, e);
     }
   }
