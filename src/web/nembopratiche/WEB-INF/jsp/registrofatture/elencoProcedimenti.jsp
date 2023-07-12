@@ -113,44 +113,44 @@ span.tab-space {
 			for (i = 0; i < row['documentiSpesa'].length; i++) {
 				var pratica = row['documentiSpesa'][i];
 				html.push('<tr>');
-				if (pratica.tipoDomanda != null && pratica.tipoDomanda != "")
+				if (pratica.tipoDomanda != null && pratica.tipoDomanda.not.equals(""))
 					html.push('<td>' + pratica.tipoDomanda + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.progressivo != null && pratica.progressivo != "")
+				if (pratica.progressivo != null && pratica.progressivo.not.equals(""))
 					html.push('<td class=\"center vcenter\"><span class=\"badge\" style=\"background-color: white; color: black; border: 1px solid black\">' + pratica.progressivo + '</span></td>');
 				else
 					html.push('<td></td>');
-				if (pratica.importoRendicontato != null && pratica.importoRendicontato != "")
+				if (pratica.importoRendicontato != null && pratica.importoRendicontato.not.equals(""))
 					html.push('<td>' + pratica.importoRendicontatoStr + '</td>');
 				else
 					html.push('<td></td>');
 				
-				if (pratica.codiceFornitore != null && pratica.codiceFornitore != "")
+				if (pratica.codiceFornitore != null && pratica.codiceFornitore.not.equals(""))
 					html.push('<td>' + pratica.codiceFornitore + ' - ' + pratica.ragioneSociale + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.dataDocumentoSpesa != null && pratica.dataDocumentoSpesa != "")
+				if (pratica.dataDocumentoSpesa != null && pratica.dataDocumentoSpesa.not.equals(""))
 					html.push('<td>' + pratica.dataDocumentoSpesaStr + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.numeroDocumentoSpesa != null && pratica.numeroDocumentoSpesa != "")
+				if (pratica.numeroDocumentoSpesa != null && pratica.numeroDocumentoSpesa.not.equals(""))
 					html.push('<td>' + pratica.numeroDocumentoSpesa + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.descrTipoDocumento != null && pratica.descrTipoDocumento != "")
+				if (pratica.descrTipoDocumento != null && pratica.descrTipoDocumento.not.equals(""))
 					html.push('<td>' + pratica.descrTipoDocumento + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.descrModPagamento != null && +pratica.descrModPagamento != "")
+				if (pratica.descrModPagamento != null && +pratica.descrModPagamento.not.equals(""))
 					html.push('<td>' + pratica.descrModPagamento + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.dataPagamento != null && +pratica.dataPagamento != "")
+				if (pratica.dataPagamento != null && +pratica.dataPagamento.not.equals(""))
 					html.push('<td>' + pratica.dataPagamentoStr + '</td>');
 				else
 					html.push('<td></td>');
-				if (pratica.importoSpesa != null && pratica.importoSpesa != "")
+				if (pratica.importoSpesa != null && pratica.importoSpesa.not.equals(""))
 					html.push('<td>' + pratica.importoSpesaStr + '</td>');
 				else
 					html.push('<td></td>');

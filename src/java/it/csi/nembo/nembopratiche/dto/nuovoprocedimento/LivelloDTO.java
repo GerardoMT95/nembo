@@ -188,7 +188,7 @@ public class LivelloDTO implements ILoggable
     if (flagControllo.compareTo("N") == 0)
       return "No";
     else
-      return "Sì";
+      return "Sï¿½";
   }
 
   public void setFlagControllo(String flagControllo)
@@ -307,19 +307,19 @@ public class LivelloDTO implements ILoggable
     {
       if (this.codiceTipoLivello.contains("I"))
       {
-        if (ret != "")
+        if (ret.not.equals(""))
           ret += " ";
         ret += "checkboxMisureInvestimento";
       }
       if (this.codiceTipoLivello.contains("G"))
       {
-        if (ret != "")
+        if (ret.not.equals(""))
           ret += " ";
         ret += "checkboxMisureGal";
       }
       if (this.codiceTipoLivello.contains("P"))
       {
-        if (ret != "")
+        if (ret.not.equals(""))
           ret += " ";
         ret += "checkboxMisurePremio";
       }

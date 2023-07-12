@@ -2074,7 +2074,7 @@ public class QuadroNewDAO extends QuadroDAO
                 String prefix = rs.getString("PREFIX");
                 String suffix = rs.getString("SUFFIX");
                 String nomeFileLogico = "";
-                if (prefix != null && prefix != "")
+                if (prefix != null && prefix.not.equals(""))
                 {
                   nomeFileLogico += prefix + " - ";
                   file.setPrefix(prefix);
@@ -2539,7 +2539,7 @@ public class QuadroNewDAO extends QuadroDAO
                 String prefix = rs.getString("PREFIX");
                 String suffix = rs.getString("SUFFIX");
                 String nomeFileLogico = "";
-                if (prefix != null && prefix != "")
+                if (prefix != null && prefix.not.equals(""))
                 {
                   nomeFileLogico += prefix + " - ";
                   file.setPrefix(prefix);
@@ -2738,7 +2738,7 @@ public class QuadroNewDAO extends QuadroDAO
                 String prefix = "";
                 String suffix = rs.getString("SUFFIX");
                 String nomeFileLogico = "";
-                if (prefix != null && prefix != "")
+                if (prefix != null && prefix.not.equals(""))
                 {
                   nomeFileLogico += prefix + " - ";
                   file.setPrefix(prefix);
@@ -3250,7 +3250,7 @@ public class QuadroNewDAO extends QuadroDAO
                 String prefix = rs.getString("PREFIX");
                 String suffix = rs.getString("SUFFIX");
                 String nomeFileLogico = "";
-                if (prefix != null && prefix != "")
+                if (prefix != null && prefix.not.equals(""))
                 {
                   nomeFileLogico += prefix + " - ";
                   file.setPrefix(prefix);

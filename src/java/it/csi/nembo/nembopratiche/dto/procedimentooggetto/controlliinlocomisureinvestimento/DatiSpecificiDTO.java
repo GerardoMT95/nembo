@@ -20,8 +20,8 @@ public class DatiSpecificiDTO extends ControlliInLocoInvestDTO
     if (descTipoEstrazione != null)
       ret += descTipoEstrazione;
 
-    if (numeroEstrazione != null && numeroEstrazione.toString() != "")
-      ret += " - n° " + numeroEstrazione;
+    if (numeroEstrazione != null && numeroEstrazione.toString().not.equals(""))
+      ret += " - nï¿½ " + numeroEstrazione;
 
     return ret;
 

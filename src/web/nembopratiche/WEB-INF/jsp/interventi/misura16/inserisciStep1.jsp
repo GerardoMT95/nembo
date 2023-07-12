@@ -33,7 +33,7 @@
 						<div class="stepwizard-row setup-panel">
 							<div class="stepwizard-step">
 								<a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
-								<p>Attività/Partecipante</p>
+								<p>Attivitï¿½/Partecipante</p>
 							</div>
 							<c:choose>
 								<c:when test="${empty isModifica}">
@@ -96,7 +96,7 @@
 		loadPartecipanti();
 		function loadPartecipanti() {
 			var idAttivita = $("#idAttivita").val();
-			if (idAttivita !== undefined && idAttivita != null && idAttivita != "")
+			if (idAttivita !== undefined && idAttivita != null && idAttivita.not.equals(""))
 				$.ajax({
 					url : "../cunembo266i/loadPartecipanti_" + idAttivita + ".do",
 					async : false,

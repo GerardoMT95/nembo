@@ -57,7 +57,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
 
 
     List<Radio> radio = new LinkedList<Radio>();
-    radio.add(new Radio("S", "Sì"));
+    radio.add(new Radio("S", "Sï¿½"));
     radio.add(new Radio("N", "No"));
 
     List<LivelloDTO> livelliPossibili = quadroEjb
@@ -99,7 +99,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       String idOperazione = request.getParameter("operazioni_" + i);
 
       boolean menoUno = false;
-      if (idOperazione != null && idOperazione != "")
+      if (idOperazione != null && idOperazione.not.equals(""))
       {
         idOperazione = idOperazione.trim();
         liv.setIdLivello(Long.parseLong(idOperazione));
@@ -116,8 +116,8 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       String idControlloInLoco = request.getParameter("controlloInLoco_" + i);
       liv.setFlagControllo(idControlloInLoco);
 
-      // il flag è obbligatorio - Se vale X vuol dire che non è stato
-      // selezionato -> X è il valore del radio button di default nascosto
+      // il flag ï¿½ obbligatorio - Se vale X vuol dire che non ï¿½ stato
+      // selezionato -> X ï¿½ il valore del radio button di default nascosto
       if (idControlloInLoco == null)
         idControlloInLoco = "X";
       if (idControlloInLoco.compareTo("X") == 0)
@@ -129,7 +129,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       Date dataInizioControllo = null, dataSoprall = null;
 
       String dataInizio = request.getParameter("dataInizio_" + i);
-      if (dataInizio != null && dataInizio != "")
+      if (dataInizio != null && dataInizio.not.equals(""))
       {
         dataInizioControllo = errors.validateDate(dataInizio, "dataInizio_" + i,
             true);
@@ -140,7 +140,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       }
 
       String dataSopralluogo = request.getParameter("dataSopralluogo_" + i);
-      if (dataSopralluogo != null && dataSopralluogo != "")
+      if (dataSopralluogo != null && dataSopralluogo.not.equals(""))
       {
         dataSoprall = errors.validateDate(dataSopralluogo,
             "dataSopralluogo_" + i, true);
@@ -153,7 +153,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       }
 
       String verbale = request.getParameter("verbale_" + i);
-      if (verbale != null && verbale != "")
+      if (verbale != null && verbale.not.equals(""))
       {
         liv.setNumeroVerbale(verbale);
         errors.validateFieldMaxLength(verbale, "verbale_" + i, 50);
@@ -215,7 +215,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       errors.validateFieldLength(noteInadCondiz, "noteInadempCondizionata_" + i,
           0, 4000);
 
-      // Se il controllo in loco è SI, la dataInizioControllo tutto il resto è
+      // Se il controllo in loco ï¿½ SI, la dataInizioControllo tutto il resto ï¿½
       // obbligatorio
       if (idControlloInLoco.compareTo("S") == 0)
       {
@@ -228,18 +228,18 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       }
       else
       {
-        if (dataInizio != null && dataInizio != "")
+        if (dataInizio != null && dataInizio.not.equals(""))
           errors.addError("dataInizio_" + i,
-              "Impossibile inserire la data se il controllo in loco non è stato effettuato.");
-        if (dataSopralluogo != null && dataSopralluogo != "")
+              "Impossibile inserire la data se il controllo in loco non ï¿½ stato effettuato.");
+        if (dataSopralluogo != null && dataSopralluogo.not.equals(""))
           errors.addError("dataSopralluogo_" + i,
-              "Impossibile inserire la data se il controllo in loco non è stato effettuato.");
-        if (verbale != null && verbale != "")
+              "Impossibile inserire la data se il controllo in loco non ï¿½ stato effettuato.");
+        if (verbale != null && verbale.not.equals(""))
           errors.addError("verbale_" + i,
-              "Impossibile inserire il verbale se il controllo in loco non è stato effettuato.");
-        if (funz != null && funz != "")
+              "Impossibile inserire il verbale se il controllo in loco non ï¿½ stato effettuato.");
+        if (funz != null && funz.not.equals(""))
           errors.addError("funzionario_" + i,
-              "Impossibile inserire il funzionario se il controllo in loco non è stato effettuato.");
+              "Impossibile inserire il funzionario se il controllo in loco non ï¿½ stato effettuato.");
 
       }
 
@@ -261,7 +261,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       model.addAttribute("errors", errors);
 
       List<Radio> radio = new LinkedList<Radio>();
-      radio.add(new Radio("S", "Sì"));
+      radio.add(new Radio("S", "Sï¿½"));
       radio.add(new Radio("N", "No"));
 
       model.addAttribute("numeroMassimoLivelli", livelliPossibili.size());
@@ -296,7 +296,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
   {
 
     setModelDialogWarning(model,
-        "La pratica non risulta estratta a campione per controllo il loco; se si intende proseguire la pratica verrà marchiata come estratta \"Manuale per verifica impegni OD.\"",
+        "La pratica non risulta estratta a campione per controllo il loco; se si intende proseguire la pratica verrï¿½ marchiata come estratta \"Manuale per verifica impegni OD.\"",
         "../cunembo180/popupindex.do");
     return "dialog/conferma";
   }

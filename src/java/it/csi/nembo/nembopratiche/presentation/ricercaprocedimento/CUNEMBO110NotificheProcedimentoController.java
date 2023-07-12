@@ -67,7 +67,7 @@ public class CUNEMBO110NotificheProcedimentoController extends BaseController
     }
 
     String msgErrore = (String) session.getAttribute("msgErrore");
-    if (msgErrore != null && msgErrore != "")
+    if (msgErrore != null && msgErrore.not.equals(""))
     {
       model.addAttribute("msgErrore", msgErrore);
       session.removeAttribute("msgErrore");

@@ -195,7 +195,7 @@
 			if ($("input:radio:checked").length > 0)
 				$('#elencoForm').attr('action', 'confermaInseriscifornitore.do').submit();
 			else
-				showMessageBox("Attenzione", "Per proseguire è necessario selezionare un fornitore.", "modal-large");
+				showMessageBox("Attenzione", "Per proseguire ï¿½ necessario selezionare un fornitore.", "modal-large");
 		}
 		function cercafornitori() {
 			$('#mainForm').show();
@@ -236,12 +236,12 @@
 											.before(
 													"<div class=\"stdMessagePanel\">"
 															+ " <div class=\"alert alert-warning\">"
-															+ "  <p>Non è stato trovato nessun fornitore! Crea nuovo fornitore scegliendo \"inserisci\"</p>"
+															+ "  <p>Non ï¿½ stato trovato nessun fornitore! Crea nuovo fornitore scegliendo \"inserisci\"</p>"
 															+ " </div>" + " </div>");
 									$('#nuovofornitorediv').show();
 								}
 
-								if (data != "") {
+								if (data.not.equals("")) {
 									if ($(data).get(0).id < 0) {
 										$('#firstRow').before(
 												"<div class=\"stdMessagePanel\">" + " <div class=\"alert alert-warning\">" + "  <p>"
@@ -331,12 +331,12 @@
 							function(data) {
 								$('#loadingdiv').hide();
 
-								if (data != "") {
+								if (data.not.equals("")) {
 									$('#elencofornitori').show();
 									$('#elencofornitorilabel').show();
 									$listSportelli.empty();
 								}
-								if (data != "")
+								if (data.not.equals(""))
 									$(data)
 											.each(
 													function(index, sportello) {

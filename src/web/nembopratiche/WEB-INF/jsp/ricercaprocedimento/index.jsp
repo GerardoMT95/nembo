@@ -871,10 +871,10 @@
 				success : function(data) {
 					//ritorna una mappa <id_bando, descrizione>
 					for (key in data) {
-						if (data[key] != "")
+						if (data[key].not.equals(""))
 							$(".checkboxMisure[value=" + data[key] + "]").attr("checked", true);
 					}
-					if (data != null && data[0] != "")
+					if (data != null && data[0].not.equals(""))
 						reloadLivelliPopup();
 				}
 			});
@@ -1248,7 +1248,7 @@
 			//creo una variabile "data" che contiene gli idLivello selezionati separati da &
 			var data = "";
 			var radioSel = $("input[name=optRadio]:checked").val();
-			if (radioSel !== undefined && radioSel != null && radioSel != "")
+			if (radioSel !== undefined && radioSel != null && radioSel.not.equals(""))
 				data += radioSel + "&";
 			else
 				data += "X&";

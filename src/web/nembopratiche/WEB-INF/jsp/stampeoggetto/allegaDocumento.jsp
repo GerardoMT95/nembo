@@ -21,7 +21,7 @@ function updateModalWindow() {
 		if (html != null && html.indexOf('<refresh>') == 0) {
 	          window.location.reload();
 		} else {
-			if(html != "")
+			if(html.not.equals(""))
 				setDialogHtml(html);
 				}
 			}

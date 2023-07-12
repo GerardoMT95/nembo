@@ -103,7 +103,7 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
       // valido
       riduzioni.add(validateRiduzioneSanzione(id, errors, request, po));
 
-      // cerco nelle riduzionisanzioni già inserite e, se sono tra quelle che
+      // cerco nelle riduzionisanzioni giï¿½ inserite e, se sono tra quelle che
       // sto modificando
       // tolgo il loro importo da quello parziale su db
       if (importoParzialePrec != null)
@@ -129,7 +129,7 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
       }
 
       // importo totale massimo che la somma di tutte le riduzioni/sanzioni non
-      // può superare
+      // puï¿½ superare
       BigDecimal importoMax = quadroEJB
           .calcolaImportoMaxRiduzioneSanzione(po.getIdProcedimentoOggetto());
       if (importoMax.doubleValue() == 0)
@@ -146,13 +146,13 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
         for (Long id : ids)
         {
           errors.addError("importo_" + id,
-              "Il totale degli importi inseriti non può superare il valore: "
+              "Il totale degli importi inseriti non puï¿½ superare il valore: "
                   + NemboUtils.FORMAT.formatDecimal2(
                       importoMax.subtract(importoParzialePrec)));
         }
     }
 
-    // Se NEMBO_D_OGGETTO.TIPO_PAGAMENTO_SIGOP not in (‘ACCON’, ‘SALDO’) --
+    // Se NEMBO_D_OGGETTO.TIPO_PAGAMENTO_SIGOP not in (ï¿½ACCONï¿½, ï¿½SALDOï¿½) --
     // Errore
     String tipoPagamentoSigop = quadroEJB
         .getTipoPagamentoSigopOggetto(po.getIdProcedimentoOggetto());
@@ -163,7 +163,7 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
     {
       erroreConfigurazione = true;
       model.addAttribute("msgErrore",
-          "Si è verificato un errore della configurazione del quadro \"Riduzioni e sanzioni\", l'aggiornamento del contributo erogabile è previsto solo per le istruttorie delle domande di acconto e saldo. Non è possibile proseguire con l'operazione.");
+          "Si ï¿½ verificato un errore della configurazione del quadro \"Riduzioni e sanzioni\", l'aggiornamento del contributo erogabile ï¿½ previsto solo per le istruttorie delle domande di acconto e saldo. Non ï¿½ possibile proseguire con l'operazione.");
     }
 
     if (!errors.isEmpty() || erroreConfigurazione)
@@ -199,7 +199,7 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
 
     String idOp = request.getParameter("operazione_" + id);
     Long idOperazione = null;
-    if (idOp != null && idOp != "")
+    if (idOp != null && idOp.not.equals(""))
       idOperazione = Long.parseLong(idOp);
 
     String isSplittedStr = request.getParameter("isSplitted_" + id);
@@ -225,19 +225,19 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
     RiduzioniSanzioniDTO r = new RiduzioniSanzioniDTO();
     r.setIdProcOggSanzione(id);
     if (idTipologiaSanzioneInvestimento != null
-        && idTipologiaSanzioneInvestimento != "")
+        && idTipologiaSanzioneInvestimento.not.equals(""))
       r.setIdDescrizione(
           Long.parseLong(idTipologiaSanzioneInvestimento.split("-")[1]));
     r.setIdOperazione(idOperazione);
     if (idTipologiaSanzioneInvestimento != null
-        && idTipologiaSanzioneInvestimento != "")
+        && idTipologiaSanzioneInvestimento.not.equals(""))
       r.setIdTipologia(
           Long.parseLong(idTipologiaSanzioneInvestimento.split("-")[0]));
 
     BigDecimal importo = BigDecimal.ZERO;
     BigDecimal importoB = BigDecimal.ZERO;
 
-    // l'operazione è obbligatoria solo se l'idTipologia non è 3
+    // l'operazione ï¿½ obbligatoria solo se l'idTipologia non ï¿½ 3
     if (r.getIdTipologia() != null && r.getIdTipologia() != 3)
     {
       errors.validateMandatory(request.getParameter("operazione_" + id),
@@ -259,8 +259,8 @@ public class CUNEMBO214MModificaRiduzioniSanzioni extends BaseController
     BigDecimal importoTOTSplit = null;
     if (isSplitted)
       r.setIdTipologia(3l);
-    // se la tipologia è di tipo 3, l'idOperazione e l'importo non sono
-    // modificabili, dunque prendo i valori precedenti (se è UNSPLITTED)
+    // se la tipologia ï¿½ di tipo 3, l'idOperazione e l'importo non sono
+    // modificabili, dunque prendo i valori precedenti (se ï¿½ UNSPLITTED)
     if (r.getIdTipologia() != null && r.getIdTipologia() == 3)
     {
       List<RiduzioniSanzioniDTO> rid = quadroEJB

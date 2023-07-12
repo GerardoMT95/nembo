@@ -79,7 +79,7 @@ public class CUNEMBO214IInserisciRiduzioniSanzioni extends BaseController
 
     String idOp = request.getParameter("operazione");
     Long idOperazione = null;
-    if (idOp != "")
+    if (idOp.not.equals(""))
       idOperazione = Long.parseLong(idOp);
     errors.validateMandatory(request.getParameter("operazione"), "operazione");
     String idTipologiaSanzioneInvestimento = request
@@ -109,7 +109,7 @@ public class CUNEMBO214IInserisciRiduzioniSanzioni extends BaseController
     String note = request.getParameter("note");
     errors.validateFieldLength(request.getParameter("note"), "note", 0, 4000);
 
-    // Se NEMBO_D_OGGETTO.TIPO_PAGAMENTO_SIGOP not in (‘ACCON’, ‘SALDO’) --
+    // Se NEMBO_D_OGGETTO.TIPO_PAGAMENTO_SIGOP not in (ï¿½ACCONï¿½, ï¿½SALDOï¿½) --
     // Errore
     String tipoPagamentoSigop = quadroEJB.getTipoPagamentoSigopOggetto(
         procedimentoOggetto.getIdProcedimentoOggetto());
@@ -120,7 +120,7 @@ public class CUNEMBO214IInserisciRiduzioniSanzioni extends BaseController
     {
       erroreConfigurazione = true;
       model.addAttribute("msgErrore",
-          "Si è verificato un errore della configurazione del quadro \"Riduzioni e sanzioni\", l'aggiornamento del contributo erogabile è previsto solo per le istruttorie delle domande di acconto e saldo. Non è possibile proseguire con l'operazione.");
+          "Si ï¿½ verificato un errore della configurazione del quadro \"Riduzioni e sanzioni\", l'aggiornamento del contributo erogabile ï¿½ previsto solo per le istruttorie delle domande di acconto e saldo. Non ï¿½ possibile proseguire con l'operazione.");
     }
 
     if (!errors.addToModelIfNotEmpty(model) && !erroreConfigurazione)

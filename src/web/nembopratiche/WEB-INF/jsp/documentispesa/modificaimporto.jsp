@@ -286,7 +286,7 @@
 			//RICALCOLO IL TOTALE DELL'IMP DA RENDICONTARE PER INTERVENTO
 			var totImpRend = 0;
 			$("input[id^='importo_" + idIntervento + "_']").each(function(index) {
-				if (this.value !== undefined && this.value != null && this.value != "")
+				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					totImpRend += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
 			});
 			$("#totaleImpDaRendicontare_" + idIntervento).html("<strong>&euro;&nbsp;" + totImpRend.toLocaleString([ 'ban', 'id' ], {
@@ -296,7 +296,7 @@
 			//RICALCOLO IL TOTALE DEI TOTALI
 			var complImpRend = 0;
 			$("input[id^='importo_']").each(function(index) {
-				if (this.value !== undefined && this.value != null && this.value != "")
+				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					complImpRend += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
 			});
 			$("#complessivoDocSpesaRendInt").html("<strong>&euro;&nbsp;" + complImpRend.toLocaleString([ 'ban', 'id' ], {
@@ -319,7 +319,7 @@
 			//RICALCOLO IL TOTALE DELL'IMP DA ASSOCIARE PER DOC SPESA
 			var totImpRic = 0;
 			$("input[id^='importoRicevuta_" + idIntervento + "_" + idDocumento + "_']").each(function(index) {
-				if (this.value !== undefined && this.value != null && this.value != "")
+				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					totImpRic += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
 			});
 			
@@ -331,7 +331,7 @@
 			//RICALCOLO IL TOTALE DEI TOTALI PER INTERVENTO
 			var totTotImpRic = 0;
 			$("input[id^='importoRicevuta_"+idIntervento+"_']").each(function(index) {
-				if (this.value !== undefined && this.value != null && this.value != "")
+				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					totTotImpRic += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
 			});
 			$("#totaleImpDaAssociare_"+idIntervento).html("<strong>&euro;&nbsp;" + totTotImpRic.toLocaleString([ 'ban', 'id' ], {
@@ -341,7 +341,7 @@
 			//RICALCOLO IL TOTALE DEI TOTALI
 			var complexImpRic = 0;
 			$("input[id^='importoRicevuta_']").each(function(index) {
-				if (this.value !== undefined && this.value != null && this.value != "")
+				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					complexImpRic += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
 			});
 			$("#complessivoImpRicDaAssInt").html("<strong>&euro;&nbsp;	" + complexImpRic.toLocaleString([ 'ban', 'id' ], {

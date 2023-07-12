@@ -58,7 +58,7 @@
 			var idEsitoDefinitivo = $("#idEsitoDefinitivo").val();
 			var motivazioniNeeded = false;
 
-			if (idEsitoDefinitivo !== undefined && idEsitoDefinitivo != null && idEsitoDefinitivo != "")
+			if (idEsitoDefinitivo !== undefined && idEsitoDefinitivo != null && idEsitoDefinitivo.not.equals(""))
 				$.ajax({
 					type : "GET",
 					url : "checkIfMotivazioniObbligatorie_" + idEsitoDefinitivo + ".json",
@@ -70,7 +70,7 @@
 					}
 				});
 
-			if (idEsitoDefinitivo != null && idEsitoDefinitivo !== undefined && idEsitoDefinitivo != "") {
+			if (idEsitoDefinitivo != null && idEsitoDefinitivo !== undefined && idEsitoDefinitivo.not.equals("")) {
 				var addExclamationMark = false;
 				if($("label:contains('Motivazioni') .icon-exclamation-sign").length==1)
 					addExclamationMark= true;
