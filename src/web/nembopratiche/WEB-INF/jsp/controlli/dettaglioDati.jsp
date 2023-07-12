@@ -153,13 +153,13 @@
 							<td><c:choose>
 									<c:when
 										test="${d.idAnomalieControllo == null || d.idAnomalieControllo == 0}">
-										<img src="../img/ico_ok.gif">
+										<img src="../img/ico_ok.gif" alt="ok">
 									</c:when>
 									<c:when test="${d.gravita == 'B' || d.gravita == 'G'}">
-										<img src="../img/ico_cancel.gif">
+										<img src="../img/ico_cancel.gif" alt="cancel">
 									</c:when>
 									<c:when test="${d.gravita == 'W'}">
-										<img src="../img/ico_alert.gif">
+										<img src="../img/ico_alert.gif" alt="attenzione">
 									</c:when>
 								</c:choose></td>
 							<td><c:if
@@ -215,7 +215,7 @@
 				    label: 'Risolto',   
 				    type: 'selectNoSearch',
 				    values: [
-				             {id: 'S', label: 'Sì'},
+				             {id: 'S', label: 'Sï¿½'},
 				             {id: 'N', label: 'No'}
 				         ]
 				}

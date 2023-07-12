@@ -74,7 +74,7 @@
 
 	function anomaliaFormatter($value, row, index) {
 		if (row['anomalia'].indexOf("S") != -1)
-			return '<div style="text-align:center"><img src="../img/../img/ico_cancel.gif"></div>';
+			return '<div style="text-align:center"><img src="../img/../img/ico_cancel.gif" alt="cancel"></div>';
 		else
 			return "";
 	}
@@ -91,7 +91,7 @@
 				var unChecked = $("input[name='idPOCheck'][value='"+selectedVal+"']:not(:checked)").length;
 				if(unChecked>0)
 					{
-						showMessageBox("Attenzione", "Attenzione sono stati selezionati pagamenti parziali riferiti alla stessa pratica, non è possibile escludere parzialmente il pagamento di una pratica.", "modal-large")
+						showMessageBox("Attenzione", "Attenzione sono stati selezionati pagamenti parziali riferiti alla stessa pratica, non ï¿½ possibile escludere parzialmente il pagamento di una pratica.", "modal-large")
 						return;
 						}
 				}	

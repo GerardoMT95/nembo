@@ -57,7 +57,7 @@
 								<span class="icon icon-list" data-toggle="txt-tooltip" data-placement="top" title="<c:out value="${d.descrizioneEstesa}"  />"></span>
 							</c:if></td>
 
-						<td><img src="../img/ico_cancel.gif"></td>
+						<td><img src="../img/ico_cancel.gif" alt="cancella"></td>
 
 						<td><c:out value="${d.descrizioneAnomalia}" /> <c:if test="${d.ulterioriInformazioniAnomalia != null}">
 								<span class="icon icon-list" data-toggle="txt-tooltip" data-placement="top" title="${d.ulterioriInformazioniAnomalia}"></span>

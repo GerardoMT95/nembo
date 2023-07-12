@@ -46,13 +46,13 @@
 				<c:choose>
 					<c:when test="${serviziOK}">
 						<div class="alert alert-success">
-							<img src="../img/success_big.png" style="width: 32px; height: 32px" /> L'applicativo ${componentName} funziona normalmente, l'accesso al database è
+							<img src="../img/success_big.png" style="width: 32px; height: 32px" alt="success"/> L'applicativo ${componentName} funziona normalmente, l'accesso al database ï¿½
 							attivo. Non ci sono problemi nell'accesso ai servizi applicativi
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="alert alert-warning">
-							<img src="../img/warning_big.png" style="width: 32px; height: 32px" /> L'applicativo ${componentName} funziona normalmente, l'accesso al database è
+							<img src="../img/warning_big.png" style="width: 32px; height: 32px" alt="attenzione"/> L'applicativo ${componentName} funziona normalmente, l'accesso al database ï¿½
 							attivo. SONO STATI RILEVATI PROBLEMI NELL'ACCESSO AI SERVIZI APPLICATIVI
 						</div>
 					</c:otherwise>
@@ -62,13 +62,13 @@
 				<c:choose>
 					<c:when test="${serviziOK}">
 						<div class="alert alert-danger">
-							<img src="../img/fail_big.png" style="width: 32px; height: 32px" /> L'applicativo ${componentName} NON FUNZIONA CORRETTAMENTE E NON HA ACCESSO AL
+							<img src="../img/fail_big.png" style="width: 32px; height: 32px" alt="errore"/> L'applicativo ${componentName} NON FUNZIONA CORRETTAMENTE E NON HA ACCESSO AL
 							DATABASE. Non ci sono problemi nell'accesso ai servizi applicativi
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="alert alert-danger">
-							<img src="../img/fail_big.png" style="width: 32px; height: 32px" /> L'applicativo ${componentName} NON FUNZIONA CORRETTAMENTE E NON HA ACCESSO AL
+							<img src="../img/fail_big.png" style="width: 32px; height: 32px" alt="errore"/> L'applicativo ${componentName} NON FUNZIONA CORRETTAMENTE E NON HA ACCESSO AL
 							DATABASE. SONO STATI RILEVATI PROBLEMI NELL'ACCESSO AI SERVIZI APPLICATIVI
 						</div>
 					</c:otherwise>
@@ -78,7 +78,7 @@
 		<m:panel id="servizi" title="Verifica dei servizi esterni utilizzati">
 			<c:if test="${msgCoerenza!=null}">
 				<div class="alert alert-warning">
-					<img src="../img/warning_big.png" style="width: 32px; height: 32px" /> <c:out value="${msgCoerenza}" />
+					<img src="../img/warning_big.png" style="width: 32px; height: 32px" alt="attenzione"/> <c:out value="${msgCoerenza}" />
 				</div>
 			</c:if>
 			<table summary="Verifica dei servizi esterni utilizzati" class="table table-hover table-striped table-bordered tableBlueTh">
@@ -100,7 +100,7 @@
 							</strong></td>
 						</c:if>
 						<c:if test="${servizio[1]!=null}">
-							<td class="center"><img src="../img/${servizio[1]}" style="width: 32px; height: 32px" /></td>
+							<td class="center"><img src="../img/${servizio[1]}" style="width: 32px; height: 32px" alt="servizio"/></td>
 						</c:if>
 						<td>${servizio[2]}</td>
 					</tr>
@@ -120,7 +120,7 @@
 				<c:forEach items="${statoDB}" var="stato">
 					<tr>
 						<td>${stato[0]}</td>
-						<td class="center"><img src="../img/${stato[2]}" style="width: 32px; height: 32px" /></td>
+						<td class="center"><img src="../img/${stato[2]}" style="width: 32px; height: 32px" alt="stato"/></td>
 					</tr>
 				</c:forEach>
 			</table>
