@@ -50,7 +50,7 @@ public class CUNEMBO251ModificaOD extends BaseController
         || procedimento.getIdStatoOggetto() > (new Long("90")).longValue())
     {
       model.addAttribute("errore",
-          "La modifica non può essere effettuata in base allo stato del procedimento.");
+          "La modifica non puï¿½ essere effettuata in base allo stato del procedimento.");
       return "dialog/soloErrore";
     }
 
@@ -166,7 +166,7 @@ public class CUNEMBO251ModificaOD extends BaseController
     {
       if (!errors.validateFieldMaxLength(note, "note", 4000))
       {
-        return "Il campo \"Note\" può contenere al massimo 4000 caratteri.";
+        return "Il campo \"Note\" puï¿½ contenere al massimo 4000 caratteri.";
       }
     }
 
@@ -177,7 +177,7 @@ public class CUNEMBO251ModificaOD extends BaseController
         .get("idProcedimentiSelezionati");
 
     boolean isMassivo = true;
-    // se la modifica non è massiva la lista è vuota -> aggiunto il procedimento
+    // se la modifica non ï¿½ massiva la lista ï¿½ vuota -> aggiunto il procedimento
     // corrente alla lista
     if (idProcedimentiSelezionati == null
         || idProcedimentiSelezionati.isEmpty())
@@ -222,7 +222,7 @@ public class CUNEMBO251ModificaOD extends BaseController
                       .longValue()))
           {
             /*
-             * se anche il tecnico è uguale e non cambia, allora segnalo
+             * se anche il tecnico ï¿½ uguale e non cambia, allora segnalo
              * l'errore
              */
             if (allProcHaveSameTecnico)
@@ -309,7 +309,7 @@ public class CUNEMBO251ModificaOD extends BaseController
       vect.addElement(Long.parseLong(s));
     }
     /*
-     * if (ids == null || ids == "") return null; ids = ids.replaceAll("=", "");
+     * if (ids == null || ids.equals("")) return null; ids = ids.replaceAll("=", "");
      * String[] idProcSelezionati = ids.split("&");
      * 
      * Vector<Long> vect = new Vector<Long>(); for (String s :
@@ -331,7 +331,7 @@ public class CUNEMBO251ModificaOD extends BaseController
 
     boolean checkStatoOggetto = quadroEJB.checkStatiOggetti(vect);
     if (!checkStatoOggetto)
-      return "La modifica non può essere effettuata in base allo stato del procedimento.";
+      return "La modifica non puï¿½ essere effettuata in base allo stato del procedimento.";
 
     // tutti i procedimenti selezionati devono appartenere allo stesso bando
     boolean checkTipologiaBando = quadroEJB

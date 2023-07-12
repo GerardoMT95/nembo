@@ -863,7 +863,7 @@ public class RicercaProcedimentoController extends BaseController
     }
     values.put(NemboConstants.PAGINATION.IS_VALID, "true"); // Serve al
                                                                // javascript per
-                                                               // capire che è
+                                                               // capire che ï¿½
                                                                // non ci sono
                                                                // stati errori
                                                                // nella
@@ -1115,7 +1115,7 @@ public class RicercaProcedimentoController extends BaseController
     ricercaVO.setComuneSedeLegale(NemboUtils.FORMAT.trim(comuneSedeLegale));
 
     // Se viene valorizzato il CUAA nessuno degli altri filtri sui dati
-    // anagrafici può essere valorizzato e viceversa.
+    // anagrafici puï¿½ essere valorizzato e viceversa.
     if (!GenericValidator.isBlankOrNull(cuaa))
     {
       errors.validateCuaa(cuaa, "cuaaProcedimenti");
@@ -1126,7 +1126,7 @@ public class RicercaProcedimentoController extends BaseController
           || !GenericValidator.isBlankOrNull(comuneSedeLegale))
       {
         errors.addError("cuaaProcedimenti",
-            "Se viene valorizzato il CUAA nessuno degli altri filtri sui dati anagrafici può essere valorizzato e viceversa.");
+            "Se viene valorizzato il CUAA nessuno degli altri filtri sui dati anagrafici puï¿½ essere valorizzato e viceversa.");
         return;
       }
     }
@@ -1139,13 +1139,13 @@ public class RicercaProcedimentoController extends BaseController
         if (!GenericValidator.isBlankOrNull(cuaa))
         {
           errors.addError("cuaaProcedimenti",
-              "Se viene valorizzato il CUAA nessuno degli altri filtri sui dati anagrafici può essere valorizzato e viceversa.");
+              "Se viene valorizzato il CUAA nessuno degli altri filtri sui dati anagrafici puï¿½ essere valorizzato e viceversa.");
           return;
         }
       }
 
     // Se viene valorizzata la PIVA nessuno degli altri filtri sui dati
-    // anagrafici può essere valorizzato e viceversa.
+    // anagrafici puï¿½ essere valorizzato e viceversa.
     if (!GenericValidator.isBlankOrNull(piva))
     {
       if (!GenericValidator.isBlankOrNull(cuaa)
@@ -1154,7 +1154,7 @@ public class RicercaProcedimentoController extends BaseController
           || !GenericValidator.isBlankOrNull(comuneSedeLegale))
       {
         errors.addError("pivaProcedimenti",
-            "Se viene valorizzata la Partita Iva nessuno degli altri filtri sui dati anagrafici può essere valorizzato e viceversa.");
+            "Se viene valorizzata la Partita Iva nessuno degli altri filtri sui dati anagrafici puï¿½ essere valorizzato e viceversa.");
         return;
       }
     }
@@ -1167,7 +1167,7 @@ public class RicercaProcedimentoController extends BaseController
         if (!GenericValidator.isBlankOrNull(piva))
         {
           errors.addError("pivaProcedimenti",
-              "Se viene valorizzata la Partita Iva nessuno degli altri filtri sui dati anagrafici può essere valorizzato e viceversa.");
+              "Se viene valorizzata la Partita Iva nessuno degli altri filtri sui dati anagrafici puï¿½ essere valorizzato e viceversa.");
           return;
         }
       }
@@ -1191,7 +1191,7 @@ public class RicercaProcedimentoController extends BaseController
     if (lId == null || lId.size() <= 0)
     {
       model.addAttribute("msgErrore",
-          "Non è stato trovato nessun procedimento per i parametri impostati.");
+          "Non ï¿½ stato trovato nessun procedimento per i parametri impostati.");
       return index(model, session);
     }
     else
@@ -1393,12 +1393,12 @@ public class RicercaProcedimentoController extends BaseController
 
       for (GruppoOggettoDTO gruppoDTO : gruppiProcedimento)
       {
-        // se non ho stati vuol dire che il gruppo è a premio, quindi non
-        // comparirà nella select
+        // se non ho stati vuol dire che il gruppo ï¿½ a premio, quindi non
+        // comparirï¿½ nella select
         // quando verranno bonificate anche le misure a premio per la gestione
         // degli stati compariranno anche loro TOP
         if (gruppoDTO.getStati() != null && !gruppoDTO.getStati().isEmpty()
-            && gruppoDTO.getStati().size() > 1) // maggiore di 1 perché c'è il
+            && gruppoDTO.getStati().size() > 1) // maggiore di 1 perchï¿½ c'ï¿½ il
                                                 // "Non presente"
         {
           sbOptProcGruppi.append("<option value='"
@@ -1406,7 +1406,7 @@ public class RicercaProcedimentoController extends BaseController
               + gruppoDTO.getElencoDescrStatiSenzaNonPresente() + "</option>");
           for (EsitoOggettoDTO stato : gruppoDTO.getStati())
           {
-            if (stato.getIdEsito() != 0)// Non presente di default non cè
+            if (stato.getIdEsito() != 0)// Non presente di default non cï¿½
             {
               sbOptProcHiddenGruppi.append(
                   "<input type=\"hidden\" name=\"hGruppi\" data-oggetto=\""
@@ -1434,7 +1434,7 @@ public class RicercaProcedimentoController extends BaseController
 
               for (EsitoOggettoDTO esito : oggDTO.getEsitiOggetto())
               {
-                if (esito.getIdEsito() != 0)// Non presente di default non cè
+                if (esito.getIdEsito() != 0)// Non presente di default non cï¿½
                 {
                   sbOptProcHidden.append(
                       "<input type=\"hidden\" name=\"hOggetti\" data-oggetto=\""
@@ -1706,14 +1706,14 @@ public class RicercaProcedimentoController extends BaseController
       }
     }
 
-    // se la mapGruppi è vuota, deseleziono a priori tutti i gruppi
+    // se la mapGruppi ï¿½ vuota, deseleziono a priori tutti i gruppi
     if (gruppiProcedimento != null && procedimentiVO != null
         && procedimentiVO.getMapGruppi() == null)
     {
       for (GruppoOggettoDTO gruppo : gruppiProcedimento)
         gruppo.setSelected(false);
     }
-    // se la mapOggetti è vuota, deseleziono a priori tutti gli oggetti
+    // se la mapOggetti ï¿½ vuota, deseleziono a priori tutti gli oggetti
     if (gruppiProcedimento != null && procedimentiVO != null
         && procedimentiVO.getMapOggetti() == null)
     {
@@ -1723,14 +1723,14 @@ public class RicercaProcedimentoController extends BaseController
             o.setSelected(false);
     }
 
-    // devo guardare gli oggetti a parte, perché potrei aver selezionato oggetti
+    // devo guardare gli oggetti a parte, perchï¿½ potrei aver selezionato oggetti
     // ma senza aver selezionato il gruppo a cui appartengono
     if (gruppiProcedimento != null && procedimentiVO != null
         && procedimentiVO.getMapOggetti() != null)
     {
       for (GruppoOggettoDTO gruppo : gruppiProcedimento)
       {
-        if (!gruppo.isSelected()) // se il gruppo è selezionato, inutile
+        if (!gruppo.isSelected()) // se il gruppo ï¿½ selezionato, inutile
                                   // guardare gli oggetti, non possono essere
                                   // stati selezionati
           if (procedimentiVO != null && procedimentiVO.getMapOggetti() != null)
@@ -1797,7 +1797,7 @@ public class RicercaProcedimentoController extends BaseController
     HashMap<Long, Vector<Long>> mapOggetti = null; // mappa del tipo
                                                    // <idLegameGruppoOggetto,
                                                    // List<Descrizione esito>>
-    String[] hOggetti = request.getParameterValues("hOggetti"); // il value è
+    String[] hOggetti = request.getParameterValues("hOggetti"); // il value ï¿½
                                                                 // del tipo
 
     if (hOggetti != null)
@@ -1828,7 +1828,7 @@ public class RicercaProcedimentoController extends BaseController
     HashMap<Long, Vector<Long>> mapOggetti = null; // mappa del tipo
                                                    // <idGruppoOggetto,
                                                    // List<Descrizione esito>>
-    String[] hGruppi = request.getParameterValues("hGruppi"); // il value è del
+    String[] hGruppi = request.getParameterValues("hGruppi"); // il value ï¿½ del
                                                               // tipo
 
     if (hGruppi != null)
@@ -1856,7 +1856,7 @@ public class RicercaProcedimentoController extends BaseController
   {
 
     LinkedHashMap<Long, LivelloDTO> results = new LinkedHashMap<Long, LivelloDTO>();
-    if (ids == null || ids == "")
+    if (ids == null || ids.equals(""))
       return null;
     ids = ids.replaceAll("=", "");
     String[] idMisureSelezionate = ids.split("&");

@@ -160,7 +160,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
       }
       String funz = request.getParameter("funzionario_" + i);
       Long idFunzionario;
-      if (funz == null || funz == "")
+      if (funz == null || funz.equals(""))
         idFunzionario = null;
       else
         idFunzionario = Long.parseLong(funz);

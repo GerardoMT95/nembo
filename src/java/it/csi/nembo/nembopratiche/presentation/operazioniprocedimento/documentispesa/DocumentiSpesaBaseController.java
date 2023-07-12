@@ -251,7 +251,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
                 .compareTo(BigDecimal.ZERO) < 0)
             {
               errors.addError("importoLordo",
-                  "L'importo lordo deve essere superiore alla somma degli importi delle ricevute già inserite che è: "
+                  "L'importo lordo deve essere superiore alla somma degli importi delle ricevute giï¿½ inserite che ï¿½: "
                       + impRic);
             }
         }
@@ -383,7 +383,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
 
         if ("N".equals(tipoDocumentoSpesaVO.getFlagIdFornitore()))
         {
-          // Se non è prevista la gestione fornitore salvo subito i
+          // Se non ï¿½ prevista la gestione fornitore salvo subito i
           // dati
           return confermaInseriscifornitore(model, session, request, null);
         }
@@ -428,7 +428,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
       piva = piva.trim().toUpperCase();
     }
 
-    if (piva == null || piva == "")
+    if (piva == null || piva.equals(""))
     {
       list = new ArrayList<DecodificaDTO<Long>>();
 
@@ -482,7 +482,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
           model.addAttribute("cuaa", piva);
           list = new ArrayList<DecodificaDTO<Long>>();
           list.add(new DecodificaDTO<Long>(new Long(-1),
-              "Servizio di consultazione SIAN al momento non disponibile. Qualora non sia già presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, è possibile inserirli a mano mediante il pulsante \"inserisci\""));
+              "Servizio di consultazione SIAN al momento non disponibile. Qualora non sia giï¿½ presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, ï¿½ possibile inserirli a mano mediante il pulsante \"inserisci\""));
           list.addAll(quadroEJB.geElencoFornitori(piva));
           return list;
         }
@@ -505,7 +505,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
               tributariaVOArray[0].getAziendaTributariaVO().getDenominazione());
           if (fornitoreNostro != null)
           {
-            // Se è diverso lo storicizzo
+            // Se ï¿½ diverso lo storicizzo
             if (!replaceSpecialCharNvl(fornitoreNostro.getRagioneSociale())
                 .equals(replaceSpecialCharNvl(
                     fornitoreTributaria.getRagioneSociale()))
@@ -537,10 +537,10 @@ public abstract class DocumentiSpesaBaseController extends BaseController
           "[popupRicercaFornitori] Errore durante la ricerca del fornitore con codice: "
               + piva);
     }
-    // aggiungo sempre tutto lo storico che c'è sul nostro db
+    // aggiungo sempre tutto lo storico che c'ï¿½ sul nostro db
     list = new ArrayList<DecodificaDTO<Long>>();
     list.add(new DecodificaDTO<Long>(new Long(-1),
-        "Qualora non sia già presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, è possibile inserirli a mano mediante il pulsante \"inserisci\""));
+        "Qualora non sia giï¿½ presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, ï¿½ possibile inserirli a mano mediante il pulsante \"inserisci\""));
     list.addAll(
         (ArrayList<DecodificaDTO<Long>>) quadroEJB.geElencoFornitori(piva));
 
@@ -599,10 +599,10 @@ public abstract class DocumentiSpesaBaseController extends BaseController
 
       if (quadroEJB.findFornitore(fornitoreDTO))
       {
-        // Fornitore già presente!!
+        // Fornitore giï¿½ presente!!
         model.addAttribute("displayDatiFornitori", "none");
         model.addAttribute("msgErrore",
-            "Fornitore già esistente. Selezionarlo dal relativo elenco!");
+            "Fornitore giï¿½ esistente. Selezionarlo dal relativo elenco!");
         return "documentispesa/inseriscifornitore";
       }
 
@@ -675,14 +675,14 @@ public abstract class DocumentiSpesaBaseController extends BaseController
       if (idProcedimentoList.contains(idProcedimento))
       {
         model.addAttribute("msgErrore",
-            "Non è possibile caricare il medesimo documento di spesa per lo stesso procedimento!");
+            "Non ï¿½ possibile caricare il medesimo documento di spesa per lo stesso procedimento!");
         model.addAttribute("displayDatiFornitori", "none");
 
         return "documentispesa/inseriscifornitore";
       }
       else
       {
-        // Stiamo inserrendo lo stesso documento già presente su un
+        // Stiamo inserrendo lo stesso documento giï¿½ presente su un
         // altro documento, chiedo conferma
         common.put(COMMON_DATA_DOCUMENTO_SPESA_NEW_NAME,
             documentoSpesaVOSession);

@@ -183,13 +183,7 @@ public class DichiarazioniTag extends BaseTag
       String urlRegex = "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
           "(\\w+:\\w+@)?(([-\\w]+\\.)+(com|org|net|gov" +
           "|mil|biz|info|mobi|name|aero|jobs|museum" +
-          "|travel|[a-z]{2}))(:[\\d]{1,5})?" +
-          "(((\\/([-\\w~!$+|.,=]|%[a-f\\d]{2})+)+|\\/)+|\\?|#)?" +
-          "((\\?([-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
-          "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)" +
-          "(&(?:[-\\w~!$+|.,*:]|%[a-f\\d{2}])+=?" +
-          "([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)*)*" +
-          "(#([-\\w~!$+|.,*:=]|%[a-f\\d]{2})*)?\\b";
+          "|travel|[a-z]{2}))(:[\\d]{1,5})?";
 
       Pattern pattern = Pattern.compile(urlRegex, Pattern.CASE_INSENSITIVE);
       Matcher urlMatcher = pattern.matcher(testo);
