@@ -6,8 +6,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
 
 /**
- * Classe astratta per le funzioni di utilità sulle stringhe. La classe è
- * abstract perchè non deve essere usata direttamente ma solo dalla sua
+ * Classe astratta per le funzioni di utilitï¿½ sulle stringhe. La classe ï¿½
+ * abstract perchï¿½ non deve essere usata direttamente ma solo dalla sua
  * implementazione nella costante Utils.STRING
  * 
  * @author Stefano Einaudi (Matr. 70399)
@@ -68,8 +68,8 @@ public abstract class StringUtils
   public String safeHTMLText(String str)
   {
     return nvl(str).replace("<", "&lt;").replace(">", "&gt;")
-        .replace("\n", "<br/>").replace("ò", "&ograve").replace("à", "&agrave")
-        .replace("è", "&egrave").replace("ì", "&igrave");
+        .replace("\n", "<br/>").replace("ï¿½", "&ograve").replace("ï¿½", "&agrave")
+        .replace("ï¿½", "&egrave").replace("ï¿½", "&igrave");
   }
 
   public String compactText(String str)
@@ -169,26 +169,26 @@ public abstract class StringUtils
     }
     // System.out.println((int)motivazione.charAt(0)); per sapere il numero
     return text.replace("&#61656;", "-")
-        .replace(new Character((char) 149).charValue(), (char) 0xb7) // rimpiazzo
+        .replace((char) 149).charValue(), (char) 0xb7) // rimpiazzo
                                                                      // elenco
                                                                      // puntato
                                                                      // con
                                                                      // punto
-        .replace(new Character((char) 146).charValue(), (char) 0x27) // rimpiazzo
+        .replace((char) 146).charValue(), (char) 0x27) // rimpiazzo
                                                                      // apostrofo
                                                                      // con '
-        .replace(new Character((char) 147).charValue(), (char) 0x22) // rimpiazzo
+        .replace((char) 147).charValue(), (char) 0x22) // rimpiazzo
                                                                      // aperte
                                                                      // virgolette
                                                                      // con "
-        .replace(new Character((char) 148).charValue(), (char) 0x22) // rimpiazzo
+        .replace((char) 148).charValue(), (char) 0x22) // rimpiazzo
                                                                      // chiuse
                                                                      // virgolette
                                                                      // con ";
-        .replace(new Character((char) 128).charValue(), (char) 0x20AC); // rimpiazzo
+        .replace((char) 128).charValue(), (char) 0x20AC); // rimpiazzo
                                                                         // euro
                                                                         // con
-                                                                        // €";
+                                                                        // ï¿½";
   }
 
   public String normalizeString(String str, String delimiter)
