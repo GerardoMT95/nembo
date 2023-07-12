@@ -259,7 +259,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
                   lastIdBando = idBando;
                 }
 
-                if (lastIdLivello == null || lastIdLivello != idLivello)
+                if (lastIdLivello == null || lastIdLivello.not.equals(idLivello))
                 {
                   LivelloDTO livelloDTO = new LivelloDTO();
                   livelloDTO.setCodice(rs.getString("CODICE"));
@@ -1557,9 +1557,9 @@ public class NuovoProcedimentoDAO extends BaseDAO
       if (numUpdated > 0)
       {
         /*
-         * Ho registrato un record (numUpdate > 0 può voler dire solo ==1),
+         * Ho registrato un record (numUpdate > 0 puï¿½ voler dire solo ==1),
          * quindi vuol dire che almeno uno dei 2 campi EXT_ID_TECNICO,
-         * EXT_ID_UFFICIO_ZONA è variato, quindi devo chiudere il vecchio record
+         * EXT_ID_UFFICIO_ZONA ï¿½ variato, quindi devo chiudere il vecchio record
          * attivo
          */
         UPDATE = " UPDATE                                                                    \n"
