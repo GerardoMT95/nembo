@@ -15923,7 +15923,7 @@ public class QuadroDAO extends BaseDAO
                 riduzione.setIdDescrizione(rs.getLong("ID_DESCRIZIONE"));
                 riduzione.setIdTipologia(rs.getLong("ID_TIPOLOGIA"));
                 riduzione.setIdOperazione(rs.getLong("ID_OPERAZIONE"));
-                return riduzione;
+               
 
               }
 
