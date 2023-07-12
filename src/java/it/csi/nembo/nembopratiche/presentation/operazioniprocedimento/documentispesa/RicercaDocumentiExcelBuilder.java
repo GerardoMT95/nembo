@@ -349,48 +349,48 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     rowCount++;
 
     header = sheet.createRow(rowCount);
-    col = -1;
-    col++;
-    header.createCell(col).setCellValue("Progr.");
-    header.getCell(col).setCellStyle(style);
+    column = -1;
+    column++;
+    header.createCell(column).setCellValue("Progr.");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Importo lordo");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo lordo");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Importo netto");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo netto");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col)
+    column++;
+    header.createCell(column)
         .setCellValue("Importo associato per la rendicontazione");
-    header.getCell(col).setCellStyle(style);
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Importo rendicontato");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo rendicontato");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Estremi Pagamento");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Estremi Pagamento");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Data Pagamento");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Data Pagamento");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Modalita Pagamento");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Modalita Pagamento");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Importo Pagamento");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo Pagamento");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col)
+    column++;
+    header.createCell(column)
         .setCellValue("Importo Associato per la rendicontazione");
-    header.getCell(col).setCellStyle(style);
+    header.getCell(column).setCellStyle(style);
     rowCount++;
     // create header row
     int countCol = -1;
@@ -424,8 +424,8 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
                       // totali
           }
         }
-        nInt++; // incremento ad ogni intervento -> quando è uguale a nInterv ->
-                // è l'ultimo record dello stesso intervento, quindi poi faccio
+        nInt++; // incremento ad ogni intervento -> quando ï¿½ uguale a nInterv ->
+                // ï¿½ l'ultimo record dello stesso intervento, quindi poi faccio
                 // i totali
 
         String oldFornitore = "";
@@ -1330,8 +1330,8 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
                       // totali
           }
         }
-        nInt++; // incremento ad ogni intervento -> quando è uguale a nInterv ->
-                // è l'ultimo record dello stesso intervento, quindi poi faccio
+        nInt++; // incremento ad ogni intervento -> quando ï¿½ uguale a nInterv ->
+                // ï¿½ l'ultimo record dello stesso intervento, quindi poi faccio
                 // i totali
 
         String oldFornitore = "";
