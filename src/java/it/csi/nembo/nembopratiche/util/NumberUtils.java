@@ -15,12 +15,12 @@ public class NumberUtils
    */
   public double arrotonda(double numero, int precisione)
   {
-    return new java.math.BigDecimal(numero)
+    return BigDecimal.valueOf(numero)
         .setScale(precisione, java.math.BigDecimal.ROUND_HALF_UP).doubleValue();
   }
 
   /**
-   * Verifica se il valore è un numero
+   * Verifica se il valore ï¿½ un numero
    * 
    * @param value
    * @return boolean
@@ -95,8 +95,8 @@ public class NumberUtils
     if (totale == null)
       totale = new Double(0);
 
-    BigDecimal bdTotale = new BigDecimal(totale.doubleValue());
-    BigDecimal bdAddendo = new BigDecimal(addendo.doubleValue());
+    BigDecimal bdTotale = BigDecimal.valueOf(totale.doubleValue());
+    BigDecimal bdAddendo = BigDecimal.valueOf(addendo.doubleValue());
 
     bdTotale = bdTotale.add(bdAddendo).setScale(precisione,
         BigDecimal.ROUND_HALF_UP);

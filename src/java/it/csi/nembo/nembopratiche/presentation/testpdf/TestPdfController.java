@@ -227,7 +227,9 @@ public class TestPdfController
     try {
     FileInputStream is = new FileInputStream(file);
     byte[] b = new byte[(int) file.length()];
-    is.read(b);
+    while (is.read(b) > 0) {
+      console.log("Letto byte");
+    }
     } catch (Exception e) {
       console.log("exception");
     } finally {

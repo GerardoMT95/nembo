@@ -4110,7 +4110,7 @@ public class QuadroDAO extends BaseDAO
       mapParameterSource.addValue("ID_PROCEDIMENTO_OGGETTO",
           idProcedimentoOggetto, Types.NUMERIC);
       return queryForLong(QUERY, mapParameterSource) == 0; // Posso inserire se
-                                                           // non c'è già il
+                                                           // non c'ï¿½ giï¿½ il
                                                            // record presente
     }
     finally
@@ -4288,8 +4288,8 @@ public class QuadroDAO extends BaseDAO
                                                                             // inserire
                                                                             // se
                                                                             // non
-                                                                            // c'è
-                                                                            // già
+                                                                            // c'ï¿½
+                                                                            // giï¿½
                                                                             // il
                                                                             // record
                                                                             // presente
@@ -7324,7 +7324,7 @@ public class QuadroDAO extends BaseDAO
     }
     String UPDATE = "update NEMBO_T_PUNTEGGIO_CALCOLATO PC set PC.PUNTEGGIO_CALCOLATO \n";
 
-    // nel caso in cui il criterio corrente è stato de-checkato..modificabile o
+    // nel caso in cui il criterio corrente ï¿½ stato de-checkato..modificabile o
     // non, inserisco 0 come punteggio
     if (daAzzerare)
     {
@@ -7332,7 +7332,7 @@ public class QuadroDAO extends BaseDAO
     }
     else
     {
-      // nel caso in cui il criterio checkato è NON modificabile (cioè per il
+      // nel caso in cui il criterio checkato ï¿½ NON modificabile (cioï¿½ per il
       // quale punteggio_min == punteggio_max) prendo il punteggio da D_CRITERIO
       if (punteggioInput == null)
       {
@@ -7342,7 +7342,7 @@ public class QuadroDAO extends BaseDAO
       }
       else
       {
-        // nel caso in cui in cui il criterio checkato è MODIFICABILE (min !=
+        // nel caso in cui in cui il criterio checkato ï¿½ MODIFICABILE (min !=
         // max) prendo il punteggio dato in input dall'utente
         UPDATE += " =:PUNTEGGIO_INPUT \n";
       }
@@ -10631,7 +10631,7 @@ public class QuadroDAO extends BaseDAO
       mapParameterSource.addValue("EXTENSION", extension.trim().toLowerCase(),
           Types.VARCHAR);
       return queryForLong(QUERY, mapParameterSource) != 0; // Posso inserire se
-                                                           // non c'è già il
+                                                           // non c'ï¿½ giï¿½ il
                                                            // record presente
     }
     finally
@@ -10692,7 +10692,7 @@ public class QuadroDAO extends BaseDAO
         mapParameterSource.addValue("ATTORE", attore, Types.VARCHAR);
       }
       return queryForLong(QUERY, mapParameterSource) != 0; // Posso inserire se
-                                                           // non c'è già il
+                                                           // non c'ï¿½ giï¿½ il
                                                            // record presente
     }
     finally
@@ -11616,8 +11616,7 @@ public class QuadroDAO extends BaseDAO
                     .setImportoRecupero(rs.getBigDecimal("IMPORTO_REC"));
                 importoLiquidatoDTO
                     .setImportoPagato(rs.getBigDecimal("IMPORTO"));
-                return importoLiquidatoDTO;
-
+                
               }
               return importoLiquidatoDTO;
 
@@ -12772,8 +12771,8 @@ public class QuadroDAO extends BaseDAO
                 {
                   if (lastSeparator == null)
                   {
-                    // Separatore non forntito ==> C'è qualche cosa che non va,
-                    // sto ricevendo più di un valore e non mi viene fornito un
+                    // Separatore non forntito ==> C'ï¿½ qualche cosa che non va,
+                    // sto ricevendo piï¿½ di un valore e non mi viene fornito un
                     // separatore per
                     // concatenare il tutto ==> E' probabile che la query sia
                     // stata pensata per tornare un solo valore ma che ci sia
@@ -12782,7 +12781,7 @@ public class QuadroDAO extends BaseDAO
                     // il problema
                     return new String[]
                     { null,
-                        "Si è verificato un errore nel reperimento dei segnaposto della stampa. Contattare l'assistenza tecnica comunicando la tipologia di stampa richiesta e il seguente errore: Trovati più valori per il segnaposto a singolo valore con nome =\""
+                        "Si ï¿½ verificato un errore nel reperimento dei segnaposto della stampa. Contattare l'assistenza tecnica comunicando la tipologia di stampa richiesta e il seguente errore: Trovati piï¿½ valori per il segnaposto a singolo valore con nome =\""
                             + segnapostoDTO.getNome() + "\"" };
                   }
                   resultBuffer.append(lastSeparator);
@@ -16949,7 +16948,7 @@ public class QuadroDAO extends BaseDAO
           idProcedimentoOggetto, Types.NUMERIC);
       mapParameterSource.addValue("ID_LIVELLO", idLivello, Types.NUMERIC);
       return queryForLong(QUERY, mapParameterSource) == 0; // Posso inserire se
-                                                           // non c'è già il
+                                                           // non c'ï¿½ giï¿½ il
                                                            // record presente
     }
     finally
@@ -18871,7 +18870,7 @@ public class QuadroDAO extends BaseDAO
     {
       MapSqlParameterSource mapParameterSource = new MapSqlParameterSource();
       return queryForLong(QUERY, mapParameterSource) == 1; // Posso inserire se
-                                                           // non c'è già il
+                                                           // non c'ï¿½ giï¿½ il
                                                            // record presente
     }
     finally
@@ -18902,7 +18901,7 @@ public class QuadroDAO extends BaseDAO
     {
       MapSqlParameterSource mapParameterSource = new MapSqlParameterSource();
       return queryForLong(QUERY, mapParameterSource) == 0; // Posso inserire se
-                                                           // non c'è già il
+                                                           // non c'ï¿½ giï¿½ il
                                                            // record presente
     }
     finally

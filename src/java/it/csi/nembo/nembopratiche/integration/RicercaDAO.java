@@ -457,7 +457,7 @@ public class RicercaDAO extends BaseDAO
                                                                                                     // se
                                                                                                     // il
                                                                                                     // bando
-                                                                                                    // è
+                                                                                                    // ï¿½
                                                                                                     // scaduto
         + "   AND GO.ID_GRUPPO_OGGETTO = D.ID_GRUPPO_OGGETTO              	\n"
         + "   AND C.ID_LEGAME_GRUPPO_OGGETTO = D.ID_LEGAME_GRUPPO_OGGETTO 	\n"
@@ -1088,7 +1088,7 @@ public class RicercaDAO extends BaseDAO
        * abbiamo messo temporaneamente un parametro con l'elenco degli ID_BANDO
        * da escludere dalla ricerca (separati da virgola in modo che possa
        * essere "schiantato" in una NOT IN). Nel caso quindi che l'utente sia un
-       * gal aggiungiamo una NOT IN con gli id_bando a cui non può accedere
+       * gal aggiungiamo una NOT IN con gli id_bando a cui non puï¿½ accedere
        */
       if (utenteAbilitazioni.isUtenteGAL())
       {
@@ -1226,8 +1226,8 @@ public class RicercaDAO extends BaseDAO
                 long idPOld = rs.getLong("ID_PROCEDIMENTO");
 
                 /*
-                 * controllo se ho già inserito in lista questo id non mi serve
-                 * sapere quanti sono, solo se sono uno o più di uno quindi
+                 * controllo se ho giï¿½ inserito in lista questo id non mi serve
+                 * sapere quanti sono, solo se sono uno o piï¿½ di uno quindi
                  * appena trovo il secondo lo inserisco ed esco
                  */
                 if (!list.contains(idPOld))
@@ -2381,7 +2381,7 @@ public class RicercaDAO extends BaseDAO
        * abbiamo messo temporaneamente un parametro con l'elenco degli ID_BANDO
        * da escludere dalla ricerca (separati da virgola in modo che possa
        * essere "schiantato" in una NOT IN). Nel caso quindi che l'utente sia un
-       * gal aggiungiamo una NOT IN con gli id_bando a cui non può accedere
+       * gal aggiungiamo una NOT IN con gli id_bando a cui non puï¿½ accedere
        */
       if (utenteAbilitazioni.isUtenteGAL())
       {
@@ -2517,11 +2517,11 @@ public class RicercaDAO extends BaseDAO
 
               while (rs.next())
               {
-                // Devo controllare idProcedimento perchè la query mi
-                // restituisce più record se l'azienda ha più
+                // Devo controllare idProcedimento perchï¿½ la query mi
+                // restituisce piï¿½ record se l'azienda ha piï¿½
                 // procediemnto_oggetti
                 // Sono sicuro che prendo l'ultimo id_procedimento_oggetto
-                // perchè è una condizione di orderBY
+                // perchï¿½ ï¿½ una condizione di orderBY
                 idProcedimento = rs.getLong("ID_PROCEDIMENTO");
                 if (idProcedimentoLast != idProcedimento)
                 {
@@ -3537,8 +3537,8 @@ public class RicercaDAO extends BaseDAO
                 n.setDescrizione(rs.getString("DESCRIZIONE"));
                 n.setIdUtente(rs.getLong("UTENTE"));
                 n.setIdGravitaNotifica(rs.getLong("ID_GRAVITA_NOTIFICA"));
-                return n;
-              }
+                
+            }
               return n;
 
             }
@@ -4350,11 +4350,11 @@ public class RicercaDAO extends BaseDAO
 
               while (rs.next())
               {
-                // Devo controllare idProcedimento perchè la query mi
-                // restituisce più record se l'azienda ha più
+                // Devo controllare idProcedimento perchï¿½ la query mi
+                // restituisce piï¿½ record se l'azienda ha piï¿½
                 // procediemnto_oggetti
                 // Sono sicuro che prendo l'ultimo id_procedimento_oggetto
-                // perchè è una condizione di orderBY
+                // perchï¿½ ï¿½ una condizione di orderBY
                 if (idsP != null || idsPExP != null)
                   idProcedimento = rs.getLong("ID_PROCEDIMENTO");
 
