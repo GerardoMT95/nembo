@@ -88,7 +88,7 @@
 
 		<button type="button" data-dismiss="modal" class="btn btn-default">annulla</button>
 		<button type="submit" name="conferma" id="conferma" class="btn btn-primary pull-right">conferma</button>
-		<iframe id="iframeUpload" style="position: absolute; left: -1000px; clip: rect(0px, 0px, 0px, 0px)" name="hiddenIFrame"></iframe>
+		<iframe title= "hiddenIFrame" id="iframeUpload" style="position: absolute; left: -1000px; clip: rect(0px, 0px, 0px, 0px)" name="hiddenIFrame"></iframe>
 
 	</div>
 	<script type="text/javascript">
@@ -114,7 +114,7 @@
 		});
 
 		function updateModalWindow() {
-			if (navigator.vendor.search("Google") < 0 && navigator.vendor.search("Apple") < 0) //controllo da fare perché altrimenti non funziona su chrome, opera e safari al primo click, ma solo al secondo e carica due volte il file
+			if (navigator.vendor.search("Google") < 0 && navigator.vendor.search("Apple") < 0) //controllo da fare perchï¿½ altrimenti non funziona su chrome, opera e safari al primo click, ma solo al secondo e carica due volte il file
 			{
 				if (first) {
 					first = false;

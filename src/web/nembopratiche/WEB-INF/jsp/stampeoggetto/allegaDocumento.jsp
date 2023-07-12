@@ -13,7 +13,7 @@
 			<button type="submit" name="conferma" id="conferma" class="btn btn-primary pull-right">conferma</button>
 		</div>
 	</div>
-	<iframe id="iframeUpload" style="position: absolute; left: -1000px; clip: rect(0px, 0px, 0px, 0px)" name="hiddenIFrame"></iframe>
+	<iframe title= "hiddenIFrame" id="iframeUpload" style="position: absolute; left: -1000px; clip: rect(0px, 0px, 0px, 0px)" name="hiddenIFrame"></iframe>
 	<script type="text/javascript">
 function updateModalWindow() {
 		debugger;
