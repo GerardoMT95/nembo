@@ -154,7 +154,7 @@ public class TestPdfController
     }
     else
     {
-      // Sono differenti ==> questo è un caso da segnalare
+      // Sono differenti ==> questo ï¿½ un caso da segnalare
       writePdfErrato(pdfGenerato, tipo, idProcedimentoOggetto, dateBegin);
       return false;
     }
@@ -187,7 +187,7 @@ public class TestPdfController
     {
       return esito.getContenutoFile();
     }
-    // Se arrivo qua c'è stato un errore!
+    // Se arrivo qua c'ï¿½ stato un errore!
     throw new ApplicationException(
         "Impossibile trovare il pdf su DOQUIAGRI per l'idProcedimento #"
             + idProcedimentoOggetto + " e il Caso d'uso ["
@@ -209,19 +209,30 @@ public class TestPdfController
   private void writeFile(byte[] pdfGenerato, String fileName)
       throws IOException
   {
+    try {
     FileOutputStream fos = new FileOutputStream(
         fileName);
     fos.write(pdfGenerato);
+    } catch (Exception e) {
+     console.log("exception");
+  } finally {
+    stream.close();  // Multiple streams were opened. Only the last is closed.
+  }
     fos.close();
   }
 
   private byte[] readFile(String fileName) throws IOException
   {
     File file = new File(fileName);
+    try {
     FileInputStream is = new FileInputStream(file);
     byte[] b = new byte[(int) file.length()];
     is.read(b);
+    } catch (Exception e) {
+      console.log("exception");
+    } finally {
     is.close();
+    }
     return b;
   }
 
