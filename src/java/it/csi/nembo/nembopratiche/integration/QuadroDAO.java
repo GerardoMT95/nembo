@@ -12364,7 +12364,7 @@ public class QuadroDAO extends BaseDAO
         + " WHERE 																\n"
         + "		 EC.ID_ESTRAZIONE_CAMPIONE = PE.ID_ESTRAZIONE_CAMPIONE			\n"
         + "		 AND PE.FLAG_ESTRATTA <> 'N'           			    			\n";
-    if (flag == "D")
+    if (flag.equals("D"))
     {
       QUERY += "		 AND PE.FLAG_ESTRATTA <> 'D'               		\n";
     }
@@ -12377,7 +12377,7 @@ public class QuadroDAO extends BaseDAO
         + " WHERE 															\n"
         + "		 EC.ID_ESTRAZIONE_CAMPIONE = PE.ID_ESTRAZIONE_CAMPIONE		\n"
         + "		 AND PE.FLAG_ESTRATTA <> 'N'           			    		\n";
-    if (flag == "D")
+    if (flag.equals("D"))
     {
       QUERY += "		 AND PE.FLAG_ESTRATTA <> 'D'               	\n";
     }
