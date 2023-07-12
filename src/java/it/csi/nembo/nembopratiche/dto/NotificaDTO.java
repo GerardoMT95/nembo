@@ -125,7 +125,7 @@ public class NotificaDTO implements ILoggable
 
   public String getGravitaStr()
   {
-    if (gravita == "W")
+    if (gravita.equals("W"))
       return "Warning";
     else
       return "Blocking";

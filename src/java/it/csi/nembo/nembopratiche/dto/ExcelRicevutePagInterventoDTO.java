@@ -19,7 +19,7 @@ public class ExcelRicevutePagInterventoDTO implements ILoggable
   public String getDescrInterventoUF()
   {
 
-    if (ulterioriInformazioni != null && ulterioriInformazioni.not.equals(""))
+    if (ulterioriInformazioni != null && !ulterioriInformazioni.equals(""))
       return descrIntervento + " - " + ulterioriInformazioni;
     else
       return descrIntervento;

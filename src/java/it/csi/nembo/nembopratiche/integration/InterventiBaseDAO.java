@@ -7120,7 +7120,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
 		                    list.add(rs.getString("FLAG_CANALE"));
 		                    list.add(rs.getString("FLAG_OPERA_PRESA"));
 		                    list.add(rs.getString("FLAG_CONDOTTA"));
-		                    break;
+		                   
 		                  }
 		                  return list;
 		                }
@@ -7228,7 +7228,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
 		                    list.add(rs.getString("FLAG_CANALE"));
 		                    list.add(rs.getString("FLAG_OPERA_PRESA"));
 		                    list.add(rs.getString("FLAG_CONDOTTA"));
-		                    break;
+		                    
 		                  }
 		                  return list;
 		                }
