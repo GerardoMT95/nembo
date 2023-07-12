@@ -4922,7 +4922,7 @@ public class RicercaDAO extends BaseDAO
               while (rs.next())
               {
                 Long idLivello = rs.getLong("ID_LIVELLO");
-                if (idLivello != idLivelloLast)
+                if (idLivello.not.equals(idLivelloLast))
                 {
                   v = new LivelloDTO();
                   v.setIdLivello(rs.getLong("ID_LIVELLO"));
