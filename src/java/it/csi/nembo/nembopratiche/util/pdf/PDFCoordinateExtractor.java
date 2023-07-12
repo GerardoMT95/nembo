@@ -104,7 +104,7 @@ public class PDFCoordinateExtractor
   public void addMetadatiProtocollo(List<SiapCommWsMetadatoVO> metadati,
       byte[] pdf, String testoProtocollo) throws IOException
   {
-    if (testoProtocollo == null && testoProtocollo == null)
+    if (testoProtocollo == null )
     {
       return;
     }
@@ -246,7 +246,7 @@ public class PDFCoordinateExtractor
           {
             /*
              * Trovato elemento data ==> prendo l'ultimo rettangolo definito (se
-             * il pdf è strutturato correttamente su Modol quello è il box della
+             * il pdf ï¿½ strutturato correttamente su Modol quello ï¿½ il box della
              * firma
              */
             if (lastBox != null)
@@ -256,7 +256,7 @@ public class PDFCoordinateExtractor
             else
             {
               /*
-               * C'è qualcosa di fortemente sbagliato... la struttura del pdf è
+               * C'ï¿½ qualcosa di fortemente sbagliato... la struttura del pdf ï¿½
                * non coerente con quanto previsto... non trovo il quadro Data!
                * ERRORE GRAVE!
                */
@@ -290,7 +290,7 @@ public class PDFCoordinateExtractor
           {
             /*
              * Trovato elemento data ==> prendo l'ultimo rettangolo definito (se
-             * il pdf è strutturato correttamente su Modol quello è il box della
+             * il pdf ï¿½ strutturato correttamente su Modol quello ï¿½ il box della
              * firma
              */
             if (lastBox != null)
@@ -300,7 +300,7 @@ public class PDFCoordinateExtractor
             else
             {
               /*
-               * C'è qualcosa di fortemente sbagliato... la struttura del pdf è
+               * C'ï¿½ qualcosa di fortemente sbagliato... la struttura del pdf ï¿½
                * non coerente con quanto previsto... non trovo il quadro Data!
                * ERRORE GRAVE!
                */
@@ -314,7 +314,7 @@ public class PDFCoordinateExtractor
           {
             /*
              * Trovato elemento data ==> prendo l'ultimo rettangolo definito (se
-             * il pdf è strutturato correttamente su Modol quello è il box della
+             * il pdf ï¿½ strutturato correttamente su Modol quello ï¿½ il box della
              * firma
              */
             if (lastBox != null)
@@ -324,7 +324,7 @@ public class PDFCoordinateExtractor
             else
             {
               /*
-               * C'è qualcosa di fortemente sbagliato... la struttura del pdf è
+               * C'ï¿½ qualcosa di fortemente sbagliato... la struttura del pdf ï¿½
                * non coerente con quanto previsto... non trovo il quadro firma!
                * ERRORE GRAVE!
                */
@@ -337,7 +337,7 @@ public class PDFCoordinateExtractor
         if (element.getType() == ValuableElementType.RECTANGLE)
         {
           // Al momento non ci sono altri tipi di IValuableElements, quindi se
-          // non è un testo è un rettangolo... Se si aggiungessero nuovi tipi si
+          // non ï¿½ un testo ï¿½ un rettangolo... Se si aggiungessero nuovi tipi si
           // prega di
           // modificare di conseguenza il codice!
           lastBox = (PDFRectangle) element;
