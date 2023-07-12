@@ -69,7 +69,7 @@
 				<c:set var ="tableName"  value ="tableElencoAllevamenti"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="${tableName}"
+				<table id="${tableName}" summary="lista allevamenti"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 					data-toggle="table"
 					data-url="get_list_allevamenti.json"
@@ -102,7 +102,7 @@
 							<th data-field="ubicazioneAllevamento" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'ubicazioneAllevamento')}">Ubicazione allevamento</th>
 							<th data-field="descrizioneSpecieAnimale" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'descrizioneSpecieAnimale')}">Specie</th>
 							<th data-field="descrizioneCategoriaAnimale" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'descrizioneCategoriaAnimale')}">Categoria</th>
-							<th data-field="quantita" data-formatter="numberFormatter2" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'quantita')}" data-totale="true" data-adder="dataAdderForNumberFormatter" data-totale="true">Quantità</th>
+							<th data-field="quantita" data-formatter="numberFormatter2" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'quantita')}" data-totale="true" data-adder="dataAdderForNumberFormatter" data-totale="true">Quantitï¿½</th>
 							<th data-field="coefficienteUba" data-formatter="numberFormatter4" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'coefficienteUba')}" data-totale="true" data-adder="dataAdderForNumberFormatter">U.B.A.</th>
 							<th data-field="unitaForaggere" data-formatter="numberFormatter2" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'consumoAnnuoUf')}" data-totale="true" data-adder="dataAdderForNumberFormatter">U.F.</th>
 							<th data-field="giornateLavorative" data-formatter="numberFormatter2" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'giornateLavorativeMedie')}" data-totale="true" data-adder="dataAdderForNumberFormatter">Giornate lavorative</th>

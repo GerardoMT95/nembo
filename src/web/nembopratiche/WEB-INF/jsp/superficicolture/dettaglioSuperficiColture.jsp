@@ -29,7 +29,7 @@
 		<form name="formVisualizzaSuperficiColture" id="formVisualizzaSuperficiColture" action="" method="POST">
 				
 				<h4>Dettaglio Superfici e Colture</h4>
-				<table id="tableSuperificiColtureDettaglio"
+				<table summary="tabella superfici colture" id="tableSuperificiColtureDettaglio"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -60,7 +60,7 @@
 				
 				<br/>
 				<h4>Dettaglio PSR</h4>
-				<table id="tableSuperificiColtureDettaglioPSR"
+				<table summary="superfici colture" id="tableSuperificiColtureDettaglioPSR"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>

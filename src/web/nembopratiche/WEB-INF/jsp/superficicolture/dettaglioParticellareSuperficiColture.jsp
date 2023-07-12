@@ -28,7 +28,7 @@
 		<form name="formVisualizzaSuperficiColture" id="formVisualizzaSuperficiColture" action="" method="POST">
 				
 				<h4>Identificativo elemento</h4>
-				<table id="tableSuperificiColtureDettaglio"
+				<table summary="superfici colture" id="tableSuperificiColtureDettaglio"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -51,7 +51,7 @@
 				<c:set var ="tableName"  value ="tableDettaglioParticellareSuperificiColture"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="${tableName}"
+				<table summary="dettaglio superfici colture" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 					data-toggle="table"
 					data-url="get_list_dettaglio_particellare_superfici_colture_${idSuperficieColtura}.json"

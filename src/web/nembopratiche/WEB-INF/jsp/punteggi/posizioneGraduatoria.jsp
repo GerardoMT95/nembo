@@ -46,7 +46,7 @@
 					<h3>Posizione in graduatoria</h3>
 					<c:choose>
 					<c:when test="${elencoGraduatorie!=null}">
-					<table id="posizioni"
+					<table id="posizioni" summary="graduatoria" 
 						class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 						data-toggle="table" data-url="getElencoGraduatorie.json"
 						data-undefined-text=''

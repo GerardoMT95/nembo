@@ -37,7 +37,7 @@
 			</c:if>
 			<c:if test="${!empty prospetto}">
 
-				<table id="tblProspettoEconomico" class="table table-bordered table-hover tableBlueTh">
+				<table summary="prospetto economico" id="tblProspettoEconomico" class="table table-bordered table-hover tableBlueTh">
 					<thead>
 						<tr>
 							<th>Contributo concesso</th>

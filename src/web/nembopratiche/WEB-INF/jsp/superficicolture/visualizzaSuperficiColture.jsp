@@ -66,7 +66,7 @@
 		<form name="formVisualizzaSuperficiColture" id="formVisualizzaSuperficiColture" action="" method="POST">
 				
 				<h4>Riepilogo Superfici e Colture</h4>
-				<table id="tableElencoSuperificiColtureRiepilogo"
+				<table summary="riepilogo superfici colture" id="tableElencoSuperificiColtureRiepilogo"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -94,7 +94,7 @@
 				<c:set var ="tableName"  value ="tableElencoSuperificiColture"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="${tableName}"
+				<table summary="dettaglio superfici colture" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 					data-toggle="table"
 					data-url="get_elenco_superfici_colture_dettaglio.json"

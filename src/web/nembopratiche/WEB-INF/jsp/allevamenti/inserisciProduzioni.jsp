@@ -34,7 +34,7 @@
 		<br/>
 				<h4>Dettaglio Allevamento</h4>
 		<form id="frmInserisciProduzioni" method="POST" action="../cunembo300i/inserisci_conferma_${idCategoriaAnimale}_${istatComune}.do">
-				<table id="tblDettaglioAllevamento"
+				<table id="tblDettaglioAllevamento" summary="tblDettaglioAllevamento"
 					class=" table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead></thead>
@@ -85,7 +85,7 @@
 		
 		<h4>Produzioni</h4>
 		
-			<table id="tblProduzioniAllevamento" 
+			<table id="tblProduzioniAllevamento"  summary="tblProduzioniAllevamento"
 				class="table table-hover table-striped table-bordered tableBlueTh">
 			<thead>
 				<tr>

@@ -3,7 +3,7 @@
 <div class="col-md-12">
 	<m:error />
 	<m:panel id="panelLettura" title="Dati messaggio" collapsible="false">
-		<table id="messaggio" class="table table-hover table-bordered tableBlueTh" style="margin-bottom: 0px">
+		<table summary="messaggio" id="messaggio" class="table table-hover table-bordered tableBlueTh" style="margin-bottom: 0px">
 			<thead>
 			</thead>
 			<tbody>
@@ -28,7 +28,7 @@
 	</m:panel>
 	<c:if test="${messaggio.allegati!=null && messaggio.allegati.size()>0}">
 		<m:panel id="panelAllegati" title="Allegati" collapsible="false">
-			<table id="allegati" class="table table-hover table-bordered tableBlueTh" style="margin-bottom: 0px">
+			<table summary="allegati" id="allegati" class="table table-hover table-bordered tableBlueTh" style="margin-bottom: 0px">
 				<tbody>
 					<c:forEach items="${messaggio.allegati}" var="a">
 						<tr>

@@ -37,14 +37,14 @@
 		<c:choose>
 		<c:when test="${nColtureDanneggiate == 0}">
 			<div class="alert alert-danger">
-				Non è stato indicato alcun danno sulle colture, operazione non effettuabile.
+				Non ï¿½ stato indicato alcun danno sulle colture, operazione non effettuabile.
 			</div>
 		</c:when>
 		<c:otherwise>
 		<div>
 		<div>
 			<h4>Quadro Riepilogativo</h4>
-			<table id="tableRiepilogoColtureAziendali"
+			<table summary="riepilogo colture aziendali" id="tableRiepilogoColtureAziendali"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -99,7 +99,7 @@
 				<c:set var ="tableName"  value ="tableRiepilogoDanniColture"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="tableRiepilogoDanniColture"
+				<table summary="riepilogo danni colture" id="tableRiepilogoDanniColture"
 					class="table-bootstrap table table-hover table-striped table-bordered tableBlueTh"
 					data-toggle="table"
 					data-url = "get_list_danni_colture.json"

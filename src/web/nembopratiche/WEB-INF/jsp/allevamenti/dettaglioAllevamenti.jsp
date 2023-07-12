@@ -26,7 +26,7 @@
 		<m:panel id="panelInserisciProduzioni">
 		<br/>
 				<h4>Dettaglio Allevamento</h4>
-				<table id="tblDettaglioAllevamento"
+				<table summary="tblDettaglioAllevamento" id="tblDettaglioAllevamento"
 					class=" table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead></thead>
@@ -82,7 +82,7 @@
 		<c:set var ="tableName"  value ="tableDettaglioAllevamentiPlv"/>
 		<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 		<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-		<table id="${tableName}" 
+		<table id="${tableName}" summary="tblDettaglioAllevamento"
 			class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 			data-toggle="table"
 			data-url="../cunembo300d/get_list_dettaglio_allevamenti_${idCategoriaAnimale}_${istatComune}.json"
@@ -107,8 +107,8 @@
 			<thead>
 				<tr>
 					<th data-field="descProduzione" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'descProduzione')}">Tipo produzione</th>
-					<th data-field="numeroCapi" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'numeroCapi')}">N° capi</th>
-					<th data-field="quantitaProdottaFormatted" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'quantitaProdottaFormatted')}" data-formatter="numberFormatter2" data-adder="importoAdder" data-totale="true">Quantita prodotta annua per unità</th>
+					<th data-field="numeroCapi" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'numeroCapi')}">Nï¿½ capi</th>
+					<th data-field="quantitaProdottaFormatted" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'quantitaProdottaFormatted')}" data-formatter="numberFormatter2" data-adder="importoAdder" data-totale="true">Quantita prodotta annua per unitï¿½</th>
 					<th data-field="prodLordaFormatted" data-sortable="true"  data-visible="${!colonneNascoste.visible(tableName,'prodLordaFormatted')}">Prod. lorda</th>
 					<th data-field="quantitaReimpiegataFormatted" data-sortable="true" data-visible="${!colonneNascoste.visible(tableName,'prodLordaFormatted')}">Reimpieghi</th>
 					<th data-field="prodNettaFormatted" data-sortable="true"  data-visible="${!colonneNascoste.visible(tableName,'prodNettaFormatted')}">Prod. netta</th>

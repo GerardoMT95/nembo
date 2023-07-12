@@ -33,7 +33,7 @@
 		<div align="center" id="pleaseWait"><span class="please_wait" style="vertical-align: middle"></span>Attendere prego, preparazione del report in corso...</div>
 		
 		<div id="dettEstrazioneCnt" style="display:none;overflow-x:auto ">
-			<table id="dettEstrazioneTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh" 
+			<table summary="dettaglio estrazioni" id="dettEstrazioneTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh" 
 				  data-toggle="table" 
 				  data-undefined-text = ''
 				  data-pagination="true" 

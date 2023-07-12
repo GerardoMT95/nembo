@@ -39,7 +39,7 @@
 
 			<c:if test="${!empty integrazione}">
 				<form:form id="elencoForm" name="elencoForm">
-					<table id="tblIntegrazioneAlPremio" class="table table-bordered table-hover tableBlueTh">
+					<table summary="tabella integrazione al premio" id="tblIntegrazioneAlPremio" class="table table-bordered table-hover tableBlueTh">
 						<thead>
 							<tr>
 								<th><p:abilitazione-azione codiceQuadro="DINTP" codiceAzione="DETTAGLIO">

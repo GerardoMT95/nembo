@@ -29,7 +29,7 @@
 				<input type="hidden" name="idSuperficieColtura" name ="idSuperficieColtura" value="${superficiColturaDettaglio.idSuperficieColtura}" />
 				
 				<h4>Dettaglio Superfici e Colture</h4>
-				<table id="tableSuperificiColtureDettaglio"
+				<table summary="superficicolture" id="tableSuperificiColtureDettaglio"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -91,7 +91,7 @@
 							</td>
 						</tr>
 						<tr>
-							<th class="col-md-4">Unità foraggere (totali)</th>
+							<th class="col-md-4">Unitï¿½ foraggere (totali)</th>
 							<td class="col-md-8" colspan="2">
 								<m:textfield id="txtUfProdotte" name="txtUfProdotte" disabled="true" value="${superficiColtureDettaglioPsrDTO.ufTot}"></m:textfield>
 								<input type="hidden" id="txtUfProdotteHidden" name="txtUfProdotteHidden" value="${superficiColtureDettaglioPsrDTO.ufTot}"></input>
@@ -99,8 +99,8 @@
 						</tr>
 						<tr>
 							<th class="col-md-4" rowspan="3">Reimpieghi</th>
-							<td class="col-md-2">Unità di Misura:</td>
-							<td class="col-md-6">Quantità:</td>								
+							<td class="col-md-2">Unitï¿½ di Misura:</td>
+							<td class="col-md-6">Quantitï¿½:</td>								
 						</tr>
 						<tr>
 							<td class="col-md-2"><m:select id="slcUnitaMisura" list="${listUnitaMisura}" name="slcUnitaMisura" onchange="updatePlvTotQ();" preferRequestValues="${preferRequest}"></m:select></td>
@@ -108,7 +108,7 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-							Note: per segnalare l'assenza di reimpieghi è sufficiente scrivere 0 nel campo Quantità.
+							Note: per segnalare l'assenza di reimpieghi ï¿½ sufficiente scrivere 0 nel campo Quantitï¿½.
 							</td>
 						</tr>	
 						

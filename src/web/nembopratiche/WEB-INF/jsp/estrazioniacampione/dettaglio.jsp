@@ -39,7 +39,7 @@
 	</c:if>
 </div>
 <m:panel id="pTotali" >
- 	<table id="tableTotali" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
+ 	<table summary="tabella totali" id="tableTotali" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
  	<tbody>
  		<c:if test="${totali.elencoDettagliImporti != null}">
  			<c:forEach items="${totali.elencoDettagliImporti}" var="a">
@@ -95,7 +95,7 @@
 
 <c:if test="${importiPA != null}">
 	<m:panel id="pImportiAttuali">
-	 	<table id="tableTotali" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
+	 	<table summary="totali" id="tableTotali" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
 		 	<tbody>
 				<c:forEach items="${importiPA.elencoImporti}" var="a">
 					<tr>
@@ -161,7 +161,7 @@
 		
 		
 		<m:panel id="tableTotaliMisurePanel" collapsible="true" startOpened="false" title="Importi estrazioni per misura">
-		<table id="tableTotaliMisure" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
+		<table summary="totali misure" id="tableTotaliMisure" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
 		 	<tbody>
 				<c:forEach items="${importiPA.elencoImportiMisure}" var="a">
 					<tr>
@@ -216,12 +216,12 @@
 </c:if>
 
 <m:panel id="pRisultati">
-		<table id="tableInfoTotali" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
+		<table summary="info totali" id="tableInfoTotali" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
 			<tbody>	
 				<tr>
 					<th>Tipo Estrazione</th>
 					<td><c:out value="${tipoEstrazione}"></c:out></td>
-					<th>Numero Estrazione <a style="padding-left: 1em;" class="icon icon-list" rel="tooltip" data-placement="top"  title="Il numero è univoco nell'ambito del tipo di estrazione."></a></th>
+					<th>Numero Estrazione <a style="padding-left: 1em;" class="icon icon-list" rel="tooltip" data-placement="top"  title="Il numero ï¿½ univoco nell'ambito del tipo di estrazione."></a></th>
 					<td><c:out value="${numeroEstrazione}"></c:out></td>
 					<th>Stato Estrazione</th>
 					<td><c:out value="${statoEstrazione}"></c:out></td>
@@ -230,7 +230,7 @@
 		</table>
 
 	<div id="filter-bar" > </div>	 
-	<table id="elencoEstrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+	<table summary="elenco estrazioni" id="elencoEstrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 	  data-toggle="table" 
 	  data-undefined-text = ''
 	  data-url="getElencoRisultatiEstrazione_${idNumeroLotto}.json"

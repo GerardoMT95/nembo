@@ -20,7 +20,7 @@
 	<div class="container-fluid" id="content">
 		<m:panel id="panelMappaFile">
 		<form name="elencoForm" id="elencoForm" method="post" action="">
-			<table id="tblMappeFile" summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+			<table summary="mappe" id="tblMappeFile" summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 				data-url="json/mappe_file_${idIntervento}.json" data-undefined-text=''>
 				<thead>
 					<tr>
@@ -121,7 +121,7 @@
         },
         error : function()
         {
-          alert("si è verificato un errore di sistema nell'eliminazione dell'allegato, se il problema persistesse contattare l'assistenza tecnica");
+          alert("si ï¿½ verificato un errore di sistema nell'eliminazione dell'allegato, se il problema persistesse contattare l'assistenza tecnica");
         }
       });
     }

@@ -64,7 +64,7 @@ span.tab-space {
 
 				<c:choose>
 				<c:when test="${elenco!=null}">	
-				<table id="operazioni"
+				<table summary="operazioni" id="operazioni"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 					data-toggle="table">
 					<thead>

@@ -50,7 +50,7 @@ span.tab-space {
 					class="form-horizontal" style="margin-top:2em">
 
 
-					<table id="operazioniTable"
+					<table summary="operazioni" id="operazioniTable"
 						class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
 						<thead>
 							<tr>

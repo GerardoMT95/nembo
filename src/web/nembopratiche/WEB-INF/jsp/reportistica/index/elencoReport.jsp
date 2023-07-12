@@ -35,7 +35,7 @@
 				<li class="active"><a href="#">Report</a></li>
 				<li><a href="indexGrafici.do">Grafici</a></li>
 			</ul>
-			<table id="reportTable" class="table table-hover table-striped table-bordered tableBlueTh ">
+			<table summary="report" id="reportTable" class="table table-hover table-striped table-bordered tableBlueTh ">
 				<thead>
 					<tr>
 						<th></th>

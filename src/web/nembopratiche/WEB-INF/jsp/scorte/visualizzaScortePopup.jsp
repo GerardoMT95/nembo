@@ -20,7 +20,7 @@
 				<c:set var ="tableName"  value ="tableElencoScortePopup"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->				
-				<table id="${tableName}"
+				<table summary="scorte" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 					data-toggle="table" 
 					data-url="../cunembo297l/get_elenco_scorte.json"
@@ -30,7 +30,7 @@
 							<th data-field="idScortaMagazzino" data-formatter="selezionaScortaFormatter"></th>
 			        		<th data-field="progressivo" data-sortable="true">Progressivo</th>
 			        		<th data-field="descrizioneScorta" data-sortable="true">Tipologia scorta</th>
-			        		<th data-formatter="quantitaFormatter" data-sortable="true">Quantità</th>
+			        		<th data-formatter="quantitaFormatter" data-sortable="true">Quantitï¿½</th>
 			        		<th data-field="descrizione" data-sortable="true">Descrizione</th>
 			        	</tr>
 				    </thead>
@@ -86,7 +86,7 @@
 		            },
 		            error : function(jqXHR, html, errorThrown)
 		            {
-		              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+		              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
 		            }
 		        });
 		}

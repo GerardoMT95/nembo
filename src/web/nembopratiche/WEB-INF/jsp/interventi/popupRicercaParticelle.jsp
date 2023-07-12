@@ -8,7 +8,7 @@
 </div>
 <br/><br />
 <div class="col-md-12">
-	<table id="tblRicercaParticelle" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/ricerca_particelle.json" data-undefined-text = ''
+	<table summary="ricerca particelle" id="tblRicercaParticelle" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/ricerca_particelle.json" data-undefined-text = ''
 	 data-checkbox-header="true">
 		<thead>
 			<tr>

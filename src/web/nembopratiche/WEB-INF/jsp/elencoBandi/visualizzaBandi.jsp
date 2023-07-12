@@ -37,7 +37,7 @@
 	<div class="container-fluid" id="content" style="margin-bottom: 3em">
 		<h3>Elenco bandi disponibili</h3>
 		<div id="filter-bar" style="margin-bottom: 1em"></div>
-		<table id="elencoBandi"
+		<table summary="bandi" id="elencoBandi"
 			class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 				data-toggle="table" data-url="getElencoBandiJson.json"
 				data-undefined-text='' 
@@ -139,7 +139,7 @@
 				},
 				{
 				    field: 'flagTitolaritaRegionale',    
-				    label: 'Titolarità regionale',   
+				    label: 'Titolaritï¿½ regionale',   
 				    type: 'select',
 				    values: [
 				             {id: 'Si', label: 'Si'},

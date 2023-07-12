@@ -118,7 +118,7 @@
 			</m:panel>
 			<c:if test="${intervento.idTipoLocalizzazione==5}">
 				<m:panel title="Allegato" id="allegato">
-					<table id="tblMappeFile" summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+					<table summary="elenco interventi" id="tblMappeFile" summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 						data-url="../json/mappe_file_${idIntervento}.json" data-undefined-text=''>
 						<thead>
 							<tr>
@@ -148,7 +148,7 @@
 			</c:if>
 			<c:if test="${intervento.idTipoLocalizzazione==4}">
 				<m:panel title="Localizzazione - Particelle da catasto" id="partecelleCatasto">
-					<table id="tblParticelle" class="table table-hover tableBlueTh" data-toggle="table" data-url="./json/elenco_particelle_${idIntervento}.json"
+					<table summary="particelle" id="tblParticelle" class="table table-hover tableBlueTh" data-toggle="table" data-url="./json/elenco_particelle_${idIntervento}.json"
 						data-undefined-text='' data-checkbox-header="true">
 						<thead>
 							<tr>
@@ -164,7 +164,7 @@
 			</c:if>
 			<c:if test="${intervento.idTipoLocalizzazione==3 || intervento.idTipoLocalizzazione==8}">
 				<m:panel title="Localizzazione - Particelle aziendali" id="partecelleAziendali">
-					<table id="tblConduzioni" class="table table-hover tableBlueTh" data-toggle="table" data-url="./json/elenco_conduzioni_${idIntervento}.json"
+					<table summary="conduzioni" id="tblConduzioni" class="table table-hover tableBlueTh" data-toggle="table" data-url="./json/elenco_conduzioni_${idIntervento}.json"
 						data-undefined-text='' data-checkbox-header="true">
 						<thead>
 							<tr>
