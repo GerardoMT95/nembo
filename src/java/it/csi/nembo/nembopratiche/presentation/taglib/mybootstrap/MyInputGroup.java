@@ -57,14 +57,9 @@ public abstract class MyInputGroup extends MyBodyTag
         }
         else
         {
-          if (isDate)
-          {
+         
         	  TAG_UTIL.addAttribute(sb, "class", NemboUtils.STRING.concat(" ", INPUT_GROUP, groupCssClass));	
-          }
-          else
-          {
-        	  TAG_UTIL.addAttribute(sb, "class", NemboUtils.STRING.concat(" ", INPUT_GROUP, groupCssClass));
-          }
+          
         }
       }
       else
