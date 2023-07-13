@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="b" uri="/WEB-INF/bootstrap.tld"%>
 <%@taglib prefix="m" uri="/WEB-INF/mybootstrap.tld"%>
+<!DOCTYPE html>
 <html>
 <head>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" /> 
