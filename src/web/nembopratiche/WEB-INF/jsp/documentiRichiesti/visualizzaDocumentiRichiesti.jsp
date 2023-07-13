@@ -47,7 +47,7 @@
 					
 						<h4>SEZIONE ${sezione.idSezione } - ${sezione.descrizione }</h4>
 					
-						<table id=""
+						<table summary="dettaglio" id=""
 							class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 							data-toggle="table"
 							data-url="get_list_documenti_richiesti.json"

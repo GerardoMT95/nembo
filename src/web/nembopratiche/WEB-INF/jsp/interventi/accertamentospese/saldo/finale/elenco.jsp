@@ -41,7 +41,7 @@
 					</p:abilitazione-azione>
 				</c:if>
 
-				<table id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
+				<table summary="dettaglio" id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
 					data-url="json/elenco.json" data-undefined-text='' data-show-columns="true">
 					<thead>
 						<tr>

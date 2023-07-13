@@ -174,7 +174,7 @@
 			</div>
 		</p:ablitazione-macrocdu>
 		<div id="filter-bar"></div>
-		<table id="elencoProcedimenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-toggle="table"
+		<table summary="dettaglio" id="elencoProcedimenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-toggle="table"
 			data-url="getElencoProcedimenti.json" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top"
 			data-show-columns="true" data-undefined-text='' data-show-toggle="true" data-page-list="[10, 25, 50, 100, 250, 500]"
 			data-page-number="${sessionMapNumeroPagina.get('elencoProcedimenti') != null ? sessionMapNumeroPagina.get('elencoProcedimenti') : '1'}"

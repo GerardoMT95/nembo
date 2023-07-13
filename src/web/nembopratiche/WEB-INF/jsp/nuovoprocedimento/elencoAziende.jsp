@@ -35,7 +35,7 @@
 		<h3><c:out value="${denominazionebando}"></c:out></h3>
 		<h3>Elenco aziende</h3>
 		<div id="filter-bar" style="position:absolute;top:80px"> </div>
-		<table id="elencoAziende" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="elencoAziende" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 			  data-toggle="table" data-url="getElencoAziende.json"
 			  data-pagination="true" 
 			  data-show-pagination-switch="true" 

@@ -37,7 +37,7 @@
 				<c:set var ="tableName"  value ="tableElencoScorte"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->				
-				<table id="${tableName}"
+				<table summary="dettaglio" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 					data-toggle="table" 
 					data-url="get_elenco_scorte.json"
@@ -58,7 +58,7 @@
 						</th>
 							<th data-field="idScortaMagazzino"  data-formatter="checkboxFormatter" class="checkbox-field" data-class="checkbox-field"><input type="checkbox" name="selAll" id="selAll" onclick="selectAll();" /></th>
 			        		<th data-field="descrizioneScorta" data-sortable="true" class="col-md-2">Tipologia scorta</th>
-			        		<th data-field="quantitaUnitaMisuraFormatter" data-sortable="true" data-sorter="dataSorterNumeroUnitaMisura" class="col-md-2">Quantità</th>
+			        		<th data-field="quantitaUnitaMisuraFormatter" data-sortable="true" data-sorter="dataSorterNumeroUnitaMisura" class="col-md-2">Quantitï¿½</th>
 			        		<th data-field="descrizione" data-sortable="true" class="col-md-7">Descrizione</th>
 			        	</tr>
 				    </thead>

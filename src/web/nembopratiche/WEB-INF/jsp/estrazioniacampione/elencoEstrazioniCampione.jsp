@@ -51,7 +51,7 @@
 	
 		<div style="margin-top:3em">
 		<div id="filter-bar" > </div>	 
-		<table id="estrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="estrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 		  data-toggle="table" 
 		  data-undefined-text = ''
 		  data-url="getElencoEstrazioniCampioneJson.json"
@@ -68,7 +68,7 @@
         		<th data-field="idTipoEstrazione" data-visible ="false" data-switchable="false"></th>
         		<th data-field="idStatoEstrazione" data-visible ="false" data-switchable="false"></th>
 				<th data-field="descrTipoEstrazione" data-sortable = "true">Tipo estrazione</th>
-				<th data-field="numeroEstrazione" data-sortable = "true" >Numero estrazione<a style="padding-left: 1em;color:white;" class="icon icon-list" rel="tooltip" data-placement="top"  title="Il numero è univoco nell'ambito del tipo di estrazione."></a></th>				
+				<th data-field="numeroEstrazione" data-sortable = "true" >Numero estrazione<a style="padding-left: 1em;color:white;" class="icon icon-list" rel="tooltip" data-placement="top"  title="Il numero ï¿½ univoco nell'ambito del tipo di estrazione."></a></th>				
 				<th data-field="dataElaborazioneStr" data-sortable="true" data-sorter="dateSorterddmmyyyy" >Data</th>
 				<th data-field="descrizione" data-sortable = "true" >Note</th>
 				<th data-field="descrStatoEstrazione" data-sortable = "true" >Stato estrazione</th>				

@@ -28,7 +28,7 @@
 		<div style="overflow-x:scroll;">
 		
 				<h4>Identificativo elemento</h4>
-				<table id="tableRiepilogoColtureAziendali"
+				<table summary="riepilogo colture" id="tableRiepilogoColtureAziendali"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -54,7 +54,7 @@
 				</table>
 				<br/>
 				<h4>Dettaglio PSR</h4>
-				<table id="tableDettaglioColtureAziendali"
+				<table summary="colture aziendali" id="tableDettaglioColtureAziendali"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 					data-toggle="table"
 				>
@@ -94,7 +94,7 @@
 				
 				<c:if test="${listControlloColtura.size() > 0 }">
 					<br/>
-					<table id="tableControlloColtureAziendali"
+					<table summary="controllo culture aziendali" id="tableControlloColtureAziendali"
 						class="table table-hover table-striped table-bordered tableBlueTh"
 						data-toggle="table"
 					>
@@ -122,7 +122,7 @@
 		<c:set var ="tableName"  value ="tableDettaglioParticellareColtureAziendali"/>
 		<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 		<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-		<table id="${tableName}"
+		<table summary="particelle colture" id="${tableName}"
 			class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 			data-toggle="table"
 			data-url="get_list_dettaglio_particellare_superfici_colture_${idSuperficieColtura}.json"

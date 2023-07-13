@@ -298,7 +298,7 @@
 								<h4 class="modal-title" id="myModalLabel">Seleziona Comune</h4>
 							</div>
 							<div class="modal-body" style="max-height: 500px; overflow-y: scroll">
-								<table id="popupComuniTable" class="myovertable table table-hover table-condensed table-bordered tableBlueTh">
+								<table summary="dettaglio" id="popupComuniTable" class="myovertable table table-hover table-condensed table-bordered tableBlueTh">
 									<thead>
 										<tr>
 											<th data-property="chk"></th>

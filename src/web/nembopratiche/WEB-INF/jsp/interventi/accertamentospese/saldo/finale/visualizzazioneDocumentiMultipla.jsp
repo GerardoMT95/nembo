@@ -36,7 +36,7 @@
 <c:forEach items="${interventi.values()}" var="intervento">
 	<input type="hidden" name="idIntervento" value="${intervento.idIntervento}" />
 	<input type="hidden" id="numberOfDateFilter" value="2">
-		<table id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
+		<table summary="dettaglio" id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
 			data-url="../cunembo212v/json/accertamento_${intervento.idIntervento}.json" data-undefined-text=''>
 			<thead>
 				<tr>

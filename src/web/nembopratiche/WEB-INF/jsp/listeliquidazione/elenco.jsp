@@ -23,7 +23,7 @@
 	<p:messaggistica />
 	<div class="container-fluid" id="content">
 		<div id="filter-bar" style="position: relative; top: 46px"></div>
-		<table id='listeLiquidazione' summary="Liste di liquidazione" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+		<table summary="dettaglio" id='listeLiquidazione' summary="Liste di liquidazione" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 			data-url="json/elenco.json" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top" data-show-columns="true"
 			data-undefined-text='' data-row-style='rowStyleFormatter'>
 			<thead>
@@ -96,7 +96,7 @@
 	    
 	function elimina(idListaLiquidazione, flagStatoLista) {
 		if(flagStatoLista == "A")
-			showMessageBox( "Attenzione!", "La lista in questo stato non può essere eliminata.", 'modal-large');
+			showMessageBox( "Attenzione!", "La lista in questo stato non puï¿½ essere eliminata.", 'modal-large');
 		else
 			return openPageInPopup('../cunembo229/confermaElimina_'+idListaLiquidazione+'.do', 'dlgEliminaLista',
 				'Elimina', '', false);
@@ -258,7 +258,7 @@
          error:
            function(a, b)
            { 
-             alert('Si è verificato un errore di sistema');
+             alert('Si ï¿½ verificato un errore di sistema');
            }
         })
       return false;

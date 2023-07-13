@@ -17,7 +17,7 @@
 		</div>
 		<div class="col-md-1" id="filtroRicercaConduzioni_foglio"></div>
 	</m:panel>
-	<table id="tblRicercaConduzioni" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/ricerca_conduzioni${superficie}.json"
+	<table summary="dettaglio" id="tblRicercaConduzioni" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/ricerca_conduzioni${superficie}.json"
 		data-undefined-text='' data-checkbox-header="true">
 		<thead>
 			<tr>

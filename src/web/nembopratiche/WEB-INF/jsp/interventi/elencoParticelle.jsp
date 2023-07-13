@@ -24,7 +24,7 @@
 		</m:panel>
 		<m:panel id="particelle" startOpened="true" title="Particelle localizzate">
 		<m:error/>
-			<table id="tblParticelle" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/elenco_particelle_${idIntervento}.json" data-undefined-text='' data-checkbox-header="true">
+			<table summary="dettaglio" id="tblParticelle" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/elenco_particelle_${idIntervento}.json" data-undefined-text='' data-checkbox-header="true">
 				<thead>
 					<tr>
 						<th data-field="idParticellaCertificata" data-formatter="stateFormatterIconeParticella">

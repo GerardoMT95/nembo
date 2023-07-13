@@ -64,7 +64,7 @@
     		<br><br>
            
            
-            <table id="elencoBandi" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh" data-toggle="table"
+            <table summary="dettaglio" id="elencoBandi" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh" data-toggle="table"
 				data-url="json/getElencoBandi.json" data-show-columns="true" data-show-filter="true" data-undefined-text=''
 				data-select-item-name="idBando" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top"
 				data-id-field="idBando">

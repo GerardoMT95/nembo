@@ -33,7 +33,7 @@
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
 				<c:set var ="checkboxName"  value ="chkIdAssicurazioniColture"/>
-				<table id="${tableName}"
+				<table summary="assicurazioni colture" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 					data-toggle="table"
 					data-url="get_list_assicurazioni_colture.json"

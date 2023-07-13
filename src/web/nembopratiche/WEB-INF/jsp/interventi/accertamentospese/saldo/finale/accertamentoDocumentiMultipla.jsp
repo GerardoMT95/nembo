@@ -74,7 +74,7 @@
           </div>  
           					
 					<div id="filter-bar_${intervento.idIntervento}" style="float: left; position: relative; top: 10px"></div>
-					<table id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
+					<table summary="dettaglio" id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
 						data-url="json/accertamento_${intervento.idIntervento}.json" data-undefined-text='' data-show-columns="true">
 						<thead>
 							<tr>
@@ -434,7 +434,7 @@
     {
       if ($('#warningConfirmed').val()=='false')
       {
-        showConfirmMessageBox("Conferma modifica accertamento", 'Proseguendo con l\'operazione saranno reimpostate le sanzioni automatiche, anche quelle per cui è stato effettuato lo split. Per verificarle occorre consultare il quadro "Riduzioni sanzioni".', '', '#', 'acceptWarning()');
+        showConfirmMessageBox("Conferma modifica accertamento", 'Proseguendo con l\'operazione saranno reimpostate le sanzioni automatiche, anche quelle per cui ï¿½ stato effettuato lo split. Per verificarle occorre consultare il quadro "Riduzioni sanzioni".', '', '#', 'acceptWarning()');
       }
       /*<c:forEach items="${interventi.values()}" var="intervento">*/
       initFilter('${intervento.idIntervento}');

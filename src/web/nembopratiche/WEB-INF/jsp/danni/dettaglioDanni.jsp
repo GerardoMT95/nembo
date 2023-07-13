@@ -26,7 +26,7 @@
 		<br/>
 
 		<div id="errorBoxDiv" class='alert alert-danger col-md-12' style="display:none;">
-			<h4>Non è possibile modificare pi&ugrave; danni contemporaneamente se almeno uno di quelli selezionati &egrave; di tipo Terreni Ripristinabili, Terreni Non Ripristinabili, Piantagioni Arboree o Allevamenti.</h4>
+			<h4>Non ï¿½ possibile modificare pi&ugrave; danni contemporaneamente se almeno uno di quelli selezionati &egrave; di tipo Terreni Ripristinabili, Terreni Non Ripristinabili, Piantagioni Arboree o Allevamenti.</h4>
 		</div>
 		<h4>Dettaglio Danno</h4>
 		<table
@@ -69,7 +69,7 @@
 		<c:if test="${isConduzioni!= null && isConduzioni==true}">
 			<h4>Elenco Particelle Danneggiate</h4>
 			<c:set var ="tableName"  value ="tblElencoConduzioniDettaglio"/>
-						<table id="${tableName}"
+						<table summary="dettaglio"  id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 					data-toggle="table"
 					data-url="get_list_conduzioni_danno_${danno.idDannoAtm}.json"

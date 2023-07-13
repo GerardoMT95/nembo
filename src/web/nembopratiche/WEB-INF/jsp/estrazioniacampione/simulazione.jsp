@@ -54,7 +54,7 @@
 		<c:if test="${visualizzaRisultati != null}">
 		<m:panel id="panelrisSimulazione" title="risultati">
 			<div id="filter-bar" > </div>	 
-			<table id="elencoEstrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+			<table summary="dettaglio" id="elencoEstrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 			  data-toggle="table" 
 			  data-undefined-text = ''
 			  data-url="getElencoRisultatiSimulazione_${idTipoEstrazione}.json"

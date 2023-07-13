@@ -30,7 +30,7 @@
 	
 	<div class="container-fluid" id="content">
 		<div id="filter-bar" style="position: relative; top: 46px"></div>
-		<table id='listeLiquidazione' summary="Liste di liquidazione" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+		<table summary="dettaglio" id='listeLiquidazione' summary="Liste di liquidazione" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 			data-url="json/elenco.json" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top" data-show-columns="true"
 			data-undefined-text='' data-row-style='rowStyleFormatter'>
 			<thead>

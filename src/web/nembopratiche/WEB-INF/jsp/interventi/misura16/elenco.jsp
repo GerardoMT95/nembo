@@ -32,7 +32,7 @@
 
 			<form name="elencoForm" id="elencoForm" method="post" action="">
 				<div id="filter-bar"></div>
-				<table id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
+				<table summary="dettaglio" id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
 					data-url="json/elenco.json" data-undefined-text='' data-row-style='rowStyleFormatter' data-show-columns="true" data-show-filter="true">
 					<thead>
 						<tr>
@@ -106,7 +106,7 @@
 			$('#filter-bar').bootstrapTableFilter({
 				filters : [ {
 					field : 'descAttivita',
-					label : 'Attività',
+					label : 'Attivitï¿½',
 					type : 'ajaxSelect',
 					source : 'getElencoAttivita.do'
 				}, {

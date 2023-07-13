@@ -27,7 +27,7 @@
 	<div class="container-fluid" id="content">
 		<m:panel id="panelVisualizzaElencoScorte">
 		<form action="../cunembo297m/modifica_scorte_conferma.do" method="POST"> 
-			<table id="modificaScorteTable" class="table table-hover table-striped table-bordered tableBlueTh"
+			<table summary="dettaglio" id="modificaScorteTable" class="table table-hover table-striped table-bordered tableBlueTh"
 			  data-undefined-text = '-'
 		      data-pagination="false" 
 			  >
@@ -35,8 +35,8 @@
 	        	<tr>
 	        		<th>Tipologia</th>
 	        		<th>Descrizione</th>
-	        		<th>Quantità</th>
-	        		<th>Unità di Misura</th>
+	        		<th>Quantitï¿½</th>
+	        		<th>Unitï¿½ di Misura</th>
 	        	</tr>
 		    </thead>
 		    <tbody>

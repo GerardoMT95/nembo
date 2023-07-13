@@ -38,7 +38,7 @@
 			</div>
 		</div>
 		
-		<table id="elencoProcediemntiVecchi" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh" data-toggle="table"
+		<table summary="dettaglio" id="elencoProcediemntiVecchi" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh" data-toggle="table"
 				data-show-columns="true" data-show-filter="true" data-undefined-text=''
 				 data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top">
 				<thead>

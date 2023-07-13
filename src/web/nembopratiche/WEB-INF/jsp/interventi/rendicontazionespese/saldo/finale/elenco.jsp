@@ -24,7 +24,7 @@
 				<c:if test="${msgIVA!=null}">
 					<strong><c:out value="${msgIVA}" /></strong>
 				</c:if>
-				<table id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
+				<table summary="dettaglio" id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
 					data-url="json/elenco.json" data-undefined-text='' data-show-columns="true">
 					<thead>
 						<tr>
@@ -33,7 +33,7 @@
 									<c:if test="${modificaMultipla}">
 										<a href="../cunembo${cuNumber}m/modifica.do" onclick="return modificaMultipla()" class="ico24 ico_modify"></a>
 									</c:if>
-								</p:abilitazione-azione> <%-- Rimosso rendicontazione multipla temporaneamente dato che più bootrstaptableFilter nella stessa pagina presentano problemi --%>
+								</p:abilitazione-azione> <%-- Rimosso rendicontazione multipla temporaneamente dato che piï¿½ bootrstaptableFilter nella stessa pagina presentano problemi --%>
 								<%--                        
 				        <p:abilitazione-azione codiceQuadro="${cuCodQuadro}" codiceAzione="RENDICONTA_DOC_SPESA">
 				        <a href="../cunembo${cuNumber}r/rendicontazione_documenti.do" class="ico24 ico_euro" onclick="return rendicontazioneMultipla()"></a>

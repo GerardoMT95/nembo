@@ -77,7 +77,7 @@
 								    <div class="form-group">
                       <span class="col-sm-3"></span>
                       <div class="col-sm-9" >
-                      <span class="text-danger">Allegare in un unico file il documento spesa e i documenti necessari per la tracciabilità dei pagamenti, così come previsti dai bandi.</span>
+                      <span class="text-danger">Allegare in un unico file il documento spesa e i documenti necessari per la tracciabilitï¿½ dei pagamenti, cosï¿½ come previsti dai bandi.</span>
                       </div>
                     </div>
 								
@@ -99,7 +99,7 @@
 
 					<div class="container-fluid" style="padding-bottom: 2em;">
 						<div id="filter-bar" style="position: relative; top: 46px"></div>
-						<table id="elencoDocumenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali" data-toggle="table"
+						<table summary="dettaglio" id="elencoDocumenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali" data-toggle="table"
 							data-url="json/getElencoRicevutePagamento.json" data-show-columns="true" data-show-filter="true" data-undefined-text=''
 							data-select-item-name="idRicevutaPagamento" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top"
 							data-id-field="idRicevutaPagamento">
@@ -196,7 +196,7 @@
 			var importoLordoPagamento = $("#importoLordoPagamento").val();
 			if(importoLordo==importoLordoPagamento)
 			{
-				showMessageBox("Attenzione", "Le ricevute di pagamento presenti in elenco coprono già interamente l'importo lordo del documento di spesa. Non è più consentito inserire nuove ricevute di pagamento." , "modal-large")
+				showMessageBox("Attenzione", "Le ricevute di pagamento presenti in elenco coprono giï¿½ interamente l'importo lordo del documento di spesa. Non ï¿½ piï¿½ consentito inserire nuove ricevute di pagamento." , "modal-large")
 				return false;
 			}
 				
@@ -237,13 +237,13 @@
 		                  else
 		                  {
 		                    doErrorTooltip();
-		                    showMessageBox("Attenzione!", "Non è possibile eliminare il file perché ad esso risultano associate nuove ricevute di pagamento. Per procedere con l'operazione occorre prima eliminare dall'elenco le nuove ricevute di pagamento inserite.", "modal-large");
+		                    showMessageBox("Attenzione!", "Non ï¿½ possibile eliminare il file perchï¿½ ad esso risultano associate nuove ricevute di pagamento. Per procedere con l'operazione occorre prima eliminare dall'elenco le nuove ricevute di pagamento inserite.", "modal-large");
 							return false;
 			                  }
 		                },
 		                error : function(jqXHR, html, errorThrown)
 		                {
-		                  writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+		                  writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
 		                }
 		              });
 

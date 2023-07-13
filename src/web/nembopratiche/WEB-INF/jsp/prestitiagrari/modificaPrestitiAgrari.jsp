@@ -27,12 +27,12 @@
 		<c:set var ="tableName"  value ="tableModificaPrestitiAgrari"/>
 		<form id="formVisualizzaPrestitiAgrari" name="formVisualizzaPrestitiAgrari" method="POST" action="modifica_prestiti_agrari_conferma.do">
 			<c:set var ="tableName"  value ="tableElencoPrestitiAgrari"/>
-			<table id="${tableName}" 
+			<table summary="dettaglio" id="${tableName}" 
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 			>
 			<thead>
 					<tr>
-						<th>Finalità del prestito</th>
+						<th>Finalitï¿½ del prestito</th>
 						<th>Istituto di credito erogante</th>
 						<th>Importo in scadenza (&euro;)</th>
 						<th>Data scadenza</th>

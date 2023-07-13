@@ -33,7 +33,7 @@
 		<h3>Elenco estrazioni a campione</h3>
 	
 		<div id="filter-bar" > </div>	 
-		<table id="elencoEstrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="elencoEstrazioniTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 		  data-toggle="table" 
 		  data-undefined-text = ''
 		  data-url="getElencoEstrazioniJson.json"

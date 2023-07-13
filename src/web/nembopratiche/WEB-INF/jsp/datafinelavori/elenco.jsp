@@ -20,7 +20,7 @@
 	
 	<div class="container-fluid" id="content">
 		<m:panel id="panelElencoDate">
-		<table id="elencoDate" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="elencoDate" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 			  data-toggle="table" 
 			  data-url="getElencoDate.json"
 			  data-undefined-text = ''>

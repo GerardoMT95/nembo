@@ -65,7 +65,7 @@
 				<c:set var ="tableName"  value ="tableRiepilogoDanniColture"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value ="asc"/><!-- asc o desc -->
-				<table id="tableRiepilogoDanniColture"
+				<table summary="dettaglio" id="tableRiepilogoDanniColture"
 					class="table-bootstrap table table-hover table-striped table-bordered tableBlueTh"
 					data-toggle="table"
 					data-url = "get_list_danni_colture.json"

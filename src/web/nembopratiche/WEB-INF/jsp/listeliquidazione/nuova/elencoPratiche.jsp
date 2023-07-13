@@ -14,7 +14,7 @@
 	<div class="container-fluid" id="content">
 		<div id="filter-bar" style="position: relative; top: 46px"></div>
 		<div class="responsive-table">
-			<table id='elencoPratiche' summary="Elenco pratiche" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+			<table summary="dettaglio" id='elencoPratiche' summary="Elenco pratiche" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 				data-url="json/pratiche_nuova_lista_${idBando}.json" data-toggle="table" data-pagination="false" data-show-pagination-switch="false"
 				data-pagination-v-align="top" data-show-columns="true" data-undefined-text='' data-row-style='rowStyleFormatter' data-checkbox-header="true">
 				<thead>

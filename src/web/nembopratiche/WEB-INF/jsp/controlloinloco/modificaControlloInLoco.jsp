@@ -77,7 +77,7 @@ select{
 									</tr>
 									<c:if test="${procedimentoEstratto.flagEstrazione !='N'}">
 										<tr>
-											<th>Modalità di selezione</th>
+											<th>Modalitï¿½ di selezione</th>
 											<td>${procedimentoEstratto.statoEstrazione}</td>
 										</tr>
 									</c:if>
@@ -93,7 +93,7 @@ select{
 					</c:choose>
 			<div class="container-fluid table-responsive"  style="margin-bottom: 3em">
 
-					<table id="tableOperazioni"
+					<table summary="dettaglio"  id="tableOperazioni"
 						class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh ">
 						<thead>
 							<tr>
@@ -107,9 +107,9 @@ select{
 								<th>Verbale N</th>
 								<th>Funzionario controllore</th>
 								<th>Inadempienza tecnica NON<BR> vincolata a controllo di
-									<BR>ammissibilità superfici</th>
+									<BR>ammissibilitï¿½ superfici</th>
 								<th>Inadempienza tecnica<BR> condizionata all'esito di<BR>
-									ammissibilità superfici</th>
+									ammissibilitï¿½ superfici</th>
 							    <th>Motivazione</th>
 							</tr>
 						</thead>
@@ -367,7 +367,7 @@ select{
 			document.getElementById("numRighe").value = parseInt(document
 					.getElementById("numRighe").value) + 1;
 
-			//se ci sono già tutti i livelli possibili, nasconto il tasto +
+			//se ci sono giï¿½ tutti i livelli possibili, nasconto il tasto +
 			if (parseInt(document.getElementById("numRighe").value) >= "${numeroMassimoLivelli}")
 				$("#aggiungi").hide();
 

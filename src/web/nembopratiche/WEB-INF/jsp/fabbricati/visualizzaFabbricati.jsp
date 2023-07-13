@@ -28,7 +28,7 @@
 		<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 		<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
 		<form id="formVisualizzaFabbricati" name="formVisualizzaFabbricati" method="POST" action="">
-		<table id="${tableName}" 
+		<table summary="dettaglio" id="${tableName}" 
 			class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 			data-toggle="table"
 			data-url="visualizza_fabbricati.json"

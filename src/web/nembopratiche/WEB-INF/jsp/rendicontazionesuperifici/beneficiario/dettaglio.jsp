@@ -21,7 +21,7 @@
 	<div class="container-fluid" id="content">
 		<m:panel id="panelElenco">
 				<m:panel id="particelle" startOpened="true" title="Localizzazione particelle">
-					<table id="tblConduzioni" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-undefined-text=''>
+					<table summary="dettaglio" id="tblConduzioni" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-undefined-text=''>
 						<thead>
 							<tr>
 								<th>Comune</th>

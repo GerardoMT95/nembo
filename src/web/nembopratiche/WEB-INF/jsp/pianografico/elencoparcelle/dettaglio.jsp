@@ -26,7 +26,7 @@
 	<m:panel  id="elencoParticelleGrafichePanel" >
 	
 	<div id="filter-bar" > </div>
-		<table id='tblElencoParticelle' summary="Elenco Partcelle Grafiche" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+		<table summary="dettaglio" id='tblElencoParticelle' summary="Elenco Partcelle Grafiche" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 			data-show-filter="true" 
 			data-pagination="true"
 			data-side-pagination = "client"

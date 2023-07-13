@@ -57,7 +57,7 @@
 				<table summary="Rendicontazione con IVA" class="table table-hover table-bordered table-condensed tableBlueTh" data-show-columns="true">
 					<tbody>
 						<tr >
-						  <th class="col-sm-3 ">Il beneficiario, secondo quanto predisposto dal Bando, può richiedere l'IVA a sostegno?</th>
+						  <th class="col-sm-3 ">Il beneficiario, secondo quanto predisposto dal Bando, puï¿½ richiedere l'IVA a sostegno?</th>
 							<td>
 								<c:if test="${flagRendicontazioneConIvaDescr != 'X'}">
 									${flagRendicontazioneConIvaDescr}
@@ -79,7 +79,7 @@
 			<c:if test="${flagRendicontazioneConIva == 'X'}">
 				<div class="stdMessagePanel">	
 		            <div class="alert alert-warning">
-		                <p>Per gestire i documenti spesa è necessario specificare se il beneficiario può o meno rendicontare l'IVA.</p>
+		                <p>Per gestire i documenti spesa ï¿½ necessario specificare se il beneficiario puï¿½ o meno rendicontare l'IVA.</p>
 		             </div>
 		         </div>
 			</c:if>
@@ -91,7 +91,7 @@
     			<form:form action="" modelAttribute="filtroAziendeForm" method="post">
 				<input type="hidden" id="filtroAziende" value='${filtroAziende.get("elencoDocumenti")}' >
 				</form:form> 
-				<table id="elencoDocumenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
+				<table summary="dettaglio" id="elencoDocumenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 					  data-toggle="table" 
 					  data-url="getElencoDocumenti.json"
 					  data-show-columns="true"
@@ -462,7 +462,7 @@
 
 	function elimina(idDocumentoSpesa, flagEliminabile) {
 		if (flagEliminabile == "N")
-			showMessageBox("Attenzione!", "Il documento spesa non può essere eliminato.", 'modal-large');
+			showMessageBox("Attenzione!", "Il documento spesa non puï¿½ essere eliminato.", 'modal-large');
 		else{
 
 			  $.ajax(

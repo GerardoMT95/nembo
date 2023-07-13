@@ -58,7 +58,7 @@
 				</table>
 				
 				<h4>Dettaglio PSR</h4>
-				<table id="tableSuperificiColtureDettaglio"
+				<table summary="dettaglio" id="tableSuperificiColtureDettaglio"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>

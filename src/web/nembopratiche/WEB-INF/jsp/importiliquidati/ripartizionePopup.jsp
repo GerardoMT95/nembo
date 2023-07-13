@@ -4,7 +4,7 @@
 
 <b:error />
 
-		<table id="importiLiquidatiTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="importiLiquidatiTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 		  >
 		<thead>
         	<tr>    	

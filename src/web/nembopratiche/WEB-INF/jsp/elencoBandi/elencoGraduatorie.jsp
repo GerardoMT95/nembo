@@ -36,7 +36,7 @@
 	
 	<div class="container-fluid" style="padding-top:2em">
 		<div id="filter-bar" style="position:absolute;top:316px"> </div>	 
-		<table id="graduatorieTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="graduatorieTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 		  data-toggle="table" 
 		  data-undefined-text = ''
 		  data-url="getElencoGraduatorie.json"

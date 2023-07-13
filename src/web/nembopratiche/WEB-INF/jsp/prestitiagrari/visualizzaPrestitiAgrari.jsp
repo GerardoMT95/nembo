@@ -36,7 +36,7 @@
 		<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 		<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
 		<form id="formVisualizzaPrestitiAgrari" name="formVisualizzaPrestitiAgrari" method="POST" action="../cunembo${cuNumber}m/modifica_prestiti_agrari_multipla.do">
-		<table id="${tableName}" 
+		<table summary="dettaglio" id="${tableName}" 
 			class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 			data-toggle="table"
 			data-url="visualizza_prestiti_agrari.json"

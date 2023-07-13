@@ -36,7 +36,7 @@
 		<div style="overflow-x:scroll;">
 		
 				<h4>DICHIARAZIONE P.L.V. ORDINARIA ED EFFETTIVA</h4>
-				<table id="tableRiepilogoColtureAziendali"
+				<table summary="riepilogo colture aziendali" id="tableRiepilogoColtureAziendali"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>
@@ -66,7 +66,7 @@
 				</table>
 				
 					<h4>RICALCOLI P.L.V. ORDINARIA ED EFFETTIVA CON ASSICURAZIONI</h4>
-					<table id="tableRiepilogoColtureAziendaliAssicurazioni"
+					<table summary="riepilogo colture aziendali assicurazioni"id="tableRiepilogoColtureAziendaliAssicurazioni"
 						class="table table-hover table-striped table-bordered tableBlueTh"
 					>
 						<thead>
@@ -104,7 +104,7 @@
 				<c:set var ="tableName"  value ="tableElencoColtureAziendali"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="${tableName}"
+				<table summary="dettaglio" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 					data-toggle="table"
 					data-url="get_list_colture_aziendali.json"

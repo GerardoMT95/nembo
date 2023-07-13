@@ -31,7 +31,7 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div id="header_info">
-						Estrazione <c:if test="${!empty numeroEstrazione }">n° ${numeroEstrazione}</c:if>  del ${dataEstrazioneStr} - ${tipologiaEstrazione} - ${descrizioneEstrazione} <br>
+						Estrazione <c:if test="${!empty numeroEstrazione }">nï¿½ ${numeroEstrazione}</c:if>  del ${dataEstrazioneStr} - ${tipologiaEstrazione} - ${descrizioneEstrazione} <br>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 		<h3>Elenco procedimenti estrazione</h3>
 		<div id="filter-bar" style="position:absolute;top:54px"> </div>
 
-		<table id="elencoProcedimenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="elencoProcedimenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 			  data-toggle="table" data-url="getElencoProcedimenti_${idEstrazione}.json"
 			  data-pagination="true" 
 			  data-show-pagination-switch="true" 

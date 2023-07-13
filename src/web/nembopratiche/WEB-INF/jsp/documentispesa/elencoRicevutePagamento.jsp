@@ -69,7 +69,7 @@
 					</m:panel>
 				
 					<div id="filter-bar" style="position: relative; top: 46px"></div>
-					<table id="elencoDocumenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali" data-toggle="table"
+					<table summary="dettaglio" id="elencoDocumenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali" data-toggle="table"
 						data-url="json/getElencoRicevutePagamento.json" data-show-columns="true" data-show-filter="true" data-undefined-text=''
 						data-select-item-name="idRicevutaPagamento" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top"
 						data-id-field="idRicevutaPagamento">
@@ -186,7 +186,7 @@
 			var importoLordoPagamento = $("#importoLordoPagamento").val();
 			if(importoLordo==importoLordoPagamento)
 			{
-				showMessageBox("Attenzione", "Le ricevute di pagamento presenti in elenco coprono già interamente l'importo lordo del documento di spesa. Non è più consentito inserire nuove ricevute di pagamento." , "modal-large")
+				showMessageBox("Attenzione", "Le ricevute di pagamento presenti in elenco coprono giï¿½ interamente l'importo lordo del documento di spesa. Non ï¿½ piï¿½ consentito inserire nuove ricevute di pagamento." , "modal-large")
 				return false;
 			}
 			else 

@@ -39,7 +39,7 @@
 	
 	
 	<div id="filter-bar" style="float: left; position: relative; top: 10px"></div>
-					<table id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
+					<table summary="dettaglio" id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="table"
 						data-url="../cunembo193v/json/accertamento_${intervento.idIntervento}.json"data-undefined-text='' data-show-columns="true">
 			<thead>
 				<tr>

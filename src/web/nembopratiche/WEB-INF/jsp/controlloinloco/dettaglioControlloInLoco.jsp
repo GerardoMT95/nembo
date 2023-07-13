@@ -93,7 +93,7 @@ span.tab-space {
 								</tr>
 								<c:if test="${procedimentoEstratto.flagEstrazione !='N'}">
 									<tr>
-										<th>Modalità di selezione</th>
+										<th>Modalitï¿½ di selezione</th>
 										<td>${procedimentoEstratto.statoEstrazione}</td>
 									</tr>
 								</c:if>
@@ -110,7 +110,7 @@ span.tab-space {
 
 				<c:if test="${operazioni !=null}">
 
-					<table id="operazioni"
+					<table summary="dettaglio"  id="operazioni"
 						class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 						data-toggle="table">
 						<thead>
@@ -122,9 +122,9 @@ span.tab-space {
 								<th>Verbale N</th>
 								<th>Funzionario controllore</th>
 								<th>Inadempienza tecnica NON<BR> vincolata a controllo di
-									<BR>ammissibilità superfici</th>
+									<BR>ammissibilitï¿½ superfici</th>
 								<th>Inadempienza tecnica<BR> condizionata all'esito di<BR>
-									ammissibilità superfici</th>
+									ammissibilitï¿½ superfici</th>
 								<th>Motivazione</th>
 							</tr>
 						</thead>
@@ -145,7 +145,7 @@ span.tab-space {
 											<c:when test="${o.flagInadempVincolata=='N'}">
 									No
 									</c:when>
-											<c:otherwise><c:if test="${o.flagInadempVincolata=='S'}">Sì</c:if></c:otherwise>
+											<c:otherwise><c:if test="${o.flagInadempVincolata=='S'}">Sï¿½</c:if></c:otherwise>
 										</c:choose>
 										<c:if test="${o.noteInadempVincolata!=null}"> - </c:if>
 									 <c:out value="${o.noteInadempVincolata}"></c:out></td>
@@ -154,7 +154,7 @@ span.tab-space {
 											<c:when test="${o.flagInadempCondizionata=='N'}">
 									No
 									</c:when>
-											<c:otherwise><c:if test="${o.flagInadempCondizionata=='S'}">Sì</c:if></c:otherwise>
+											<c:otherwise><c:if test="${o.flagInadempCondizionata=='S'}">Sï¿½</c:if></c:otherwise>
 										</c:choose>
 										<c:if test="${o.noteInadempCondizionata!=null}"> - </c:if>
 										 <c:out value="${o.noteInadempCondizionata}"></c:out></td>

@@ -34,7 +34,7 @@
 				<li><a href="index.do">Report</a></li>
 				<li class="active"><a href="#">Grafici</a></li>
 			</ul>
-			<table id="reportGrafici" class="table table-hover table-striped table-bordered tableBlueTh ">
+			<table summary="dettaglio" id="reportGrafici" class="table table-hover table-striped table-bordered tableBlueTh ">
 				<thead>
 					<tr>
 						<th></th>

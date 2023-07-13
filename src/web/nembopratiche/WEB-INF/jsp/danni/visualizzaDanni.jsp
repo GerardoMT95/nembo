@@ -26,14 +26,14 @@
 		<br/>
 
 		<div id="errorBoxDiv" class='alert alert-danger col-md-12' style="display:none;">
-			<h4>Non è possibile modificare pi&ugrave; danni contemporaneamente se almeno uno di quelli selezionati &egrave; di tipo Terreni Ripristinabili, Terreni Non Ripristinabili, Piantagioni Arboree o Allevamenti.</h4>
+			<h4>Non ï¿½ possibile modificare pi&ugrave; danni contemporaneamente se almeno uno di quelli selezionati &egrave; di tipo Terreni Ripristinabili, Terreni Non Ripristinabili, Piantagioni Arboree o Allevamenti.</h4>
 		</div>
 		
 		<form name="formVisualizzaDanni" id="formVisualizzaDanni" action="../cunembo298m/modifica_danni_multipla.do" method="POST">
 				<c:set var ="tableName"  value ="tableElencoDanni"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="${tableName}"
+				<table summary="dettaglio" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh show-totali"
 					data-toggle="table"
 					data-url="get_elenco_danni.json"

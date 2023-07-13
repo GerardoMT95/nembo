@@ -7,7 +7,7 @@
 <form method="post" class="form-horizontal" id="formAziende" action="">
 	<div class="container-fluid" id="popupContent">
 		<div id="tableBox" style=" margin-bottom:2em;min-height: 5em">
-			<table id='tblAziende' summary="Elenco Anomalie" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+			<table summary="dettaglio" id='tblAziende' summary="Elenco Anomalie" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 				data-undefined-text='' >
 				<thead>
 					<tr>

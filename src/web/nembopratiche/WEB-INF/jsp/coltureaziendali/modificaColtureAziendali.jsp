@@ -28,7 +28,7 @@
 		<m:error errorName="errorPercentualeMax"></m:error>
 		<form name="formModificaColtureAziendali" id="formModificaColtureAziendali" method="POST" action="../cunembo${cuNumber}m/modifica.do">
 
-				<table id="tableDettaglioColtureAziendali"
+				<table summary="dettaglio colture aziendali" id="tableDettaglioColtureAziendali"
 					class="table table-hover table-striped table-bordered tableBlueTh"
 				>
 					<thead>

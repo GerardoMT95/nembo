@@ -40,7 +40,7 @@
 				<c:set var ="tableName"  value ="tblConduzioni"/>
 				<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 				<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-				<table id="${tableName}"
+				<table summary="dettaglio" id="${tableName}"
 					class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 					data-toggle="table"
 					data-pagination=true
@@ -73,8 +73,8 @@
 					<th data-field="occupazioneSuolo" data-sortable = "true">Occupazione del suolo</th>
 					<th data-field="destinazione" class="alignRight" data-sortable = "true">Destinazione</th>
 					<th data-field="uso">Uso</th>
-					<th data-field="qualita">Qualità</th>
-					<th data-field="varieta">Varietà</th>
+					<th data-field="qualita">Qualitï¿½</th>
+					<th data-field="varieta">Varietï¿½</th>
 					<th data-field="superficieUtilizzata" data-formatter="numberFormatter4">Superficie utilizzata</th>
 				</tr>
 				</thead>

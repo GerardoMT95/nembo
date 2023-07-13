@@ -20,7 +20,7 @@
 		</div>
 		<br style="clear: left"> <br />
 		<div id="tableBox" style="overflow-y: scroll; max-height: 360px">
-			<table id='tblAziende' summary="Elenco Aziende" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+			<table summary="dettaglio" id='tblAziende' summary="Elenco Aziende" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 				data-undefined-text=''>
 				<thead>
 					<tr>

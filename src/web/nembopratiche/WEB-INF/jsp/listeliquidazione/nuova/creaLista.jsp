@@ -39,7 +39,7 @@
 			<m:textfield id="ammCompetenza" name="ammCompetenza" value="${descAmmCompetenza}" label="Amministrazione (Organismo Delegato)" disabled="true" />
 			<m:textfield id="ammCompetenza" name="tipoImporto" value="${descTipoImporto}" label="Tipo importo" disabled="true" />
 			<m:select id="idTecnico" name="idTecnico" list="${tecnici}" label="Funzionario liquidatore *" preferRequestValues="${preferRequest}" selectedValue="${idTecnicoLiquidatore}"/>
-			<table id='tblRisorse' summary="Elenco risorse" class="table table-hover table-bordered tableBlueTh ">
+			<table summary="dettaglio" id='tblRisorse' summary="Elenco risorse" class="table table-hover table-bordered tableBlueTh ">
 				<thead>
 					<tr>
 						<th>Operazione</th>

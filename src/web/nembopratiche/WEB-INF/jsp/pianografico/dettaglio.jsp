@@ -62,7 +62,7 @@
 
 			<div style="margin-top:3em">
 				<m:panel id="panelRiepilogoImpegni" title="Riepilogo Impegni" collapsible="true">
-					<table id="tblMappeFile" summary="Riepilogo Impegni" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+					<table summary="dettaglio impegni" id="tblMappeFile" summary="Riepilogo Impegni" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 						data-url="../cunembo285v/elencoImpegni.json" 
 						data-undefined-text=''>
 						<thead>
@@ -79,7 +79,7 @@
 			<c:if test="${codicePianoGrafico == 'I' }">
 				<div style="margin-top:3em">
 					<m:panel id="panelRiepilogoParticelle" title="Riepilogo interventi con superficie impegno" collapsible="true">
-							<table id='tblElencoParticelle' summary="Elenco Partcelle Grafiche" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+							<table summary="dettaglio particelle" id='tblElencoParticelle' summary="Elenco Partcelle Grafiche" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 								 data-undefined-text=''  data-show-columns="true">
 									<thead>
 										<tr>

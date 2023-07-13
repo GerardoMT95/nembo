@@ -43,7 +43,7 @@
 			
 		<h3>Elenco report disponibili</h3>
 		<div id="filter-bar" style="position:absolute;top:340px"> </div>	
-		<table id="dettEstrazioneTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
+		<table summary="dettaglio" id="dettEstrazioneTable" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh "
 		  data-toggle="table" 
 		  data-undefined-text = ''
 		  data-url="getElencoEstrazioni.json"

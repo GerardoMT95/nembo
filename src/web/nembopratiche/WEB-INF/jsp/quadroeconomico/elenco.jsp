@@ -35,7 +35,7 @@
 		
 			<form name="elencoForm" id="elencoForm" method="post" action="">
 
-				<table id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+				<table summary="dettaglio" id='tblInterventi' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 					data-url="json/elenco.json" data-undefined-text='' data-row-style='rowStyleFormatter' data-show-columns="true">
 					<thead>
 						<tr>

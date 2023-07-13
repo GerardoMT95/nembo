@@ -39,7 +39,7 @@
 				</c:if>
 
 				<c:if test="${!empty integrazione}">
-					<table id="tblIntegrazioneAlPremio" class="table table-bordered table-hover tableBlueTh">
+					<table summary="dettaglio" id="tblIntegrazioneAlPremio" class="table table-bordered table-hover tableBlueTh">
 						<thead>
 							<tr>
 								<th>Contributo concesso</th>

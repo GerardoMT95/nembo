@@ -21,7 +21,7 @@
 	<div class="container-fluid" id="content">
 		<m:panel id="panelElencoDate">
 		<form:form action="" modelAttribute="" method="post" class="form-horizontal">
-			<table id="elencoDate" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " >
+			<table summary="dettaglio" id="elencoDate" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " >
 				<colgroup>
 					<col width="18%">
 					<col width="18%">

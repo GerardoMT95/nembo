@@ -26,7 +26,7 @@
 		<br/>
 		<form name="formInserisciDanniDettaglio" id="formInserisciDanniDettaglio" action="../cunembo298i/inserisci_danni_conferma.do" method="POST">
 			<input type="hidden" name="idDanno" value="${idDanno}" />
-			<table id="inserisciDanniTable" class="table table-hover table-striped table-bordered tableBlueTh"
+			<table summary="dettaglio danni" id="inserisciDanniTable" class="table table-hover table-striped table-bordered tableBlueTh"
 				  data-undefined-text = '-'
 			      data-pagination="false" 
 				  >
@@ -39,7 +39,7 @@
 								</c:when>
 								<c:when test='${idDanno == 3 || idDanno == 9}'>
 									<th>Denominazione</th>
-									<th>Descrizione entità danneggiata</th>
+									<th>Descrizione entitï¿½ danneggiata</th>
 								</c:when>
 								<c:when test='${idDanno == 2}'>
 									<th>Tipo Fabbricato</th>
@@ -52,7 +52,7 @@
 							</c:choose>
 							<th>Descrizione<br/>Danno</th>
 							<th>Quantit&agrave;<br/>Danno</th>
-							<th>Unità di<br/>Misura</th>
+							<th>Unitï¿½ di<br/>Misura</th>
 							<th>Importo (&euro;)</th>
 						</tr>
 					</thead>
@@ -178,7 +178,7 @@
 							<c:set var ="tableName"  value ="tblRicercaConduzioniRiepilogo"/>
 							<c:set var ="defaultOrderColumn"  value =""/><!-- nome campo per cui ordinare di default -->
 							<c:set var ="defaultOrderType"  value =""/><!-- asc o desc -->
-							<table id="${tableName}"
+							<table summary="dettaglio conduzioni" id="${tableName}"
 									class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh"
 									data-toggle="table"
 									data-pagination=true 
@@ -210,8 +210,8 @@
 									<th data-field="occupazioneSuolo" data-sortable = "true">Occupazione del suolo</th>
 									<th data-field="destinazione" class="alignRight" data-sortable = "true">Destinazione</th>
 									<th data-field="uso">Uso</th>
-									<th data-field="qualita">Qualità</th>
-									<th data-field="varieta">Varietà</th>
+									<th data-field="qualita">Qualitï¿½</th>
+									<th data-field="varieta">Varietï¿½</th>
 									<th data-field="superficieUtilizzata" data-formatter="numberFormatter4">Superficie utilizzata</th>
 								</tr>
 								</thead>

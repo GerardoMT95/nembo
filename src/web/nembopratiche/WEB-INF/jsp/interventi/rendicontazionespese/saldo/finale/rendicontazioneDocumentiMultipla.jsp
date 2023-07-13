@@ -60,7 +60,7 @@
             </tbody>
           </table>  
 					<div id="filter-bar_${intervento.idIntervento}" style="float: left; position: relative; top: 10px"></div>
-					<table id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="no-toggle"
+					<table summary="dettaglio" id='rendicontazioneDocumenti' summary="Elenco Interventi" class="table table-hover table-bordered tableBlueTh show-totali" data-toggle="no-toggle"
 						data-url="json/rendicontazione_${intervento.idIntervento}.json" data-undefined-text='' data-show-columns="true">
 						<thead>
 							<tr>

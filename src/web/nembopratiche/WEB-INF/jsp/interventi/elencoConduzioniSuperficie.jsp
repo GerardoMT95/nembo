@@ -25,7 +25,7 @@
 			</m:panel>
 			<m:panel id="particelle" startOpened="true" title="Destinazioni produttive localizzate">
 				<m:error />
-				<table id="tblConduzioni" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-toggle="table" data-url="${dataUrlTable}"
+				<table summary="dettaglio" id="tblConduzioni" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-toggle="table" data-url="${dataUrlTable}"
 					data-undefined-text=''>
 					<thead>
 						<tr>

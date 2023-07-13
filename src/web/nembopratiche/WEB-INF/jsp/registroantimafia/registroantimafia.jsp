@@ -56,7 +56,7 @@
 
 				<div id="tableDatiGenerali">
 					<h3>Dati generali</h3>
-					<table id='tblDatiGenerali' summary="Dati generali" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+					<table summary="dettaglio dati generali" id='tblDatiGenerali' summary="Dati generali" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 						data-undefined-text='' data-url="getDatiAziendaCertificato.json">
 						<thead>
 							<tr>
@@ -70,7 +70,7 @@
 
 				<div id="tableTitolare">
 					<h3>Titolare Rappresentante Legale</h3>
-					<table id='tblTitolare' summary="Titolare Rapp. Legale" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+					<table summary="dettaglio titolare" id='tblTitolare' summary="Titolare Rapp. Legale" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 						data-undefined-text='' data-url="getDatiTitolare.json">
 						<thead>
 							<tr>
@@ -87,7 +87,7 @@
 
 				<div id="tableCertificato">
 					<h3>Certificato antimafia</h3>
-					<table id='tblCert' summary="Certificato antimafia" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
+					<table summary="dettaglio certificati" id='tblCert' summary="Certificato antimafia" class="table table-hover table-bordered tableBlueTh" data-toggle="table"
 						data-undefined-text='' data-url="getDatiCertificato.json">
 						<thead>
 							<tr>

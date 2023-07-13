@@ -24,7 +24,7 @@
 		</m:panel>
 		<m:panel id="particelle" startOpened="true" title="Destinazioni produttive localizzate">
 		<m:error/>
-			<table id="tblConduzioni" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/elenco_conduzioni_${idIntervento}.json" data-undefined-text='' data-checkbox-header="true">
+			<table summary="dettaglio" id="tblConduzioni" class="table table-hover tableBlueTh" data-toggle="table" data-url="json/elenco_conduzioni_${idIntervento}.json" data-undefined-text='' data-checkbox-header="true">
 				<thead>
 					<tr>
 						<th data-field="id" data-formatter="stateFormatterIconeConduzione"></th>

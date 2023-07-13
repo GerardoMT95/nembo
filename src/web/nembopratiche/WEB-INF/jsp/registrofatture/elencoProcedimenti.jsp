@@ -39,7 +39,7 @@ span.tab-space {
 		<m:panel title="Elenco procedimenti" id="panelDocumenti" collapsible="false">
 
 			<div id="filter-bar" style="position: relative; top: 46px"></div>
-			<table id="elencoProcedimentiDoc" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-toggle="table"
+			<table summary="dettaglio" id="elencoProcedimentiDoc" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh " data-toggle="table"
 				data-url="getElencoProcedimenti.json" data-pagination="true" data-show-pagination-switch="true" data-pagination-v-align="top"
 				data-show-columns="true" data-undefined-text='' data-show-toggle="true" data-page-list="[10, 25, 50, 100, 250, 500]"
 				data-page-number="${sessionMapNumeroPagina.get('elencoProcedimentiDoc') != null ? sessionMapNumeroPagina.get('elencoProcedimentiDoc') : '1'}"
