@@ -435,7 +435,7 @@
 		            			return false;
 		            	
 		            	if(y==1)
-		            		if(x!=null & x!=1)
+		            		if(x!=null && x!=1)
 		            			return true;
 		            		else
 		            			return false; 
