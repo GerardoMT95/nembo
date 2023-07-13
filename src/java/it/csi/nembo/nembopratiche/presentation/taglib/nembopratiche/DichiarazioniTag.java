@@ -181,7 +181,6 @@ public class DichiarazioniTag extends BaseTag
       HashMap<String, HashMap<String, Integer>> results = new HashMap<String, HashMap<String, Integer>>();
 
       String urlRegex = "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
-          "(\\w+:\\w+@)?(+(com|org|net|gov" +
           "|mil|biz|info|mobi|name|aero|jobs|museum" +
           "|travel|[a-z]{2}))(:[\\d]{1,5})?";
 
