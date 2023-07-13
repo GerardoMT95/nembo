@@ -1255,48 +1255,48 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     rowCount++;
 
     header = sheet.createRow(rowCount);
-    col = -1;
-    col++;
-    header.createCell(col).setCellValue("Progr.");
-    header.getCell(col).setCellStyle(style);
+    int column = -1;
+    column++;
+    header.createCell(column).setCellValue("Progr.");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Importo lordo");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo lordo");
+    header.getCell(ccolumnol).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Importo netto");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo netto");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col)
+    column++;
+    header.createCell(column)
         .setCellValue("Importo associato per la rendicontazione");
-    header.getCell(col).setCellStyle(style);
+    header.getCell(column).setCellStyle(style);
+
+    column++;
+    header.createCell(column).setCellValue("Importo rendicontato");
+    header.getCell(column).setCellStyle(style);
+
+    column++;
+    header.createCell(column).setCellValue("Estremi Pagamento");
+    header.getCell(column).setCellStyle(style);
+
+    column++;
+    header.createCell(column).setCellValue("Data Pagamento");
+    header.getCell(column).setCellStyle(style);
 
     col++;
-    header.createCell(col).setCellValue("Importo rendicontato");
-    header.getCell(col).setCellStyle(style);
+    header.createCell(column).setCellValue("Modalita Pagamento");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Estremi Pagamento");
-    header.getCell(col).setCellStyle(style);
+    column++;
+    header.createCell(column).setCellValue("Importo Pagamento");
+    header.getCell(column).setCellStyle(style);
 
-    col++;
-    header.createCell(col).setCellValue("Data Pagamento");
-    header.getCell(col).setCellStyle(style);
-
-    col++;
-    header.createCell(col).setCellValue("Modalita Pagamento");
-    header.getCell(col).setCellStyle(style);
-
-    col++;
-    header.createCell(col).setCellValue("Importo Pagamento");
-    header.getCell(col).setCellStyle(style);
-
-    col++;
-    header.createCell(col)
+    column++;
+    header.createCell(column)
         .setCellValue("Importo Associato per la rendicontazione");
-    header.getCell(col).setCellStyle(style);
+    header.getCell(column).setCellStyle(style);
     rowCount++;
     // create header row
     int countCol = -1;
