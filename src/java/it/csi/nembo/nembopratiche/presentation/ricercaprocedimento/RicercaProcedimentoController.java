@@ -271,14 +271,14 @@ public class RicercaProcedimentoController extends BaseController
 	Errors errors = new Errors();
     salvaDatiPagina(request, model, session);
 
-    Vector<Long> idLivelli = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedLivello"));
-    Vector<Long> idEvento = NemboUtils.ARRAY.toVectorLong(deserialize(request,"serializedEvento"));
-    Vector<Long> idBando = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedBando"));
-    Vector<Long> idAmministrazione = NemboUtils.ARRAY.toVectorLong(deserialize(request,"serializedAmministrazione"));
-    Vector<Long> idStatoProc = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedStato"));
-    Vector<String> idEstrazione = deserializeEstrazioni(request);
-    Vector<String> idEstrazioneExPost = deserializeEstrazioniExPost(request);
-    Vector<String> idNotifiche = deserialize(request, "serializedNotifica");
+    ArrayList<Long> idLivelli = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedLivello"));
+    ArrayList<Long> idEvento = NemboUtils.ARRAY.toVectorLong(deserialize(request,"serializedEvento"));
+    ArrayList<Long> idBando = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedBando"));
+    ArrayList<Long> idAmministrazione = NemboUtils.ARRAY.toVectorLong(deserialize(request,"serializedAmministrazione"));
+    ArrayList<Long> idStatoProc = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedStato"));
+    ArrayList<String> idEstrazione = deserializeEstrazioni(request);
+    ArrayList<String> idEstrazioneExPost = deserializeEstrazioniExPost(request);
+    ArrayList<String> idNotifiche = deserialize(request, "serializedNotifica");
 
     if (!isRicercaDatiAnagrafici(request)
         && (idLivelli == null || idLivelli.size() <= 0))
@@ -323,11 +323,11 @@ public class RicercaProcedimentoController extends BaseController
     return eseguiRicerca(ricercaVO, model, session);
   }
 
-  private Vector<String> deserializeEstrazioni(HttpServletRequest request)
+  private ArrayList<String> deserializeEstrazioni(HttpServletRequest request)
       throws InternalUnexpectedException
   {
-    Vector<String> elenco = new Vector<>();
-    Vector<String> idEstrazione = deserialize(request, "serializedEstrazione");
+    ArrayList<String> elenco = new ArrayList<>();
+    ArrayList<String> idEstrazione = deserialize(request, "serializedEstrazione");
     List<FlagEstrazioneDTO> elencoFlag = estrazioneEJB
         .getElencoFlagEstrazioni();
     if (idEstrazione != null && elencoFlag != null)
@@ -346,11 +346,11 @@ public class RicercaProcedimentoController extends BaseController
     return elenco;
   }
 
-  private Vector<String> deserializeEstrazioniExPost(HttpServletRequest request)
+  private ArrayList<String> deserializeEstrazioniExPost(HttpServletRequest request)
       throws InternalUnexpectedException
   {
-    Vector<String> elenco = new Vector<>();
-    Vector<String> idEstrazione = deserialize(request,
+    ArrayList<String> elenco = new ArrayList<>();
+    ArrayList<String> idEstrazione = deserialize(request,
         "serializedEstrazioneExPost");
     List<FlagEstrazioneDTO> elencoFlag = estrazioneEJB
         .getElencoFlagEstrazioniExPost();
@@ -624,7 +624,7 @@ public class RicercaProcedimentoController extends BaseController
   {
     List<Map<String, Object>> procedimenti = new ArrayList<Map<String, Object>>();
     HashMap<String, Object> stato = null;
-    Vector<String> vId = new Vector<String>();
+    ArrayList<String> vId = new ArrayList<String>();
 
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
@@ -823,7 +823,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (chkTipoAmministraz != null && chkTipoAmministraz.length > 0)
     {
-      List<AmmCompetenzaDTO> ammFiltrate = new Vector<AmmCompetenzaDTO>();
+      List<AmmCompetenzaDTO> ammFiltrate = new ArrayList<AmmCompetenzaDTO>();
       for (AmmCompetenzaDTO amm : amministrazioni)
       {
         if (lTipoAmministraz.contains(amm.getDescEstesaTipoAmministraz()))
@@ -906,15 +906,15 @@ public class RicercaProcedimentoController extends BaseController
   private void salvaDatiPagina(HttpServletRequest request, Model model,
       HttpSession session) throws InternalUnexpectedException
   {
-	Vector<Long> idLivelli = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedLivello"));
-    Vector<Long> idEvento = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedEvento"));
-    Vector<Long> idBando = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedBando"));
-    Vector<Long> idAmministrazione = NemboUtils.ARRAY.toVectorLong(deserialize(request,"serializedAmministrazione"));
-    Vector<Long> idStatoProc = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedStato"));
-    Vector<Long> idNotifiche = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedNotifica"));
+	ArrayList<Long> idLivelli = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedLivello"));
+    ArrayList<Long> idEvento = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedEvento"));
+    ArrayList<Long> idBando = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedBando"));
+    ArrayList<Long> idAmministrazione = NemboUtils.ARRAY.toVectorLong(deserialize(request,"serializedAmministrazione"));
+    ArrayList<Long> idStatoProc = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedStato"));
+    ArrayList<Long> idNotifiche = NemboUtils.ARRAY.toVectorLong(deserialize(request, "serializedNotifica"));
 
-    Vector<String> flagEstrazioni = deserializeEstrazioni(request);
-    Vector<String> flagEstrazioniExPost = deserializeEstrazioniExPost(request);
+    ArrayList<String> flagEstrazioni = deserializeEstrazioni(request);
+    ArrayList<String> flagEstrazioniExPost = deserializeEstrazioniExPost(request);
 
     
     // Reperisco le liste complete che devo poi filtrare per rimettere nel model
@@ -1224,9 +1224,9 @@ public class RicercaProcedimentoController extends BaseController
       }
   }
 
-  private Vector<String> deserialize(HttpServletRequest request, String reqName)
+  private ArrayList<String> deserialize(HttpServletRequest request, String reqName)
   {
-    Vector<String> ids = null;
+    ArrayList<String> ids = null;
     String param = request.getParameter(reqName);
     // Ottengo una serie di elName=val&elName=val
     if (param != null)
@@ -1237,7 +1237,7 @@ public class RicercaProcedimentoController extends BaseController
         {
           if (ids == null)
           {
-            ids = new Vector<String>();
+            ids = new ArrayList<String>();
           }
           ids.add(singleParam.split("=")[1]);
         }
@@ -1254,14 +1254,14 @@ public class RicercaProcedimentoController extends BaseController
 		  HttpSession session)
 				  throws InternalUnexpectedException
   {
-    Vector<String> vIdBandi = null;
+    ArrayList<String> vIdBandi = null;
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session.getAttribute("utenteAbilitazioni");
     List<BandoDTO> bandi = ricercaEJB.getBandiAttivi(idLivelli,idEventi, utenteAbilitazioni.getIdProcedimento());
     session.setAttribute("all_bandi", bandi);
     model.addAttribute("all_bandi", bandi);
     if (bandi != null)
     {
-      vIdBandi = new Vector<String>();
+      vIdBandi = new ArrayList<String>();
       StringBuffer sbOptBandi = new StringBuffer();
       for (BandoDTO bandoDTO : bandi)
       {
@@ -1282,14 +1282,14 @@ public class RicercaProcedimentoController extends BaseController
 		  HttpSession session)
 				  throws InternalUnexpectedException
   {
-    Vector<String> vIdEventi = null;
+    ArrayList<String> vIdEventi = null;
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session.getAttribute("utenteAbilitazioni");
     List<EventiDTO> eventi = ricercaEJB.getEventiAttivi(idLivelli, utenteAbilitazioni.getIdProcedimento());
     session.setAttribute("all_eventi", eventi);
     model.addAttribute("all_eventi", eventi);
     if (eventi != null)
     {
-      vIdEventi = new Vector<String>();
+      vIdEventi = new ArrayList<String>();
       StringBuffer sbOptEventi = new StringBuffer();
       for (EventiDTO eventoDTO : eventi)
       {
@@ -1308,7 +1308,7 @@ public class RicercaProcedimentoController extends BaseController
       HashMap<String, Object> values, UtenteAbilitazioni utenteAbilitazioni,
       Model model, HttpSession session) throws InternalUnexpectedException
   {
-    Vector<String> vIdAmm = null;
+    ArrayList<String> vIdAmm = null;
     List<AmmCompetenzaDTO> amministrazioni = ricercaEJB
         .getAmministrazioniAttive(vIdBandi);
     session.setAttribute("all_amministrazioni", amministrazioni);
@@ -1320,7 +1320,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (amministrazioni != null)
     {
-      vIdAmm = new Vector<String>();
+      vIdAmm = new ArrayList<String>();
       StringBuffer sbOptAmm = new StringBuffer();
       for (AmmCompetenzaDTO ammDTO : amministrazioni)
       {
@@ -1333,14 +1333,14 @@ public class RicercaProcedimentoController extends BaseController
     return NemboUtils.ARRAY.toLong(vIdAmm);
   }
 
-  private Vector<String> refreshStatiProcedimenti(
+  private ArrayList<String> refreshStatiProcedimenti(
 	  long[] vIdLivelli,
       long[] vIdBandi, 
       long[] vIdAmm,
       HashMap<String, Object> values, Model model, HttpSession session)
       throws InternalUnexpectedException
   {
-    Vector<String> vIdStati = null;
+    ArrayList<String> vIdStati = null;
     List<ProcedimentoDTO> statiProcediemnto = ricercaEJB
         .getStatiProcedimentiAttivi(vIdLivelli, vIdBandi, vIdAmm);
     session.setAttribute("all_statiProcedimento", statiProcediemnto);
@@ -1348,7 +1348,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (statiProcediemnto != null)
     {
-      vIdStati = new Vector<String>();
+      vIdStati = new ArrayList<String>();
       StringBuffer sbOptProc = new StringBuffer();
       for (ProcedimentoDTO procDTO : statiProcediemnto)
       {
@@ -1364,7 +1364,7 @@ public class RicercaProcedimentoController extends BaseController
     return vIdStati;
   }
 
-  private Vector<String> refreshOggettiProcedimenti(
+  private ArrayList<String> refreshOggettiProcedimenti(
 		  long[] vIdLivelli,
 		  long[] vIdBandi, 
 		  long[] vIdAmm, 
@@ -1372,7 +1372,7 @@ public class RicercaProcedimentoController extends BaseController
 		  HashMap<String, Object> values, Model model, HttpSession session)
       throws InternalUnexpectedException
   {
-    Vector<String> vIdOggetti = null, vIdGruppi = null;
+    ArrayList<String> vIdOggetti = null, vIdGruppi = null;
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
 
@@ -1385,11 +1385,11 @@ public class RicercaProcedimentoController extends BaseController
 
     if (gruppiProcedimento != null)
     {
-      vIdGruppi = new Vector<String>();
+      vIdGruppi = new ArrayList<String>();
       StringBuffer sbOptProcHidden = new StringBuffer();
       StringBuffer sbOptProcGruppi = new StringBuffer();
       StringBuffer sbOptProcHiddenGruppi = new StringBuffer();
-      vIdOggetti = new Vector<String>();
+      vIdOggetti = new ArrayList<String>();
 
       for (GruppoOggettoDTO gruppoDTO : gruppiProcedimento)
       {
@@ -1781,7 +1781,7 @@ public class RicercaProcedimentoController extends BaseController
       UtenteAbilitazioni utenteAbilitazioni,
       List<AmmCompetenzaDTO> amministrazioni)
   {
-    List<AmmCompetenzaDTO> ammFiltrate = new Vector<AmmCompetenzaDTO>();
+    List<AmmCompetenzaDTO> ammFiltrate = new ArrayList<AmmCompetenzaDTO>();
     for (AmmCompetenzaDTO amm : amministrazioni)
     {
       if (NemboUtils.PAPUASERV.hasAmministrazioneCompetenza(
@@ -1791,10 +1791,10 @@ public class RicercaProcedimentoController extends BaseController
     return ammFiltrate;
   }
 
-  private HashMap<Long, Vector<Long>> createMapOggetti(
+  private HashMap<Long, ArrayList<Long>> createMapOggetti(
       HttpServletRequest request, HttpSession session)
   {
-    HashMap<Long, Vector<Long>> mapOggetti = null; // mappa del tipo
+    HashMap<Long, ArrayList<Long>> mapOggetti = null; // mappa del tipo
                                                    // <idLegameGruppoOggetto,
                                                    // List<Descrizione esito>>
     String[] hOggetti = request.getParameterValues("hOggetti"); // il value �
@@ -1802,7 +1802,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (hOggetti != null)
     {
-      mapOggetti = new HashMap<Long, Vector<Long>>();
+      mapOggetti = new HashMap<Long, ArrayList<Long>>();
       for (String oggetto : hOggetti)
       {
         if (oggetto.split("&&") != null && oggetto.split("&&")[0] != null)
@@ -1812,7 +1812,7 @@ public class RicercaProcedimentoController extends BaseController
 
           if (!mapOggetti.containsKey(idLegameGruppoOggetto))
           {
-            mapOggetti.put(idLegameGruppoOggetto, new Vector<Long>());
+            mapOggetti.put(idLegameGruppoOggetto, new ArrayList<Long>());
           }
           mapOggetti.get(idLegameGruppoOggetto).add(Long.parseLong(idEsito));
         }
@@ -1822,10 +1822,10 @@ public class RicercaProcedimentoController extends BaseController
     return mapOggetti;
   }
 
-  private HashMap<Long, Vector<Long>> createMapGruppi(
+  private HashMap<Long, ArrayList<Long>> createMapGruppi(
       HttpServletRequest request, HttpSession session)
   {
-    HashMap<Long, Vector<Long>> mapOggetti = null; // mappa del tipo
+    HashMap<Long, ArrayList<Long>> mapOggetti = null; // mappa del tipo
                                                    // <idGruppoOggetto,
                                                    // List<Descrizione esito>>
     String[] hGruppi = request.getParameterValues("hGruppi"); // il value � del
@@ -1833,7 +1833,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (hGruppi != null)
     {
-      mapOggetti = new HashMap<Long, Vector<Long>>();
+      mapOggetti = new HashMap<Long, ArrayList<Long>>();
       for (String gruppo : hGruppi)
       {
         Long idGruppo = Long.parseLong(gruppo.split("&&")[0]);
@@ -1841,7 +1841,7 @@ public class RicercaProcedimentoController extends BaseController
 
         if (!mapOggetti.containsKey(idGruppo))
         {
-          mapOggetti.put(idGruppo, new Vector<Long>());
+          mapOggetti.put(idGruppo, new ArrayList<Long>());
         }
         mapOggetti.get(idGruppo).add(Long.parseLong(idStato));
       }
@@ -1862,7 +1862,7 @@ public class RicercaProcedimentoController extends BaseController
     String[] idMisureSelezionate = ids.split("&");
     session.setAttribute("checkboxMisureSelezionate", idMisureSelezionate);
 
-    Vector<Long> vect = new Vector<Long>();
+    ArrayList<Long> vect = new ArrayList<Long>();
     String codiceMisura = null;
     for (String s : idMisureSelezionate)
     {

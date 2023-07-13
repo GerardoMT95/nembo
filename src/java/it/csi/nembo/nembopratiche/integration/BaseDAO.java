@@ -170,7 +170,7 @@ public class BaseDAO
 
   }
 
-  public String getInCondition(String campo, Vector<? extends Number> vId, boolean andClause)
+  public String getInCondition(String campo, ArrayList<? extends Number> vId, boolean andClause)
   {
     int cicli = vId.size() / PASSO;
     if (vId.size() % PASSO != 0)
@@ -1276,7 +1276,7 @@ public class BaseDAO
       logger.info(
           "[BaseDAO::safeMessaggio] Il pl/sql ha ritornato un messaggio contenente informazioni non visualizzabili all'utente, messaggio: "
               + msg);
-      msg = "Si è verificato un errore di sistema";
+      msg = "Si ï¿½ verificato un errore di sistema";
     }
     return msg;
   }
@@ -1687,7 +1687,7 @@ public class BaseDAO
     if (idParametro == null)
     {
       logger.error(
-          THIS_METHOD + " idParametro è null! NullPointerException in arrivo!");
+          THIS_METHOD + " idParametro ï¿½ null! NullPointerException in arrivo!");
     }
     StringBuilder queryBuilder = new StringBuilder(
         "SELECT ID_PARAMETRO, VALORE FROM DB_PARAMETRO WHERE ID_PARAMETRO IN (");
@@ -1756,7 +1756,7 @@ public class BaseDAO
     if (codCdu == null)
     {
       logger.error(
-          THIS_METHOD + " codcdu è null! NullPointerException in arrivo!");
+          THIS_METHOD + " codcdu ï¿½ null! NullPointerException in arrivo!");
     }
     StringBuilder queryBuilder = new StringBuilder(
         "SELECT CODICE_CDU, HELP_CDU FROM NEMBO_D_ELENCO_CDU WHERE CODICE_CDU IN (");
@@ -2007,7 +2007,7 @@ public class BaseDAO
                 list.add(new String[]
                 { rs.getString("OBJECT_NAME"), rs.getString("STATUS"),
                     null /*
-                          * Verrà riempito dalla controller con il nome
+                          * Verrï¿½ riempito dalla controller con il nome
                           * dell'icona da visualizzare
                           */ });
               }

@@ -483,7 +483,7 @@ public class NuovoProcedimentoController extends BaseController
             NemboConstants.GENERIC.SESSION_NO_ELENCO_AZIENDA, Boolean.TRUE);
         // ho solo un azienda quindi non mostro l'elenco e vado diretto alla
         // pagina successiva
-        Vector<Long> vLong = new Vector<Long>();
+        ArrayList<Long> vLong = new ArrayList<Long>();
         vLong.add(new Long(vIdAziende.get(0))));
         List<AziendaDTO> vAziende = nuovoProcedimento
             .getDettaglioAziendeById(vLong, idBando);
@@ -578,7 +578,7 @@ public class NuovoProcedimentoController extends BaseController
     else
     {
       elencoAziende = nuovoProcedimento.getDettaglioAziendeById(
-          new Vector<Long>(vIdAziende), bandoSelezionato.getIdBando());
+          new ArrayList<Long>(vIdAziende), bandoSelezionato.getIdBando());
     }
 
     if (elencoAziende != null && elencoAziende.size() > 0)
@@ -741,7 +741,7 @@ public class NuovoProcedimentoController extends BaseController
       @ModelAttribute NuovaDomanda nuovaDomanda, Model model,
       HttpSession session, HttpServletRequest request) throws InternalUnexpectedException
   {
-    Vector<Long> vLong = new Vector<Long>();
+    ArrayList<Long> vLong = new ArrayList<Long>();
     vLong.add(nuovaDomanda.getIdAzienda());
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vLong,
         nuovaDomanda.getIdBando());
@@ -868,7 +868,7 @@ public class NuovoProcedimentoController extends BaseController
       long idBandoOggetto, long idLegameGruppoOggetto, Model model,
       HttpSession session, String note) throws InternalUnexpectedException
   {
-    Vector<Long> vLong = new Vector<Long>();
+    ArrayList<Long> vLong = new ArrayList<Long>();
     vLong.add(new Long(idAzienda));
 
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vLong,
@@ -1098,7 +1098,7 @@ public class NuovoProcedimentoController extends BaseController
   {
     List<Map<String, Object>> procedimenti = new ArrayList<Map<String, Object>>();
     HashMap<String, Object> stato = null;
-    Vector<String> vId = new Vector<String>();
+    ArrayList<String> vId = new ArrayList<String>();
 
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");

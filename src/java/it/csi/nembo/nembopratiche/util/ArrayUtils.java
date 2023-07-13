@@ -25,10 +25,10 @@ public class ArrayUtils
    *           nel caso in cui una conversione numerica non sia andata a buon
    *           fine
    */
-  public Vector<Long> toVectorLong(Vector<String> vector)
+  public ArrayList<Long> toVectorLong(ArrayList<String> vector)
       throws InternalUnexpectedException
   {
-    Vector<Long> vl = new Vector<Long>();
+    ArrayList<Long> vl = new ArrayList<Long>();
     try
     {
       if (vector != null)
@@ -63,8 +63,8 @@ public class ArrayUtils
       }
       catch (Exception e)
       {
-        // Se il parametro zeroOnError è true allora non faccio nulla in caso di
-        // errore, il valore i-esimo dell'array sarà quello di
+        // Se il parametro zeroOnError ï¿½ true allora non faccio nulla in caso di
+        // errore, il valore i-esimo dell'array sarï¿½ quello di
         // default ossia 0
         if (!zeroOnError)
         {
@@ -156,7 +156,7 @@ public class ArrayUtils
     return found;
   }
 
-  public long[] toLong(Vector<String> vector) throws InternalUnexpectedException
+  public long[] toLong(ArrayList<String> vector) throws InternalUnexpectedException
   {
     String[] arrayString;
     if (vector != null)
@@ -171,7 +171,7 @@ public class ArrayUtils
     return toLong(arrayString);
   }
 
-  public Long[] toArray(Vector<Long> vector) throws InternalUnexpectedException
+  public Long[] toArray(ArrayList<Long> vector) throws InternalUnexpectedException
   {
     return vector.toArray(new Long[vector.size()]);
   }

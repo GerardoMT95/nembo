@@ -3484,7 +3484,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   }
 
   @Override
-  public void updateOrganismoDelegato(Vector<Long> idProcedimentiSelezionati,
+  public void updateOrganismoDelegato(ArrayList<Long> idProcedimentiSelezionati,
       long idAmministrazione, Long idUfficiozona, long idUtenteLogin,
       String note, Long idTecnico) throws InternalUnexpectedException
   {
@@ -3950,14 +3950,14 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public Boolean checkSeIProcSelezHannoLaStessaAmm(
-      Vector<Long> idProcSelezionati) throws InternalUnexpectedException
+      ArrayList<Long> idProcSelezionati) throws InternalUnexpectedException
   {
     return dao.checkSeIProcSelezHannoLaStessaAmm(idProcSelezionati);
   }
 
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
-  public boolean checkStatiOggetti(Vector<Long> vect)
+  public boolean checkStatiOggetti(ArrayList<Long> vect)
       throws InternalUnexpectedException
   {
     return dao.checkStatiOggetti(vect);
@@ -3966,7 +3966,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public boolean checkSeIProcSelezAppartengonoAlloStessoBando(
-      Vector<Long> idProcSelezionati) throws InternalUnexpectedException
+      ArrayList<Long> idProcSelezionati) throws InternalUnexpectedException
   {
     return dao.checkSeIProcSelezAppartengonoAlloStessoBando(idProcSelezionati);
   }
@@ -4060,7 +4060,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public boolean checkIfProcHaveSameUfficioZona(
-      Vector<Long> idProcedimentiSelezionati) throws InternalUnexpectedException
+      ArrayList<Long> idProcedimentiSelezionati) throws InternalUnexpectedException
   {
     return dao.checkIfProcHaveSameUfficioZona(idProcedimentiSelezionati);
   }
@@ -4068,7 +4068,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public boolean checkIfProcHaveSameTecnico(
-      Vector<Long> idProcedimentiSelezionati) throws InternalUnexpectedException
+      ArrayList<Long> idProcedimentiSelezionati) throws InternalUnexpectedException
   {
     return dao.checkIfProcHaveSameTecnico(idProcedimentiSelezionati);
   }

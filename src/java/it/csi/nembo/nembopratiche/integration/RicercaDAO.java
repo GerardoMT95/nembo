@@ -903,11 +903,11 @@ public class RicercaDAO extends BaseDAO
       {
 
         SELECT.append(" AND ( \n");
-        Iterator<Entry<Long, Vector<Long>>> it = vo.getMapGruppi().entrySet()
+        Iterator<Entry<Long, ArrayList<Long>>> it = vo.getMapGruppi().entrySet()
             .iterator();
         int count = 0;
         String tmp = " ";
-        Vector<Long> vct = null;
+        ArrayList<Long> vct = null;
         while (it.hasNext())
         {
           tmp = " ";
@@ -920,7 +920,7 @@ public class RicercaDAO extends BaseDAO
               sep = vo.getTipoFiltroOggetto();
           }
 
-          vct = (Vector<Long>) pair.getValue();
+          vct = (ArrayList<Long>) pair.getValue();
           if (vct.contains(new Long(0))) // Non Presente --> 0
           {
             SELECT.append(" " + sep + " NOT EXISTS ( "
@@ -969,14 +969,14 @@ public class RicercaDAO extends BaseDAO
       {
         if (vo.getMapGruppi() == null)
           SELECT.append("  AND ( ");
-        Iterator<Entry<Long, Vector<Long>>> it2 = vo.getMapOggetti().entrySet()
+        Iterator<Entry<Long, ArrayList<Long>>> it2 = vo.getMapOggetti().entrySet()
             .iterator();
         int count2 = 0;
         if (vo.getMapGruppi() != null)
           count2 = 1;
         String sep2 = "";
         String tmp2 = " ";
-        Vector<Long> vct2 = null;
+        ArrayList<Long> vct2 = null;
         while (it2.hasNext())
         {
           tmp2 = " ";
@@ -989,7 +989,7 @@ public class RicercaDAO extends BaseDAO
               sep2 = vo.getTipoFiltroOggetto();
           }
 
-          vct2 = (Vector<Long>) pair.getValue();
+          vct2 = (ArrayList<Long>) pair.getValue();
           if (vct2.contains(new Long(-1))) // Aperto --> -1
             tmp2 = " OR PO2.ID_ESITO IS NULL";
 
@@ -1258,7 +1258,7 @@ public class RicercaDAO extends BaseDAO
   }
 
   public List<ProcedimentoOggettoVO> getDettaglioProcedimentiOggettiById(
-      Vector<Long> vIdProcedimento) throws InternalUnexpectedException
+      ArrayList<Long> vIdProcedimento) throws InternalUnexpectedException
   {
     String THIS_METHOD = "getDettaglioProcedimentiOggettiById";
     StringBuffer SELECT = new StringBuffer();
@@ -2193,11 +2193,11 @@ public class RicercaDAO extends BaseDAO
       {
 
         SELECT.append(" AND ( \n");
-        Iterator<Entry<Long, Vector<Long>>> it = vo.getMapGruppi().entrySet()
+        Iterator<Entry<Long, ArrayList<Long>>> it = vo.getMapGruppi().entrySet()
             .iterator();
         int count = 0;
         String tmp = " ";
-        Vector<Long> vct = null;
+        ArrayList<Long> vct = null;
         while (it.hasNext())
         {
           tmp = " ";
@@ -2210,7 +2210,7 @@ public class RicercaDAO extends BaseDAO
               sep = vo.getTipoFiltroOggetto();
           }
 
-          vct = (Vector<Long>) pair.getValue();
+          vct = (ArrayList<Long>) pair.getValue();
           if (vct.contains(new Long(0))) // Non Presente --> 0
           {
             SELECT.append(" " + sep + " NOT EXISTS ( "
@@ -2261,14 +2261,14 @@ public class RicercaDAO extends BaseDAO
         if (vo.getMapGruppi() == null)
           SELECT.append("  AND ( ");
 
-        Iterator<Entry<Long, Vector<Long>>> it2 = vo.getMapOggetti().entrySet()
+        Iterator<Entry<Long, ArrayList<Long>>> it2 = vo.getMapOggetti().entrySet()
             .iterator();
         int count2 = 0;
         if (vo.getMapGruppi() != null)
           count2 = 1;
         String sep2 = "";
         String tmp2 = " ";
-        Vector<Long> vct2 = null;
+        ArrayList<Long> vct2 = null;
         while (it2.hasNext())
         {
           tmp2 = " ";
@@ -2281,7 +2281,7 @@ public class RicercaDAO extends BaseDAO
               sep2 = vo.getTipoFiltroOggetto();
           }
 
-          vct2 = (Vector<Long>) pair.getValue();
+          vct2 = (ArrayList<Long>) pair.getValue();
           if (vct2.contains(new Long(-1))) // Aperto --> -1
             tmp2 = " OR PO2.ID_ESITO IS NULL";
 
@@ -2651,7 +2651,7 @@ public class RicercaDAO extends BaseDAO
     }
   }
 
-  private String queryNotifiche(Vector<Long> vector)
+  private String queryNotifiche(ArrayList<Long> vector)
   {
     return " SELECT                                                	 		\n"
         + "   	NOTIF.ID_PROCEDIMENTO				                 		\n"
@@ -3808,7 +3808,7 @@ public class RicercaDAO extends BaseDAO
     }
   }
 
-  public List<LivelloDTO> getOperazioni(Vector<Long> idMisureSelezionate)
+  public List<LivelloDTO> getOperazioni(ArrayList<Long> idMisureSelezionate)
       throws InternalUnexpectedException
   {
     String THIS_METHOD = "getOperazioni";
@@ -5008,7 +5008,7 @@ public class RicercaDAO extends BaseDAO
   }
 
   public List<LivelloDTO> getOperazioniMisureByTipo(
-      Vector<Long> idMisureSelezionate, String codiceMisura)
+      ArrayList<Long> idMisureSelezionate, String codiceMisura)
       throws InternalUnexpectedException
   {
     String THIS_METHOD = "getOperazioniMisureByTipo";
@@ -5514,9 +5514,9 @@ public class RicercaDAO extends BaseDAO
   
   //TODO: FIXME: rimuovere, probabilmente in disuso
   public List<GruppoOggettoDTO> getStatiAmmProcedimentiAttivi(
-      Vector<Long> lIdLivelli, Vector<Long> lIdBando,
-      Vector<Long> lIdAmministrazioni,
-      Vector<Long> lIdStatiProc) throws InternalUnexpectedException
+      ArrayList<Long> lIdLivelli, ArrayList<Long> lIdBando,
+      ArrayList<Long> lIdAmministrazioni,
+      ArrayList<Long> lIdStatiProc) throws InternalUnexpectedException
   {
     String THIS_METHOD = "[" + THIS_CLASS + "::getStatiAmmProcedimentiAttivi]";
     if (logger.isDebugEnabled())

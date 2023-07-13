@@ -265,7 +265,7 @@ public class ProcedimentoOggettoVO extends ProcedimentoOggettoDTO
   public String getElencoCodiciLivelliHtml()
   {
     String htmlElenco = "";
-    Vector<String> tmpArray = new Vector<>();
+    ArrayList<String> tmpArray = new ArrayList<>();
     if (elencoCodiciLivelli != null)
     {
       for (int i = 0; i < elencoCodiciLivelli.size(); i++)
@@ -357,7 +357,7 @@ public class ProcedimentoOggettoVO extends ProcedimentoOggettoDTO
   public String getElencoCodiciLivelliText()
   {
     String htmlElenco = "";
-    Vector<String> tmpArray = new Vector<>();
+    ArrayList<String> tmpArray = new ArrayList<>();
     if (elencoCodiciLivelli != null)
     {
       for (int i = 0; i < elencoCodiciLivelli.size(); i++)

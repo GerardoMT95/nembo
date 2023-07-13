@@ -493,7 +493,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       else
         if (isBeneficiario(utenteAbilitazioni))
         {
-          Vector<Long> aziende = new Vector<Long>();
+          ArrayList<Long> aziende = new ArrayList<Long>();
           for (EnteLogin ente : utenteAbilitazioni.getEntiAbilitati())
           {
             if (ente.getAziendaAgricola() != null)
@@ -599,7 +599,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       else
         if (isBeneficiario(utenteAbilitazioni))
         {
-          Vector<Long> aziende = new Vector<Long>();
+          ArrayList<Long> aziende = new ArrayList<Long>();
           for (EnteLogin ente : utenteAbilitazioni.getEntiAbilitati())
           {
             final AziendaAgricola aziendaAgricola = ente.getAziendaAgricola();
@@ -806,7 +806,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       else
         if (isBeneficiario(utenteAbilitazioni))
         {
-          Vector<Long> aziende = new Vector<Long>();
+          ArrayList<Long> aziende = new ArrayList<Long>();
           for (EnteLogin ente : utenteAbilitazioni.getEntiAbilitati())
           {
             final AziendaAgricola aziendaAgricola = ente.getAziendaAgricola();
@@ -923,7 +923,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
     }
   }
 
-  public List<AziendaDTO> getDettaglioAziendeById(Vector<Long> vIdAzienda,
+  public List<AziendaDTO> getDettaglioAziendeById(ArrayList<Long> vIdAzienda,
       long idBando) throws InternalUnexpectedException
   {
     String THIS_METHOD = "getDettaglioAziendeById";

@@ -33,7 +33,7 @@ public interface INuovoProcedimentoEJB extends INemboAbstractEJB
   public List<Long> getAziendeByIdBando(long idBando,
       UtenteAbilitazioni utenteAbilitazioni) throws InternalUnexpectedException;
 
-  public List<AziendaDTO> getDettaglioAziendeById(Vector<Long> vIdAzienda,
+  public List<AziendaDTO> getDettaglioAziendeById(ArrayList<Long> vIdAzienda,
       long idBando) throws InternalUnexpectedException;
 
   public List<AziendaDTO> getDettaglioAziendeByIdBando(long idBando,

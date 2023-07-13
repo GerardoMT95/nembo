@@ -93,7 +93,7 @@ public class ValidationUtils
         }
         // Occorre controllare se l'utente ha inserito caratteri non
         // alfanumerici,
-        // perché in alcuni casi, con probabilità minima ma non nulla,
+        // perchï¿½ in alcuni casi, con probabilitï¿½ minima ma non nulla,
         // il metodo
         // potrebbe non restituire il messaggio di errore
         if (row > 36)
@@ -190,7 +190,7 @@ public class ValidationUtils
     return false;
   }
 
-  public boolean isValidVectorOfFlags(Vector<String> flags)
+  public boolean isValidVectorOfFlags(ArrayList<String> flags)
   {
     for (String flag : flags)
     {

@@ -273,7 +273,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
     	  Boolean isCategorieInterventiNonInserite = dao.isCategoriaInverventoNonInseritePerDannoAtm(idProcedimentoOggetto,idDannoAtm,arrayIdDescrizioneIntervento);
       	  if(!isCategorieInterventiNonInserite)
       	  {
-      		  throw new ApplicationException("Si sta cercando di inserire degli interventi che sono già stati inseriti precedentemente per lo stesso danno.",10001);
+      		  throw new ApplicationException("Si sta cercando di inserire degli interventi che sono giï¿½ stati inseriti precedentemente per lo stesso danno.",10001);
       	  }
     	  
       }
@@ -545,7 +545,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
     {
       // Accesso esclusivo agli interventi di questo procedimento
       dao.lockProcedimentoByIdProcedimentoOggetto(idProcedimentoOggetto);
-      // Cerco se c'è l'intervento sulla tabella temporanea
+      // Cerco se c'ï¿½ l'intervento sulla tabella temporanea
       // NEMBO_W_DETT_INTERV_PROC_OGG
       Long idDettIntervProcOgg = dao
           .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
@@ -686,7 +686,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
             // Elimino il record padre dell'intervento SE E SOLO SE NON ESISTE
             // un altro record per quell'id_intervento su
             // NEMBO_W_DETT_INTERV_PROC_OGG
-            // Su NEMBO_T_DETTAGLIO_INTERVENTO non può esserci in questo ramo
+            // Su NEMBO_T_DETTAGLIO_INTERVENTO non puï¿½ esserci in questo ramo
             // della if
             dao.eliminazioneCondizionaleIntervento(idIntervento);
           }
@@ -750,7 +750,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
             .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
         if (idDettIntervProcOgg == null)
         {
-          // Peccato, non è sulla temporanea, devo duplicarlo dal consolidato
+          // Peccato, non ï¿½ sulla temporanea, devo duplicarlo dal consolidato
           // sulla temporanea e modificarlo.
           Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(
               idProcedimentoOggetto, idIntervento);
@@ -778,7 +778,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
           dao.delete("NEMBO_R_DETT_INTE_PROC_OGG_MIS",
               "ID_DETT_INTERV_PROC_OGG", idDettIntervProcOgg);
         }
-        // Mancano solo le misurazioni (che sono già state eliminate dal db se
+        // Mancano solo le misurazioni (che sono giï¿½ state eliminate dal db se
         // presenti) ==> le inserisco
         for (MisurazioneInterventoDTO misurazione : intervento
             .getMisurazioneIntervento())
@@ -895,7 +895,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       throws InternalUnexpectedException
   {
     dao.lockProcedimentoByIdProcedimentoOggetto(idProcedimentoOggetto);
-    // Cerco se c'è l'intervento sulla tabella temporanea
+    // Cerco se c'ï¿½ l'intervento sulla tabella temporanea
     // NEMBO_W_DETT_INTERV_PROC_OGG
     Long idDettIntervProcOgg = dao
         .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
@@ -963,7 +963,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       throws InternalUnexpectedException
   {
     dao.lockProcedimentoByIdProcedimentoOggetto(idProcedimentoOggetto);
-    // Cerco se c'è l'intervento sulla tabella temporanea
+    // Cerco se c'ï¿½ l'intervento sulla tabella temporanea
     // NEMBO_W_DETT_INTERV_PROC_OGG
     Long idDettIntervProcOgg = dao
         .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
@@ -1050,7 +1050,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       throws InternalUnexpectedException
   {
     dao.lockProcedimentoByIdProcedimentoOggetto(idProcedimentoOggetto);
-    // Cerco se c'è l'intervento sulla tabella temporanea
+    // Cerco se c'ï¿½ l'intervento sulla tabella temporanea
     // NEMBO_W_DETT_INTERV_PROC_OGG
     Long idDettIntervProcOgg = dao
         .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
@@ -1117,7 +1117,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
                                        // ribalto il record da
                                        // NEMBO_T_DETTAGLIO_INTERVENTO
       {
-        // Se non c'è allora è sul consolidato, quindi devo ribaltare dal
+        // Se non c'ï¿½ allora ï¿½ sul consolidato, quindi devo ribaltare dal
         // consolidato alla working
         Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(
             idProcedimentoOggetto, idIntervento);
@@ -1127,7 +1127,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
         dao.copiaMisurazioneInterventoSuTemporaneo(idDettaglioIntervento,
             idDettIntervProcOgg);
         // Copio tutti gli allegati ad esclusione di quello con
-        // idFileAllegatiIntervento (il metodo è già predisposto per escludere
+        // idFileAllegatiIntervento (il metodo ï¿½ giï¿½ predisposto per escludere
         // un allegato, se presente,
         // in fase di copia)
         dao.copiaAllegatiInterventoSuTemporaneo(idDettaglioIntervento,
@@ -1135,24 +1135,24 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       }
       else
       {
-        // E' già sulla working... elimino semplicemente la relazione con
+        // E' giï¿½ sulla working... elimino semplicemente la relazione con
         // l'intervento
         dao.delete("NEMBO_W_FILE_ALL_INTE_PROC_OGG",
             "ID_FILE_ALLEGATI_INTERVENTO", idFileAllegatiIntervento);
       }
-      // Elimino fisicamente l'allegato se non è più referenziato
+      // Elimino fisicamente l'allegato se non ï¿½ piï¿½ referenziato
       dao.deleteFileAllegatiInterventoSeNonReferenziato(
           idFileAllegatiIntervento);
     }
     else
     {
-      // L'allegato non è parte dell'intervento del procedimento oggetto in
+      // L'allegato non ï¿½ parte dell'intervento del procedimento oggetto in
       // questione ==> Bug o tentativo di forzare il sistema ==>
       // Non eseguo delete ma registro la notizIa
       logger.warn(THIS_METHOD
           + " Attenzione: Richiesta di eliminazione dell'allegato con idFileAllegatiIntervento #"
           + idFileAllegatiIntervento
-          + " che però non appartiene all'intervento #" + idIntervento
+          + " che perï¿½ non appartiene all'intervento #" + idIntervento
           + " e al procedimento oggetto #" + idProcedimentoOggetto);
     }
   }
@@ -1214,7 +1214,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
             .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
         if (idDettIntervProcOgg == null)
         {
-          // Peccato, non è sulla temporanea, devo duplicarlo dal consolidato
+          // Peccato, non ï¿½ sulla temporanea, devo duplicarlo dal consolidato
           // sulla temporanea e modificarlo.
           Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(
               idProcedimentoOggetto, idIntervento);
@@ -1285,7 +1285,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
             .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
         if (idDettIntervProcOgg == null)
         {
-          // Peccato, non è sulla temporanea, devo duplicarlo dal consolidato
+          // Peccato, non ï¿½ sulla temporanea, devo duplicarlo dal consolidato
           // sulla temporanea e modificarlo.
           Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(
               idProcedimentoOggetto, idIntervento);
@@ -1402,7 +1402,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
           riga);
       if (numRecord == 0)
       {
-        // Se non ho aggiornato nessun record vuol dire che il record non c'è
+        // Se non ho aggiornato nessun record vuol dire che il record non c'ï¿½
         // ==> lo inserisco
         dao.insertRendicontazioneSpese(idProcedimentoOggetto, riga);
       }
@@ -1424,7 +1424,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       int numRecord = dao.updateAccertamentoSpese(idProcedimentoOggetto, riga);
       if (numRecord == 0)
       {
-        // Se non ho aggiornato nessun record vuol dire che il record non c'è
+        // Se non ho aggiornato nessun record vuol dire che il record non c'ï¿½
         // ==> lo inserisco
         dao.insertAccertamentoSpese(idProcedimentoOggetto, riga);
       }
@@ -1441,7 +1441,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
         .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
     if (idDettIntervProcOgg == null)
     {
-      // Peccato, non è sulla temporanea, devo duplicarlo dal consolidato sulla
+      // Peccato, non ï¿½ sulla temporanea, devo duplicarlo dal consolidato sulla
       // temporanea.
       Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(
           idProcedimentoOggetto, idIntervento);
@@ -1546,7 +1546,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
 
   @Override
   public List<DecodificaDualLIstDTO<Long>> getElencoInterventiPerDocSpesa(
-      long idProcedimento, Vector<Long> idsDocSpesa, boolean disponibili)
+      long idProcedimento, ArrayList<Long> idsDocSpesa, boolean disponibili)
       throws InternalUnexpectedException
   {
     return dao.getElencoInterventiPerDocSpesa(idProcedimento, idsDocSpesa,
@@ -1632,7 +1632,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       Long idDettIntervProcOgg = dao.findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
       if (idDettIntervProcOgg == null)
       {
-        // Peccato, non è sulla temporanea, devo duplicarlo dal consolidato sulla temporanea e modificarlo.
+        // Peccato, non ï¿½ sulla temporanea, devo duplicarlo dal consolidato sulla temporanea e modificarlo.
         Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(idProcedimentoOggetto, idIntervento);
         // Duplico la NEMBO_W_DETT_INTERV_PROC_OGG con i dati inseriti dall'utente e quelli del consolidato per i campi che non sono oggetto di modifica a video
         idDettIntervProcOgg = dao.copiaDettaglioInterventoSuTemporaneo(idDettaglioIntervento, idProcedimentoOggetto,
@@ -1749,7 +1749,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 	  intervento.setImportoUnitario(centocinquanta);
 	  intervento.setImporto(centocinquanta.multiply(punteggio));
 
-	  //imposto i dati della misurazione dell'intervento (punteggio e unità di misura associata al codice intervento PREV)
+	  //imposto i dati della misurazione dell'intervento (punteggio e unitï¿½ di misura associata al codice intervento PREV)
 	  List<MisurazioneInterventoDTO> misurazioniIntervento = new ArrayList<MisurazioneInterventoDTO>();
 	  MisurazioneInterventoDTO misurazioneIntervento = new MisurazioneInterventoDTO();
 	  misurazioneIntervento.setIdMisurazioneIntervento(datiIntervento.getIdMisurazioneIntervento());
@@ -1778,8 +1778,8 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 	  }
 	  else
 	  {
-		  //vi è già un intervento consolidato di prevenzione PREV
-		  //aggiorno l'intervento temporaneo se già esiste
+		  //vi ï¿½ giï¿½ un intervento consolidato di prevenzione PREV
+		  //aggiorno l'intervento temporaneo se giï¿½ esiste
 
 		  RigaElencoInterventi interventoConsolidato = listaInterventiPrevenzioneConsolidati.get(0);
 		  long idIntervento = interventoConsolidato.getIdIntervento();

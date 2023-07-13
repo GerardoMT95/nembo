@@ -6206,7 +6206,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
   }
 
   public List<DecodificaDualLIstDTO<Long>> getElencoInterventiPerDocSpesa(
-      long idProcedimento, Vector<Long> idsDocSpesa, boolean disponibili)
+      long idProcedimento, ArrayList<Long> idsDocSpesa, boolean disponibili)
       throws InternalUnexpectedException
   {
     String THIS_METHOD = "[" + THIS_CLASS

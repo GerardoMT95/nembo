@@ -275,7 +275,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
 
     List<Map<String, Object>> ret = new ArrayList<Map<String, Object>>();
     HashMap<String, Object> tipo = null;
-    Vector<String> vId = new Vector<String>();
+    ArrayList<String> vId = new ArrayList<String>();
 
     List<ProcedimentoOggettoVO> elenco = ricercaEJB
         .getElencoTipologieEstrazione();

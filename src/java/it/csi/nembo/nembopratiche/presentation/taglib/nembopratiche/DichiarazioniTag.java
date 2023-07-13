@@ -176,7 +176,7 @@ public class DichiarazioniTag extends BaseTag
       }
 
       String link = "";
-      Vector<Integer> vTemp = new Vector<Integer>();
+      ArrayList<Integer> vTemp = new ArrayList<Integer>();
       HashMap<String, Integer> tmpMap = null;
       HashMap<String, HashMap<String, Integer>> results = new HashMap<String, HashMap<String, Integer>>();
 

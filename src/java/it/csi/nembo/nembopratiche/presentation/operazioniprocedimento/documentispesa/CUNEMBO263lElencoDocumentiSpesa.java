@@ -79,9 +79,9 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
     clearCommonInSession(session);
 
     /*
-     * La funzionalità è presente solo se
-     * NEMBO_D_BANDO.RENDICONTAZIONE_DOC_SPESA = ‘S’. Consento l'accesso alla
-     * funzionalità solo se non è già stata fatta una rendicontazione prima
+     * La funzionalitï¿½ ï¿½ presente solo se
+     * NEMBO_D_BANDO.RENDICONTAZIONE_DOC_SPESA = ï¿½Sï¿½. Consento l'accesso alla
+     * funzionalitï¿½ solo se non ï¿½ giï¿½ stata fatta una rendicontazione prima
      * dell'abilitazione dei doc di spesa. Quindi se
      * NEMBO_T_RENDICONTAZIONE_SPESE ci sono record col PO validi del mio P ma
      * non documenti collegati.
@@ -90,18 +90,18 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
         getProcedimentoFromSession(session).getIdProcedimento(),
         getProcedimentoFromSession(session).getIdBando()))
       throw new ApplicationException(
-          "Per la pratica selezionata non è possibile procedere poiché esiste una rendicontazione, effettuata senza i documenti di spesa, precedente all'abilitazione della funzionalità richiesta.");
+          "Per la pratica selezionata non ï¿½ possibile procedere poichï¿½ esiste una rendicontazione, effettuata senza i documenti di spesa, precedente all'abilitazione della funzionalitï¿½ richiesta.");
     /*
      * Nel caso particolare in cui risultino associati al procedimento solo
-     * interventi per cui non è prevista la gestione dei documenti di spesa (e
-     * cioè che hanno NEMBO_R_LIVELLO_INTERVENTO.FLAG_DOCUMENTO_SPESA = ‘N’),
-     * occorre emettere un messaggio di errore e interrompere l’operazione.
+     * interventi per cui non ï¿½ prevista la gestione dei documenti di spesa (e
+     * cioï¿½ che hanno NEMBO_R_LIVELLO_INTERVENTO.FLAG_DOCUMENTO_SPESA = ï¿½Nï¿½),
+     * occorre emettere un messaggio di errore e interrompere lï¿½operazione.
      */
     if (0 == quadroEJB.contaInterventiRendicontazConFlagS(
         getProcedimentoFromSession(session).getIdProcedimento(),
         getProcedimentoFromSession(session).getIdBando()))
       throw new ApplicationException(
-          "Per la pratica selezionata non è possibile procedere poiché non ci sono interventi in domanda per cui è prevista la rendicontazione mediante documenti di spesa.");
+          "Per la pratica selezionata non ï¿½ possibile procedere poichï¿½ non ci sono interventi in domanda per cui ï¿½ prevista la rendicontazione mediante documenti di spesa.");
 
     String flag = getProcedimentoFromSession(session)
         .getFlagRendicontazioneConIva();
@@ -408,7 +408,7 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
       RigaElencoInterventi interventoDett = null;
       long idProcedimento = getIdProcedimento(session);
 
-      Vector<Long> vct = new Vector<Long>();
+      ArrayList<Long> vct = new ArrayList<Long>();
       vct.add(idDocumentoSpesa);
       List<DecodificaDualLIstDTO<Long>> elencoInterventiSelezionati = interventiEJB
           .getElencoInterventiPerDocSpesa(getIdProcedimento(session), vct,
@@ -577,7 +577,7 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
         {
           for (ProcedimentoOggettoDTO ogg : doc.getOggettiDoc())
           {
-            // lo inserisco solo se non c'è già
+            // lo inserisco solo se non c'ï¿½ giï¿½
             boolean insert = true;
 
             for (ExcelRigaDomandaDTO domanda : elencoDomande)

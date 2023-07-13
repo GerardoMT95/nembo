@@ -20,15 +20,15 @@ public class RicercaProcedimentiVO implements ILoggable
   private String                      cuaa;
 
   // ricerca per filtri
-  private Vector<Long>			  	  vctIdEventi;
-  private Vector<Long>              vctIdLivelli;
-  private Vector<Long>             	  vctIdBando;
-  private Vector<Long>	              vctIdAmministrazione;
-  private Vector<Long>                vctIdStatoProcedimento;
-  private Vector<String>              vctIdStatoAmmProcedimento;
-  private Vector<String>              vctFlagEstrazione;
-  private Vector<String>              vctFlagEstrazioneExPost;
-  private Vector<Long>              vctNotifiche;
+  private ArrayList<Long>			  	  vctIdEventi;
+  private ArrayList<Long>              vctIdLivelli;
+  private ArrayList<Long>             	  vctIdBando;
+  private ArrayList<Long>	              vctIdAmministrazione;
+  private ArrayList<Long>                vctIdStatoProcedimento;
+  private ArrayList<String>              vctIdStatoAmmProcedimento;
+  private ArrayList<String>              vctFlagEstrazione;
+  private ArrayList<String>              vctFlagEstrazioneExPost;
+  private ArrayList<Long>              vctNotifiche;
 
   private List<EventiDTO>			  eventi;
   private List<BandoDTO>              bandi;
@@ -52,12 +52,12 @@ public class RicercaProcedimentiVO implements ILoggable
   private String                      tipoFiltroOggetto;
 
   private String                      tipoFiltroGruppo;
-  // mappa del tipo <idOggetto, Vector<idEsito>>
-  private HashMap<Long, Vector<Long>> mapOggetti;
-  private HashMap<Long, Vector<Long>> mapGruppi;
+  // mappa del tipo <idOggetto, ArrayList<idEsito>>
+  private HashMap<Long, ArrayList<Long>> mapOggetti;
+  private HashMap<Long, ArrayList<Long>> mapGruppi;
 
-  // mappa del tipo <idGruppo, Vector<idStati>>
-  private HashMap<Long, Vector<Long>> mapGruppiStati;
+  // mappa del tipo <idGruppo, ArrayList<idStati>>
+  private HashMap<Long, ArrayList<Long>> mapGruppiStati;
 
   private Long                        idTipoDocumento;
   private Long                        idModalitaPagamento;
@@ -137,53 +137,53 @@ public class RicercaProcedimentiVO implements ILoggable
 		this.cuaa = cuaa;
 	}
 	
-	public Vector<Long> getVctIdEventi()
+	public ArrayList<Long> getVctIdEventi()
 	{
 		return vctIdEventi;
 	}
 
-	public void setVctIdEventi(Vector<Long> vctIdEventi)
+	public void setVctIdEventi(ArrayList<Long> vctIdEventi)
 	{
 		this.vctIdEventi = vctIdEventi;
 	}
 
-	public Vector<Long> getVctIdLivelli()
+	public ArrayList<Long> getVctIdLivelli()
 	{
 		return vctIdLivelli;
 	}
 
-	public void setVctIdLivelli(Vector<Long> vctIdLivelli)
+	public void setVctIdLivelli(ArrayList<Long> vctIdLivelli)
 	{
 		this.vctIdLivelli = vctIdLivelli;
 	}
 	
 
-	public Vector<Long> getVctIdBando()
+	public ArrayList<Long> getVctIdBando()
 	{
 		return vctIdBando;
 	}
 
-	public void setVctIdBando(Vector<Long> vctIdBando)
+	public void setVctIdBando(ArrayList<Long> vctIdBando)
 	{
 		this.vctIdBando = vctIdBando;
 	}
 
-	public Vector<Long> getVctIdAmministrazione()
+	public ArrayList<Long> getVctIdAmministrazione()
 	{
 		return vctIdAmministrazione;
 	}
 
-	public void setVctIdAmministrazione(Vector<Long> vctIdAmministrazione)
+	public void setVctIdAmministrazione(ArrayList<Long> vctIdAmministrazione)
 	{
 		this.vctIdAmministrazione = vctIdAmministrazione;
 	}
 
-	public Vector<Long> getVctIdStatoProcedimento()
+	public ArrayList<Long> getVctIdStatoProcedimento()
 	{
 		return vctIdStatoProcedimento;
 	}
 
-	public void setVctIdStatoProcedimento(Vector<Long> vctIdStatoProcedimento)
+	public void setVctIdStatoProcedimento(ArrayList<Long> vctIdStatoProcedimento)
 	{
 		this.vctIdStatoProcedimento = vctIdStatoProcedimento;
 	}
@@ -288,22 +288,22 @@ public class RicercaProcedimentiVO implements ILoggable
 		this.cuaaProcedimenti = cuaaProcedimenti;
 	}
 
-	public HashMap<Long, Vector<Long>> getMapOggetti()
+	public HashMap<Long, ArrayList<Long>> getMapOggetti()
 	{
 		return mapOggetti;
 	}
 
-	public void setMapOggetti(HashMap<Long, Vector<Long>> mapOggetti)
+	public void setMapOggetti(HashMap<Long, ArrayList<Long>> mapOggetti)
 	{
 		this.mapOggetti = mapOggetti;
 	}
 
-	public HashMap<Long, Vector<Long>> getMapGruppi()
+	public HashMap<Long, ArrayList<Long>> getMapGruppi()
 	{
 		return mapGruppi;
 	}
 
-	public void setMapGruppi(HashMap<Long, Vector<Long>> mapGruppi)
+	public void setMapGruppi(HashMap<Long, ArrayList<Long>> mapGruppi)
 	{
 		this.mapGruppi = mapGruppi;
 	}
@@ -328,22 +328,22 @@ public class RicercaProcedimentiVO implements ILoggable
 		this.flagShowAllAmministrazioni = flagShowAllAmministrazioni;
 	}
 
-	public Vector<String> getVctFlagEstrazione()
+	public ArrayList<String> getVctFlagEstrazione()
 	{
 		return vctFlagEstrazione;
 	}
 
-	public void setVctFlagEstrazione(Vector<String> vctFlagEstrazione)
+	public void setVctFlagEstrazione(ArrayList<String> vctFlagEstrazione)
 	{
 		this.vctFlagEstrazione = vctFlagEstrazione;
 	}
 
-	public Vector<String> getVctFlagEstrazioneExPost()
+	public VecArrayListtor<String> getVctFlagEstrazioneExPost()
 	{
 		return vctFlagEstrazioneExPost;
 	}
 
-	public void setVctFlagEstrazioneExPost(Vector<String> vctFlagEstrazioneExPost)
+	public void setVctFlagEstrazioneExPost(ArrayList<String> vctFlagEstrazioneExPost)
 	{
 		this.vctFlagEstrazioneExPost = vctFlagEstrazioneExPost;
 	}
@@ -368,22 +368,22 @@ public class RicercaProcedimentiVO implements ILoggable
 		this.istanzaDataA = istanzaDataA;
 	}
 
-	public Vector<Long> getVctNotifiche()
+	public ArrayList<Long> getVctNotifiche()
 	{
 		return vctNotifiche;
 	}
 
-	public void setVctNotifiche(Vector<Long> vctNotifiche)
+	public void setVctNotifiche(ArrayList<Long> vctNotifiche)
 	{
 		this.vctNotifiche = vctNotifiche;
 	}
 
-	public Vector<String> getVctIdStatoAmmProcedimento()
+	public ArrayList<String> getVctIdStatoAmmProcedimento()
 	{
 		return vctIdStatoAmmProcedimento;
 	}
 
-	public void setVctIdStatoAmmProcedimento(Vector<String> vctIdStatoAmmProcedimento)
+	public void setVctIdStatoAmmProcedimento(ArrayList<String> vctIdStatoAmmProcedimento)
 	{
 		this.vctIdStatoAmmProcedimento = vctIdStatoAmmProcedimento;
 	}
@@ -398,12 +398,12 @@ public class RicercaProcedimentiVO implements ILoggable
 		this.statiAmmProcedimento = statiAmmProcedimento;
 	}
 
-	public HashMap<Long, Vector<Long>> getMapGruppiStati()
+	public HashMap<Long, ArrayList<Long>> getMapGruppiStati()
 	{
 		return mapGruppiStati;
 	}
 
-	public void setMapGruppiStati(HashMap<Long, Vector<Long>> mapGruppiStati)
+	public void setMapGruppiStati(HashMap<Long, ArrayList<Long>> mapGruppiStati)
 	{
 		this.mapGruppiStati = mapGruppiStati;
 	}

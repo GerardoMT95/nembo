@@ -46,7 +46,7 @@ public class CUNEMBO115EseguiControlli extends BaseController
     TestataProcedimento testataProcedimento = (TestataProcedimento) session
         .getAttribute(TestataProcedimento.SESSION_NAME);
 
-    Vector<Long> vId = new Vector<Long>();
+    ArrayList<Long> vId = new ArrayList<Long>();
     vId.add(testataProcedimento.getIdAzienda());
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vId,
         procedimento.getIdBando());
@@ -70,7 +70,7 @@ public class CUNEMBO115EseguiControlli extends BaseController
         .getRisultato() == NemboConstants.SQL.RESULT_CODE.ERRORE_CRITICO)
     {
       model.addAttribute("msgErrore",
-          "Si è verificato un errore di sistema. Contattare l'assistenza comunicando il seguente messaggio: "
+          "Si ï¿½ verificato un errore di sistema. Contattare l'assistenza comunicando il seguente messaggio: "
               + mainControlloDTO.getMessaggio());
       return "controlli/esito";
     }

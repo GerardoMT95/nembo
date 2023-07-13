@@ -105,23 +105,13 @@ public class RicercaEJB extends NemboAbstractEJB<RicercaDAO>
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public List<ProcedimentoOggettoVO> getDettaglioProcedimentiOggettiById(
-      Vector<Long> vIdProcedimento) throws InternalUnexpectedException
+      ArrayList<Long> vIdProcedimento) throws InternalUnexpectedException
   {
     return dao.getDettaglioProcedimentiOggettiById(vIdProcedimento);
 
   }
 
-  /*
-   * @Override
-   * 
-   * @TransactionAttribute(value = TransactionAttributeType.SUPPORTS) public
-   * List<OggettoDTO> getOggettiProcedimentiAttivi(Vector<String>
-   * lIdLivelli,Vector<String> lIdBando,Vector<String> lIdAmministrazioni,
-   * Vector<String> lIdStati, HashMap<Long, Vector<Long>> statiGruppiMap, String
-   * tipoFiltroGruppi) throws InternalUnexpectedException { return
-   * dao.getOggettiProcedimentiAttivi(lIdLivelli, lIdBando, lIdAmministrazioni,
-   * lIdStati, statiGruppiMap, tipoFiltroGruppi); }
-   */
+  
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public List<GruppoOggettoDTO> getOggettiProcedimentiAttivi(
@@ -278,7 +268,7 @@ public class RicercaEJB extends NemboAbstractEJB<RicercaDAO>
 
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
-  public List<LivelloDTO> getOperazioni(Vector<Long> idMisureSelezionate)
+  public List<LivelloDTO> getOperazioni(VeArrayListctor<Long> idMisureSelezionate)
       throws InternalUnexpectedException
   {
     return dao.getOperazioni(idMisureSelezionate);
@@ -448,7 +438,7 @@ public class RicercaEJB extends NemboAbstractEJB<RicercaDAO>
 
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
-  public List<LivelloDTO> getOperazioniMisure(Vector<Long> vect,
+  public List<LivelloDTO> getOperazioniMisure(ArrayList<Long> vect,
       String codiceMisura) throws InternalUnexpectedException
   {
     return dao.getOperazioniMisureByTipo(vect, codiceMisura);
@@ -510,8 +500,8 @@ public class RicercaEJB extends NemboAbstractEJB<RicercaDAO>
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public List<GruppoOggettoDTO> getStatiAmmProcedimentiAttivi(
-      Vector<Long> lIdLivelli, Vector<Long> lIdBando,
-      Vector<Long> lIdAmministrazioni, Vector<Long> lIdStatiProc)
+      ArrayList<Long> lIdLivelli, ArrayList<Long> lIdBando,
+      ArrayList<Long> lIdAmministrazioni, ArrayList<Long> lIdStatiProc)
       throws InternalUnexpectedException
   {
     return dao.getStatiAmmProcedimentiAttivi(lIdLivelli, lIdBando,
@@ -559,7 +549,7 @@ public class RicercaEJB extends NemboAbstractEJB<RicercaDAO>
     else
     {
       throw new ApplicationException(
-          "impossibile effettuare l'operazione in quanto il gruppo selezionato non è bloccato");
+          "impossibile effettuare l'operazione in quanto il gruppo selezionato non ï¿½ bloccato");
     }
 
   }

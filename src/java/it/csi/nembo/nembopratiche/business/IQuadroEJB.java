@@ -648,7 +648,7 @@ public interface IQuadroEJB extends INemboAbstractEJB
   public List<DecodificaDTO<String>> getElencoUfficiZona(long idAmmCompetenza)
       throws InternalUnexpectedException;
 
-  public void updateOrganismoDelegato(Vector<Long> idProcedimentiSelezionati,
+  public void updateOrganismoDelegato(ArrayList<Long> idProcedimentiSelezionati,
       long idAmministrazione, Long idUfficiozona, long idUtenteLogin,
       String note,
       Long idTecnico) throws InternalUnexpectedException;
@@ -776,13 +776,13 @@ public interface IQuadroEJB extends INemboAbstractEJB
   public FileAllegatoDTO getFileAllegatoDocSpesa(long idDocumentoSpesa)
       throws InternalUnexpectedException;
 
-  public Boolean checkSeIProcSelezHannoLaStessaAmm(Vector<Long> vect)
+  public Boolean checkSeIProcSelezHannoLaStessaAmm(ArrayList<Long> vect)
       throws InternalUnexpectedException;
 
-  public boolean checkStatiOggetti(Vector<Long> vect)
+  public boolean checkStatiOggetti(ArrayList<Long> vect)
       throws InternalUnexpectedException;
 
-  public boolean checkSeIProcSelezAppartengonoAlloStessoBando(Vector<Long> vect)
+  public boolean checkSeIProcSelezAppartengonoAlloStessoBando(ArrayList<Long> vect)
       throws InternalUnexpectedException;
 
   public EsitoFinaleDTO getEsitoDefinitivo(long idProcedimentoOggetto)
@@ -810,11 +810,11 @@ public interface IQuadroEJB extends INemboAbstractEJB
       throws InternalUnexpectedException, IOException;
 
   public boolean checkIfProcHaveSameUfficioZona(
-      Vector<Long> idProcedimentiSelezionati)
+      ArrayList<Long> idProcedimentiSelezionati)
       throws InternalUnexpectedException;
 
   public boolean checkIfProcHaveSameTecnico(
-      Vector<Long> idProcedimentiSelezionati)
+      ArrayList<Long> idProcedimentiSelezionati)
       throws InternalUnexpectedException;
 
   public void aggiornaFlagRendizontazione(String flagRendicontazione,

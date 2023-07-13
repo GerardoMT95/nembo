@@ -215,7 +215,7 @@ public interface IInterventiEJB extends INemboAbstractEJB
       throws InternalUnexpectedException;
 
   List<DecodificaDualLIstDTO<Long>> getElencoInterventiPerDocSpesa(
-      long idProcedimento, Vector<Long> idsDocSpesa, boolean disponibili)
+      long idProcedimento, ArrayList<Long> idsDocSpesa, boolean disponibili)
       throws InternalUnexpectedException;
 
   List<RigaJSONInterventoQuadroEconomicoByLivelloDTO> getElencoInterventiByLivelliQuadroEconomico(

@@ -52,7 +52,7 @@ public interface IRicercaEJB extends INemboAbstractEJB
       String orderType) throws InternalUnexpectedException;
 
   public List<ProcedimentoOggettoVO> getDettaglioProcedimentiOggettiById(
-      Vector<Long> vIdProcedimento) throws InternalUnexpectedException;
+      ArrayList<Long> vIdProcedimento) throws InternalUnexpectedException;
 
   public List<GruppoOggettoDTO> getOggettiProcedimentiAttivi(
       long[] lIdLivelli, long[] lIdBando,
@@ -114,7 +114,7 @@ public interface IRicercaEJB extends INemboAbstractEJB
 
   public List<LivelloDTO> getMisure() throws InternalUnexpectedException;
 
-  public List<LivelloDTO> getOperazioni(Vector<Long> idMisureSelezionate)
+  public List<LivelloDTO> getOperazioni(ArrayList<Long> idMisureSelezionate)
       throws InternalUnexpectedException;
 
   public List<SettoriDiProduzioneDTO> getElencoSettoriBandi()
@@ -158,7 +158,7 @@ public interface IRicercaEJB extends INemboAbstractEJB
   public List<DecodificaDTO<Long>> getTipiMisure(int idProcedimentoAgricolo)
       throws InternalUnexpectedException;
 
-  public List<LivelloDTO> getOperazioniMisure(Vector<Long> vect,
+  public List<LivelloDTO> getOperazioniMisure(ArrayList<Long> vect,
       String codiceMisura) throws InternalUnexpectedException;
 
   public List<GravitaNotificaVO> getElencoGravitaNotifica()
@@ -186,8 +186,8 @@ public interface IRicercaEJB extends INemboAbstractEJB
 
   //TODO: FIXME: rimuovere, probabilmente in disuso
   public List<GruppoOggettoDTO> getStatiAmmProcedimentiAttivi(
-      Vector<Long> lIdLivelli, Vector<Long> lIdBando,
-      Vector<Long> lIdAmministrazioni, Vector<Long> lIdStatiProc)
+      ArrayList<Long> lIdLivelli, ArrayList<Long> lIdBando,
+      ArrayList<Long> lIdAmministrazioni, ArrayList<Long> lIdStatiProc)
       throws InternalUnexpectedException;
 
   public List<DecodificaDTO<String>> getElencoDescrizioniGruppi()

@@ -97,7 +97,7 @@ public class NuovoProcedimentoEJB extends
 
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
-  public List<AziendaDTO> getDettaglioAziendeById(Vector<Long> vIdAzienda,
+  public List<AziendaDTO> getDettaglioAziendeById(ArrayList<Long> vIdAzienda,
       long idBando) throws InternalUnexpectedException
   {
     return dao.getDettaglioAziendeById(vIdAzienda, idBando);

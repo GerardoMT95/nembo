@@ -173,7 +173,7 @@ public class CUNEMBO251ModificaOD extends BaseController
     Map<String, Object> common = getCommonFromSession("CU-NEMBO-251", session,
         false);
     @SuppressWarnings("unchecked")
-    Vector<Long> idProcedimentiSelezionati = (Vector<Long>) common
+    ArrayList<Long> idProcedimentiSelezionati = (ArrayList<Long>) common
         .get("idProcedimentiSelezionati");
 
     boolean isMassivo = true;
@@ -182,7 +182,7 @@ public class CUNEMBO251ModificaOD extends BaseController
     if (idProcedimentiSelezionati == null
         || idProcedimentiSelezionati.isEmpty())
     {
-      idProcedimentiSelezionati = new Vector<>();
+      idProcedimentiSelezionati = new ArrayList<>();
       idProcedimentiSelezionati.addElement(getIdProcedimento(session));
       isMassivo = false;
     }
@@ -277,14 +277,14 @@ public class CUNEMBO251ModificaOD extends BaseController
   }
 
   private boolean checkIfProcHaveSameTecnico(
-      Vector<Long> idProcedimentiSelezionati, OrganismoDelegatoDTO delegatoDTO)
+      ArrayList<Long> idProcedimentiSelezionati, OrganismoDelegatoDTO delegatoDTO)
       throws InternalUnexpectedException
   {
     return quadroEJB.checkIfProcHaveSameTecnico(idProcedimentiSelezionati);
   }
 
   private boolean checkIfProcHaveSameUfficioZona(
-      Vector<Long> idProcedimentiSelezionati, OrganismoDelegatoDTO delegatoDTO)
+      ArrayList<Long> idProcedimentiSelezionati, OrganismoDelegatoDTO delegatoDTO)
       throws InternalUnexpectedException
   {
     return quadroEJB.checkIfProcHaveSameUfficioZona(idProcedimentiSelezionati);
@@ -303,24 +303,17 @@ public class CUNEMBO251ModificaOD extends BaseController
     saveCommonInSession(common, session);
 
     String[] ids = request.getParameterValues("cBP");
-    Vector<Long> vect = new Vector<Long>();
+    ArrayList<Long> vect = new ArrayList<Long>();
     for (String s : ids)
     {
       vect.addElement(Long.parseLong(s));
     }
-    /*
-     * if (ids == null || ids.equals("")) return null; ids = ids.replaceAll("=", "");
-     * String[] idProcSelezionati = ids.split("&");
-     * 
-     * Vector<Long> vect = new Vector<Long>(); for (String s :
-     * idProcSelezionati) { vect.addElement(Long.parseLong(s)); }
-     */
-
+    
     return checkInfo(vect);
 
   }
 
-  private String checkInfo(Vector<Long> vect) throws InternalUnexpectedException
+  private String checkInfo(ArrayList<Long> vect) throws InternalUnexpectedException
   {
     // tutti i procedimenti selezionati devono avere la stessa
     // amministrazione di competenza
@@ -350,7 +343,7 @@ public class CUNEMBO251ModificaOD extends BaseController
   {
 
     String[] ids = request.getParameterValues("cBP");
-    Vector<Long> vect = new Vector<Long>();
+    ArrayList<Long> vect = new ArrayList<Long>();
     for (String s : ids)
     {
       vect.addElement(Long.parseLong(s));

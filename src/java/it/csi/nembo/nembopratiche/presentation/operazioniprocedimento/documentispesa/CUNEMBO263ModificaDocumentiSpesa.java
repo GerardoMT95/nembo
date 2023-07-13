@@ -147,7 +147,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
           || documentoSpesaVO.getIdFornitore().longValue() <= 0)
       {
         throw new ApplicationException(
-            "Impossibile procedere con l'associazione degli interventi in quanto non è stato specificato il fornitore per questo documento!");
+            "Impossibile procedere con l'associazione degli interventi in quanto non ï¿½ stato specificato il fornitore per questo documento!");
       }
 
     long[] ids = new long[1];
@@ -186,7 +186,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
     Map<String, Object> common = getCommonFromSession(COMMON_SESSION_NAME,
         session, false);
     long[] idsDocSpesa = (long[]) common.get(COMMON_DATA_LIST_ID_DOCUMENTI);
-    Vector<Long> vIds = new Vector<>();
+    ArrayList<Long> vIds = new ArrayList<>();
     for (long id : idsDocSpesa)
     {
       vIds.add(id);
@@ -208,7 +208,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
     Map<String, Object> common = getCommonFromSession(COMMON_SESSION_NAME,
         session, false);
     long[] idsDocSpesa = (long[]) common.get(COMMON_DATA_LIST_ID_DOCUMENTI);
-    Vector<Long> vIds = new Vector<>();
+    ArrayList<Long> vIds = new ArrayList<>();
     for (long id : idsDocSpesa)
     {
       vIds.add(id);
@@ -341,7 +341,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
         model, session);
     boolean trovato;
 
-    // verifico Se ho già rendicontato un intervento con il documento di
+    // verifico Se ho giï¿½ rendicontato un intervento con il documento di
     // spesa e vado in modifica non posso toglierlo dall'elenco degli
     // interventi
     if (elencoInterventiSelezionati != null
@@ -360,7 +360,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
           }
         if (!trovato)
         {
-          // se si può togliere lo devo togliere dal db
+          // se si puï¿½ togliere lo devo togliere dal db
           trovato = false;
           for (long idDocSpesa : idsDocSpesa)
           {
@@ -373,9 +373,9 @@ public class CUNEMBO263ModificaDocumentiSpesa
               interventoDett = interventiEJB.getDettaglioInterventoById(
                   idProcedimento, decInt.getId().longValue());
               model.addAttribute("msgErrore",
-                  "Non è possibile eliminare l'intervento "
+                  "Non ï¿½ possibile eliminare l'intervento "
                       + interventoDett.getDescIntervento()
-                      + " in quanto è già stato rendicontato con documento spesa!");
+                      + " in quanto ï¿½ giï¿½ stato rendicontato con documento spesa!");
               model.addAttribute("idProcedimento",
                   getProcedimentoFromSession(session).getIdProcedimento());
               return "documentispesa/modificainterventi";
@@ -470,8 +470,8 @@ public class CUNEMBO263ModificaDocumentiSpesa
             mapImportiRicevuteContatiSoloUnaVolta
                 .put(r.getIdRicevutaPagamento(), r.getImportoPagamento());
 
-            // se l'importo è null o zero e il flag rendicont con
-            // iva è S
+            // se l'importo ï¿½ null o zero e il flag rendicont con
+            // iva ï¿½ S
             if (importoAssociato == null
                 && "S".equals(getProcedimentoFromSession(session)
                     .getFlagRendicontazioneConIva()))
@@ -613,7 +613,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
               errors.addError("importo_" + idUnivoco,
                   "La somma degli importi sugli interventi del documento "
                       + documentoSpesaVO.getDescrTipoDocumento()
-                      + " deve essere maggiore o uguale all'importo rendicontato che è pari a "
+                      + " deve essere maggiore o uguale all'importo rendicontato che ï¿½ pari a "
                       + NemboUtils.FORMAT
                           .formatCurrency(importoRendicontato));
 
@@ -635,7 +635,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
         {
           errore = " La somma degli importi sugli interventi del documento "
               + documentoSpesaVO.getDescrTipoDocumento()
-              + " deve essere minore o uguale all'importo documento che è pari a "
+              + " deve essere minore o uguale all'importo documento che ï¿½ pari a "
               + NemboUtils.FORMAT.formatCurrency(importoMax);
           if (idsInterventi != null)
             for (String id : idsInterventi)
@@ -704,7 +704,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
           if (sommaImpDaAssociare.compareTo(importoBd) > 0)
           {
             errors.addError("importo_" + idUnivoco,
-                "La somma degli importi da associare deve essere minore o uguale all'importo da rendicontare che è pari a "
+                "La somma degli importi da associare deve essere minore o uguale all'importo da rendicontare che ï¿½ pari a "
                     + NemboUtils.FORMAT.formatCurrency(importoBd));
             errore += "La somma degli importi da associare deve essere minore o uguale all'importo da rendicontare <br>";
           }
@@ -768,11 +768,11 @@ public class CUNEMBO263ModificaDocumentiSpesa
               for (String idU : idsUnivocoError)
               {
                 errors.addError("importoRicevuta_" + idU,
-                    "La somma degli importi da associare per la stessa ricevuta non può superare l'importo totale della ricevuta che è pari a "
+                    "La somma degli importi da associare per la stessa ricevuta non puï¿½ superare l'importo totale della ricevuta che ï¿½ pari a "
                         + r.getImportoPagamentoStr());
               }
               // errore += "La somma degli importi da associare per la stessa
-              // ricevuta non può superare l'importo totale della ricevuta.
+              // ricevuta non puï¿½ superare l'importo totale della ricevuta.
               // <br>";
             }
           }
@@ -786,7 +786,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
                   + intervento.getIntervento().getIdIntervento() + "_"
                   + doc.getIdDocumentoSpesa() + "_"
                   + r.getIdDettRicevutaPagamento(),
-                  "La somma degli importi da associare deve essere maggiore o uguale all'importo rendicontato che è pari a "
+                  "La somma degli importi da associare deve essere maggiore o uguale all'importo rendicontato che ï¿½ pari a "
                       + doc.getImportoRendicontatoStr2());
               // errore += "La somma degli importi da associare deve essere
               // maggiore o uguale all'importo rendicontato. <br>";
@@ -797,7 +797,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
     if (!errors.isEmpty())
     {
       StringBuilder errorMsg = new StringBuilder(
-          "Sono stati rilevati degli errori nei dati inseriti. I campi errati sono stati contrassegnati in rosso, è necessario correggerli per proseguire");
+          "Sono stati rilevati degli errori nei dati inseriti. I campi errati sono stati contrassegnati in rosso, ï¿½ necessario correggerli per proseguire");
       errorMsg.append("<script type='text/javascript'>\nclearErrors();");
       for (String key : errors.keySet())
       {

@@ -48,19 +48,19 @@ public class CUNEMBO140TrasmettiIstanzaController extends BaseController
     final UtenteAbilitazioni utenteAbilitazioni = getUtenteAbilitazioni(session);
 	  if (utenteAbilitazioni.getRuolo().isUtenteTitolareCf() || utenteAbilitazioni.getRuolo().isUtenteLegaleRappresentante())
     {
-      // Se l'utente è un beneficiario in proprio (quindi con ruolo titolare CF o legale rappresentante)
+      // Se l'utente ï¿½ un beneficiario in proprio (quindi con ruolo titolare CF o legale rappresentante)
       // deve avere potere di firma per poter trasmettere la domanda in quanto il sistema segna la domanda come firmata con firma semplice dall'utente connesso
       final boolean beneficiarioConPotereDiFirma = quadroEJB.isBeneficiarioAbilitatoATrasmettere(utenteAbilitazioni.getCodiceFiscale(), idProcedimentoOggetto);
       if (!beneficiarioConPotereDiFirma)
       {
-          model.addAttribute("errore", "L'utente corrente non è autorizzato a firmare per conto dell'azienda, impossibile proseguire con l'operazione di trasmissione");
+          model.addAttribute("errore", "L'utente corrente non ï¿½ autorizzato a firmare per conto dell'azienda, impossibile proseguire con l'operazione di trasmissione");
           return "dialog/soloErrore"; 
       }
     }
 		List<StampaOggettoDTO> stampe = quadroEJB.getElencoStampeOggetto(idProcedimentoOggetto, null);
 		msgError = checkProcOggetto(procedimentoOggetto, stampe);
-		Vector<DecodificaDTO<String>> lStampeInAttesaFirma = null;
-		Vector<DecodificaDTO<String>> lStampeInAttesaFirmaElettr = null;
+		ArrayList<DecodificaDTO<String>> lStampeInAttesaFirma = null;
+		ArrayList<DecodificaDTO<String>> lStampeInAttesaFirmaElettr = null;
 		
 		if(msgError == null)
 		{
@@ -71,21 +71,21 @@ public class CUNEMBO140TrasmettiIstanzaController extends BaseController
 					if (item.getIdStatoStampa().longValue() == NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_GRAFOMETRICA)
 					{
 						if(lStampeInAttesaFirma == null){
-							lStampeInAttesaFirma = new Vector<DecodificaDTO<String>>();
+							lStampeInAttesaFirma = new ArrayList<DecodificaDTO<String>>();
 						}
 						lStampeInAttesaFirma.add(new DecodificaDTO<String>(NemboConstants.STATO.STAMPA.DESCRIZIONE.IN_ATTESA_FIRMA_GRAFOMETRICA, item.getDescTipoDocumento()));
 					}
 					else if (item.getIdStatoStampa().longValue() == NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_ELETTRONICA_LEGGERA)
 					{
 						if(lStampeInAttesaFirmaElettr == null){
-							lStampeInAttesaFirmaElettr = new Vector<DecodificaDTO<String>>();
+							lStampeInAttesaFirmaElettr = new ArrayList<DecodificaDTO<String>>();
 						}
 						lStampeInAttesaFirmaElettr.add(new DecodificaDTO<String>(NemboConstants.STATO.STAMPA.DESCRIZIONE.IN_ATTESA_FIRMA_ELETTRONICA_LEGGERA, item.getDescTipoDocumento()));
 					}
 					else if (item.getIdStatoStampa().longValue() == NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_SU_CARTA)
 					{
 						if(lStampeInAttesaFirma == null){
-							lStampeInAttesaFirma = new Vector<DecodificaDTO<String>>();
+							lStampeInAttesaFirma = new ArrayList<DecodificaDTO<String>>();
 						}
 						lStampeInAttesaFirma.add(new DecodificaDTO<String>(NemboConstants.STATO.STAMPA.DESCRIZIONE.IN_ATTESA_FIRMA_SU_CARTA, item.getDescTipoDocumento()));
 					}

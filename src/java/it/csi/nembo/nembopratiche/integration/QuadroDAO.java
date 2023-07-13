@@ -16070,7 +16070,7 @@ public class QuadroDAO extends BaseDAO
         + "   SMRGAA_V_DATI_DELEGA VDE                                                                                                                                                                                    \n"
         + " WHERE                                                                                                                                                                                                         \n"
         + "   PO.ID_PROCEDIMENTO = P.ID_PROCEDIMENTO                                                                                                                                                                      \n";
-    Vector<String> vIds = new Vector<String>(vIdProcedimentoOggetto);
+    ArrayList<String> vIds = new ArrayList<String>(vIdProcedimentoOggetto);
     QUERY += " " + getInCondition("PO.ID_PROCEDIMENTO_OGGETTO", NemboUtils.ARRAY.toVectorLong(vIds), true)
         + " ";
     QUERY += "   AND LGO.ID_LEGAME_GRUPPO_OGGETTO = PO.ID_LEGAME_GRUPPO_OGGETTO                                                                                                                                              \n"
@@ -18849,7 +18849,7 @@ public class QuadroDAO extends BaseDAO
   }
 
   public Boolean checkSeIProcSelezHannoLaStessaAmm(
-      Vector<Long> idProcSelezionati)
+      ArrayList<Long> idProcSelezionati)
   {
     String THIS_METHOD = "[" + THIS_CLASS
         + "::checkSeIProcSelezHannoLaStessaAmm]";
@@ -18882,7 +18882,7 @@ public class QuadroDAO extends BaseDAO
     }
   }
 
-  public boolean checkStatiOggetti(Vector<Long> vect)
+  public boolean checkStatiOggetti(ArrayList<Long> vect)
   {
     String THIS_METHOD = "[" + THIS_CLASS
         + "::checkSeIProcSelezHannoLaStessaAmm]";
@@ -18914,7 +18914,7 @@ public class QuadroDAO extends BaseDAO
   }
 
   public boolean checkSeIProcSelezAppartengonoAlloStessoBando(
-      Vector<Long> idProcSelezionati)
+      ArrayList<Long> idProcSelezionati)
   {
     String THIS_METHOD = "[" + THIS_CLASS
         + "::checkSeIProcSelezAppartengonoAlloStessoBando]";
@@ -19400,7 +19400,7 @@ public class QuadroDAO extends BaseDAO
   }
 
   public boolean checkIfProcHaveSameUfficioZona(
-      Vector<Long> idProcedimentiSelezionati)
+      ArrayList<Long> idProcedimentiSelezionati)
   {
     String THIS_METHOD = "[" + THIS_CLASS + "::checkIfProcHaveSameUfficioZona]";
     if (logger.isDebugEnabled())
@@ -19430,7 +19430,7 @@ public class QuadroDAO extends BaseDAO
   }
 
   public boolean checkIfProcHaveSameTecnico(
-      Vector<Long> idProcedimentiSelezionati)
+      ArrayList<Long> idProcedimentiSelezionati)
   {
     String THIS_METHOD = "[" + THIS_CLASS + "::checkIfProcHaveSameTecnico]";
     if (logger.isDebugEnabled())

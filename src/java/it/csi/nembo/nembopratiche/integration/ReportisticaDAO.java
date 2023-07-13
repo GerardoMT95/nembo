@@ -119,8 +119,8 @@ public class ReportisticaDAO extends BaseDAO
     List<String> asseX = new ArrayList<String>();
     List<String> asseY = new ArrayList<String>();
 
-    Vector<ColReportVO> colsDefinitions = new Vector<ColReportVO>();
-    Vector<RowsReportVO> rowValues = new Vector<RowsReportVO>();
+    ArrayList<ColReportVO> colsDefinitions = new ArrayList<ColReportVO>();
+    ArrayList<RowsReportVO> rowValues = new ArrayList<RowsReportVO>();
 
     // Creo la lista delle colonne ed elaboro le righe
     ResultSetMetaData rsmd = rs.getMetaData();
@@ -141,7 +141,7 @@ public class ReportisticaDAO extends BaseDAO
         // In questo caso creo la riga
         asseX.add(valRiga);
         rowsReportVO = new RowsReportVO();
-        listRow = new Vector<CellReportVO>();
+        listRow = new ArrayList<CellReportVO>();
         cellReportVO = new CellReportVO();
         cellReportVO.setV(rs.getObject(1));
         listRow.add(cellReportVO);
@@ -192,7 +192,7 @@ public class ReportisticaDAO extends BaseDAO
     List<String> asseY = new ArrayList<String>();
 
     List<ColReportVO> colsDefinitions = new ArrayList<ColReportVO>();
-    Vector<RowsReportVO> rowValues = new Vector<RowsReportVO>();
+    ArrayList<RowsReportVO> rowValues = new ArrayList<RowsReportVO>();
 
     // Creo la lista delle colonne ed elaboro le righe
     ResultSetMetaData rsmd = rs.getMetaData();
@@ -244,7 +244,7 @@ public class ReportisticaDAO extends BaseDAO
     });
 
     /*
-     * A questo punto è necessario "tappare i buchi", cioè andare a inserire
+     * A questo punto ï¿½ necessario "tappare i buchi", cioï¿½ andare a inserire
      * valori a 0 in modo che ogni valore dell'asseY abbia lo stesso numero di
      * valori della legenda (e nello stesso ordine)
      */
@@ -310,7 +310,7 @@ public class ReportisticaDAO extends BaseDAO
           // In questo caso creo la riga
           asseX.add(valRiga);
           rowsReportVO = new RowsReportVO();
-          listRow = new Vector<CellReportVO>();
+          listRow = new ArrayList<CellReportVO>();
           cellReportVO = new CellReportVO();
           cellReportVO.setV(row.getId());
           listRow.add(cellReportVO);
@@ -356,8 +356,8 @@ public class ReportisticaDAO extends BaseDAO
     List<CellReportVO> listRow = null;
     RowsReportVO rowsReportVO = null;
 
-    Vector<ColReportVO> colsDefinitions = new Vector<ColReportVO>();
-    Vector<RowsReportVO> rowValues = new Vector<RowsReportVO>();
+    ArrayList<ColReportVO> colsDefinitions = new ArrayList<ColReportVO>();
+    ArrayList<RowsReportVO> rowValues = new ArrayList<RowsReportVO>();
 
     // Creo la lista delle colonne
     ResultSetMetaData rsmd = rs.getMetaData();
@@ -374,7 +374,7 @@ public class ReportisticaDAO extends BaseDAO
     while (rs.next())
     {
       rowsReportVO = new RowsReportVO();
-      listRow = new Vector<CellReportVO>();
+      listRow = new ArrayList<CellReportVO>();
 
       for (int i = 1; i <= colsDefinitions.size(); i++)
       {
@@ -445,7 +445,7 @@ public class ReportisticaDAO extends BaseDAO
               {
                 if (res == null)
                 {
-                  res = new Vector<DecodificaDTO<String>>();
+                  res = new ArrayList<DecodificaDTO<String>>();
                 }
                 res.add(new DecodificaDTO<String>(rs.getString("ID"),
                     rs.getString("CODICE"), rs.getString("DESCRIZIONE")));
