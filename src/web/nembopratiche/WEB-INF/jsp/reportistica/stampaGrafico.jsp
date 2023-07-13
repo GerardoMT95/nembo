@@ -5,8 +5,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="b" uri="/WEB-INF/bootstrap.tld"%>
 <%@taglib prefix="m" uri="/WEB-INF/mybootstrap.tld"%>
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
+	<title>Stampa Grafico</title>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" media="screen" /> 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" integrity="sha384-UM1JrZIpBwVf5jj9dTKVvGiiZPZTLVoq4sfdvIe9SBumsvCuv6AHDNtEiIb5h1kU" crossorigin="anonymous"></script>
 	<script src="/nembopratiche/js/nemboReportistica.js"></script>
