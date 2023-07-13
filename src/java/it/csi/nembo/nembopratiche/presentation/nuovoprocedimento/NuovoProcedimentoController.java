@@ -205,15 +205,15 @@ public class NuovoProcedimentoController extends BaseController
   {
     if (sceltaBando.getIdBandoSelezionato() == null)
     {
-      String msgErrore = "Per procedere è necessario selezionare un bando dall'elenco!";
+      String msgErrore = "Per procedere ï¿½ necessario selezionare un bando dall'elenco!";
       model.addAttribute("msgErrore", msgErrore);
       return elencobando(model, session);
     }
 
     /*
-     * E' necessario settare questa variabile in sessione poichè se torno in un
-     * secondo momento sulla pagina di elenco bandi vedrò il mio bando scelto
-     * già selezionato
+     * E' necessario settare questa variabile in sessione poichï¿½ se torno in un
+     * secondo momento sulla pagina di elenco bandi vedrï¿½ il mio bando scelto
+     * giï¿½ selezionato
      */
     session.setAttribute("idBandoSelezionato",
         sceltaBando.getIdBandoSelezionato());
@@ -246,15 +246,15 @@ public class NuovoProcedimentoController extends BaseController
   {
     if (idBando == null)
     {
-      String msgErrore = "Per procedere è necessario selezionare un bando dall'elenco!";
+      String msgErrore = "Per procedere ï¿½ necessario selezionare un bando dall'elenco!";
       model.addAttribute("msgErrore", msgErrore);
       return elencobando(model, session);
     }
 
     /*
-     * E' necessario settare questa variabile in sessione poichè se torno in un
-     * secondo momento sulla pagina di elenco bandi vedrò il mio bando scelto
-     * già selezionato
+     * E' necessario settare questa variabile in sessione poichï¿½ se torno in un
+     * secondo momento sulla pagina di elenco bandi vedrï¿½ il mio bando scelto
+     * giï¿½ selezionato
      */
     session.setAttribute("idBandoSelezionato", idBando);
 
@@ -484,7 +484,7 @@ public class NuovoProcedimentoController extends BaseController
         // ho solo un azienda quindi non mostro l'elenco e vado diretto alla
         // pagina successiva
         Vector<Long> vLong = new Vector<Long>();
-        vLong.add(new Long(vIdAziende.get(0).longValue()));
+        vLong.add(new Long(vIdAziende.get(0))));
         List<AziendaDTO> vAziende = nuovoProcedimento
             .getDettaglioAziendeById(vLong, idBando);
         boolean almenoUnaDomandaInBozza = false;
@@ -521,7 +521,7 @@ public class NuovoProcedimentoController extends BaseController
           {
             // SE FLAG_DOMANDA_MULTIPLA VALE S ED HO TROVATO SOLO UNA DOMANDA
             // TRASMESSA; ALLORA CHIEDO SE SI VUOLE CREARE NUOVO PROCEDIMENTO
-            model.addAttribute("idAziendaSel", vIdAziende.get(0).longValue());
+            model.addAttribute("idAziendaSel", vIdAziende.get(0));
             model.addAttribute("msgConfermaNuovoProcedimentoAdUnoEsistente",
                 "S");
             return "nuovoprocedimento/dettaglioBando";
@@ -536,7 +536,7 @@ public class NuovoProcedimentoController extends BaseController
 
         if (!azienda.isProcedimentoEsistente())
         {
-          model.addAttribute("idAziendaSel", vIdAziende.get(0).longValue());
+          model.addAttribute("idAziendaSel", vIdAziende.get(0));
           model.addAttribute("msgConfermaNuovoProcedimento", "S");
           return "nuovoprocedimento/dettaglioBando";
 
@@ -742,7 +742,7 @@ public class NuovoProcedimentoController extends BaseController
       HttpSession session, HttpServletRequest request) throws InternalUnexpectedException
   {
     Vector<Long> vLong = new Vector<Long>();
-    vLong.add(new Long(nuovaDomanda.getIdAzienda()));
+    vLong.add(nuovaDomanda.getIdAzienda());
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vLong,
         nuovaDomanda.getIdBando());
     AziendaDTO azienda = vAziende.get(0);
@@ -792,7 +792,7 @@ public class NuovoProcedimentoController extends BaseController
   {
     setModelDialogWarning(model,
         "Creazione Nuovo Procedimento",
-        "Sono presenti una o più domande per il bando selezionato e stai cercando di creare un nuovo procedimento per l'azienda selezionata, vuoi continuare ?",
+        "Sono presenti una o piï¿½ domande per il bando selezionato e stai cercando di creare un nuovo procedimento per l'azienda selezionata, vuoi continuare ?",
         "creaProcedimentoAdUnoEsistente_" + idAzienda + ".do");
     return "dialog/conferma";
   }
@@ -926,7 +926,7 @@ public class NuovoProcedimentoController extends BaseController
       if (mapParametri.get(NemboConstants.PARAMETRO.BANDO_MIS_16_AZ_1)
           .indexOf(idBando + "-") >= 0)
       {
-        // a questo punto è necessario chiedere su quale procedimento del bando
+        // a questo punto ï¿½ necessario chiedere su quale procedimento del bando
         // precedente si vuole creare questo nuovo
         String[] bandiDaGestire = mapParametri
             .get(NemboConstants.PARAMETRO.BANDO_MIS_16_AZ_1).split("#");
