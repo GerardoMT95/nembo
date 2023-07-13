@@ -1787,7 +1787,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       }
 
       MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-      parameterSource.addValue("PIDDICHCONS", idDichConsistenza.intValue(),
+      parameterSource.addValue("PIDDICHCONS", idDichConsistenza,
           Types.NUMERIC);
       parameterSource.addValue("PANNOCAMPAGNA", annoCampagna, Types.NUMERIC);
 
