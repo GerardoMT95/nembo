@@ -2706,7 +2706,7 @@ public class RicercaDAO extends BaseDAO
             + "   AND BO.ID_BANDO = :ID_BANDO                                         \n"
             + "   AND O.FLAG_ISTANZA = :FLAG_ISTANZA                                  \n");
 
-    if (idGruppoOggetto != null && idGruppoOggetto.longValue() > 0)
+    if (idGruppoOggetto != null && idGruppoOggetto > 0)
     {
       QUERY.append("   AND GO.ID_GRUPPO_OGGETTO = :ID_GRUPPO_OGGETTO 		\n"
           + "		   AND LGO.ORDINE >= 									\n");
@@ -2727,10 +2727,10 @@ public class RicercaDAO extends BaseDAO
     mapParameterSource.addValue("FLAG_ISTANZA", (flagIstanza) ? "S" : "N",
         Types.VARCHAR);
 
-    if (idGruppoOggetto != null && idGruppoOggetto.longValue() > 0)
+    if (idGruppoOggetto != null && idGruppoOggetto > 0)
     {
       mapParameterSource.addValue("ID_GRUPPO_OGGETTO",
-          idGruppoOggetto.longValue(), Types.NUMERIC);
+          idGruppoOggetto, Types.NUMERIC);
     }
 
     try
