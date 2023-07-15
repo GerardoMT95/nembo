@@ -166,13 +166,13 @@ public class AsyncEJB extends NemboAbstractEJB<QuadroNewDAO>
 	        {
 	          logger.error(THIS_METHOD + " Errore nella generazione della stampa con idOggettoIcona #" + idOggettoIcona + " per il procedimento oggetto #"
 	              + idProcedimentoOggetto + " richiesto dall'utente #" + idUtenteLogin
-	              + "\nERRORE GRAVE:\nTipologia di stampa non registrata, non è stato trovata nessuna classe deputata a generare la stampa!\n\n");
+	              + "\nERRORE GRAVE:\nTipologia di stampa non registrata, non ï¿½ stato trovata nessuna classe deputata a generare la stampa!\n\n");
 	          dao.updateProcedimOggettoStampaByIdOggetoIcona(
 	              idProcedimentoOggetto,
 	              idOggettoIcona,
 	              null,
 	              NemboConstants.STATO.STAMPA.ID.STAMPA_FALLITA,
-	              "Errore nella generazione della stampa:\nERRORE INTERNO GRAVE: Tipologia di stampa non registrata, non è stato trovata nessuna classe deputata a generare la stampa!",
+	              "Errore nella generazione della stampa:\nERRORE INTERNO GRAVE: Tipologia di stampa non registrata, non ï¿½ stato trovata nessuna classe deputata a generare la stampa!",
 	              idUtenteLogin);
 	          return;
 	        }
@@ -248,7 +248,7 @@ public class AsyncEJB extends NemboAbstractEJB<QuadroNewDAO>
     TestataProcedimento testataProcedimento = dao
         .getTestataProcedimento(idProcedimento);
     String identificativo = dao.getIdentificativo(idProcedimentoOggetto);
-    // ID Quadro in questo caso non è significativo quindi posso usare un valore
+    // ID Quadro in questo caso non ï¿½ significativo quindi posso usare un valore
     // qualsiati (tanto mi servono solo id_azienda e cuaa che non sono
     // influenzati da
     // questo id)
@@ -281,7 +281,7 @@ public class AsyncEJB extends NemboAbstractEJB<QuadroNewDAO>
     final String THIS_METHOD = "[" + THIS_CLASS
         + "::generaStampaListaLiquidazione]";
 
-    // dao.lockListaLiquidazione(idListaLiquidazione);
+  
 
     try
     {
@@ -299,11 +299,11 @@ public class AsyncEJB extends NemboAbstractEJB<QuadroNewDAO>
       if (stampa == null)
       {
         logger.error(THIS_METHOD
-            + " Errore nella generazione della stampa. \nERRORE GRAVE:\nTipologia di stampa non registrata, non è stato trovata nessuna classe deputata a generare la stampa!\n\n");
+            + " Errore nella generazione della stampa. \nERRORE GRAVE:\nTipologia di stampa non registrata, non ï¿½ stato trovata nessuna classe deputata a generare la stampa!\n\n");
         dao.updateFileListaLiquidazione(
             idListaLiquidazione,
             NemboConstants.STATO.STAMPA.ID.STAMPA_FALLITA,
-            "Errore nella generazione della stampa:\nERRORE INTERNO GRAVE: Tipologia di stampa non registrata, non è stato trovata nessuna classe deputata a generare la stampa!");
+            "Errore nella generazione della stampa:\nERRORE INTERNO GRAVE: Tipologia di stampa non registrata, non ï¿½ stato trovata nessuna classe deputata a generare la stampa!");
         return;
       }
       byte[] pdf = null;
