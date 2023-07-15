@@ -98,9 +98,6 @@ public class QuadroDinamicoDTO implements ILoggable
     return dati == null ? 0 : dati.size();
   }
 
-  public void addElemento(ElementoQuadroDTO elemento)
-  {
-  }
 
   public List<RaggruppamentoQuadroDinamico> getRecordSingolo()
   {

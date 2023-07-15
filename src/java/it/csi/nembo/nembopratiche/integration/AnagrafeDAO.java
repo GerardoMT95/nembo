@@ -20,9 +20,7 @@ public class AnagrafeDAO extends BaseDAO
   private static final String THIS_CLASS = AnagrafeDAO.class
       .getSimpleName();
 
-  public AnagrafeDAO()
-  {
-  }
+
 
   public List<BandoDTO> getAziendeByCUAA(String cuaa)
       throws InternalUnexpectedException

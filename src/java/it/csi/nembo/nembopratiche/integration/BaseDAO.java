@@ -54,9 +54,7 @@ public class BaseDAO
   @Autowired
   protected ApplicationContext         appContext;
 
-  public BaseDAO()
-  {
-  }
+
 
   public <T> T queryForObject(String query, SqlParameterSource parameters,
       Class<T> objClass, ResultSetExtractor<T> re)
