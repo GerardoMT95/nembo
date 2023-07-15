@@ -34,7 +34,7 @@ public class CUNEMBO204GestioneSistemaController
   public String index(Model model, HttpSession session,
       HttpServletResponse response) throws InternalUnexpectedException
   {
-    List<Link> links = new ArrayList<Link>();
+    List<Link> links = new ArrayList<>();
     Map<String, String> mapCdU = quadroEJB.getMapHelpCdu(
         NemboConstants.USECASE.GESTIONE_SISTEMA_FUNZIONI.MONITORAGGIO,
         NemboConstants.USECASE.GESTIONE_SISTEMA_FUNZIONI.REFRESH_ELENCO_CDU);

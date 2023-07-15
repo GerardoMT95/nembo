@@ -105,7 +105,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
   	List<DecodificaInterventoDTO> lista = dao.getListInterventiPossibiliPerDannoAtmByIdProcedimentoOggetto(idProcedimentoOggetto, idDannoAtm);
   	if(lista == null)
   	{
-  		lista = new ArrayList<DecodificaInterventoDTO>();
+  		lista = new ArrayList<>();
   	}
   	return lista;
   }
@@ -265,7 +265,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       dao.lockProcedimentoByIdProcedimentoOggetto(idProcedimentoOggetto);
       if(idDannoAtm != null)
       {
-    	  ArrayList<Long> arrayIdDescrizioneIntervento = new ArrayList<Long>();
+    	  ArrayList<Long> arrayIdDescrizioneIntervento = new ArrayList<>();
     	  for (RigaModificaMultiplaInterventiDTO intervento : listInterventi)
     	  {
     		  arrayIdDescrizioneIntervento.add(intervento.getIdDescrizioneIntervento());
@@ -1735,7 +1735,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 	  intervento.setImporto(centocinquanta.multiply(punteggio));
 
 	  //imposto i dati della misurazione dell'intervento (punteggio e unit� di misura associata al codice intervento PREV)
-	  List<MisurazioneInterventoDTO> misurazioniIntervento = new ArrayList<MisurazioneInterventoDTO>();
+	  List<MisurazioneInterventoDTO> misurazioniIntervento = new ArrayList<>();
 	  MisurazioneInterventoDTO misurazioneIntervento = new MisurazioneInterventoDTO();
 	  misurazioneIntervento.setIdMisurazioneIntervento(datiIntervento.getIdMisurazioneIntervento());
 	  misurazioneIntervento.setValore(punteggio);
@@ -1747,7 +1747,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 	  {
 		  if(listaInterventiPrevenzioneTemporanei != null && !listaInterventiPrevenzioneTemporanei.isEmpty())
 		  {
-			  List<Long> ids = new ArrayList<Long>();
+			  List<Long> ids = new ArrayList<>();
 			  for(RigaElencoInterventi interventoTemporaneo : listaInterventiPrevenzioneTemporanei)
 			  {
 				  ids.add(interventoTemporaneo.getIdIntervento());
@@ -1756,7 +1756,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 		  }
 		  if(inserisciInterventoPrevenzione)
 		  {
-			  List<RigaModificaMultiplaInterventiDTO> listInterventi = new ArrayList<RigaModificaMultiplaInterventiDTO>();
+			  List<RigaModificaMultiplaInterventiDTO> listInterventi = new ArrayList<>();
 			  listInterventi.add(intervento);
 			  insertInterventi(listInterventi , null, logOperationOggettoQuadro);
 		  }
@@ -1774,14 +1774,14 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
       aggiornaEliminaIntervento(inserisciInterventoPrevenzione, intervento);
 		  if(inserisciInterventoPrevenzione)
 		  {
-			  List<RigaModificaMultiplaInterventiDTO> listInterventi = new ArrayList<RigaModificaMultiplaInterventiDTO>();
+			  List<RigaModificaMultiplaInterventiDTO> listInterventi = new ArrayList<>();
 			  listInterventi.add(intervento);
 			  updateInterventi(listInterventi, logOperationOggettoQuadro);
 			  dao.updateFlagTipoOperazioneInterventoW(intervento.getIdIntervento(),NemboConstants.INTERVENTI.TIPO_OPERAZIONE_INSERIMENTO);
 		  }
 		  else
 		  {
-			  List<Long> ids = new ArrayList<Long>();
+			  List<Long> ids = new ArrayList<>();
 			  ids.add(idIntervento);
 			  eliminaIntervento(idProcedimentoOggetto, ids , logOperationOggettoQuadro);
 		  }

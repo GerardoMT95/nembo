@@ -75,7 +75,7 @@ public class CUNEMBO297IScorteInserisciController extends BaseController
 	      long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 	      Errors errors = new Errors();
 	      List<DecodificaDTO<Long>> listaTipologiaScorteDecodificaDTO = quadroNemboEJB.getElencoTipologieScorte();
-	      List<String> listaTipologiaScorte = new ArrayList<String>();
+	      List<String> listaTipologiaScorte = new ArrayList<>();
 	      for(DecodificaDTO<Long> elem : listaTipologiaScorteDecodificaDTO){
 	    	  listaTipologiaScorte.add(elem.getId().toString());
 	      }
@@ -83,7 +83,7 @@ public class CUNEMBO297IScorteInserisciController extends BaseController
 	      List<DecodificaDTO<Long>> elencoUnitaMisura = quadroNemboEJB.getListUnitaDiMisura();
 	      long idTipologiaAltro = quadroNemboEJB.getIdScorteAltro();
 	      
-	      List<String> listIdUnitaMisura = new ArrayList<String>();
+	      List<String> listIdUnitaMisura = new ArrayList<>();
 	      for(DecodificaDTO<Long> dt : elencoUnitaMisura)
 	      {
 	    	  listIdUnitaMisura.add(Long.toString(dt.getId()));

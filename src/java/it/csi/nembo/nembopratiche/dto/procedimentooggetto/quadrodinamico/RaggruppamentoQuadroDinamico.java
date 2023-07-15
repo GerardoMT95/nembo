@@ -14,7 +14,7 @@ public class RaggruppamentoQuadroDinamico extends GruppoQuadroDinamicoDTO
       DatiComuniElemQuadroDTO datiQuadro)
   {
     this.elementiQuadro = elementiQuadro;
-    elementi = new ArrayList<ElementoEValoreQuadroDinamicoVO>();
+    elementi = new ArrayList<>();
     for (ElementoQuadroDTO elemento : elementiQuadro)
     {
       List<DatoElementoQuadroDTO> valori = null;

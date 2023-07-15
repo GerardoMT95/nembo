@@ -52,15 +52,15 @@ public class CUNEMBO299MModificaSuperficiColture extends BaseController
 
 	private List<DecodificaDTO<String>> getDecodificaDTOUnitaMisura()
 	{
-		List<DecodificaDTO<String>> qliUf = new ArrayList<DecodificaDTO<String>>();
-		  DecodificaDTO<String> ufDD = new DecodificaDTO<String>();
-		  DecodificaDTO<String> qliDD = new DecodificaDTO<String>();
+		List<DecodificaDTO<String>> qliUf = new ArrayList<>();
+		  DecodificaDTO<String> ufDD = new DecodificaDTO<>();
+		  DecodificaDTO<String> qliDD = new DecodificaDTO<>();
 		  qliDD.setId("qli");
 		  qliDD.setCodice("qli");
 		  qliDD.setDescrizione("Quintali");
 		  ufDD.setId("uf");
 		  ufDD.setCodice("uf");
-		  ufDD.setDescrizione("Unità foraggere");
+		  ufDD.setDescrizione("Unitï¿½ foraggere");
 		  qliUf.add(qliDD);
 		  qliUf.add(ufDD);
 		return qliUf;
@@ -136,7 +136,7 @@ public class CUNEMBO299MModificaSuperficiColture extends BaseController
 		  else
 		  {
 			  SuperficiColtureDettaglioPsrDTO superficieColturaDettaglioDTO = new SuperficiColtureDettaglioPsrDTO();
-			  List<ControlloColturaDTO> listControlloColtura = new ArrayList<ControlloColturaDTO>();
+			  List<ControlloColturaDTO> listControlloColtura = new ArrayList<>();
 			  superficieColturaDettaglioDTO.setNote(fieldNote);
 			  superficieColturaDettaglioDTO.setProduzioneHa(produzioneHa);
 			  superficieColturaDettaglioDTO.setIdSuperficieColtura(idSuperficieColtura);

@@ -52,7 +52,7 @@ public class CUNEMBO169MModificaDatiAnticipo extends BaseController
         .compareTo(datiAnticipo.getImportoContributoAnticipabile()) == 0)
     {
       throw new ApplicationException(
-          "Per nessuna delle operazioni a cui fa riferimento la domanda è prevista l'erogazione di un anticipo. Non è possibile proseguire con la modifica dei dati di anticipo");
+          "Per nessuna delle operazioni a cui fa riferimento la domanda ï¿½ prevista l'erogazione di un anticipo. Non ï¿½ possibile proseguire con la modifica dei dati di anticipo");
     }
     if (datiAnticipo.getExtIdSportello() != null)
     {
@@ -118,10 +118,10 @@ public class CUNEMBO169MModificaDatiAnticipo extends BaseController
                                                                            // delta
                                                                            // massimo
                                                                            // ammesso)
-                                                                           // è
+                                                                           // ï¿½
                                                                            // 0.01
       {
-        final String ERROR_MESSAGE = "L'importo e la percentuale non sono coerenti tra di loro, la differenza è superiore a 1%";
+        final String ERROR_MESSAGE = "L'importo e la percentuale non sono coerenti tra di loro, la differenza ï¿½ superiore a 1%";
         errors.addError(nameImportoAnticipo, ERROR_MESSAGE);
       }
     }
@@ -300,7 +300,7 @@ public class CUNEMBO169MModificaDatiAnticipo extends BaseController
         .getDecodificheSportelli(idBanca);
     if (list == null)
     {
-      list = new ArrayList<DecodificaDTO<Integer>>();
+      list = new ArrayList<>();
     }
     return list;
   }

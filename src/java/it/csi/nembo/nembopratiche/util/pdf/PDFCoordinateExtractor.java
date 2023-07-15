@@ -351,7 +351,7 @@ public class PDFCoordinateExtractor
     List<PDFRectangle> list = mapCoordinate.get(testo);
     if (list == null)
     {
-      list = new ArrayList<PDFRectangle>();
+      list = new ArrayList<>();
       mapCoordinate.put(testo, list);
     }
     list.add(lastBox);
@@ -364,7 +364,7 @@ public class PDFCoordinateExtractor
     List<PDFCurvedRectangle> list = mapCoordinate.get(testo);
     if (list == null)
     {
-      list = new ArrayList<PDFCurvedRectangle>();
+      list = new ArrayList<>();
       mapCoordinate.put(testo, list);
     }
     list.add(lastBox);

@@ -49,7 +49,7 @@ public class AnagrafeDAO extends BaseDAO
             public List<BandoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<BandoDTO> list = new ArrayList<BandoDTO>();
+              ArrayList<BandoDTO> list = new ArrayList<>();
               BandoDTO bandoDTO = null;
               Long lastIdBando = null;
               long idBando = 0;

@@ -63,7 +63,7 @@ class GenericDatabaseObjectReader<T>
   public List<T> extractList(ResultSet rs)
       throws SQLException, DataAccessException
   {
-    List<T> list = new ArrayList<T>();
+    List<T> list = new ArrayList<>();
     while (rs.next())
     {
       list.add(readObject(rs));

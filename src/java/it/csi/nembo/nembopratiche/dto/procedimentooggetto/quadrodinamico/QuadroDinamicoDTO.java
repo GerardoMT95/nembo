@@ -12,7 +12,7 @@ public class QuadroDinamicoDTO implements ILoggable
   private static final long               serialVersionUID = -7484529262705186914L;
   protected String                        flagVisualizzazioneElenco;
   protected String                        istruzSqlPostSalvataggio;
-  protected List<ElementoQuadroDTO>       elementiQuadro   = new ArrayList<ElementoQuadroDTO>();
+  protected List<ElementoQuadroDTO>       elementiQuadro   = new ArrayList<>();
   protected long                          idQuadro;
   protected String                        codice;
   protected List<DatiComuniElemQuadroDTO> dati;
@@ -59,7 +59,7 @@ public class QuadroDinamicoDTO implements ILoggable
 
   public List<String> getIntestazioniElenco()
   {
-    List<String> list = new ArrayList<String>();
+    List<String> list = new ArrayList<>();
     for (ElementoQuadroDTO elemento : elementiQuadro)
     {
       if (elemento.isPresenteInElenco())
@@ -72,7 +72,7 @@ public class QuadroDinamicoDTO implements ILoggable
 
   public List<ElementoQuadroDTO> getGeneratedListElementiInElenco()
   {
-    List<ElementoQuadroDTO> list = new ArrayList<ElementoQuadroDTO>();
+    List<ElementoQuadroDTO> list = new ArrayList<>();
     for (ElementoQuadroDTO elemento : elementiQuadro)
     {
       if (elemento.isPresenteInElenco())
@@ -103,9 +103,9 @@ public class QuadroDinamicoDTO implements ILoggable
   {
     DatiComuniElemQuadroDTO datiComuniElemQuadroDTO = (dati == null
         || dati.isEmpty()) ? null : dati.get(0);
-    List<RaggruppamentoQuadroDinamico> raggruppamenti = new ArrayList<RaggruppamentoQuadroDinamico>();
+    List<RaggruppamentoQuadroDinamico> raggruppamenti = new ArrayList<>();
 
-    List<ElementoQuadroDTO> elementiGruppo = new ArrayList<ElementoQuadroDTO>();
+    List<ElementoQuadroDTO> elementiGruppo = new ArrayList<>();
     String titolo = null;
     for (ElementoQuadroDTO elemento : elementiQuadro)
     {
@@ -134,7 +134,7 @@ public class QuadroDinamicoDTO implements ILoggable
 
   public List<RaggruppamentoQuadroDinamico> getRecordMultipli()
   {
-    List<RaggruppamentoQuadroDinamico> list = new ArrayList<RaggruppamentoQuadroDinamico>();
+    List<RaggruppamentoQuadroDinamico> list = new ArrayList<>();
     List<ElementoQuadroDTO> elementiQuadro = getGeneratedListElementiInElenco();
     for (DatiComuniElemQuadroDTO datiComuniElemQuadroDTO : dati)
     {
@@ -149,7 +149,7 @@ public class QuadroDinamicoDTO implements ILoggable
   {
     if (dati == null)
     {
-      dati = new ArrayList<DatiComuniElemQuadroDTO>();
+      dati = new ArrayList<>();
     }
     dati.add(datiComuniElemQuadroDTO);
   }

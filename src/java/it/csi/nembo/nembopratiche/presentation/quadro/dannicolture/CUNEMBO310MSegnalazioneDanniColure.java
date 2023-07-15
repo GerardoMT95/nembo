@@ -65,7 +65,7 @@ public class CUNEMBO310MSegnalazioneDanniColure extends BaseController
       @PathVariable("idDettaglioSegnalDan") @ModelAttribute("idDettaglioSegnalDan") long idDettaglioSegnalDan)
       throws InternalUnexpectedException
   {
-    List<Long> list = new ArrayList<Long>();
+    List<Long> list = new ArrayList<>();
     list.add(idDettaglioSegnalDan);
     long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
 	model.addAttribute("elenco", quadroEjb.getSegnalazioneDanno(idProcedimentoOggetto,list).getElencoDanni());
@@ -93,7 +93,7 @@ public class CUNEMBO310MSegnalazioneDanniColure extends BaseController
     
     //Validazione dati
     Errors errors = new Errors();
-    List<RigaSegnalazioneDannoDTO> elencoModificato = new ArrayList<RigaSegnalazioneDannoDTO>();
+    List<RigaSegnalazioneDannoDTO> elencoModificato = new ArrayList<>();
     for(long idDettaglioSegnalDan: list)
     {
     	RigaSegnalazioneDannoDTO riga = new RigaSegnalazioneDannoDTO();

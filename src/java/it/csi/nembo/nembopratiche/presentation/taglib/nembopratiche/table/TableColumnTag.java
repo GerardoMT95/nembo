@@ -104,7 +104,7 @@ public class TableColumnTag extends BaseTag
   {
     if (icons == null)
     {
-      icons = new ArrayList<TableIcon>();
+      icons = new ArrayList<>();
     }
     icons.add(ti);
   }

@@ -274,7 +274,7 @@ public class EstrazioniDAO extends BaseDAO
             public List<RigaSimulazioneEstrazioneDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RigaSimulazioneEstrazioneDTO> list = new ArrayList<RigaSimulazioneEstrazioneDTO>();
+              ArrayList<RigaSimulazioneEstrazioneDTO> list = new ArrayList<>();
               Long lastKey = null;
               List<LivelloDTO> livelli = null;
               while (rs.next())

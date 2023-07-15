@@ -75,7 +75,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
   	List<ScorteDTO> listaScorte = null;
   	listaScorte = dao.getListScorteByProcedimentoOggetto(idProcedimentoOggetto);
   	if(listaScorte == null){
-  		listaScorte = new ArrayList<ScorteDTO>();
+  		listaScorte = new ArrayList<>();
   	}
   	return listaScorte;
   }
@@ -87,7 +87,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 	  	List<ScorteDTO> listaScorte = null;
 	  	listaScorte = dao.getListScorteNonDanneggiateByProcedimentoOggetto(idProcedimentoOggetto);
 	  	if(listaScorte == null){
-	  		listaScorte = new ArrayList<ScorteDTO>();
+	  		listaScorte = new ArrayList<>();
 	  	}
 	  	return listaScorte;
 	}
@@ -138,7 +138,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 	{
 		long returnValue;
 		dao.lockProcedimentoOggetto(idProcedimentoOggetto);
-		List<Long> arrayIdScortaMagazzino = new ArrayList<Long>();
+		List<Long> arrayIdScortaMagazzino = new ArrayList<>();
 		for(int i=0 ; i< listScorte.size(); i++)
 		{
 			ScorteDTO scorta = listScorte.get(i);
@@ -195,7 +195,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DanniDTO> listaDanniByProcedimentoOggetto = dao.getListDanniByProcedimentoOggettoAndArrayIdDannoAtm(null, idProcedimentoOggetto, idProcedimentoAgricoltura);
 		if(listaDanniByProcedimentoOggetto == null)
 		{
-			listaDanniByProcedimentoOggetto = new ArrayList<DanniDTO>();
+			listaDanniByProcedimentoOggetto = new ArrayList<>();
 		}
 		return listaDanniByProcedimentoOggetto;
 	}
@@ -216,7 +216,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 			return NemboConstants.ERRORI.ELIMINAZIONE_DANNI_CON_INTERVENTI;
 		}
 		List<DanniDTO> danniConduzioni = dao.getListDanniConduzioni(idProcedimentoOggetto,arrayIdDannoAtm);
-		List<Long> listIdDannoAtmConduzioni = new ArrayList<Long>();
+		List<Long> listIdDannoAtmConduzioni = new ArrayList<>();
 		if(danniConduzioni != null)
 		{
 			for(DanniDTO d : danniConduzioni)
@@ -238,7 +238,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		lista = dao.getListScorteByIds(arrayIdScortaMagazzino,idProcedimentoOggetto);
 		if(lista == null)
 		{
-			lista = new ArrayList<ScorteDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -303,7 +303,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DanniDTO> listDanniByIdsDannoAtm = dao.getListDanniByProcedimentoOggettoAndArrayIdDannoAtm(arrayIdDannoAtm, idProcedimentoOggetto,  idProcedimentoAgricoltura);
 		if(listDanniByIdsDannoAtm==null)
 		{
-			listDanniByIdsDannoAtm = new ArrayList<DanniDTO>();
+			listDanniByIdsDannoAtm = new ArrayList<>();
 		}
 		return listDanniByIdsDannoAtm;
 	}
@@ -315,7 +315,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 			long[] arrayIdUtilizzoDichiarato, LogOperationOggettoQuadroDTO logOperationOggettoQuadroDTO)
 			throws InternalUnexpectedException
 	{
-		List<Long> listaIdDannoAtm = new ArrayList<Long>();
+		List<Long> listaIdDannoAtm = new ArrayList<>();
 		listaIdDannoAtm.add(danno.getIdDannoAtm());
 		dao.eliminaDanniConduzioniFromTParticellaDanneggiata(idProcedimentoOggetto,listaIdDannoAtm);
 		for(long idUtilizzoDichiarato : arrayIdUtilizzoDichiarato)
@@ -420,7 +420,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<PrestitiAgrariDTO> listPrestitiAgrari = dao.getListPrestitiAgrari(idProcedimentoOggetto,arrayIdPrestitiAgrari);
 		if(listPrestitiAgrari == null)
 		{
-			listPrestitiAgrari = new ArrayList<PrestitiAgrariDTO>();
+			listPrestitiAgrari = new ArrayList<>();
 		}
 		return listPrestitiAgrari;
 	}
@@ -463,7 +463,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<FabbricatiDTO> lista = dao.getListFabbricati(idProcedimentoOggetto, idProcedimentoAgricolo );
 		if(lista == null)
 		{
-			lista = new ArrayList<FabbricatiDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -489,7 +489,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		listFabbricatiNonDanneggiati = dao.getListFabbricatiNonDanneggiati(idProcedimentoOggetto, arrayIdFabbricato, idProcedimentoAgricolo);
 		if(listFabbricatiNonDanneggiati == null)
 		{
-			listFabbricatiNonDanneggiati = new ArrayList<FabbricatiDTO>();
+			listFabbricatiNonDanneggiati = new ArrayList<>();
 		}
 		return listFabbricatiNonDanneggiati;
 	}
@@ -509,7 +509,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<SuperficiColtureDettaglioDTO> listSuperficiColtureDettaglio = dao.getListSuperficiColtureDettaglio(idProcedimentoOggetto);
 		if(listSuperficiColtureDettaglio == null)
 		{
-			listSuperficiColtureDettaglio = new ArrayList<SuperficiColtureDettaglioDTO>();
+			listSuperficiColtureDettaglio = new ArrayList<>();
 		}
 		return listSuperficiColtureDettaglio;
 	}
@@ -528,7 +528,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ControlloColturaDTO> listControlloColtura = dao.getListControlloColtura(idProcedimentoOggetto, arrayIdSuperficieColtura);
 		if(listControlloColtura == null)
 		{
-			listControlloColtura = new ArrayList<ControlloColturaDTO>();
+			listControlloColtura = new ArrayList<>();
 		}
 		return listControlloColtura;
 	}
@@ -547,7 +547,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<SuperficiColtureDettaglioParticellareDTO> list = dao.getListDettaglioParticellareSuperficiColture(idProcedimentoOggetto,idSuperficieColtura);
 		if(list == null)
 		{
-			list = new ArrayList<SuperficiColtureDettaglioParticellareDTO>();
+			list = new ArrayList<>();
 		}
 		return list;
 	}
@@ -558,7 +558,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 			List<ControlloColturaDTO> listControlloColtura, LogOperationOggettoQuadroDTO logOperationOggettoQuadroDTO) throws InternalUnexpectedException
 	{
 		dao.lockProcedimentoOggetto(idProcedimentoOggetto);
-		List<Long> listIdSuperficieColtura = new ArrayList<Long>();
+		List<Long> listIdSuperficieColtura = new ArrayList<>();
 		for(ControlloColturaDTO controlloColtura : listControlloColtura)
 		{	
 			listIdSuperficieColtura.add(controlloColtura.getIdSuperficieColtura());
@@ -579,7 +579,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<SuperficiColturePlvVegetaleDTO> lista = dao.getListSuperficiColturePlvVegetale(idProcedimentoOggetto);
 		if(lista == null)
 		{
-			lista = new ArrayList<SuperficiColturePlvVegetaleDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -591,7 +591,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DecodificaDTO<String>> lista = dao.getListProvinciaConTerreniInConduzione(idProcedimentoOggetto,ID_REGIONE_PIEMONTE);
 		if(lista == null)
 		{
-			lista = new ArrayList<DecodificaDTO<String>>();
+			lista = new ArrayList<>();
 		}
 		return lista;				
 	}
@@ -603,7 +603,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DecodificaDTO<String>> lista = dao.getListComuniPerProvinciaConTerreniInConduzioneDanniSuperficiColture(idProcedimentoOggetto,istatProvincia);
 		if(lista == null)
 		{
-			lista = new ArrayList<DecodificaDTO<String>>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -616,7 +616,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 				idProcedimentoOggetto,istatComune);
 		if(lista == null)
 		{
-			lista = new ArrayList<DecodificaDTO<String>>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -634,7 +634,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 				piantagioniArboree);
 		if(lista == null)
 		{
-			lista = new ArrayList<ParticelleDanniDTO>();
+			lista = new ArrayList<>();
 		}
 		lista.size();
 		return lista;
@@ -658,7 +658,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 						piantagioniArboree);
 		if(lista == null)
 		{
-			lista = new ArrayList<ParticelleDanniDTO>();
+			lista = new ArrayList<>();
 		}
 		lista.size();
 		return lista;
@@ -671,7 +671,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ParticelleDanniDTO> lista = dao.getListConduzioniDanno(idProcedimentoOggetto,idDannoAtm);
 		if(lista == null)
 		{
-			lista = new ArrayList<ParticelleDanniDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -683,7 +683,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ParticelleDanniDTO> lista = dao.getListConduzioniDanno(idProcedimentoOggetto,null);
 		if(lista == null)
 		{
-			lista = new ArrayList<ParticelleDanniDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -747,7 +747,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDTO> lista = dao.getListAllevamenti(idProcedimentoOggetto);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -774,7 +774,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDettaglioPlvDTO> lista = dao.getListDettaglioAllevamenti(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDettaglioPlvDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -799,7 +799,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ProduzioneCategoriaAnimaleDTO> lista = dao.getListProduzioniCategorieAnimali(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
 		if(lista == null)
 		{
-			lista = new ArrayList<ProduzioneCategoriaAnimaleDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -811,7 +811,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ProduzioneCategoriaAnimaleDTO> lista = dao.getListProduzioniVendibiliGiaInserite(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
 		if(lista == null)
 		{
-			lista = new ArrayList<ProduzioneCategoriaAnimaleDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -823,7 +823,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ProduzioneCategoriaAnimaleDTO> lista = dao.getListProduzioni(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
 		if(lista == null)
 		{
-			lista = new ArrayList<ProduzioneCategoriaAnimaleDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -897,7 +897,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDettaglioPlvDTO> lista = dao.getListPlvZootecnicaDettaglioAllevamenti(idProcedimentoOggetto);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDettaglioPlvDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -909,7 +909,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDTO> lista = dao.getListAllevamentiSingoliNonDanneggiati(idProcedimentoOggetto,null);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;		
 	}
@@ -922,7 +922,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDTO> lista = dao.getListAllevamentiSingoliNonDanneggiati(idProcedimentoOggetto, arrayIdAllevamento);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -934,7 +934,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDTO> lista = dao.getListAllevamentiSingoli(idProcedimentoOggetto, arrayIdAllevamento,false);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;		
 	}
@@ -946,7 +946,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AllevamentiDTO> lista = dao.getListAllevamentiByIdDannoAtm(idProcedimentoOggetto, arrayIdDannoAtm);
 		if(lista == null)
 		{
-			lista = new ArrayList<AllevamentiDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;			
 		
@@ -959,7 +959,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DecodificaDTO<Long>> lista = dao.getListDanniDecodificaDTO(idProcedimentoOggetto);
 		if(lista == null)
 		{
-			lista = new ArrayList<DecodificaDTO<Long>>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -1003,7 +1003,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ColtureAziendaliDettaglioDTO> lista = dao.getListColtureAziendali(idProcedimentoOggetto, null);
 		if(lista == null)
 		{
-			lista = new ArrayList<ColtureAziendaliDettaglioDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -1015,7 +1015,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<ColtureAziendaliDettaglioDTO> lista = dao.getListColtureAziendali(idProcedimentoOggetto,arrayIdSuperficieColtura);
 		if(lista == null)
 		{
-			lista = new ArrayList<ColtureAziendaliDettaglioDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -1068,7 +1068,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AssicurazioniColtureDTO> lista = dao.getListAssicurazioniColture(idProcedimentoOggetto);
 		if(lista == null)
 		{
-			lista = new ArrayList<AssicurazioniColtureDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -1095,7 +1095,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<AssicurazioniColtureDTO> lista = dao.getListAssicurazioniColture(idProcedimentoOggetto,idAssicurazioniColture);
 		if(lista == null)
 		{
-			lista = new ArrayList<AssicurazioniColtureDTO>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -1125,7 +1125,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DecodificaDTO<Integer>> lista = dao.getListConsorzi(idProvincia);
 		if(lista == null)
 		{
-			lista = new ArrayList<DecodificaDTO<Integer>>();
+			lista = new ArrayList<>();
 		}
 		return lista;
 	}
@@ -1146,7 +1146,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		BandoDTO bando = dao.getInformazioniBandoByIdProcedimento(idProcedimento);
 		if(lista == null)
 		{
-			lista = new ArrayList<DanniColtureDTO>();
+			lista = new ArrayList<>();
 		}
 		for(DanniColtureDTO danno : lista)
 		{
@@ -1193,7 +1193,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 			dao.deleteRTipoDocRichiesti(idProcedimentoOggetto);
 			
 			//per ogni checkbox controllo:
-			//se è checkata faccio insert su NEMBO_R_TIPO_DOCUMENTI_RICHIESTI
+			//se ï¿½ checkata faccio insert su NEMBO_R_TIPO_DOCUMENTI_RICHIESTI
 			List<Long> listaTipoDoc = new ArrayList<>();
 			for(String checkVal : requestList){
 				listaTipoDoc.add(Long.parseLong(checkVal));

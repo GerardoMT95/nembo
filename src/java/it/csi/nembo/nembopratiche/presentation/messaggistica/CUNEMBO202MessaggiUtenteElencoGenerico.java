@@ -77,8 +77,8 @@ public class CUNEMBO202MessaggiUtenteElencoGenerico
 
   protected void dividiMessaggi(Model model, List<InfoMessaggio> list)
   {
-    List<InfoMessaggio> messaggiLetti = new ArrayList<InfoMessaggio>();
-    List<InfoMessaggio> messaggiDaLeggere = new ArrayList<InfoMessaggio>();
+    List<InfoMessaggio> messaggiLetti = new ArrayList<>();
+    List<InfoMessaggio> messaggiDaLeggere = new ArrayList<>();
     for (InfoMessaggio info : list)
     {
       if (info.isLetto())

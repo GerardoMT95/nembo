@@ -303,7 +303,7 @@ public class CUNEMBO251ModificaOD extends BaseController
     saveCommonInSession(common, session);
 
     String[] ids = request.getParameterValues("cBP");
-    ArrayList<Long> vect = new ArrayList<Long>();
+    ArrayList<Long> vect = new ArrayList<>();
     for (String s : ids)
     {
       vect.addElement(Long.parseLong(s));
@@ -343,7 +343,7 @@ public class CUNEMBO251ModificaOD extends BaseController
   {
 
     String[] ids = request.getParameterValues("cBP");
-    ArrayList<Long> vect = new ArrayList<Long>();
+    ArrayList<Long> vect = new ArrayList<>();
     for (String s : ids)
     {
       vect.addElement(Long.parseLong(s));

@@ -63,7 +63,7 @@ public class CUNEMBO297EScorteEliminaController extends BaseController
 			arrayIdScortaMagazzino = new long[0];
 		}
 		Long nDanniScorte = quadroNemboEJB.getNDanniScorte(idProcedimentoOggetto, arrayIdScortaMagazzino);
-		List<Long> listIdScortaMagazzino = new ArrayList<Long>();
+		List<Long> listIdScortaMagazzino = new ArrayList<>();
 		for(long l : arrayIdScortaMagazzino)
 		{
 			listIdScortaMagazzino.add(l);

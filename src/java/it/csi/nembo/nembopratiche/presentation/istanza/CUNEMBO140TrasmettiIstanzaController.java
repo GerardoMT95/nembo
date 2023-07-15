@@ -71,21 +71,21 @@ public class CUNEMBO140TrasmettiIstanzaController extends BaseController
 					if (item.getIdStatoStampa().longValue() == NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_GRAFOMETRICA)
 					{
 						if(lStampeInAttesaFirma == null){
-							lStampeInAttesaFirma = new ArrayList<DecodificaDTO<String>>();
+							lStampeInAttesaFirma = new ArrayList<>();
 						}
 						lStampeInAttesaFirma.add(new DecodificaDTO<String>(NemboConstants.STATO.STAMPA.DESCRIZIONE.IN_ATTESA_FIRMA_GRAFOMETRICA, item.getDescTipoDocumento()));
 					}
 					else if (item.getIdStatoStampa().longValue() == NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_ELETTRONICA_LEGGERA)
 					{
 						if(lStampeInAttesaFirmaElettr == null){
-							lStampeInAttesaFirmaElettr = new ArrayList<DecodificaDTO<String>>();
+							lStampeInAttesaFirmaElettr = new ArrayList<>();
 						}
 						lStampeInAttesaFirmaElettr.add(new DecodificaDTO<String>(NemboConstants.STATO.STAMPA.DESCRIZIONE.IN_ATTESA_FIRMA_ELETTRONICA_LEGGERA, item.getDescTipoDocumento()));
 					}
 					else if (item.getIdStatoStampa().longValue() == NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_SU_CARTA)
 					{
 						if(lStampeInAttesaFirma == null){
-							lStampeInAttesaFirma = new ArrayList<DecodificaDTO<String>>();
+							lStampeInAttesaFirma = new ArrayList<>();
 						}
 						lStampeInAttesaFirma.add(new DecodificaDTO<String>(NemboConstants.STATO.STAMPA.DESCRIZIONE.IN_ATTESA_FIRMA_SU_CARTA, item.getDescTipoDocumento()));
 					}

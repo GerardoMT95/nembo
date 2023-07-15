@@ -38,7 +38,7 @@ public class QuadroDinamicoDAO extends BaseDAO
    * 
    * @param codiceQuadro
    * @param idProcedimentoOggetto
-   *          Se idProcedimentoOggetto è valorizzato allora leggo i dati del
+   *          Se idProcedimentoOggetto ï¿½ valorizzato allora leggo i dati del
    *          quadro dinamico, altrimenti se idProcedimento == null significa
    *          che il chiamante vuole solo la struttura del quadro dinamico
    * @param numProgressivoRecord
@@ -215,7 +215,7 @@ public class QuadroDinamicoDAO extends BaseDAO
                 if (idProcedimentoOggetto != null)
                 {
                   /*
-                   * Se idProcedimentoOggetto è valorizzato allora leggo i dati
+                   * Se idProcedimentoOggetto ï¿½ valorizzato allora leggo i dati
                    * del quadro dinamico, altrimenti se idProcedimento == null
                    * significa che il chiamante vuole solo la struttura del
                    * quadro dinamico
@@ -286,229 +286,6 @@ public class QuadroDinamicoDAO extends BaseDAO
     }
   }
 
-  /**
-   * 
-   * @param codiceQuadro
-   * @param idProcedimentoOggetto
-   *          Se idProcedimentoOggetto è valorizzato allora leggo i dati del
-   *          quadro dinamico, altrimenti se idProcedimento == null significa
-   *          che il chiamante vuole solo la struttura del quadro dinamico
-   * @return
-   * @throws InternalUnexpectedException
-   */
-  /*
-   * public QuadroDinamicoMultiRecordDTO getQuadroDinamicoMultiRecord(final
-   * String codiceQuadro, final Long idProcedimentoOggetto) throws
-   * InternalUnexpectedException { String THIS_METHOD = "[" + THIS_CLASS +
-   * "::getQuadroDinamicoMultiRecord]"; if (logger.isDebugEnabled()) {
-   * logger.debug(THIS_METHOD + " BEGIN."); } StringBuilder qb = new
-   * StringBuilder(
-   * " SELECT                                                                  \n"
-   * +
-   * "   QD.ISTRUZ_SQL_POST_SALVATAGGIO,                                       \n"
-   * +
-   * "   QD.ID_QUADRO,                                                         \n"
-   * +
-   * "   QD.FLAG_VISUALIZZAZIONE_ELENCO,                                       \n"
-   * +
-   * "   EQ.NOME_LABEL,                                                        \n"
-   * +
-   * "   EQ.FLAG_OBBLIGATORIO,                                                 \n"
-   * +
-   * "   EQ.ISTRUZIONE_SQL_CONTROLLI,                                          \n"
-   * +
-   * "   EQ.ID_TIPO_DATO,                                                      \n"
-   * +
-   * "   EQ.CODICE,                                                            \n"
-   * +
-   * "   EQ.ISTRUZIONE_SQL_ELENCO,                                             \n"
-   * +
-   * "   EQ.FLAG_PRESENZA_IN_ELENCO,                                           \n"
-   * +
-   * "   EQ.ORDINE_VISUALIZZAZIONE,                                            \n"
-   * +
-   * "   EQ.PRECISIONE,                                                        \n"
-   * +
-   * "   EQ.LUNGHEZZA,                                                         \n"
-   * +
-   * "   EQ.NOTE,                                                              \n"
-   * +
-   * "   EQ.ID_ELEMENTO_QUADRO,                                                \n"
-   * +
-   * "   EQ.LUNGHEZZA_MIN,                                                     \n"
-   * +
-   * "   EQ.FLAG_PROTETTO,                                                     \n"
-   * +
-   * "   EQ.FLAG_STAMPA,                                                       \n"
-   * +
-   * "   EQ.VALORE_DEFAULT,                                                    \n"
-   * ); if (idProcedimentoOggetto != null) { qb.append(
-   * "   DATI.ID_DATI_COMUNI_ELEM_QUADRO,                                     \n"
-   * +
-   * "   DATI.ID_DATO_ELEMENTO_QUADRO,                                         \n"
-   * +
-   * "   DATI.NUM_PROGRESSIVO_RECORD,                                          \n"
-   * +
-   * "   DATI.VALORE_ELEMENTO,                                                 \n"
-   * ); } qb.append(
-   * "   TD.CODICE AS CODICE_TIPO_DATO                                         \n"
-   * ); qb.append(
-   * " FROM                                                                    \n"
-   * +
-   * "   NEMBO_D_QUADRO Q,                                                       \n"
-   * +
-   * "   NEMBO_D_QUADRO_DINAMICO QD,                                             \n"
-   * +
-   * "   NEMBO_D_TIPO_DATO TD,                                                   \n"
-   * ); if (idProcedimentoOggetto != null) { qb.append(
-   * "   (                                                                     \n"
-   * +
-   * "     SELECT                                                              \n"
-   * +
-   * "       DEQ.ID_DATO_ELEMENTO_QUADRO,                                      \n"
-   * +
-   * "       DEQ.ID_ELEMENTO_QUADRO,                                           \n"
-   * +
-   * "       DEQ.VALORE_ELEMENTO,                                              \n"
-   * +
-   * "       DCEQ.ID_QUADRO,                                                   \n"
-   * +
-   * "       DCEQ.ID_DATI_COMUNI_ELEM_QUADRO,                                  \n"
-   * +
-   * "       DCEQ.NUM_PROGRESSIVO_RECORD                                       \n"
-   * +
-   * "     FROM                                                                \n"
-   * +
-   * "       NEMBO_T_DATI_COMUNI_ELEM_QUADR DCEQ,                               \n"
-   * +
-   * "       NEMBO_T_DATO_ELEMENTO_QUADRO DEQ                                    \n"
-   * +
-   * "     WHERE                                                               \n"
-   * +
-   * "       DCEQ.ID_DATI_COMUNI_ELEM_QUADRO  = DEQ.ID_DATI_COMUNI_ELEM_QUADRO \n"
-   * +
-   * "       AND DCEQ.ID_PROCEDIMENTO_OGGETTO = :ID_PROCEDIMENTO_OGGETTO       \n"
-   * ); qb.append(
-   * "   )                                                                     \n"
-   * +
-   * "   DATI,                                                                 \n"
-   * ); } qb.append(
-   * "   NEMBO_D_ELEMENTO_QUADRO EQ                                             \n"
-   * +
-   * " WHERE                                                                   \n"
-   * +
-   * "   QD.ID_QUADRO              = EQ.ID_QUADRO                              \n"
-   * +
-   * "   AND EQ.ID_TIPO_DATO       = TD.ID_TIPO_DATO                           \n"
-   * +
-   * "   AND EQ.ID_QUADRO          = Q.ID_QUADRO                               \n"
-   * +
-   * "   AND Q.CODICE              = :CODICE_QUADRO                            \n"
-   * ); if (idProcedimentoOggetto != null) { qb.append(
-   * "   AND EQ.ID_ELEMENTO_QUADRO = DATI.ID_ELEMENTO_QUADRO(+)                \n"
-   * +
-   * "   AND EQ.ID_QUADRO = DATI.ID_QUADRO(+)                                  \n"
-   * ); } qb.append(
-   * " ORDER BY                                                                \n"
-   * +
-   * "   EQ.ORDINE_VISUALIZZAZIONE ASC,                                       \n"
-   * +
-   * "   EQ.ORDINE_VISUALIZZAZIONE ASC                                        \n"
-   * ); if (idProcedimentoOggetto != null) {
-   * 
-   * qb.append(
-   * "  , DATI.ID_ELEMENTO_QUADRO ASC,                                         \n"
-   * +
-   * "   DATI.NUM_PROGRESSIVO_RECORD ASC,                                     \n"
-   * +
-   * "   DATI.ID_DATO_ELEMENTO_QUADRO ASC                                     \n"
-   * );
-   * 
-   * } final String QUERY = qb.toString(); MapSqlParameterSource
-   * mapParameterSource = new MapSqlParameterSource();
-   * mapParameterSource.addValue("CODICE_QUADRO", codiceQuadro, Types.VARCHAR);
-   * mapParameterSource.addValue("ID_PROCEDIMENTO_OGGETTO",
-   * idProcedimentoOggetto, Types.NUMERIC); try { return
-   * namedParameterJdbcTemplate.query(QUERY, mapParameterSource, new
-   * ResultSetExtractor<QuadroDinamicoMultiRecordDTO>() {
-   * 
-   * @Override public QuadroDinamicoMultiRecordDTO extractData(ResultSet rs)
-   * throws SQLException, DataAccessException { QuadroDinamicoMultiRecordDTO
-   * quadroDinamicoDTO = null; int lastIdElementoQuadro = Integer.MIN_VALUE;
-   * ElementoQuadroDTO elementoQuadro = null; Long idDatiComuniElemQuadro =
-   * null; Long numProgressivoRecordCorrente = null; int numRecord = 0; int
-   * maxNumRecord=0; while (rs.next()) { if (quadroDinamicoDTO == null) {
-   * quadroDinamicoDTO = new QuadroDinamicoMultiRecordDTO();
-   * quadroDinamicoDTO.setFlagVisualizzazioneElenco(rs.getString(
-   * "FLAG_VISUALIZZAZIONE_ELENCO"));
-   * quadroDinamicoDTO.setIstruzSqlPostSalvataggio(rs.getString(
-   * "ISTRUZ_SQL_POST_SALVATAGGIO"));
-   * quadroDinamicoDTO.setIdQuadro(rs.getLong("ID_QUADRO"));
-   * quadroDinamicoDTO.setCodice(codiceQuadro); }
-   * 
-   * int idElementoQuadro = rs.getInt("ID_ELEMENTO_QUADRO"); if (elementoQuadro
-   * == null || lastIdElementoQuadro != idElementoQuadro) { numRecord=0;
-   * lastIdElementoQuadro = idElementoQuadro; elementoQuadro = new
-   * ElementoQuadroDTO(); elementoQuadro.setIdElementoQuadro(idElementoQuadro);
-   * elementoQuadro.setNomeLabel(rs.getString("NOME_LABEL"));
-   * elementoQuadro.setFlagObbligatorio(rs.getString("FLAG_OBBLIGATORIO"));
-   * elementoQuadro.setIstruzioneSqlControlli(rs.getString(
-   * "ISTRUZIONE_SQL_CONTROLLI"));
-   * elementoQuadro.setIdTipoDato(rs.getLong("ID_TIPO_DATO"));
-   * elementoQuadro.setCodice(rs.getString("CODICE"));
-   * elementoQuadro.setIstruzioneSqlElenco(rs.getString("ISTRUZIONE_SQL_ELENCO")
-   * ); elementoQuadro.setFlagPresenzaInElenco(rs.getString(
-   * "FLAG_PRESENZA_IN_ELENCO"));
-   * elementoQuadro.setOrdineVisualizzazione(rs.getInt("ORDINE_VISUALIZZAZIONE")
-   * ); elementoQuadro.setPrecisione(getIntegerNull(rs, "PRECISIONE"));
-   * elementoQuadro.setLunghezza(getIntegerNull(rs, "LUNGHEZZA"));
-   * elementoQuadro.setNote(rs.getString("NOTE"));
-   * elementoQuadro.setLunghezzaMin(getIntegerNull(rs, "LUNGHEZZA_MIN"));
-   * elementoQuadro.setFlagProtetto(rs.getString("FLAG_PROTETTO"));
-   * elementoQuadro.setFlagStampa(rs.getString("FLAG_STAMPA"));
-   * elementoQuadro.setValoreDefault(rs.getString("VALORE_DEFAULT"));
-   * elementoQuadro.setCodiceTipoDato(rs.getString("CODICE_TIPO_DATO"));
-   * quadroDinamicoDTO.addElemento(elementoQuadro); } if (idProcedimentoOggetto
-   * != null) { /* Se idProcedimentoOggetto è valorizzato allora leggo i dati
-   * del quadro dinamico, altrimenti se idProcedimento == null significa che il
-   * chiamante vuole solo la struttura del quadro dinamico
-   */
-  /*
-   * BigDecimal idDatoElementoQuadro =
-   * rs.getBigDecimal("ID_DATO_ELEMENTO_QUADRO"); if (idDatoElementoQuadro !=
-   * null) {
-   * 
-   * long numProgressivoRecord = rs.getLong("N" + "UM_PROGRESSIVO_RECORD"); if
-   * (numProgressivoRecordCorrente == null || numProgressivoRecordCorrente !=
-   * numProgressivoRecord) {
-   * elementoQuadro.setNumProgressivoRecordCorrente(numProgressivoRecord);
-   * numProgressivoRecordCorrente = numProgressivoRecord; numRecord++; if
-   * (numRecord>maxNumRecord) { maxNumRecord=numRecord; } }
-   * List<DatoElementoQuadroDTO> dati = elementoQuadro.getDati(); if (dati ==
-   * null) { dati = new ArrayList<DatoElementoQuadroDTO>();
-   * elementoQuadro.setDati(dati); } DatoElementoQuadroDTO dato = new
-   * DatoElementoQuadroDTO(); dati.add(dato); long id =
-   * rs.getLong("ID_DATI_COMUNI_ELEM_QUADRO");
-   * dato.setIdDatiComuniElemQuadro(id); if (idDatiComuniElemQuadro == null ||
-   * idDatiComuniElemQuadro.longValue()!=id) { DatiComuniElemQuadroDTO
-   * datiComuniElemQuadroDTO = new DatiComuniElemQuadroDTO();
-   * datiComuniElemQuadroDTO.setIdDatiComuniElemQuadro(id);
-   * datiComuniElemQuadroDTO.setNumProgressivoRecord(numProgressivoRecord);
-   * idDatiComuniElemQuadro = id;
-   * quadroDinamicoDTO.addDatiComuniElemQuadro(datiComuniElemQuadroDTO); }
-   * dato.setIdElementoQuadro(rs.getLong("ID_DATO_ELEMENTO_QUADRO"));
-   * dato.setValoreElemento(rs.getString("VALORE_ELEMENTO")); } }
-   * quadroDinamicoDTO.setIdDatiComuniElementoQuadro(idDatiComuniElemQuadro); }
-   * quadroDinamicoDTO.setNumRecord(maxNumRecord);
-   * quadroDinamicoDTO.resetNumProgressivoRecordCorrente(); return
-   * quadroDinamicoDTO; } }); } catch (Throwable t) {
-   * InternalUnexpectedException e = new InternalUnexpectedException(t, new
-   * LogParameter[] { new LogParameter("codiceQuadro", codiceQuadro), new
-   * LogParameter("idProcedimentoOggetto", idProcedimentoOggetto) }, new
-   * LogVariable[] {}, QUERY, mapParameterSource);
-   * logInternalUnexpectedException(e, THIS_METHOD); throw e; } finally { if
-   * (logger.isDebugEnabled()) { logger.debug(THIS_METHOD + " END."); } } }
-   */
 
   public Map<Long, List<VoceElementoDTO>> getMapVociElementoPerQuadro(
       long idQuadro) throws InternalUnexpectedException
@@ -609,7 +386,7 @@ public class QuadroDinamicoDAO extends BaseDAO
             public List<VoceElementoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              List<VoceElementoDTO> list = new ArrayList<VoceElementoDTO>();
+              List<VoceElementoDTO> list = new ArrayList<>();
               while (rs.next())
               {
                 VoceElementoDTO voceElementoDTO = new VoceElementoDTO();
@@ -830,7 +607,7 @@ public class QuadroDinamicoDAO extends BaseDAO
 
     ;
     MapSqlParameterSource[] batchParameterSource = null;
-    List<MapSqlParameterSource> listParameterSource = new ArrayList<MapSqlParameterSource>();
+    List<MapSqlParameterSource> listParameterSource = new ArrayList<>();
     for (Long idElementoQuadro : mapValues.keySet())
     {
       final String[] valoriElementi = mapValues.get(idElementoQuadro);

@@ -32,7 +32,7 @@
             $("body").append($(vModal));
 
             let vFormAvd = createFormAvd(pColumns, searchText, that),
-                timeoutId = 0;;
+                timeoutId = 0;
 
             $('#avdSearchModalContent' + "_" + that.options.idTable).append(vFormAvd.join(''));
 

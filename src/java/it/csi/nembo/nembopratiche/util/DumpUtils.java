@@ -243,7 +243,7 @@ public abstract class DumpUtils
 
   private static ArrayList<Method> getMethods(Class<?> objClass)
   {
-    ArrayList<Method> list = new ArrayList<Method>();
+    ArrayList<Method> list = new ArrayList<>();
     Method[] methods = objClass.getMethods();
     if (methods != null)
     {

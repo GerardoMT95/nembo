@@ -35,7 +35,7 @@ public class TableTag extends BaseTag
   @Override
   public int doStartTag() throws JspException
   {
-    columns = new ArrayList<TableColumn>();
+    columns = new ArrayList<>();
     return super.doStartTag();
   }
 

@@ -214,7 +214,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<BandoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<BandoDTO> list = new ArrayList<BandoDTO>();
+              ArrayList<BandoDTO> list = new ArrayList<>();
               BandoDTO bandoDTO = null;
               Long lastIdBando = null;
               long idBando = 0;
@@ -392,7 +392,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<OggettoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<OggettoDTO> list = new ArrayList<OggettoDTO>();
+              ArrayList<OggettoDTO> list = new ArrayList<>();
               OggettoDTO oggettoDTO = null;
               QuadroDTO quadroDTO = null;
               AzioneDTO azioneDTO = null;
@@ -493,7 +493,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       else
         if (isBeneficiario(utenteAbilitazioni))
         {
-          ArrayList<Long> aziende = new ArrayList<Long>();
+          ArrayList<Long> aziende = new ArrayList<>();
           for (EnteLogin ente : utenteAbilitazioni.getEntiAbilitati())
           {
             if (ente.getAziendaAgricola() != null)
@@ -523,7 +523,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -599,7 +599,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       else
         if (isBeneficiario(utenteAbilitazioni))
         {
-          ArrayList<Long> aziende = new ArrayList<Long>();
+          ArrayList<Long> aziende = new ArrayList<>();
           for (EnteLogin ente : utenteAbilitazioni.getEntiAbilitati())
           {
             final AziendaAgricola aziendaAgricola = ente.getAziendaAgricola();
@@ -629,7 +629,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
               while (rs.next())
               {
                 list.add(rs.getLong("ID_AZIENDA"));
@@ -806,7 +806,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       else
         if (isBeneficiario(utenteAbilitazioni))
         {
-          ArrayList<Long> aziende = new ArrayList<Long>();
+          ArrayList<Long> aziende = new ArrayList<>();
           for (EnteLogin ente : utenteAbilitazioni.getEntiAbilitati())
           {
             final AziendaAgricola aziendaAgricola = ente.getAziendaAgricola();
@@ -837,7 +837,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<AziendaDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<AziendaDTO> list = new ArrayList<AziendaDTO>();
+              ArrayList<AziendaDTO> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -1002,7 +1002,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<AziendaDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<AziendaDTO> list = new ArrayList<AziendaDTO>();
+              ArrayList<AziendaDTO> list = new ArrayList<>();
               while (rs.next())
               {
                 AziendaDTO azienda = new AziendaDTO();
@@ -1100,7 +1100,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
         return null;
       }
       Object array = arrayObj.getArray();
-      List<ControlloDTO> controlli = new ArrayList<ControlloDTO>();
+      List<ControlloDTO> controlli = new ArrayList<>();
       if (array != null)
       {
         for (Object elemento : (Object[]) array)
@@ -1464,7 +1464,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<AmmCompetenzaDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<AmmCompetenzaDTO> list = new ArrayList<AmmCompetenzaDTO>();
+              ArrayList<AmmCompetenzaDTO> list = new ArrayList<>();
               AmmCompetenzaDTO ammDTO = null;
               while (rs.next())
               {
@@ -1661,7 +1661,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
             public List<Procedimento> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Procedimento> list = new ArrayList<Procedimento>();
+              ArrayList<Procedimento> list = new ArrayList<>();
               Procedimento proc = null;
               long idProcedimentoLast = -1;
               long idProcedimento;

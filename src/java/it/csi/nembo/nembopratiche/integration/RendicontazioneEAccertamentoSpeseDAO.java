@@ -762,7 +762,7 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
     {
       namedParameterJdbcTemplate.update(UPDATE, mapParameterSource);
       /*
-       * Nel caso che i calcoli precedenti abbiano generato, per uno o più
+       * Nel caso che i calcoli precedenti abbiano generato, per uno o piï¿½
        * livello, un valore del contributo erogabile negativo devo intervenire
        * per sanare la situazione. Aggiungo il valore assoluto del contributo
        * erogabile al contributo non erogabile e azzero il contributo erogabile.
@@ -771,15 +771,15 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
       /*
        * A questo punto aggiorno il contributo non erogabile, basandomi sui
        * contributo erogabile calcolato precedentemente, il calcolo, al
-       * contrario di prima è sempre lo stesso
+       * contrario di prima ï¿½ sempre lo stesso
        */
       namedParameterJdbcTemplate.update(QUERY_UPDATE_NON_EROGABILE,
           mapParameterSource);
       /*
        * Eseguo un secondo update dell'erogabile aggiornando solo quei record
-       * inferiori ad un certo valore. E' il modo più veloce ed efficiente che
+       * inferiori ad un certo valore. E' il modo piï¿½ veloce ed efficiente che
        * ho trovato per fare l'update con il max(x,y), prima faccio l'update con
-       * x e poi faccio l'update con y solo su quelli in cui x è < y. Per il
+       * x e poi faccio l'update con y solo su quelli in cui x ï¿½ < y. Per il
        * tipo di calcolo di x e y vedere l'analisi
        */
       namedParameterJdbcTemplate.update(QUERY_UPDATE_NON_EROGABILE_SE_INFERIORE,
@@ -1209,7 +1209,7 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
     }
     if (ids == null)
     {
-      ids = new ArrayList<Long>();
+      ids = new ArrayList<>();
       ids.add(Long.MIN_VALUE);
     }
     String QUERY = ("  WITH                                                                                           \n"
@@ -2089,7 +2089,7 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
             public List<RiduzioniSanzioniDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RiduzioniSanzioniDTO> list = new ArrayList<RiduzioniSanzioniDTO>();
+              ArrayList<RiduzioniSanzioniDTO> list = new ArrayList<>();
               RiduzioniSanzioniDTO riduzione = null;
               long idTipologia = 0l;
               long idTipologiaOld = -1l;

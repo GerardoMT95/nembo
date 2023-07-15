@@ -37,7 +37,7 @@ public class GruppoQuadroDinamicoDTO implements ILoggable
   {
     if (elementiQuadro == null)
     {
-      elementiQuadro = new ArrayList<ElementoQuadroDTO>();
+      elementiQuadro = new ArrayList<>();
       sezioneConTitolo = elemento.isTipoTIT();
       if (sezioneConTitolo)
       {

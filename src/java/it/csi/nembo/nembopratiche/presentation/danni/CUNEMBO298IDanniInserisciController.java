@@ -234,7 +234,7 @@ public class CUNEMBO298IDanniInserisciController extends CUNEMBO298DanniBaseCont
 		  Map<String, Object> common = getCommonFromSession(cuId, session, true);
 		  long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 		  final Integer idDanno = (Integer)common.get(commonFieldIdDanno);
-		  List<DanniDTO> listDanniDTO = new ArrayList<DanniDTO>();
+		  List<DanniDTO> listDanniDTO = new ArrayList<>();
 		  List<ScorteDTO> listScorte = null;
 		  final String paginaDettaglio = "danni/inserisciDanniDettaglio";
 		  LogOperationOggettoQuadroDTO logOperationOggettoQuadroDTO = getLogOperationOggettoQuadroDTO(session);
@@ -368,7 +368,7 @@ public class CUNEMBO298IDanniInserisciController extends CUNEMBO298DanniBaseCont
 				  long[] arrayIdAllevamento = NemboUtils.ARRAY.toLong(request.getParameterValues("hiddenIdAllevamento"));
 				  List<AllevamentiDTO> listaAllevamenti = quadroNemboEJB.getListAllevamentiSingoliNonDanneggiati(idProcedimentoOggetto, arrayIdAllevamento);
 				  Map<Long,Long> mappaIdAllevamentoQuantita = new HashMap<Long,Long>();
-				  listDanniDTO = new ArrayList<DanniDTO>();
+				  listDanniDTO = new ArrayList<>();
 				  for(AllevamentiDTO allevamento : listaAllevamenti)
 				  {
 					  mappaIdAllevamentoQuantita.put(allevamento.getIdAllevamento(), allevamento.getQuantita());
@@ -444,7 +444,7 @@ public class CUNEMBO298IDanniInserisciController extends CUNEMBO298DanniBaseCont
 				  }
 				  else
 				  {
-					  listDanniDTO = new ArrayList<DanniDTO>();
+					  listDanniDTO = new ArrayList<>();
 					  DanniDTO danno = new DanniDTO();
 					  danno.setDescrizione(fieldDescrizione);
 					  danno.setQuantita(quantita);
@@ -499,7 +499,7 @@ public class CUNEMBO298IDanniInserisciController extends CUNEMBO298DanniBaseCont
 				  tmpDanniDTO.setExtIdEntitaDanneggiata(idElemento);
 				  break;
 			  default:
-				  //la gestione dei danni a superfici, essendo diversa, è eseguita nel metodo chiamante
+				  //la gestione dei danni a superfici, essendo diversa, ï¿½ eseguita nel metodo chiamante
 				  break;
 		  }
 		  listDanniDTO.add(tmpDanniDTO);
@@ -512,7 +512,7 @@ public class CUNEMBO298IDanniInserisciController extends CUNEMBO298DanniBaseCont
 		  String fieldQuantita   = request.getParameter(fieldNameQuantita + "_" + idElemento);
 		  String fieldImporto = request.getParameter(fieldNameImporto + "_" + idElemento);
 		  
-		  //TODO: completare con tutti i casi che sono interessati a valutare l'unità di misura
+		  //TODO: completare con tutti i casi che sono interessati a valutare l'unitï¿½ di misura
 		  switch(idDanno)
 		  {
 			  case NemboConstants.DANNI.SCORTA:

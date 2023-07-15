@@ -36,7 +36,7 @@ public class CUNEMBO298DDanniDettaglioController extends CUNEMBO298DanniBaseCont
 		long[] arrayIdDannoAtm = new long[]{idDannoAtm};
 		List<DanniDTO> danni = quadroNemboEJB.getDanniByIdDannoAtm(arrayIdDannoAtm, idProcedimentoOggetto, getUtenteAbilitazioni(session).getIdProcedimento());
 		DanniDTO danno = danni.get(0);
-		List<Long> listIdDannoAtm = new ArrayList<Long>();
+		List<Long> listIdDannoAtm = new ArrayList<>();
 		List<Integer> listIdDannoConduzioni = QuadroNemboDAO
 				.getListDanniEquivalenti(NemboConstants.DANNI.TERRENI_RIPRISTINABILI);
 		listIdDannoAtm.add(danno.getIdDannoAtm());

@@ -73,7 +73,7 @@ public class CUNEMBO305MModificaColtureAziendali extends BaseController
 		String paginaDaCaricare=null;
 		
 		Map<Long,ColtureAziendaliDettaglioDTO> mapColtureAziendali = new HashMap<Long,ColtureAziendaliDettaglioDTO>();
-		List<ColtureAziendaliDettaglioDTO> listColtureAziendaliModificate = new ArrayList<ColtureAziendaliDettaglioDTO>();
+		List<ColtureAziendaliDettaglioDTO> listColtureAziendaliModificate = new ArrayList<>();
 		List<ColtureAziendaliDettaglioDTO> listColtureAziendali = quadroNemboEJB.getListColtureAziendali(idProcedimentoOggetto, arrayIdSuperficieColtura);
 		for(ColtureAziendaliDettaglioDTO coltura : listColtureAziendali)
 		{

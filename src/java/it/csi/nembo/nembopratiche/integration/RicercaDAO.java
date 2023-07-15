@@ -495,10 +495,10 @@ public class RicercaDAO extends BaseDAO
             public List<GruppoOggettoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<GruppoOggettoDTO> listGruppi = new ArrayList<GruppoOggettoDTO>();
+              ArrayList<GruppoOggettoDTO> listGruppi = new ArrayList<>();
               List<EsitoOggettoDTO> listStatiGruppo = null;
 
-              ArrayList<OggettoDTO> listOggetti = new ArrayList<OggettoDTO>();
+              ArrayList<OggettoDTO> listOggetti = new ArrayList<>();
               List<EsitoOggettoDTO> listEsitiOggetto = null;
               OggettoDTO oggettoDTO = null;
               EsitoOggettoDTO esitoOggettoDTO = null;
@@ -522,7 +522,7 @@ public class RicercaDAO extends BaseDAO
                   gruppoDTO = new GruppoOggettoDTO();
                   gruppoDTO.setIdGruppoOggetto(idGruppo);
                   gruppoDTO.setDescrizione(rs.getString("DESCR_GO"));
-                  listStatiGruppo = new ArrayList<EsitoOggettoDTO>();
+                  listStatiGruppo = new ArrayList<>();
                   EsitoOggettoDTO statoGruppo = new EsitoOggettoDTO();
                   statoGruppo.setIdEsito(0);
                   statoGruppo.setDescrizione("Non Presente");
@@ -580,7 +580,7 @@ public class RicercaDAO extends BaseDAO
                   oggettoDTO.setIdLegameGruppoOggetto(
                       rs.getLong("ID_LEGAME_GRUPPO_OGGETTO"));
 
-                  listEsitiOggetto = new ArrayList<EsitoOggettoDTO>();
+                  listEsitiOggetto = new ArrayList<>();
                   // Se beneficiario o intermediario non metto il "Non presente"
                   // per le NON istanze soggette ad approvazione
                   if (utenteAbilitazioni == null
@@ -1220,7 +1220,7 @@ public class RicercaDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
               while (rs.next())
               {
                 long idPOld = rs.getLong("ID_PROCEDIMENTO");
@@ -1330,7 +1330,7 @@ public class RicercaDAO extends BaseDAO
             public List<ProcedimentoOggettoVO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<ProcedimentoOggettoVO>();
+              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<>();
               ProcedimentoOggettoVO procOggetto = null;
               while (rs.next())
               {
@@ -1531,7 +1531,7 @@ public class RicercaDAO extends BaseDAO
 	    			  @Override
 	    			  public List<GruppoOggettoDTO> extractData(ResultSet rs) throws SQLException, DataAccessException
 	    			  {
-	    				  ArrayList<GruppoOggettoDTO> list = new ArrayList<GruppoOggettoDTO>();
+	    				  ArrayList<GruppoOggettoDTO> list = new ArrayList<>();
 	    				  ArrayList<OggettoDTO> oggettiList = null;
 	    				  GruppoOggettoDTO gruppoOggettoDTO = null;
 	    				  long lastIdGruppoOggetto = 0;
@@ -1557,7 +1557,7 @@ public class RicercaDAO extends BaseDAO
 	    						  gruppoOggettoDTO.setIdGruppoOggetto(rs.getLong("ID_GRUPPO_OGGETTO"));
 	    						  gruppoOggettoDTO.setIdProcedimento(rs.getLong("ID_PROCEDIMENTO"));
 	    						  
-	    						  oggettiList = new ArrayList<OggettoDTO>();
+	    						  oggettiList = new ArrayList<>();
 	    						  gruppoOggettoDTO.setOggetti(oggettiList);
 	    						  list.add(gruppoOggettoDTO);
 	    					  }
@@ -2502,7 +2502,7 @@ public class RicercaDAO extends BaseDAO
             public List<ProcedimentoOggettoVO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<ProcedimentoOggettoVO>();
+              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<>();
               ArrayList<String> elencoLivelli = null;
               ProcedimentoOggettoVO procOggetto = null;
               long idProcedimentoLast = -1;
@@ -2580,10 +2580,10 @@ public class RicercaDAO extends BaseDAO
                   else
                     procOggetto.setDescrUfficioZona(descrUfficioZona);
 
-                  livelli = new ArrayList<LivelloDTO>();
+                  livelli = new ArrayList<>();
                   procOggetto.setLivelli(livelli);
                   ;
-                  elencoLivelli = new ArrayList<String>();
+                  elencoLivelli = new ArrayList<>();
                   procOggetto.setElencoCodiciLivelli(elencoLivelli);
 
                   procOggetto.setCntNotificheB(rs.getInt("CNT_NOTIFICHE_B"));
@@ -2742,7 +2742,7 @@ public class RicercaDAO extends BaseDAO
             public List<GruppoOggettoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<GruppoOggettoDTO> list = new ArrayList<GruppoOggettoDTO>();
+              ArrayList<GruppoOggettoDTO> list = new ArrayList<>();
               ArrayList<OggettoDTO> oggettiList = null;
               GruppoOggettoDTO gruppoOggettoDTO = null;
               long lastIdGruppoOggetto = 0;
@@ -2761,7 +2761,7 @@ public class RicercaDAO extends BaseDAO
                       .setDescrizione(rs.getString("DESCR_GRUPPO_OGGETTO"));
                   gruppoOggettoDTO
                       .setIdGruppoOggetto(rs.getLong("ID_GRUPPO_OGGETTO"));
-                  oggettiList = new ArrayList<OggettoDTO>();
+                  oggettiList = new ArrayList<>();
                   gruppoOggettoDTO.setOggetti(oggettiList);
                   list.add(gruppoOggettoDTO);
                 }
@@ -2926,7 +2926,7 @@ public class RicercaDAO extends BaseDAO
             public List<GraduatoriaDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<GraduatoriaDTO> list = new ArrayList<GraduatoriaDTO>();
+              ArrayList<GraduatoriaDTO> list = new ArrayList<>();
               GraduatoriaDTO grad = null;
               while (rs.next())
               {
@@ -2988,7 +2988,7 @@ public class RicercaDAO extends BaseDAO
             public List<FileAllegatoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<FileAllegatoDTO> list = new ArrayList<FileAllegatoDTO>();
+              ArrayList<FileAllegatoDTO> list = new ArrayList<>();
               FileAllegatoDTO all = null;
               while (rs.next())
               {
@@ -3913,7 +3913,7 @@ public class RicercaDAO extends BaseDAO
             public List<SettoriDiProduzioneDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<SettoriDiProduzioneDTO> list = new ArrayList<SettoriDiProduzioneDTO>();
+              ArrayList<SettoriDiProduzioneDTO> list = new ArrayList<>();
               SettoriDiProduzioneDTO item = null;
               while (rs.next())
               {
@@ -3981,7 +3981,7 @@ public class RicercaDAO extends BaseDAO
             public List<FocusAreaDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<FocusAreaDTO> list = new ArrayList<FocusAreaDTO>();
+              ArrayList<FocusAreaDTO> list = new ArrayList<>();
               FocusAreaDTO item = null;
               if(rs!=null){
             	  while (rs.next())
@@ -4048,7 +4048,7 @@ public class RicercaDAO extends BaseDAO
             public List<FocusAreaDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<FocusAreaDTO> list = new ArrayList<FocusAreaDTO>();
+              ArrayList<FocusAreaDTO> list = new ArrayList<>();
               FocusAreaDTO item = null;
               while (rs.next())
               {
@@ -4112,7 +4112,7 @@ public class RicercaDAO extends BaseDAO
             public List<SettoriDiProduzioneDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<SettoriDiProduzioneDTO> list = new ArrayList<SettoriDiProduzioneDTO>();
+              ArrayList<SettoriDiProduzioneDTO> list = new ArrayList<>();
               SettoriDiProduzioneDTO item = null;
               while (rs.next())
               {
@@ -4339,7 +4339,7 @@ public class RicercaDAO extends BaseDAO
             public List<ProcedimentoOggettoVO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<ProcedimentoOggettoVO>();
+              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<>();
               ArrayList<String> elencoLivelli = null;
               ProcedimentoOggettoVO procOggetto = null;
 
@@ -4402,7 +4402,7 @@ public class RicercaDAO extends BaseDAO
                   else
                     procOggetto.setPO(false);
 
-                  elencoLivelli = new ArrayList<String>();
+                  elencoLivelli = new ArrayList<>();
                   procOggetto.setElencoCodiciLivelli(elencoLivelli);
                   list.add(procOggetto);
                 }
@@ -4505,7 +4505,7 @@ public class RicercaDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -4606,7 +4606,7 @@ public class RicercaDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -4784,7 +4784,7 @@ public class RicercaDAO extends BaseDAO
             public List<ProcedimentoOggettoVO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<ProcedimentoOggettoVO>();
+              ArrayList<ProcedimentoOggettoVO> list = new ArrayList<>();
               ProcedimentoOggettoVO procOggetto = null;
 
               while (rs.next())
@@ -5410,7 +5410,7 @@ public class RicercaDAO extends BaseDAO
             public List<ProcedimentoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ProcedimentoDTO> list = new ArrayList<ProcedimentoDTO>();
+              ArrayList<ProcedimentoDTO> list = new ArrayList<>();
               List<DocumentoSpesaVO> docs = null;
               List<LivelloDTO> livelli = null;
 
@@ -5437,10 +5437,10 @@ public class RicercaDAO extends BaseDAO
                   dto.setAmmCompetenza(rs.getString("DESCR_AMM_COMPETENZA"));
                   dto.setDenominazioneDelega(
                       rs.getString("DENOMINAZIONE_DELEGA"));
-                  docs = new ArrayList<DocumentoSpesaVO>();
+                  docs = new ArrayList<>();
                   doc = new DocumentoSpesaVO();
                   dto.setDocumentiSpesa(docs);
-                  livelli = new ArrayList<LivelloDTO>();
+                  livelli = new ArrayList<>();
                   dto.setLivelli(livelli);
                   list.add(dto);
                 }
@@ -5576,7 +5576,7 @@ public class RicercaDAO extends BaseDAO
             public List<GruppoOggettoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<GruppoOggettoDTO> list = new ArrayList<GruppoOggettoDTO>();
+              ArrayList<GruppoOggettoDTO> list = new ArrayList<>();
               ArrayList<OggettoDTO> oggettiList = null;
               GruppoOggettoDTO gruppoOggettoDTO = null;
               long lastIdGruppoOggetto = 0;
@@ -5593,7 +5593,7 @@ public class RicercaDAO extends BaseDAO
                   gruppoOggettoDTO.setIdGruppoOggetto(idGruppoOggetto);
                   gruppoOggettoDTO
                       .setDescrizione(rs.getString("DESCR_GRUPPO_OGGETTO"));
-                  oggettiList = new ArrayList<OggettoDTO>();
+                  oggettiList = new ArrayList<>();
                   OggettoDTO o = new OggettoDTO();
                   o.setIdStato(0l);
                   o.setCodice("0");
@@ -6323,7 +6323,7 @@ public class RicercaDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -6424,7 +6424,7 @@ public class RicercaDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {

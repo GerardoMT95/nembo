@@ -44,7 +44,7 @@ public class GestioneEventiEJB extends NemboAbstractEJB<GestioneEventiDAO>
 		List<EventiDTO> list = dao.getListEventoCalamitoso();
 		if(list == null)
 		{
-			list = new ArrayList<EventiDTO>();
+			list = new ArrayList<>();
 		}
 		return list;
 	}
@@ -55,7 +55,7 @@ public class GestioneEventiEJB extends NemboAbstractEJB<GestioneEventiDAO>
 		List<DecodificaDTO<Long>> list = dao.getListDecodificaCategorieEvento();
 		if(list == null)
 		{
-			list = new ArrayList<DecodificaDTO<Long>>();
+			list = new ArrayList<>();
 		}
 		return list;
 	}
@@ -66,7 +66,7 @@ public class GestioneEventiEJB extends NemboAbstractEJB<GestioneEventiDAO>
 		List<DecodificaDTO<Long>> list = dao.getListDecodificaCategorieEvento(arrayIdCategoriaEvento);
 		if(list == null)
 		{
-			list = new ArrayList<DecodificaDTO<Long>>();
+			list = new ArrayList<>();
 		}
 		return list;
 	}
@@ -128,7 +128,7 @@ public class GestioneEventiEJB extends NemboAbstractEJB<GestioneEventiDAO>
 		List<DecodificaDTO<Long>> list = dao.getListEventoCalamitoso(idCategoriaEvento);
 		if(list == null)
 		{
-			list = new ArrayList<DecodificaDTO<Long>>();
+			list = new ArrayList<>();
 		}
 		return list;
 	}
@@ -139,7 +139,7 @@ public class GestioneEventiEJB extends NemboAbstractEJB<GestioneEventiDAO>
 		List<DecodificaDTO<Long>> list = dao.getListEventoCalamitoso(idCategoriaEvento, arrayIdEventoCalamitoso);
 		if(list == null)
 		{
-			list = new ArrayList<DecodificaDTO<Long>>();
+			list = new ArrayList<>();
 		}
 		return list;
 	}

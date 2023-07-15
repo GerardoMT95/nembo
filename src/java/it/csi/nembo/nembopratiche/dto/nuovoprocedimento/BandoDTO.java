@@ -477,7 +477,7 @@ public class BandoDTO implements ILoggable
 	public String getElencoCodiciLivelliMisureHtml()
 	{
 		String htmlElenco = "";
-		List<String> lCodici = new ArrayList<String>();
+		List<String> lCodici = new ArrayList<>();
 		List<LivelloDTO> liv = this.getLivelli();
 		int i = 0;
 		if (liv != null)

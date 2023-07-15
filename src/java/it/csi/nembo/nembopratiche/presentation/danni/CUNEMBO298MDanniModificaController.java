@@ -121,7 +121,7 @@ public class CUNEMBO298MDanniModificaController extends CUNEMBO298DanniBaseContr
 		if (arrayIdDannoAtm != null && arrayIdDannoAtm.length != 0)
 		{
 			List<DanniDTO> danni = quadroNemboEJB.getDanniByIdDannoAtm(arrayIdDannoAtm, idProcedimentoOggetto, getUtenteAbilitazioni(session).getIdProcedimento());
-			List<Long> listIdDannoAtm = new ArrayList<Long>();
+			List<Long> listIdDannoAtm = new ArrayList<>();
 			int counterDanniConduzioni = 0;
 			List<Integer> listIdDannoConduzioni = QuadroNemboDAO.getListDanniEquivalenti(NemboConstants.DANNI.TERRENI_RIPRISTINABILI);
 			for (DanniDTO danno : danni)
@@ -250,7 +250,7 @@ public class CUNEMBO298MDanniModificaController extends CUNEMBO298DanniBaseContr
 				for (DanniDTO danno : danni)
 				{
 					mappaDanniOriginali.put(danno.getIdDannoAtm(), danno);
-					//verifico che non si stia cercando di modificare più danni associati a delle superfici contemporaneamente
+					//verifico che non si stia cercando di modificare piï¿½ danni associati a delle superfici contemporaneamente
 					if(listaDanniEquivalentiConduzioni.contains(danno.getIdDanno()))
 					{
 						counterDanniSuperficiColture++;
@@ -260,7 +260,7 @@ public class CUNEMBO298MDanniModificaController extends CUNEMBO298DanniBaseContr
 				{
 					return "redirect:../cunembo298l/index.do";
 				}
-				List<DanniDTO> listDanni = new ArrayList<DanniDTO>();
+				List<DanniDTO> listDanni = new ArrayList<>();
 				for (long idDannoAtm : arrayIdDannoAtm)
 				{
 					DanniDTO dannoOriginale = mappaDanniOriginali.get(idDannoAtm);

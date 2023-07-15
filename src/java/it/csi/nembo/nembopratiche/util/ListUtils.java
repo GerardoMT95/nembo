@@ -10,7 +10,7 @@ public class ListUtils
   public List<Long> toListOfLong(String[] array)
   {
     int len = array == null ? 0 : array.length;
-    ArrayList<Long> list = new ArrayList<Long>();
+    ArrayList<Long> list = new ArrayList<>();
     for (int i = 0; i < len; ++i)
     {
       String value = array[i];
@@ -29,7 +29,7 @@ public class ListUtils
   public List<Integer> toListOfInteger(String[] array)
   {
     int len = array == null ? 0 : array.length;
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    ArrayList<Integer> list = new ArrayList<>();
     for (int i = 0; i < len; ++i)
     {
       String value = array[i];

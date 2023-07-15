@@ -51,7 +51,7 @@ public class DatiComuniElemQuadroDTO implements ILoggable
     List<DatoElementoQuadroDTO> listaValori = mapValori.get(idElementoQuadro);
     if (listaValori == null)
     {
-      listaValori = new ArrayList<DatoElementoQuadroDTO>();
+      listaValori = new ArrayList<>();
       mapValori.put(idElementoQuadro, listaValori);
     }
     listaValori.add(dato);

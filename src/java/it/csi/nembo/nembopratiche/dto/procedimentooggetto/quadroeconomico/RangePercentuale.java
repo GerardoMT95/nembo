@@ -14,8 +14,8 @@ public class RangePercentuale implements ILoggable
   /** serialVersionUID */
   private static final long              serialVersionUID = 2067962328202034792L;
   protected String                       codiceLivello;
-  protected List<DecodificaDTO<Integer>> livelli          = new ArrayList<DecodificaDTO<Integer>>();
-  protected List<Long>                   idInterventi     = new ArrayList<Long>();
+  protected List<DecodificaDTO<Integer>> livelli          = new ArrayList<>();
+  protected List<Long>                   idInterventi     = new ArrayList<>();
   protected BigDecimal                   percentualeContributoMinima;
   protected BigDecimal                   percentualeContributoMassima;
 
@@ -64,7 +64,7 @@ public class RangePercentuale implements ILoggable
   public boolean isFixed()
   {
     // Nessun controllo sul null, le percentuali sono lette da DB con nvl. Si
-    // declina ogni responsabilità per usi impropri
+    // declina ogni responsabilitï¿½ per usi impropri
     return percentualeContributoMassima
         .compareTo(percentualeContributoMinima) == 0;
   }

@@ -256,7 +256,7 @@ public class MessaggisticaManager extends BaseManager
 
   public static List<InfoMessaggio> convertiMessaggi(List<Messaggio> messaggi)
   {
-    List<InfoMessaggio> list = new ArrayList<InfoMessaggio>();
+    List<InfoMessaggio> list = new ArrayList<>();
     if (messaggi != null && !messaggi.isEmpty())
     {
       for (Messaggio m : messaggi)

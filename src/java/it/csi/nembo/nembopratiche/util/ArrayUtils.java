@@ -28,7 +28,7 @@ public class ArrayUtils
   public ArrayList<Long> toVectorLong(ArrayList<String> vector)
       throws InternalUnexpectedException
   {
-    ArrayList<Long> vl = new ArrayList<Long>();
+    ArrayList<Long> vl = new ArrayList<>();
     try
     {
       if (vector != null)
@@ -80,7 +80,7 @@ public class ArrayUtils
   public List<Integer> toListOfInteger(String[] array)
   {
     int len = array == null ? 0 : array.length;
-    ArrayList<Integer> list = new ArrayList<Integer>();
+    ArrayList<Integer> list = new ArrayList<>();
     for (int i = 0; i < len; ++i)
     {
       String value = array[i];
@@ -99,7 +99,7 @@ public class ArrayUtils
   public List<Long> toListOfLong(String[] array)
   {
     int len = array == null ? 0 : array.length;
-    ArrayList<Long> list = new ArrayList<Long>();
+    ArrayList<Long> list = new ArrayList<>();
     for (int i = 0; i < len; ++i)
     {
       String value = array[i];
@@ -118,7 +118,7 @@ public class ArrayUtils
   public List<Long> toListOfLong(Long[] array)
   {
     int len = array == null ? 0 : array.length;
-    ArrayList<Long> list = new ArrayList<Long>();
+    ArrayList<Long> list = new ArrayList<>();
     for (int i = 0; i < len; ++i)
     {
       Long value = array[i];

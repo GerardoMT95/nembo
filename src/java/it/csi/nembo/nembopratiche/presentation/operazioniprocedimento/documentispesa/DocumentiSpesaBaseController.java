@@ -430,7 +430,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
 
     if (piva == null || piva.equals(""))
     {
-      list = new ArrayList<DecodificaDTO<Long>>();
+      list = new ArrayList<>();
 
       Map<String, Object> common = getCommonFromSession(COMMON_SESSION_NAME,
           session, false);
@@ -480,7 +480,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
         if ("I".equals(flagPresenteAT))
         {
           model.addAttribute("cuaa", piva);
-          list = new ArrayList<DecodificaDTO<Long>>();
+          list = new ArrayList<>();
           list.add(new DecodificaDTO<Long>(new Long(-1),
               "Servizio di consultazione SIAN al momento non disponibile. Qualora non sia gi� presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, � possibile inserirli a mano mediante il pulsante \"inserisci\""));
           list.addAll(quadroEJB.geElencoFornitori(piva));
@@ -538,7 +538,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
               + piva);
     }
     // aggiungo sempre tutto lo storico che c'� sul nostro db
-    list = new ArrayList<DecodificaDTO<Long>>();
+    list = new ArrayList<>();
     list.add(new DecodificaDTO<Long>(new Long(-1),
         "Qualora non sia gi� presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, � possibile inserirli a mano mediante il pulsante \"inserisci\""));
     list.addAll(

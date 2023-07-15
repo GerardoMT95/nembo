@@ -93,7 +93,7 @@ public class LocalizzazioneJSON extends BaseController
         .getAllegatiJSON(idProcedimentoOggetto, idIntervento);
     if (allegati == null)
     {
-      allegati = new ArrayList<RigaJSONAllegatiInterventoDTO>();
+      allegati = new ArrayList<>();
     }
     else
     {
@@ -121,7 +121,7 @@ public class LocalizzazioneJSON extends BaseController
         .getElencoParticelleJSON(idProcedimentoOggetto, idIntervento);
     if (particelle == null)
     {
-      particelle = new ArrayList<RigaJSONParticellaInteventoDTO>();
+      particelle = new ArrayList<>();
     }
     return particelle;
   }
@@ -141,7 +141,7 @@ public class LocalizzazioneJSON extends BaseController
         .getElencoConduzioniJSON(idProcedimentoOggetto, idIntervento);
     if (conduzioni == null)
     {
-      conduzioni = new ArrayList<RigaJSONConduzioneInteventoDTO>();
+      conduzioni = new ArrayList<>();
     }
     return conduzioni;
   }
@@ -159,7 +159,7 @@ public class LocalizzazioneJSON extends BaseController
         .ricercaConduzioni(filtroRicercaConduzioni,getUtenteAbilitazioni(session).getIdProcedimento());
     if (conduzioni == null)
     {
-      conduzioni = new ArrayList<RigaJSONConduzioneInteventoDTO>();
+      conduzioni = new ArrayList<>();
     }
     return conduzioni;
   }
@@ -187,7 +187,7 @@ public class LocalizzazioneJSON extends BaseController
         .ricercaParticelle(filtroRicercaParticelle);
     if (conduzioni == null)
     {
-      conduzioni = new ArrayList<RigaJSONParticellaInteventoDTO>();
+      conduzioni = new ArrayList<>();
     }
     return conduzioni;
   }
@@ -205,7 +205,7 @@ public class LocalizzazioneJSON extends BaseController
         .ricercaConduzioni(filtroRicercaConduzioni,getUtenteAbilitazioni(session).getIdProcedimento());
     if (conduzioni == null)
     {
-      conduzioni = new ArrayList<RigaJSONConduzioneInteventoDTO>();
+      conduzioni = new ArrayList<>();
     }
     return conduzioni;
   }

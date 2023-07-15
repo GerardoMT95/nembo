@@ -402,7 +402,7 @@ public class BaseDAO
           public List<DecodificaDTO<String>> extractData(ResultSet rs)
               throws SQLException, DataAccessException
           {
-            List<DecodificaDTO<String>> list = new ArrayList<DecodificaDTO<String>>();
+            List<DecodificaDTO<String>> list = new ArrayList<>();
             while (rs.next())
             {
               DecodificaDTO<String> d = new DecodificaDTO<String>();
@@ -433,7 +433,7 @@ public class BaseDAO
           public List<DecodificaDTO<Long>> extractData(ResultSet rs)
               throws SQLException, DataAccessException
           {
-            List<DecodificaDTO<Long>> list = new ArrayList<DecodificaDTO<Long>>();
+            List<DecodificaDTO<Long>> list = new ArrayList<>();
             while (rs.next())
             {
               DecodificaDTO<Long> d = new DecodificaDTO<Long>();
@@ -457,7 +457,7 @@ public class BaseDAO
           public List<DecodificaDTO<BigDecimal>> extractData(ResultSet rs)
               throws SQLException, DataAccessException
           {
-            List<DecodificaDTO<BigDecimal>> list = new ArrayList<DecodificaDTO<BigDecimal>>();
+            List<DecodificaDTO<BigDecimal>> list = new ArrayList<>();
             while (rs.next())
             {
               DecodificaDTO<BigDecimal> d = new DecodificaDTO<BigDecimal>();
@@ -481,7 +481,7 @@ public class BaseDAO
           public List<DecodificaDTO<Integer>> extractData(ResultSet rs)
               throws SQLException, DataAccessException
           {
-            List<DecodificaDTO<Integer>> list = new ArrayList<DecodificaDTO<Integer>>();
+            List<DecodificaDTO<Integer>> list = new ArrayList<>();
             while (rs.next())
             {
               DecodificaDTO<Integer> d = new DecodificaDTO<Integer>();
@@ -1503,7 +1503,7 @@ public class BaseDAO
     List<String> listChiavi = null;
     if (!chiaviConduzioniInseriteEmpty)
     {
-      listChiavi = new ArrayList<String>();
+      listChiavi = new ArrayList<>();
       for (String chiave : chiaviConduzioniInserite)
       {
         if (chiave != null)
@@ -1999,7 +1999,7 @@ public class BaseDAO
             public List<String[]> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              List<String[]> list = new ArrayList<String[]>();
+              List<String[]> list = new ArrayList<>();
               while (rs.next())
               {
                 list.add(new String[]
@@ -2684,7 +2684,7 @@ public class BaseDAO
             public List<QuadroOggettoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<QuadroOggettoDTO> list = new ArrayList<QuadroOggettoDTO>();
+              ArrayList<QuadroOggettoDTO> list = new ArrayList<>();
               Long lastKey = null;
               List<AzioneDTO> azioni = null;
               while (rs.next())
@@ -2704,8 +2704,8 @@ public class BaseDAO
                       .setFlagObbligatorio(rs.getString("FLAG_OBBLIGATORIO"));
                   quadroOggettoDTO.setOrdine(rs.getInt("QO_ORDINE"));
                   quadroOggettoDTO.setIdQuadroOggetto(idQuadroOggetto);
-                  quadroOggettoDTO.setAzioni(new ArrayList<AzioneDTO>());
-                  azioni = new ArrayList<AzioneDTO>();
+                  quadroOggettoDTO.setAzioni(new ArrayList<>());
+                  azioni = new ArrayList<>();
                   quadroOggettoDTO.setAzioni(azioni);
                   list.add(quadroOggettoDTO);
                   lastKey = idQuadroOggetto;

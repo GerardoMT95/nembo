@@ -116,11 +116,11 @@ public class ReportisticaDAO extends BaseDAO
     RowsReportVO rowsReportVO = null;
     String valRiga;
     String valColonna;
-    List<String> asseX = new ArrayList<String>();
-    List<String> asseY = new ArrayList<String>();
+    List<String> asseX = new ArrayList<>();
+    List<String> asseY = new ArrayList<>();
 
-    ArrayList<ColReportVO> colsDefinitions = new ArrayList<ColReportVO>();
-    ArrayList<RowsReportVO> rowValues = new ArrayList<RowsReportVO>();
+    ArrayList<ColReportVO> colsDefinitions = new ArrayList<>();
+    ArrayList<RowsReportVO> rowValues = new ArrayList<>();
 
     // Creo la lista delle colonne ed elaboro le righe
     ResultSetMetaData rsmd = rs.getMetaData();
@@ -141,7 +141,7 @@ public class ReportisticaDAO extends BaseDAO
         // In questo caso creo la riga
         asseX.add(valRiga);
         rowsReportVO = new RowsReportVO();
-        listRow = new ArrayList<CellReportVO>();
+        listRow = new ArrayList<>();
         cellReportVO = new CellReportVO();
         cellReportVO.setV(rs.getObject(1));
         listRow.add(cellReportVO);
@@ -188,11 +188,11 @@ public class ReportisticaDAO extends BaseDAO
 
     TreeMap<String, Long> mapColsIndex = new TreeMap<String, Long>();
 
-    List<String> asseX = new ArrayList<String>();
-    List<String> asseY = new ArrayList<String>();
+    List<String> asseX = new ArrayList<>();
+    List<String> asseY = new ArrayList<>();
 
-    List<ColReportVO> colsDefinitions = new ArrayList<ColReportVO>();
-    ArrayList<RowsReportVO> rowValues = new ArrayList<RowsReportVO>();
+    List<ColReportVO> colsDefinitions = new ArrayList<>();
+    ArrayList<RowsReportVO> rowValues = new ArrayList<>();
 
     // Creo la lista delle colonne ed elaboro le righe
     ResultSetMetaData rsmd = rs.getMetaData();
@@ -310,7 +310,7 @@ public class ReportisticaDAO extends BaseDAO
           // In questo caso creo la riga
           asseX.add(valRiga);
           rowsReportVO = new RowsReportVO();
-          listRow = new ArrayList<CellReportVO>();
+          listRow = new ArrayList<>();
           cellReportVO = new CellReportVO();
           cellReportVO.setV(row.getId());
           listRow.add(cellReportVO);
@@ -356,8 +356,8 @@ public class ReportisticaDAO extends BaseDAO
     List<CellReportVO> listRow = null;
     RowsReportVO rowsReportVO = null;
 
-    ArrayList<ColReportVO> colsDefinitions = new ArrayList<ColReportVO>();
-    ArrayList<RowsReportVO> rowValues = new ArrayList<RowsReportVO>();
+    ArrayList<ColReportVO> colsDefinitions = new ArrayList<>();
+    ArrayList<RowsReportVO> rowValues = new ArrayList<>();
 
     // Creo la lista delle colonne
     ResultSetMetaData rsmd = rs.getMetaData();
@@ -374,7 +374,7 @@ public class ReportisticaDAO extends BaseDAO
     while (rs.next())
     {
       rowsReportVO = new RowsReportVO();
-      listRow = new ArrayList<CellReportVO>();
+      listRow = new ArrayList<>();
 
       for (int i = 1; i <= colsDefinitions.size(); i++)
       {
@@ -445,7 +445,7 @@ public class ReportisticaDAO extends BaseDAO
               {
                 if (res == null)
                 {
-                  res = new ArrayList<DecodificaDTO<String>>();
+                  res = new ArrayList<>();
                 }
                 res.add(new DecodificaDTO<String>(rs.getString("ID"),
                     rs.getString("CODICE"), rs.getString("DESCRIZIONE")));

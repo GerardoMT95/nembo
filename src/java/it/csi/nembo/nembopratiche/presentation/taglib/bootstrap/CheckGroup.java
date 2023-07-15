@@ -20,8 +20,8 @@ public class CheckGroup extends SimpleBoostrapTag
   private boolean           checked          = false;
 
   /*
-   * Queste due propietà blankVal<NOME_PROPRITA> sono previste per ovviare ai
-   * casi in qui valueProperty è vuota e si vuole visualizzare una checkbox dove
+   * Queste due propietï¿½ blankVal<NOME_PROPRITA> sono previste per ovviare ai
+   * casi in qui valueProperty ï¿½ vuota e si vuole visualizzare una checkbox dove
    * value e label sono appunto blankValValue e blankValLabel
    */
   private String            blankValValue;
@@ -34,7 +34,7 @@ public class CheckGroup extends SimpleBoostrapTag
       throws SecurityException, IllegalArgumentException, NoSuchMethodException,
       IllegalAccessException, InvocationTargetException
   {
-    values = new ArrayList<String>();
+    values = new ArrayList<>();
     setFormControl(false);
     processItems(sb);
   }

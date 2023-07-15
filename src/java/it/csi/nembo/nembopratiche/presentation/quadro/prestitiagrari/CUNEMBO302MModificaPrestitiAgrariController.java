@@ -71,7 +71,7 @@ public class CUNEMBO302MModificaPrestitiAgrariController extends CUNEMBO302BaseC
 		  String[] arrayIdPrestitiAgrari = request.getParameterValues(fieldNameIdPrestitiAgrari);
 		  long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 		  Errors errors = new Errors();
-		  List<PrestitiAgrariDTO> listPrestitiAgrari = new ArrayList<PrestitiAgrariDTO>();
+		  List<PrestitiAgrariDTO> listPrestitiAgrari = new ArrayList<>();
 		  SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 			Date dateMin=null,dateMax=null;
 			try

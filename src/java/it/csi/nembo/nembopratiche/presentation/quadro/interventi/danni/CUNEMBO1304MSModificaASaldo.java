@@ -122,7 +122,7 @@ public class CUNEMBO1304MSModificaASaldo extends BaseController
         {
           model.addAttribute("errore",
               "L'intervento \"" + intervento.getDescIntervento()
-                  + "\" è cessato, impossibile modificarlo");
+                  + "\" ï¿½ cessato, impossibile modificarlo");
           return true;
         }
         if (NemboConstants.FLAGS.SI
@@ -145,7 +145,7 @@ public class CUNEMBO1304MSModificaASaldo extends BaseController
         {
           model.addAttribute("errore",
               "L'intervento \"" + intervento.getDescIntervento()
-                  + "\" non è soggetto a misurazione, impossibile modificarlo");
+                  + "\" non ï¿½ soggetto a misurazione, impossibile modificarlo");
           return true;
         }
       }
@@ -159,7 +159,7 @@ public class CUNEMBO1304MSModificaASaldo extends BaseController
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     Procedimento procedimento = getProcedimentoFromSession(session);
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(session);

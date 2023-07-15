@@ -46,8 +46,8 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
   @Autowired
   IQuadroEJB                 quadroEJB;
 
-  public static final String ERRORE_TECNICO_NON_TROVATO = "Il tecnico indicato non è stato trovato in elenco";
-  public static final String ERRORE_ESITO_NON_TROVATO   = "L'esito indicato non è tra quelli disponibili";
+  public static final String ERRORE_TECNICO_NON_TROVATO = "Il tecnico indicato non ï¿½ stato trovato in elenco";
+  public static final String ERRORE_ESITO_NON_TROVATO   = "L'esito indicato non ï¿½ tra quelli disponibili";
   public final static int    ID_TIPOLOGIA_ALTRO         = 1;
 
   @RequestMapping(value = "/modifica_dati_specifici", method = RequestMethod.GET)
@@ -201,7 +201,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
         .getControlliAmministrativi(idProcedimentoOggetto,
             NemboConstants.QUADRO.CODICE.CONTROLLI_IN_LOCO_MISURE_INVESTIMENTO,
             list);
-    List<Long> listIdControlloAmministrativo = new ArrayList<Long>();
+    List<Long> listIdControlloAmministrativo = new ArrayList<>();
     for (ControlloAmministrativoDTO controllo : controlliAmministrativi)
     {
       listIdControlloAmministrativo
@@ -231,7 +231,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
     final HttpSession session = request.getSession();
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
     Errors errors = new Errors();
-    List<EsitoControlliAmmDTO> esitiControlliDaAggiornare = new ArrayList<EsitoControlliAmmDTO>();
+    List<EsitoControlliAmmDTO> esitiControlliDaAggiornare = new ArrayList<>();
     for (ControlloAmministrativoDTO controllo : controlliAmministrativi)
     {
       EsitoControlliAmmDTO esitoControllo = new EsitoControlliAmmDTO();
@@ -289,7 +289,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
       @PathVariable("idQuadroOggControlloAmm") @ModelAttribute("idQuadroOggControlloAmm") long idQuadroOggControlloAmm)
       throws InternalUnexpectedException
   {
-    List<Long> list = new ArrayList<Long>();
+    List<Long> list = new ArrayList<>();
     list.add(idQuadroOggControlloAmm);
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(
         request.getSession());
@@ -297,7 +297,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
         .getControlliAmministrativi(idProcedimentoOggetto,
             NemboConstants.QUADRO.CODICE.CONTROLLI_IN_LOCO_MISURE_INVESTIMENTO,
             list);
-    List<Long> listIdControlloAmministrativo = new ArrayList<Long>();
+    List<Long> listIdControlloAmministrativo = new ArrayList<>();
     for (ControlloAmministrativoDTO controllo : controlliAmministrativi)
     {
       listIdControlloAmministrativo
@@ -322,7 +322,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
         .getControlliAmministrativi(idProcedimentoOggetto,
             NemboConstants.QUADRO.CODICE.CONTROLLI_IN_LOCO_MISURE_INVESTIMENTO,
             list);
-    List<Long> listIdControlloAmministrativo = new ArrayList<Long>();
+    List<Long> listIdControlloAmministrativo = new ArrayList<>();
     for (ControlloAmministrativoDTO controllo : controlliAmministrativi)
     {
       listIdControlloAmministrativo
@@ -422,12 +422,12 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
       if (isDataVerbale)
       {
         errors.addError(nameNumeroVerbale,
-            "Se è presente la data del verbale deve essere inserito anche il numero del verbale");
+            "Se ï¿½ presente la data del verbale deve essere inserito anche il numero del verbale");
       }
       else
       {
         errors.addError(nameDataVerbale,
-            "Se è presente il numero del verbale deve essere inserita anche la data verbale");
+            "Se ï¿½ presente il numero del verbale deve essere inserita anche la data verbale");
       }
     }
     else
@@ -458,7 +458,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
       @PathVariable("idVisitaLuogo") long idVisitaLuogo)
       throws InternalUnexpectedException
   {
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idVisitaLuogo);
     final HttpSession session = request.getSession();
     ProcedimentoOggetto po = getProcedimentoOggettoFromSession(session);
@@ -524,7 +524,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
     model.addAttribute("tecnici", elencoTecnici);
     model.addAttribute("ufficiZona", ufficiZona);
     Errors errors = new Errors();
-    List<VisitaLuogoDTO> visiteDaAggiornare = new ArrayList<VisitaLuogoDTO>();
+    List<VisitaLuogoDTO> visiteDaAggiornare = new ArrayList<>();
     for (VisitaLuogoExtDTO visita : visite)
     {
       final long idVisitaLuogo = visita.getIdVisitaLuogo();
@@ -587,12 +587,12 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
         if (isDataVerbale)
         {
           errors.addError(nameNumeroVerbale,
-              "Se è presente la data del verbale deve essere inserito anche il numero del verbale");
+              "Se ï¿½ presente la data del verbale deve essere inserito anche il numero del verbale");
         }
         else
         {
           errors.addError(nameDataVerbale,
-              "Se è presente il numero del verbale deve essere inserita anche la data verbale");
+              "Se ï¿½ presente il numero del verbale deve essere inserita anche la data verbale");
         }
       }
       else
@@ -625,7 +625,7 @@ public class CUNEMBO213MControlloInLocoMisureInvestimentoModifica
       @PathVariable("idVisitaLuogo") @ModelAttribute("idVisitaLuogo") long idVisitaLuogo)
       throws InternalUnexpectedException
   {
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idVisitaLuogo);
     model.addAttribute("ids", ids);
     return BASE_JSP_URL + "confermaEliminaVisiteLuogo";

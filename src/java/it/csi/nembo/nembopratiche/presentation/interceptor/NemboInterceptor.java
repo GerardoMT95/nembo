@@ -21,7 +21,7 @@ import it.csi.nembo.nembopratiche.util.annotation.IsPopup;
 
 public class NemboInterceptor implements HandlerInterceptor
 {
-  public List<BaseManager>      managers = new ArrayList<BaseManager>();
+  public List<BaseManager>      managers = new ArrayList<>();
   @Autowired
   IQuadroEJB                    quadroEJB;
   protected static final Logger logger   = Logger
@@ -80,7 +80,7 @@ public class NemboInterceptor implements HandlerInterceptor
         {
           case SKIP_ALL_MANAGER_AND_CONTROLLER: // Sospendo tutta
                                                 // l'elaborazione, il manager ha
-                                                // già fornito una pagina di
+                                                // giï¿½ fornito una pagina di
                                                 // risposta (es forward,
                                                 // redirect...)
             return false;
@@ -92,7 +92,7 @@ public class NemboInterceptor implements HandlerInterceptor
             // altri controlli (es una pagina con annotation NoLoginRequired)
             return true;
           case CONTINUE_TO_NEXT_MANAGER:
-            // Non c'è nulla da fare in questo caso, tutto è andato bene, si
+            // Non c'ï¿½ nulla da fare in questo caso, tutto ï¿½ andato bene, si
             // passa al prossimo manager
             break;
         }
@@ -101,7 +101,7 @@ public class NemboInterceptor implements HandlerInterceptor
     catch (Exception e)
     {
       BaseManager.errorPage("Errore interno",
-          "Si è verificato un errore di sistema", request, response);
+          "Si ï¿½ verificato un errore di sistema", request, response);
       return false;
     }
     return true;

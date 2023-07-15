@@ -69,13 +69,13 @@ public class CUNEMBO126LListaStampeOggetto extends BaseController
 	        else
 	        {
 	          model.addAttribute("messaggio",
-	              "La stampa è in corso di generazione da più di 10 minuti, &egrave; possibile che si sia verificato un errore, si desidera rigenerarla?");
+	              "La stampa ï¿½ in corso di generazione da piï¿½ di 10 minuti, &egrave; possibile che si sia verificato un errore, si desidera rigenerarla?");
 	        }
 	      }
 	      else
 	      {
 	        model.addAttribute("messaggio",
-	            "La stampa è terminata con degli errori, &egrave; possibile che il problema fosse solo temporaneo, si desidera provare rigenerare la stampa?");
+	            "La stampa ï¿½ terminata con degli errori, &egrave; possibile che il problema fosse solo temporaneo, si desidera provare rigenerare la stampa?");
 	      }
 	    }
 	    return "stampeoggetto/confermaRigenera";
@@ -132,7 +132,7 @@ public class CUNEMBO126LListaStampeOggetto extends BaseController
 	    List<StampaOggettoDTO> stampe = quadroEJB.getElencoStampeOggetto(idProcedimentoOggetto, null);
 	    if (stampe != null && !stampe.isEmpty())
 	    {
-	      List<Long> ids = new ArrayList<Long>();
+	      List<Long> ids = new ArrayList<>();
 	      List<StampaOggettoDTO> stampeNew = new ArrayList<>();
 	      for (StampaOggettoDTO stampa : stampe)
 	      {

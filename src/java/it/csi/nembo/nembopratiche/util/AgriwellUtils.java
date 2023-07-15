@@ -90,7 +90,7 @@ public abstract class AgriwellUtils
     agriWellDocumentoVO.setFlagCartellaDaCreare(NemboConstants.FLAGS.SI);
 
     // Metadati
-    List<AgriWellMetadatoVO> metadati = new ArrayList<AgriWellMetadatoVO>();
+    List<AgriWellMetadatoVO> metadati = new ArrayList<>();
     // METADATI DA PASSARE SEMPRE - INIZIO
     AgriWellMetadatoVO metadato = new AgriWellMetadatoVO();
     metadato.setNomeEtichetta("cuaa");

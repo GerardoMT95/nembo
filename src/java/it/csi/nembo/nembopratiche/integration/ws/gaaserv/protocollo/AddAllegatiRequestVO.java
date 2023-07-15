@@ -68,7 +68,7 @@ public class AddAllegatiRequestVO {
      */
     public List<DocumentoVO> getAllegato() {
         if (allegato == null) {
-            allegato = new ArrayList<DocumentoVO>();
+            allegato = new ArrayList<>();
         }
         return this.allegato;
     }

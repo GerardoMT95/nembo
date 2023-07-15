@@ -506,7 +506,7 @@ public class RicercaProcedimentoController extends BaseController
   public List<Map<String, Object>> getElencoProcedimenti(HttpSession session)
       throws InternalUnexpectedException
   {
-    List<Map<String, Object>> procedimenti = new ArrayList<Map<String, Object>>();
+    List<Map<String, Object>> procedimenti = new ArrayList<>();
     HashMap<String, Object> procedimento = null;
 
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
@@ -622,9 +622,9 @@ public class RicercaProcedimentoController extends BaseController
   public List<Map<String, Object>> getElencoStatiProcedimenti(
       HttpSession session) throws InternalUnexpectedException
   {
-    List<Map<String, Object>> procedimenti = new ArrayList<Map<String, Object>>();
+    List<Map<String, Object>> procedimenti = new ArrayList<>();
     HashMap<String, Object> stato = null;
-    ArrayList<String> vId = new ArrayList<String>();
+    ArrayList<String> vId = new ArrayList<>();
 
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
@@ -823,7 +823,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (chkTipoAmministraz != null && chkTipoAmministraz.length > 0)
     {
-      List<AmmCompetenzaDTO> ammFiltrate = new ArrayList<AmmCompetenzaDTO>();
+      List<AmmCompetenzaDTO> ammFiltrate = new ArrayList<>();
       for (AmmCompetenzaDTO amm : amministrazioni)
       {
         if (lTipoAmministraz.contains(amm.getDescEstesaTipoAmministraz()))
@@ -926,11 +926,11 @@ public class RicercaProcedimentoController extends BaseController
     List<AmmCompetenzaDTO> all_amministrazioni = (List<AmmCompetenzaDTO>) session.getAttribute("all_amministrazioni");
     List<ProcedimentoDTO> all_statiProcedimento = (List<ProcedimentoDTO>) session.getAttribute("all_statiProcedimento");
 
-    List<EventiDTO> eventi = new ArrayList<EventiDTO>();
-    List<BandoDTO> bandi = new ArrayList<BandoDTO>();
-    List<LivelloDTO> livelli = new ArrayList<LivelloDTO>();
-    List<AmmCompetenzaDTO> amministrazioni = new ArrayList<AmmCompetenzaDTO>();
-    List<ProcedimentoDTO> statiProcediemnto = new ArrayList<ProcedimentoDTO>();
+    List<EventiDTO> eventi = new ArrayList<>();
+    List<BandoDTO> bandi = new ArrayList<>();
+    List<LivelloDTO> livelli = new ArrayList<>();
+    List<AmmCompetenzaDTO> amministrazioni = new ArrayList<>();
+    List<ProcedimentoDTO> statiProcediemnto = new ArrayList<>();
 
     if(all_eventi != null && idEvento != null)
        for (EventiDTO e : all_eventi)
@@ -974,7 +974,7 @@ public class RicercaProcedimentoController extends BaseController
           statiProcediemnto.add(a);
       }
 
-    List<FlagEstrazioneDTO> flagFiltrati = new ArrayList<FlagEstrazioneDTO>();
+    List<FlagEstrazioneDTO> flagFiltrati = new ArrayList<>();
     List<FlagEstrazioneDTO> all_flagFiltrati = estrazioneEJB
         .getElencoFlagEstrazioni();
     if (all_flagFiltrati != null && flagEstrazioni != null)
@@ -984,7 +984,7 @@ public class RicercaProcedimentoController extends BaseController
           flagFiltrati.add(a);
       }
 
-    List<FlagEstrazioneDTO> flagFiltratiExPost = new ArrayList<FlagEstrazioneDTO>();
+    List<FlagEstrazioneDTO> flagFiltratiExPost = new ArrayList<>();
     List<FlagEstrazioneDTO> all_flagFiltratiExPost = estrazioneEJB
         .getElencoFlagEstrazioniExPost();
     if (all_flagFiltratiExPost != null && flagFiltratiExPost != null)
@@ -1237,7 +1237,7 @@ public class RicercaProcedimentoController extends BaseController
         {
           if (ids == null)
           {
-            ids = new ArrayList<String>();
+            ids = new ArrayList<>();
           }
           ids.add(singleParam.split("=")[1]);
         }
@@ -1261,7 +1261,7 @@ public class RicercaProcedimentoController extends BaseController
     model.addAttribute("all_bandi", bandi);
     if (bandi != null)
     {
-      vIdBandi = new ArrayList<String>();
+      vIdBandi = new ArrayList<>();
       StringBuffer sbOptBandi = new StringBuffer();
       for (BandoDTO bandoDTO : bandi)
       {
@@ -1289,7 +1289,7 @@ public class RicercaProcedimentoController extends BaseController
     model.addAttribute("all_eventi", eventi);
     if (eventi != null)
     {
-      vIdEventi = new ArrayList<String>();
+      vIdEventi = new ArrayList<>();
       StringBuffer sbOptEventi = new StringBuffer();
       for (EventiDTO eventoDTO : eventi)
       {
@@ -1320,7 +1320,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (amministrazioni != null)
     {
-      vIdAmm = new ArrayList<String>();
+      vIdAmm = new ArrayList<>();
       StringBuffer sbOptAmm = new StringBuffer();
       for (AmmCompetenzaDTO ammDTO : amministrazioni)
       {
@@ -1348,7 +1348,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (statiProcediemnto != null)
     {
-      vIdStati = new ArrayList<String>();
+      vIdStati = new ArrayList<>();
       StringBuffer sbOptProc = new StringBuffer();
       for (ProcedimentoDTO procDTO : statiProcediemnto)
       {
@@ -1385,11 +1385,11 @@ public class RicercaProcedimentoController extends BaseController
 
     if (gruppiProcedimento != null)
     {
-      vIdGruppi = new ArrayList<String>();
+      vIdGruppi = new ArrayList<>();
       StringBuffer sbOptProcHidden = new StringBuffer();
       StringBuffer sbOptProcGruppi = new StringBuffer();
       StringBuffer sbOptProcHiddenGruppi = new StringBuffer();
-      vIdOggetti = new ArrayList<String>();
+      vIdOggetti = new ArrayList<>();
 
       for (GruppoOggettoDTO gruppoDTO : gruppiProcedimento)
       {
@@ -1536,7 +1536,7 @@ public class RicercaProcedimentoController extends BaseController
 		{
 			if (procedimentiVO.getVctIdLivelli() != null && procedimentiVO.getVctIdLivelli().size() > 0)
 			{
-				List<LivelloDTO> livelliFiltrati = new ArrayList<LivelloDTO>();
+				List<LivelloDTO> livelliFiltrati = new ArrayList<>();
 				for (LivelloDTO livello : livelli)
 				{
 					if (procedimentiVO.getVctIdLivelli().contains(String.valueOf(livello.getIdLivello())))
@@ -1550,7 +1550,7 @@ public class RicercaProcedimentoController extends BaseController
 			//eventi
 			if (procedimentiVO.getVctIdEventi() != null && procedimentiVO.getVctIdEventi().size() > 0)
 			{
-				List<EventiDTO> eventiFiltrati = new ArrayList<EventiDTO>();
+				List<EventiDTO> eventiFiltrati = new ArrayList<>();
 				for (EventiDTO evento : eventi)
 				{
 					if (procedimentiVO.getVctIdEventi().contains(String.valueOf(evento.getIdEventoCalamitoso())))
@@ -1563,7 +1563,7 @@ public class RicercaProcedimentoController extends BaseController
 
 			if (procedimentiVO.getVctIdBando() != null && procedimentiVO.getVctIdBando().size() > 0)
 			{
-				List<BandoDTO> bandiFiltrati = new ArrayList<BandoDTO>();
+				List<BandoDTO> bandiFiltrati = new ArrayList<>();
 				for (BandoDTO bando : bandi)
 				{
 					if (procedimentiVO.getVctIdBando().contains(String.valueOf(bando.getIdBando())))
@@ -1576,7 +1576,7 @@ public class RicercaProcedimentoController extends BaseController
 
 			if (procedimentiVO.getVctIdAmministrazione() != null && procedimentiVO.getVctIdAmministrazione().size() > 0)
 			{
-				List<AmmCompetenzaDTO> ammFiltrati = new ArrayList<AmmCompetenzaDTO>();
+				List<AmmCompetenzaDTO> ammFiltrati = new ArrayList<>();
 				for (AmmCompetenzaDTO amm : amministrazioni)
 				{
 					if (procedimentiVO.getVctIdAmministrazione().contains(String.valueOf(amm.getIdAmmCompetenza())))
@@ -1590,7 +1590,7 @@ public class RicercaProcedimentoController extends BaseController
 
 			if (procedimentiVO.getVctFlagEstrazione() != null && procedimentiVO.getVctFlagEstrazione().size() > 0)
 			{
-				List<FlagEstrazioneDTO> flagFiltrati = new ArrayList<FlagEstrazioneDTO>();
+				List<FlagEstrazioneDTO> flagFiltrati = new ArrayList<>();
 				for (FlagEstrazioneDTO flag : flagEstrazione)
 				{
 					if (procedimentiVO.getVctFlagEstrazione().contains(String.valueOf(flag.getFlagEstratta())))
@@ -1604,7 +1604,7 @@ public class RicercaProcedimentoController extends BaseController
 			if (procedimentiVO.getVctFlagEstrazioneExPost() != null
 					&& procedimentiVO.getVctFlagEstrazioneExPost().size() > 0)
 			{
-				List<FlagEstrazioneDTO> flagFiltratiExPost = new ArrayList<FlagEstrazioneDTO>();
+				List<FlagEstrazioneDTO> flagFiltratiExPost = new ArrayList<>();
 				for (FlagEstrazioneDTO flag : flagEstrazioneExPost)
 				{
 					if (procedimentiVO.getVctFlagEstrazioneExPost().contains(String.valueOf(flag.getFlagEstratta())))
@@ -1618,7 +1618,7 @@ public class RicercaProcedimentoController extends BaseController
 			if (procedimentiVO.getVctIdStatoProcedimento() != null
 					&& procedimentiVO.getVctIdStatoProcedimento().size() > 0)
 			{
-				List<ProcedimentoDTO> statiFiltrati = new ArrayList<ProcedimentoDTO>();
+				List<ProcedimentoDTO> statiFiltrati = new ArrayList<>();
 				for (ProcedimentoDTO stato : statiProcedimento)
 				{
 					if (procedimentiVO.getVctIdStatoProcedimento().contains(String.valueOf(stato.getIdStatoOggetto())))
@@ -1781,7 +1781,7 @@ public class RicercaProcedimentoController extends BaseController
       UtenteAbilitazioni utenteAbilitazioni,
       List<AmmCompetenzaDTO> amministrazioni)
   {
-    List<AmmCompetenzaDTO> ammFiltrate = new ArrayList<AmmCompetenzaDTO>();
+    List<AmmCompetenzaDTO> ammFiltrate = new ArrayList<>();
     for (AmmCompetenzaDTO amm : amministrazioni)
     {
       if (NemboUtils.PAPUASERV.hasAmministrazioneCompetenza(
@@ -1862,7 +1862,7 @@ public class RicercaProcedimentoController extends BaseController
     String[] idMisureSelezionate = ids.split("&");
     session.setAttribute("checkboxMisureSelezionate", idMisureSelezionate);
 
-    ArrayList<Long> vect = new ArrayList<Long>();
+    ArrayList<Long> vect = new ArrayList<>();
     String codiceMisura = null;
     for (String s : idMisureSelezionate)
     {
@@ -1913,7 +1913,7 @@ public class RicercaProcedimentoController extends BaseController
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
     List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
     ;
@@ -1940,7 +1940,7 @@ public class RicercaProcedimentoController extends BaseController
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
     List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
     ;

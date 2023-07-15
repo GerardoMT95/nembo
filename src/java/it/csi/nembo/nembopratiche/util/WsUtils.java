@@ -268,7 +268,7 @@ public class WsUtils
       RigaJSONElencoListaLiquidazioneDTO lista)
   {
     // Metadati
-    List<SiapCommWsMetadatoVO> metadati = new ArrayList<SiapCommWsMetadatoVO>();
+    List<SiapCommWsMetadatoVO> metadati = new ArrayList<>();
     // METADATI DA PASSARE SEMPRE - INIZIO
     SiapCommWsMetadatoVO metadato = new SiapCommWsMetadatoVO();
 
@@ -329,7 +329,7 @@ public class WsUtils
       SiapCommWsDocumentoVO documentoVO, Map<String, String> mapParametri)
   {
     // Metadati
-    List<SiapCommWsMetadatoVO> metadati = new ArrayList<SiapCommWsMetadatoVO>();
+    List<SiapCommWsMetadatoVO> metadati = new ArrayList<>();
     SiapCommWsMetadatoVO metadato = new SiapCommWsMetadatoVO();
 
     metadato = new SiapCommWsMetadatoVO();
@@ -379,7 +379,7 @@ public class WsUtils
   {
     String fileName = NemboUtils.FILE.getFileName(originalFileName);
     // Metadati
-    List<SiapCommWsMetadatoVO> metadati = new ArrayList<SiapCommWsMetadatoVO>();
+    List<SiapCommWsMetadatoVO> metadati = new ArrayList<>();
     // METADATI DA PASSARE SEMPRE - INIZIO
     SiapCommWsMetadatoVO metadato = new SiapCommWsMetadatoVO();
     metadato.setNomeEtichetta("cuaa");

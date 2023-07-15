@@ -45,7 +45,7 @@ import org.apache.pdfbox.util.Vector;
  */
 public class CustomGraphicsStreamEngine extends PDFGraphicsStreamEngine
 {
-  public List<IValuableElement> valuableElements = new ArrayList<IValuableElement>();
+  public List<IValuableElement> valuableElements = new ArrayList<>();
   public int                    pageNumber       = 0;
 
   /**

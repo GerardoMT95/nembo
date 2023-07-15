@@ -45,7 +45,7 @@ public class CUNEMBO302LVisualizzaPrestitiAgrariController extends CUNEMBO302Bas
 		  List<PrestitiAgrariDTO> listPrestitiAgrari = quadroNemboEJB.getListPrestitiAgrari(idProcedimentoOggetto);
 		  if(listPrestitiAgrari == null)
 		  {
-			  listPrestitiAgrari = new ArrayList<PrestitiAgrariDTO>();
+			  listPrestitiAgrari = new ArrayList<>();
 		  }
 		  return listPrestitiAgrari;
 	  }

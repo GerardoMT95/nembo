@@ -52,7 +52,7 @@ public class CUNEMBO297MScorteModificaController extends BaseController
 
 		long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 		long idScortaAltro = quadroNemboEJB.getIdScorteAltro();
-		List<ScorteDTO> scorte = new ArrayList<ScorteDTO>();
+		List<ScorteDTO> scorte = new ArrayList<>();
 		Map<Long,Boolean> mappaDisabledDescrizione = new HashMap<Long,Boolean>();
 		scorte = quadroNemboEJB.getScorteByIds(NemboUtils.ARRAY.toLong(arrayIdScortaMagazzino), idProcedimentoOggetto);
 		List<DecodificaDTO<Long>> elencoTipologieScorte = quadroNemboEJB.getElencoTipologieScorte();
@@ -85,15 +85,15 @@ public class CUNEMBO297MScorteModificaController extends BaseController
 		boolean isErrato=false;
 		long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 		String[] arrayIdScortaMagazzino = request.getParameterValues("idScortaMagazzino");
-		List<String> listaTipologiaScorte = new ArrayList<String>();
+		List<String> listaTipologiaScorte = new ArrayList<>();
 		List<DecodificaDTO<Long>> elencoTipologieScorte = quadroNemboEJB.getElencoTipologieScorte();
 		List<DecodificaDTO<Long>> elencoUnitaMisura = quadroNemboEJB.getListUnitaDiMisura();
 		Map<Long,Long> mappaTipologiaScorteUnitaDiMisura = quadroNemboEJB.getMapTipologiaScorteUnitaDiMisura();
-		List<ScorteDTO> listScorte = new ArrayList<ScorteDTO>();
+		List<ScorteDTO> listScorte = new ArrayList<>();
 		Map<Long,Boolean> mappaDisabledDescrizione = new HashMap<Long,Boolean>();
 		
 		
-		List<String> listIdUnitaMisura = new ArrayList<String>();
+		List<String> listIdUnitaMisura = new ArrayList<>();
 		for (DecodificaDTO<Long> dt : elencoUnitaMisura)
 		{
 			listIdUnitaMisura.add(Long.toString(dt.getId()));
@@ -194,7 +194,7 @@ public class CUNEMBO297MScorteModificaController extends BaseController
 					quadroNemboEJB.modificaScorte(listScorte, getLogOperationOggettoQuadroDTO(session), idProcedimentoOggetto);
 			if(nScorteModificate == NemboConstants.ERRORI.ELIMINAZIONE_SCORTE_CON_DANNI_CON_INTERVENTI)
 			{
-				throw new ApplicationException("Impossibile eliminare le scorte desiderate perchè esistono degli interventi associati ai danni delle scorte",10003);
+				throw new ApplicationException("Impossibile eliminare le scorte desiderate perchï¿½ esistono degli interventi associati ai danni delle scorte",10003);
 			}
 		}
 		return "redirect:../cunembo297l/index.do";
@@ -240,7 +240,7 @@ public class CUNEMBO297MScorteModificaController extends BaseController
 			arrayIdScortaMagazzino = new long[0];
 		}
 		Long nDanniScorte = quadroNemboEJB.getNDanniScorte(idProcedimentoOggetto, arrayIdScortaMagazzino);
-		List<Long> listIdScortaMagazzino = new ArrayList<Long>();
+		List<Long> listIdScortaMagazzino = new ArrayList<>();
 		for(long l : arrayIdScortaMagazzino)
 		{
 			listIdScortaMagazzino.add(l);

@@ -61,7 +61,7 @@ public class ClassificazioneVO {
      */
     public List<LivelloClassificazioneVO> getListLivelloClassificazioneVO() {
         if (listLivelloClassificazioneVO == null) {
-            listLivelloClassificazioneVO = new ArrayList<LivelloClassificazioneVO>();
+            listLivelloClassificazioneVO = new ArrayList<>();
         }
         return this.listLivelloClassificazioneVO;
     }

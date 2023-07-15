@@ -244,7 +244,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<RigaModificaMultiplaInterventiDTO>();
+                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<>();
                   Long lastIdDescrizioneIntervento = null;
                   RigaModificaMultiplaInterventiDTO rigaDTO = null;
                   while (rs.next())
@@ -365,7 +365,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<RigaModificaMultiplaInterventiDTO>();
+                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<>();
                   Long lastIdDescrizioneIntervento = null;
                   RigaModificaMultiplaInterventiDTO rigaDTO = null;
                   while (rs.next())
@@ -819,7 +819,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<RigaModificaMultiplaInterventiDTO>();
+                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<>();
                   Long lastIdIntervento = null;
                   RigaModificaMultiplaInterventiDTO rigaDTO = null;
                   while (rs.next())
@@ -1027,7 +1027,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<RigaModificaMultiplaInterventiDTO>();
+                  List<RigaModificaMultiplaInterventiDTO> list = new ArrayList<>();
                   Long lastIdIntervento = null;
                   RigaModificaMultiplaInterventiDTO rigaDTO = null;
                   while (rs.next())
@@ -1211,7 +1211,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaJSONInterventoQuadroEconomicoDTO> list = new ArrayList<RigaJSONInterventoQuadroEconomicoDTO>();
+                  List<RigaJSONInterventoQuadroEconomicoDTO> list = new ArrayList<>();
                   RigaJSONInterventoQuadroEconomicoDTO rigaDTO = null;
                   while (rs.next())
                   {
@@ -1699,7 +1699,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
             public List<RigaElencoInterventi> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              List<RigaElencoInterventi> list = new ArrayList<RigaElencoInterventi>();
+              List<RigaElencoInterventi> list = new ArrayList<>();
               Long lastIdIntervento = null;
               RigaElencoInterventi rigaDTO = null;
               while (rs.next())
@@ -1979,7 +1979,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaJSONInterventoQuadroEconomicoDTO> list = new ArrayList<RigaJSONInterventoQuadroEconomicoDTO>();
+                  List<RigaJSONInterventoQuadroEconomicoDTO> list = new ArrayList<>();
                   RigaJSONInterventoQuadroEconomicoDTO rigaDTO = null;
                   while (rs.next())
                   {
@@ -5040,7 +5040,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
             public List<RangePercentuale> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              List<RangePercentuale> result = new ArrayList<RangePercentuale>();
+              List<RangePercentuale> result = new ArrayList<>();
               String lastCodiceLivello = null;
               BigDecimal lastPercentualeContributoMassima = null;
               BigDecimal lastPercentualeContributoMinima = null;
@@ -6401,7 +6401,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                     ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  List<RigaJSONInterventoQuadroEconomicoByLivelloDTO> list = new ArrayList<RigaJSONInterventoQuadroEconomicoByLivelloDTO>();
+                  List<RigaJSONInterventoQuadroEconomicoByLivelloDTO> list = new ArrayList<>();
                   RigaJSONInterventoQuadroEconomicoByLivelloDTO rigaDTO = null;
                   long idLivelloLast, idLivelloRef = 0;
                   while (rs.next())
@@ -7113,7 +7113,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
 		                    ResultSet rs)
 		                    throws SQLException, DataAccessException
 		                {
-		                  List<String> list = new ArrayList<String>();
+		                  List<String> list = new ArrayList<>();
 		                  
 		                  while (rs.next())
 		                  {
@@ -7221,7 +7221,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
 		                    ResultSet rs)
 		                    throws SQLException, DataAccessException
 		                {
-		                  List<String> list = new ArrayList<String>();
+		                  List<String> list = new ArrayList<>();
 		                  
 		                  while (rs.next())
 		                  {

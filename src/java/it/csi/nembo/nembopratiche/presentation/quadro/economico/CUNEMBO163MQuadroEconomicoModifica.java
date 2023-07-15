@@ -139,7 +139,7 @@ public class CUNEMBO163MQuadroEconomicoModifica extends BaseController
         {
           model.addAttribute("errore",
               "L'intervento \"" + intervento.getDescIntervento()
-                  + "\" è cessato, impossibile modificarlo");
+                  + "\" ï¿½ cessato, impossibile modificarlo");
           return true;
         }
       }
@@ -153,7 +153,7 @@ public class CUNEMBO163MQuadroEconomicoModifica extends BaseController
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     List<RigaJSONInterventoQuadroEconomicoDTO> list = interventiEJB
         .getInterventiQuadroEconomicoPerModifica(
@@ -214,7 +214,7 @@ public class CUNEMBO163MQuadroEconomicoModifica extends BaseController
       else
       {
         /*
-         * Se l'importo è fisso non devo fare test, da html il campo è disabled,
+         * Se l'importo ï¿½ fisso non devo fare test, da html il campo ï¿½ disabled,
          * quindi non ce l'ho in input ==> prendo il valore massimo ammesso (o
          * minimo, tanto sono uguali)
          */

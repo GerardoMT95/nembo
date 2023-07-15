@@ -34,7 +34,7 @@ import it.csi.nembo.nembopratiche.util.validator.Errors;
 
 public abstract class Inserisci extends BaseController
 {
-  public static final BigDecimal NESSUN_VALORE = new BigDecimal(-1);;
+  public static final BigDecimal NESSUN_VALORE = new BigDecimal(-1);
   @Autowired
   protected IInterventiEJB       interventiEJB;
   @Autowired
@@ -188,9 +188,9 @@ protected Map<String, Map<String, String>> loadElencoInterventiGenerico(HttpSess
       List<Long> ids, long idBando) throws InternalUnexpectedException;
 
   /*
-   * Nota: Il metodo è riscritto nella classe CUNEMBO266MModificaInterventi,
+   * Nota: Il metodo ï¿½ riscritto nella classe CUNEMBO266MModificaInterventi,
    * mantenendo al contempo la logica "standard" e aggiungendo la validazione
-   * delle attività/partecipanti, eventuali modifiche alla logica di base
+   * delle attivitï¿½/partecipanti, eventuali modifiche alla logica di base
    * dovrebbero essere riportate anche nel metodo
    * CUNEMBO266MModificaInterventi.validateAndUpdate
    * 
@@ -233,12 +233,12 @@ protected Map<String, Map<String, String>> loadElencoInterventiGenerico(HttpSess
         }
         else
         {
-          misurazione.setValore(NESSUN_VALORE); // L'unità di misura è una unità
-                                                // fittizia, non verrà mai usata
+          misurazione.setValore(NESSUN_VALORE); // L'unitï¿½ di misura ï¿½ una unitï¿½
+                                                // fittizia, non verrï¿½ mai usata
                                                 // direttamente, il valore 0
                                                 // serve solo per poter
                                                 // mettere il record su db dato
-                                                // che il campo è NOT NULL
+                                                // che il campo ï¿½ NOT NULL
         }
       }
       boolean flagCostoUnitario = NemboConstants.FLAGS.SI
@@ -276,7 +276,7 @@ protected Map<String, Map<String, String>> loadElencoInterventiGenerico(HttpSess
         // trovato neppure il record)
         if (importoUnitario != null)
         {
-          BigDecimal valore = misurazioni.get(0).getValore(); // C'è sempre
+          BigDecimal valore = misurazioni.get(0).getValore(); // C'ï¿½ sempre
                                                               // almeno una
                                                               // misurazione per
                                                               // intervento
@@ -289,8 +289,8 @@ protected Map<String, Map<String, String>> loadElencoInterventiGenerico(HttpSess
             importo = importoUnitario.multiply(valore, MathContext.UNLIMITED);
             if (importo.compareTo(NemboConstants.MAX.IMPORTO_INTERVENTO) > 0)
             {
-              final String errorMessage = "Il prodotto dell'importo unitario per la quantità è superiore al massimo consentito (pari a "
-                  + NemboUtils.FORMAT.formatDecimal2(NemboConstants.MAX.IMPORTO_INTERVENTO) + " €)";
+              final String errorMessage = "Il prodotto dell'importo unitario per la quantitï¿½ ï¿½ superiore al massimo consentito (pari a "
+                  + NemboUtils.FORMAT.formatDecimal2(NemboConstants.MAX.IMPORTO_INTERVENTO) + " ï¿½)";
               final String nameValore = "valore_" + idDescrizioneIntervento
                   + "_0";
               errors.addError(nameValore, errorMessage);

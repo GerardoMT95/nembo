@@ -27,8 +27,8 @@ public class ReportVO implements Serializable
     List<CellReportVO> listRow = null;
     RowsReportVO rowsReportVO = null;
 
-    colsDefinitions = new ArrayList<ColReportVO>();
-    rowValues = new ArrayList<RowsReportVO>();
+    colsDefinitions = new ArrayList<>();
+    rowValues = new ArrayList<>();
 
     // Colums definitions
     colReportVO = new ColReportVO();
@@ -45,7 +45,7 @@ public class ReportVO implements Serializable
 
     // Rows definitions
     rowsReportVO = new RowsReportVO();
-    listRow = new ArrayList<CellReportVO>();
+    listRow = new ArrayList<>();
     cellReportVO = new CellReportVO();
     cellReportVO.setV("Work");
     listRow.add(cellReportVO);
@@ -56,7 +56,7 @@ public class ReportVO implements Serializable
     rowValues.add(rowsReportVO);
 
     rowsReportVO = new RowsReportVO();
-    listRow = new ArrayList<CellReportVO>();
+    listRow = new ArrayList<>();
     cellReportVO = new CellReportVO();
     cellReportVO.setV("Eat");
     listRow.add(cellReportVO);
@@ -67,7 +67,7 @@ public class ReportVO implements Serializable
     rowValues.add(rowsReportVO);
 
     rowsReportVO = new RowsReportVO();
-    listRow = new ArrayList<CellReportVO>();
+    listRow = new ArrayList<>();
     cellReportVO = new CellReportVO();
     cellReportVO.setV("Commute");
     listRow.add(cellReportVO);
@@ -78,7 +78,7 @@ public class ReportVO implements Serializable
     rowValues.add(rowsReportVO);
 
     rowsReportVO = new RowsReportVO();
-    listRow = new ArrayList<CellReportVO>();
+    listRow = new ArrayList<>();
     cellReportVO = new CellReportVO();
     cellReportVO.setV("In bozza");
     listRow.add(cellReportVO);

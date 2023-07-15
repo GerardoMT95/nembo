@@ -1379,7 +1379,7 @@ public class QuadroNewDAO extends QuadroDAO
               ExcelRigaRicevutaPagDTO ricevuta = null;
               ArrayList<ExcelRigaDocumentoSpesaDTO> documenti = null;
               ArrayList<ExcelRigaRicevutaPagDTO> ricevute = null;
-              ArrayList<ExcelRicevutePagInterventoDTO> elenco = new ArrayList<ExcelRicevutePagInterventoDTO>();
+              ArrayList<ExcelRicevutePagInterventoDTO> elenco = new ArrayList<>();
 
               while (rs.next())
               {
@@ -1560,7 +1560,7 @@ public class QuadroNewDAO extends QuadroDAO
               long idDocumentoSpesaLast = 0;
               ExcelRigaDocumentoSpesaDTO doc = null;
               ExcelRigaRicevutaPagDTO ricevuta = null;
-              ArrayList<ExcelRigaDocumentoSpesaDTO> documenti = new ArrayList<ExcelRigaDocumentoSpesaDTO>();
+              ArrayList<ExcelRigaDocumentoSpesaDTO> documenti = new ArrayList<>();
               ArrayList<ExcelRigaRicevutaPagDTO> ricevute = null;
 
               while (rs.next())
@@ -3409,7 +3409,7 @@ public class QuadroNewDAO extends QuadroDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -3677,7 +3677,7 @@ public class QuadroNewDAO extends QuadroDAO
               ExcelRigaRicevutaPagDTO ricevuta = null;
               ArrayList<ExcelRigaDocumentoSpesaDTO> documenti = null;
               ArrayList<ExcelRigaRicevutaPagDTO> ricevute = null;
-              ArrayList<ExcelRicevutePagInterventoDTO> elenco = new ArrayList<ExcelRicevutePagInterventoDTO>();
+              ArrayList<ExcelRicevutePagInterventoDTO> elenco = new ArrayList<>();
 
               while (rs.next())
               {
@@ -4564,7 +4564,7 @@ public class QuadroNewDAO extends QuadroDAO
               {
                 if (list == null)
                 {
-                  list = new ArrayList<InfoExPostsDTO>();
+                  list = new ArrayList<>();
                 }
 
                 idInfoExposts = rs.getLong("ID_INFO_EXPOST");

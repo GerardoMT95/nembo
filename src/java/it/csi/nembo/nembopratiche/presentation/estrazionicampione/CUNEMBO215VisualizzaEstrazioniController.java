@@ -224,7 +224,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
     List<ProcedimentoOggettoVO> el = ricercaEJB.searchProcedimentiEstrazione(
         idEstrazione, getUtenteAbilitazioni(session), mapFilters, limit,
         offset);
-    List<HashMap<String, Object>> risultato = new ArrayList<HashMap<String, Object>>();
+    List<HashMap<String, Object>> risultato = new ArrayList<>();
     HashMap<String, Object> risultati;
     if (el != null)
       for (ProcedimentoOggettoVO item : el)
@@ -273,9 +273,9 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
       HttpSession session) throws InternalUnexpectedException
   {
 
-    List<Map<String, Object>> ret = new ArrayList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new ArrayList<>();
     HashMap<String, Object> tipo = null;
-    ArrayList<String> vId = new ArrayList<String>();
+    ArrayList<String> vId = new ArrayList<>();
 
     List<ProcedimentoOggettoVO> elenco = ricercaEJB
         .getElencoTipologieEstrazione();

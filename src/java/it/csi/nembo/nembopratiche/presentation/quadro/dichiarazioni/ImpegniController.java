@@ -160,7 +160,7 @@ public class ImpegniController extends BaseController
 
     // Per ogni dichiarazione selezionata valido tutti i campi input presenti a
     // video.
-    // Il name è ad es. chkdich_7 dove 7 è il rowNum
+    // Il name ï¿½ ad es. chkdich_7 dove 7 ï¿½ il rowNum
     idDettaglioInfo = "";
     for (Map.Entry<String, String> entry : chkMap.entrySet())
     {
@@ -236,7 +236,7 @@ public class ImpegniController extends BaseController
       for (DettaglioInfoDTO dettaglio : info.getDettaglioInfo())
       {
         idDettaglioInfo = String.valueOf(dettaglio.getIdDettaglioInfo());
-        valoriInseriti = new ArrayList<ValoriInseritiDTO>();
+        valoriInseriti = new ArrayList<>();
         dettaglio.setChecked(false);
 
         if (chkMap.containsKey("chkdich_" + dettaglio.getIdDettaglioInfo()))
@@ -296,14 +296,14 @@ public class ImpegniController extends BaseController
               && lIds.size() > 1)
           {
             errors.addError("chkdich_" + dettaglio.getIdDettaglioInfo(),
-                "E' possibile selezionare non più di una dichiarazione con vincolo univoco");
+                "E' possibile selezionare non piï¿½ di una dichiarazione con vincolo univoco");
           }
           else
             if (dettaglio.getTipoVincolo()
                 .equals(TIPO_VINCOLO_OPZIONALE_UNIVOCO) && lIds.size() > 1)
             {
               errors.addError("chkdich_" + dettaglio.getIdDettaglioInfo(),
-                  "E' possibile selezionare non più di una dichiarazione con vincolo opzionale univoco");
+                  "E' possibile selezionare non piï¿½ di una dichiarazione con vincolo opzionale univoco");
             }
             else
               if (dettaglio.getTipoVincolo().equals(TIPO_VINCOLO_UNIVOCO)
@@ -328,7 +328,7 @@ public class ImpegniController extends BaseController
       List<GruppoInfoDTO> dichiarazioni,
       HashMap<String, String> selectedIdDettaglioInfo, long idLegameInfo)
   {
-    List<Long> retList = new ArrayList<Long>();
+    List<Long> retList = new ArrayList<>();
     String idDettaglioInfo = "";
     for (GruppoInfoDTO info : dichiarazioni)
     {

@@ -39,7 +39,7 @@ public class CUNEMBO212VAccertamentoMedianteDocumentiSpesa
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     Map<String, Object> common = getCommonFromSession("CU-NEMBO-212-V", session,
         true);

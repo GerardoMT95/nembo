@@ -178,7 +178,7 @@ public abstract class MyBodyTag extends MyAbstractTag
   protected void includeRequiredJSFile()
   {
     // Di default non fa nulla, deve essere ridefinitito nelle classi chiamanti
-    // per settare in request (c'è il metodo di utilità addJSFileToPage())
+    // per settare in request (c'ï¿½ il metodo di utilitï¿½ addJSFileToPage())
     // il/gli
     // script richiesti, che verranno inseriti nella pagina dal tag
     // <m:include-scripts/>
@@ -194,14 +194,14 @@ public abstract class MyBodyTag extends MyAbstractTag
         .getAttribute("__scriptList");
     if (list == null)
     {
-      list = new ArrayList<String>();
+      list = new ArrayList<>();
       this.pageContext.setAttribute("__scriptList", list);
     }
     else
     {
       if (list.contains(jsFile))
       {
-        return; // Il file c'è già, inutile aggiungerlo di nuovo
+        return; // Il file c'ï¿½ giï¿½, inutile aggiungerlo di nuovo
       }
     }
     list.add(jsFile);

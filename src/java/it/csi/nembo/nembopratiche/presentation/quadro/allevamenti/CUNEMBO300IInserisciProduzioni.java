@@ -106,7 +106,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 		  
 		  Integer maxIdDaInserire = START_VALUE_ID_DA_INSERIRE;
 		  Long maxNumeroCapi = 0L;
-		  List<ProduzioneCategoriaAnimaleDTO> listProduzioniVendibili = new ArrayList<ProduzioneCategoriaAnimaleDTO>();
+		  List<ProduzioneCategoriaAnimaleDTO> listProduzioniVendibili = new ArrayList<>();
 		  if(idsDaInserire != null)
 		  {
 			  for(String idDaInserire : idsDaInserire)

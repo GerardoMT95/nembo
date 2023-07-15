@@ -19,7 +19,7 @@ public class TableMappingForUpdateByAnnotation
 {
   protected String       tableName       = null;
   protected String       objectClassName = null;
-  protected List<Column> columns         = new ArrayList<Column>();
+  protected List<Column> columns         = new ArrayList<>();
 
   protected String       sqlForInsert;
   protected String       sqlForUpdate;

@@ -160,7 +160,7 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
     {
       tipoImporto = errors.validateIDInDecodificaRange(idTipoImporto.intValue(),
           "idTipoImporto", listTipiImporto,
-          "La tipologia di importo indicata non è tra quelle disponibili");
+          "La tipologia di importo indicata non ï¿½ tra quelle disponibili");
     }
 
     if (errors.addToModelIfNotEmpty(model))
@@ -324,13 +324,13 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
     {
       errors.validateIDInDecodificaRange(idTecnicoLiquidatore, "idTecnico",
           tecnici,
-          "Il funzionario liquidatore selezionato non è presente nell'elenco dei funzionari abilitati");
+          "Il funzionario liquidatore selezionato non ï¿½ presente nell'elenco dei funzionari abilitati");
     }
     final Integer idTipoImporto = tipoImporto.getId();
     if (errors.isEmpty())
     {
       // Nessun errore di validazione ==> procedo alla creazione della lista.
-      // Il medoto effettuerà ancora una verifica sulla congruenza dei dati, per
+      // Il medoto effettuerï¿½ ancora una verifica sulla congruenza dei dati, per
       // questo gli passo la situzione dei dati
       // che ho in sessione
       try
@@ -354,13 +354,13 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
       }
       catch (ApplicationException e)
       {
-        // Si è verificato un errore di congruenza dati su db (qualcuno ha
+        // Si ï¿½ verificato un errore di congruenza dati su db (qualcuno ha
         // creato una nuova lista o modificato le
-        // risorse/pagamenti in modo da rendere la situazione non più
+        // risorse/pagamenti in modo da rendere la situazione non piï¿½
         // compatibile con quella di partenza
         // Segnalo la cosa all'utente e ricarico la pagina
 
-        // se scateno l'eccezioe con codice -123, significa che il problema è
+        // se scateno l'eccezioe con codice -123, significa che il problema ï¿½
         // sul tecnico (vari controlli fatti nell'ejb).
         // il tecnico liquidatore risulta aver ricoperto il ruolo di istruttore
         // in almeno uno dei pagamenti in liquidazione
@@ -384,7 +384,7 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
         errors.addError("error", e.getMessage());
       }
     }
-    // Se sono arrivato qua è perchè c'è stato un errore
+    // Se sono arrivato qua ï¿½ perchï¿½ c'ï¿½ stato un errore
     errors.addToModel(model);
     // Errori di validazione o nella creazione della lista ==> Segnalo
     // all'utente ricaricando la pagina
@@ -500,11 +500,11 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
             tipoImporto.getId());
     if (riepilogo == null)
     {
-      riepilogo = new ArrayList<RiepilogoPraticheApprovazioneDTO>();
+      riepilogo = new ArrayList<>();
     }
 
     // leggo da common la lista delle pratiche con anomalia relativa al tecnico
-    // calcolata prima (può non esserci)
+    // calcolata prima (puï¿½ non esserci)
     // setto l'anomalia anche nelle pratiche appena lette
     List<RiepilogoPraticheApprovazioneDTO> riepilogoConAnomalia = (List<RiepilogoPraticheApprovazioneDTO>) common
         .get("praticheConAnomalia");

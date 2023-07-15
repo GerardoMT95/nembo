@@ -69,7 +69,7 @@ public abstract class CUNEMBO306BaseController extends BaseController
 			  provincia = errors.validateMandatoryValueList(provincia, fieldNameProvincia, arrayProvincePiemonte);
 			  consorzi = errors.validateMandatoryLong(consorziStr,fieldNameConsorzi);
 			  List<DecodificaDTO<Integer>> consorziDifesaDellaProvincia = quadroNemboEJB.getListConsorzi(provincia);
-			  List<Long> listIdConsorzi = new ArrayList<Long>();
+			  List<Long> listIdConsorzi = new ArrayList<>();
 			  for(DecodificaDTO<Integer> c : consorziDifesaDellaProvincia)
 			  {
 				  listIdConsorzi.add(c.getId().longValue());
@@ -77,7 +77,7 @@ public abstract class CUNEMBO306BaseController extends BaseController
 			  errors.validateMandatoryValueList(consorzi, fieldNameConsorzi, listIdConsorzi.toArray(new Long[listIdConsorzi.size()]));
 			  if(!entePrivato.trim().equals(""))
 			  {
-				  errors.addError(fieldNameEntePrivato, "Il campo deve essere vuoto se è stato selezionato un consorzio");
+				  errors.addError(fieldNameEntePrivato, "Il campo deve essere vuoto se ï¿½ stato selezionato un consorzio");
 			  }
 			  entePrivato = null;
 		  }

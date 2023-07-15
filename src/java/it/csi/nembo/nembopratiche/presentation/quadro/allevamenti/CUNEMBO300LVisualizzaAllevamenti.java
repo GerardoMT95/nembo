@@ -29,7 +29,7 @@ public class CUNEMBO300LVisualizzaAllevamenti extends BaseController
 	  @RequestMapping(value = "/index", method = RequestMethod.GET)
 	  public String index(HttpSession session, Model model) throws InternalUnexpectedException
 	  {
-		  List<String> tableNamesToRemove = new ArrayList<String>();
+		  List<String> tableNamesToRemove = new ArrayList<>();
 		  tableNamesToRemove.add("tableListPlvZootecnicaDettaglio");
 		  tableNamesToRemove.add("tableDettaglioAllevamentiPlv");
 		  cleanTableMapsInSession(session, tableNamesToRemove);

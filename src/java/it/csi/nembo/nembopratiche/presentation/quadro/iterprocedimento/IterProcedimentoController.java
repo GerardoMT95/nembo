@@ -50,7 +50,7 @@ public class IterProcedimentoController extends BaseController
     ProcedimentoDTO procedimentoDTO = quadroEJB
         .getIterProcedimento(idProcedimento);
 
-    List<Long> idUtenti = new ArrayList<Long>();
+    List<Long> idUtenti = new ArrayList<>();
     if (aziende != null)
     {
       for (AziendaDTO azienda : aziende)

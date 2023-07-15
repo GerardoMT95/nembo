@@ -238,7 +238,7 @@ public interface IQuadroNemboEJB extends INemboAbstractEJB
 		public List<DecodificaDTO<Integer>> getListConsorzi(String idProvincia) throws InternalUnexpectedException;
 
 		public long modificaAssicurazioniColture(long idProcedimentoOggetto,
-				AssicurazioniColtureDTO assicurazioniColture, LogOperationOggettoQuadroDTO logOperationOggettoQuadro)  throws InternalUnexpectedException;;
+				AssicurazioniColtureDTO assicurazioniColture, LogOperationOggettoQuadroDTO logOperationOggettoQuadro)  throws InternalUnexpectedException;
 				
 		public List<DanniColtureDTO> getListDanniColture(long idProcedimentoOggetto, long idProcedimento) 
 				throws InternalUnexpectedException;

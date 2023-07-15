@@ -27,7 +27,7 @@ public class MyCheckBoxList extends MyInputGroup
   protected void writeCustomTag(StringBuilder sb, String errorMessage,
       boolean wrappedInAGroup) throws Exception
   {
-    values = new ArrayList<String>();
+    values = new ArrayList<>();
     writeElements(sb);
   }
 

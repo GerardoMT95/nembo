@@ -98,7 +98,7 @@ public class CUNEMBO227ElencoListeLiquidazione extends BaseController
         .getListeLiquidazione();
     if (listeLiquidazione == null)
     {
-      listeLiquidazione = new ArrayList<RigaJSONElencoListaLiquidazioneDTO>();
+      listeLiquidazione = new ArrayList<>();
     }
     return listeLiquidazione;
   }
@@ -149,7 +149,7 @@ public class CUNEMBO227ElencoListeLiquidazione extends BaseController
         .getRiepilogoPraticheListaLiquidazione(idListaLiquidazione, isPremio);
     if (riepilogo == null)
     {
-      riepilogo = new ArrayList<RiepilogoPraticheApprovazioneDTO>();
+      riepilogo = new ArrayList<>();
     }
 
     return riepilogo;
@@ -224,7 +224,7 @@ public class CUNEMBO227ElencoListeLiquidazione extends BaseController
   {
     List<LivelloDTO> livelli = listeLiquidazioneEJB.getElencoLivelli();
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
     List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
     ;

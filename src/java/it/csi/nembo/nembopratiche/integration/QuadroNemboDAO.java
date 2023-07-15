@@ -849,7 +849,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	    {
 	      logger.debug(THIS_METHOD + " BEGIN.");
 	    }
-	    //Attenzione. Non c'è il filtro sul procedimento oggetto. Deve essere fatto precedentemente
+	    //Attenzione. Non c'ï¿½ il filtro sul procedimento oggetto. Deve essere fatto precedentemente
 	    final String DELETE = 
 	    		"DELETE FROM NEMBO_R_PARTICELLA_DANNEGGIATA WHERE 1=1 " +
 	    		getInCondition("ID_DANNO_ATM", listIdDannoAtm);
@@ -890,7 +890,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	    {
 	      logger.debug(THIS_METHOD + " BEGIN.");
 	    }
-	    List<Long> listIdExtEntitaDanneggiata = new ArrayList<Long>();
+	    List<Long> listIdExtEntitaDanneggiata = new ArrayList<>();
 	    for(DanniDTO danno : listDanniDTO)
 	    {
 	    	listIdExtEntitaDanneggiata.add(danno.getExtIdEntitaDanneggiata());
@@ -934,16 +934,16 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	
 	
 	/**
-	 * Verifica se un utente che sta inserendo i danni è veramente autorizzato:
+	 * Verifica se un utente che sta inserendo i danni ï¿½ veramente autorizzato:
 	 *  - inserisce danni di una scorta da lui posseduta
 	 *  - inserisce danni di un motore agricolo posseduto dalla sua azienda
-	 *  - inserisce danni di un fabbricato di sua proprietà rispetto alla dichiarazione di consistenza
+	 *  - inserisce danni di un fabbricato di sua proprietï¿½ rispetto alla dichiarazione di consistenza
 	 * @param listDanniDTO
 	 * @param idProcedimentoOggetto
 	 * @param idDanno
 	 * @return 
-	 * 			true: se è lecito l'inserimento
-	 * 			false: se è illecito l'inserimento
+	 * 			true: se ï¿½ lecito l'inserimento
+	 * 			false: se ï¿½ illecito l'inserimento
 	 * @throws InternalUnexpectedException
 	 */
 	public boolean isUtenteAutorizzatoInserimentoDanni(List<DanniDTO> listDanniDTO, long idProcedimentoOggetto, Integer idDanno, int idProcedimentoAgricoltura) throws InternalUnexpectedException
@@ -956,7 +956,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	    }
 	    
 		final String QUERY;
-		List<Long> listIdEntitaDanneggiata = new ArrayList<Long>();
+		List<Long> listIdEntitaDanneggiata = new ArrayList<>();
 		for(DanniDTO danno : listDanniDTO)
 		{
 			listIdEntitaDanneggiata.add(danno.getExtIdEntitaDanneggiata());
@@ -973,7 +973,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 			"		   FROM 	NEMBO_T_SCORTA_MAGAZZINO SM														\r\n" + 
 			"		   WHERE	SM.ID_PROCEDIMENTO_OGGETTO = :ID_PROCEDIMENTO_OGGETTO\r\n" + 
 			"	)\r\n" + 
-			"	SELECT COUNT(*)\r\n" + //conto quante delle scorte che voglio insierire sono di proprietà del PO
+			"	SELECT COUNT(*)\r\n" + //conto quante delle scorte che voglio insierire sono di proprietï¿½ del PO
 			"	FROM TMP_SCORTE_MAGAZZINO_PO\r\n" + 
 				"WHERE 1=1 \r\n"
 			+ getInCondition("ID_SCORTA_MAGAZZINO", listIdEntitaDanneggiata)
@@ -1106,7 +1106,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	
 	public static List<Integer> getListDanniEquivalenti(int idDanno)
 	{
-		List<Integer> listDanniEquivalenti = new ArrayList<Integer>();
+		List<Integer> listDanniEquivalenti = new ArrayList<>();
 		switch(idDanno)
 		{
 		case NemboConstants.DANNI.SCORTA:
@@ -1144,7 +1144,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	
 	public static List<Integer> getListDanniRiconosciuti()
 	{
-		List<Integer> listDanniEquivalenti = new ArrayList<Integer>();
+		List<Integer> listDanniEquivalenti = new ArrayList<>();
 		listDanniEquivalenti.add(NemboConstants.DANNI.SCORTA);
 		listDanniEquivalenti.add(NemboConstants.DANNI.SCORTE_MORTE);
 		listDanniEquivalenti.add(NemboConstants.DANNI.MACCHINA_AGRICOLA);
@@ -2912,7 +2912,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	public SuperficiColtureDettaglioDTO getSuperficiColtureDettaglio(long idProcedimentoOggetto,
 			long idSuperficieColtura) throws InternalUnexpectedException
 	{
-		List<Long> listIdSuperficieColtura = new ArrayList<Long>();
+		List<Long> listIdSuperficieColtura = new ArrayList<>();
 		listIdSuperficieColtura.add(idSuperficieColtura);
 		List<SuperficiColtureDettaglioDTO> list = this.getListSuperficiColtureDettaglio(idProcedimentoOggetto, listIdSuperficieColtura);
 		if(list == null)
@@ -3667,7 +3667,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 		catch (Throwable t)
 		{
 			LogParameter[] logParameters; 
-			List<LogParameter> listLogParamaters = new ArrayList<LogParameter>();
+			List<LogParameter> listLogParamaters = new ArrayList<>();
 			listLogParamaters.add(new LogParameter("ID_PROCEDIMENTO_OGGETTO", idProcedimentoOggetto));
 			if(filtroRicercaConduzioni != null)
 			{
@@ -3882,7 +3882,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 				return queryTmpAllevamenti;
 	}
 	
-	//Questa query fu sviluppata per gestire casi di assenza di record in NEMBO_T_PRODUZIONE_ZOOTECNICA. Funzionando a dovere non l'ho più modificata.
+	//Questa query fu sviluppata per gestire casi di assenza di record in NEMBO_T_PRODUZIONE_ZOOTECNICA. Funzionando a dovere non l'ho piï¿½ modificata.
 	public List<AllevamentiDTO> getListRiepilogoAllevamenti(long idProcedimentoOggetto, Long idCategoriaAnimale, String istatComune, boolean isDettaglio) throws InternalUnexpectedException
 	{
 		String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
@@ -6391,8 +6391,8 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 		                public List<SezioneDocumentiRichiestiDTO> extractData(ResultSet rs)
 		                    throws SQLException, DataAccessException
 		                {
-		                  ArrayList<SezioneDocumentiRichiestiDTO> list = new ArrayList<SezioneDocumentiRichiestiDTO>();
-		                  ArrayList<DocumentiRichiestiDaVisualizzareDTO> listDoc = new ArrayList<DocumentiRichiestiDaVisualizzareDTO>();
+		                  ArrayList<SezioneDocumentiRichiestiDTO> list = new ArrayList<>();
+		                  ArrayList<DocumentiRichiestiDaVisualizzareDTO> listDoc = new ArrayList<>();
 		                  SezioneDocumentiRichiestiDTO sezioneDocumentiRichiestiDTO = null;
 		                  DocumentiRichiestiDaVisualizzareDTO doc = null;
 		                  String lastIdSezione = null;
@@ -6421,7 +6421,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 				                      doc.setIdTipoDocRichiesti(rs.getLong("ID_TIPO_DOC_RICHIESTI"));	                      
 				                      doc.setDescrizione(rs.getString("DESCRIZIONE"));
 				                      doc.setOrdine(rs.getLong("ORDINE"));
-				                      listDoc = new ArrayList<DocumentiRichiestiDaVisualizzareDTO>();
+				                      listDoc = new ArrayList<>();
 				                      listDoc.add(doc);
 				                      sezioneDocumentiRichiestiDTO.setList(listDoc);	
 				                      lastIdSezione = idSezione;
@@ -6542,7 +6542,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
                 public List<String> extractData(ResultSet rs)
                     throws SQLException, DataAccessException
                 {
-                  ArrayList<String> list = new ArrayList<String>();
+                  ArrayList<String> list = new ArrayList<>();
                   while (rs.next())
                   {
                 	  if(rs.getString("TESTO_SEZIONE")!=null){

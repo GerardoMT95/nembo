@@ -99,7 +99,7 @@ public abstract class NemboAbstractEJB<TDAO extends BaseDAO>
       throws InternalUnexpectedException
   {
     List<DecodificaDTO<String>> lista = dao.getProvince(idRegione, false);
-    List<String> provinceCodici = new ArrayList<String>();
+    List<String> provinceCodici = new ArrayList<>();
     for(DecodificaDTO<String> p : lista)
     {
     	provinceCodici.add(p.getId());

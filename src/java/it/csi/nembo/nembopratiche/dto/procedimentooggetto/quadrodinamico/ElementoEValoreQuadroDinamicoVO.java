@@ -196,7 +196,7 @@ public class ElementoEValoreQuadroDinamicoVO implements ILoggable
   public List<CheckBox> getValoriCheckbox()
   {
     List<VoceElementoDTO> vociElemento = elemento.getVociElemento();
-    List<CheckBox> list = new ArrayList<CheckBox>();
+    List<CheckBox> list = new ArrayList<>();
     if (vociElemento != null && !vociElemento.isEmpty())
     {
       final int size = vociElemento.size();

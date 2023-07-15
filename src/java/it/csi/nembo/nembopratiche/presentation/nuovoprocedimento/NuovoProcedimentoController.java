@@ -560,7 +560,7 @@ public class NuovoProcedimentoController extends BaseController
   public List<Map<String, Object>> getElencoAziende(HttpSession session,
       HttpServletRequest request) throws InternalUnexpectedException
   {
-    List<Map<String, Object>> aziende = new ArrayList<Map<String, Object>>();
+    List<Map<String, Object>> aziende = new ArrayList<>();
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
     BandoDTO bandoSelezionato = (BandoDTO) session
@@ -741,7 +741,7 @@ public class NuovoProcedimentoController extends BaseController
       @ModelAttribute NuovaDomanda nuovaDomanda, Model model,
       HttpSession session, HttpServletRequest request) throws InternalUnexpectedException
   {
-    ArrayList<Long> vLong = new ArrayList<Long>();
+    ArrayList<Long> vLong = new ArrayList<>();
     vLong.add(nuovaDomanda.getIdAzienda());
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vLong,
         nuovaDomanda.getIdBando());
@@ -868,7 +868,7 @@ public class NuovoProcedimentoController extends BaseController
       long idBandoOggetto, long idLegameGruppoOggetto, Model model,
       HttpSession session, String note) throws InternalUnexpectedException
   {
-    ArrayList<Long> vLong = new ArrayList<Long>();
+    ArrayList<Long> vLong = new ArrayList<>();
     vLong.add(new Long(idAzienda));
 
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vLong,
@@ -1066,7 +1066,7 @@ public class NuovoProcedimentoController extends BaseController
     List<BandoDTO> elencoBandi = nuovoProcedimento.getElencoBandiAttivi(idProcedimentoAgricolo);
 
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
     List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
     ;
@@ -1096,9 +1096,9 @@ public class NuovoProcedimentoController extends BaseController
   public List<Map<String, Object>> getElencoStatiProcedimenti(
       HttpSession session) throws InternalUnexpectedException
   {
-    List<Map<String, Object>> procedimenti = new ArrayList<Map<String, Object>>();
+    List<Map<String, Object>> procedimenti = new ArrayList<>();
     HashMap<String, Object> stato = null;
-    ArrayList<String> vId = new ArrayList<String>();
+    ArrayList<String> vId = new ArrayList<>();
 
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
@@ -1250,7 +1250,7 @@ public class NuovoProcedimentoController extends BaseController
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
     List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
     ;
@@ -1277,7 +1277,7 @@ public class NuovoProcedimentoController extends BaseController
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
     List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
     ;

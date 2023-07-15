@@ -186,7 +186,7 @@ public abstract class Modifica extends BaseController
         {
           model.addAttribute("errore",
               "L'intervento \"" + intervento.getDescIntervento()
-                  + "\" è cessato, impossibile modificarlo");
+                  + "\" ï¿½ cessato, impossibile modificarlo");
           return true;
         }
       }
@@ -200,7 +200,7 @@ public abstract class Modifica extends BaseController
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     Procedimento procedimento = getProcedimentoFromSession(session);
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
@@ -246,9 +246,9 @@ public abstract class Modifica extends BaseController
   }
 
   /*
-   * Nota: Il metodo è riscritto nella classe CUNEMBO266MModificaInterventi,
+   * Nota: Il metodo ï¿½ riscritto nella classe CUNEMBO266MModificaInterventi,
    * mantenendo al contempo la logica "standard" e aggiungendo la validazione
-   * delle attività/partecipanti, eventuali modifiche alla logica di base
+   * delle attivitï¿½/partecipanti, eventuali modifiche alla logica di base
    * dovrebbero essere riportate anche nel metodo
    * CUNEMBO266MModificaInterventi.validateAndUpdate
    */
@@ -327,7 +327,7 @@ public abstract class Modifica extends BaseController
         // trovato neppure il record)
         if (importoUnitario != null)
         {
-          BigDecimal valore = misurazioni.get(0).getValore(); // C'è sempre
+          BigDecimal valore = misurazioni.get(0).getValore(); // C'ï¿½ sempre
                                                               // almeno una
                                                               // misurazione per
                                                               // intervento
@@ -340,8 +340,8 @@ public abstract class Modifica extends BaseController
             importo = importoUnitario.multiply(valore, MathContext.UNLIMITED);
             if (importo.compareTo(NemboConstants.MAX.IMPORTO_INTERVENTO) > 0)
             {
-              final String errorMessage = "Il prodotto dell'importo unitario per la quantità è superiore al massimo consentito (pari a "
-                  + NemboUtils.FORMAT.formatDecimal2(NemboConstants.MAX.IMPORTO_INTERVENTO) + " €)";
+              final String errorMessage = "Il prodotto dell'importo unitario per la quantitï¿½ ï¿½ superiore al massimo consentito (pari a "
+                  + NemboUtils.FORMAT.formatDecimal2(NemboConstants.MAX.IMPORTO_INTERVENTO) + " ï¿½)";
               final String nameValore = "valore_" + idIntervento + "_0";
               errors.addError(nameValore, errorMessage);
               if(riga.getCostoUnitarioMinimo()!=null && riga.getCostoUnitarioMassimo()!= null){

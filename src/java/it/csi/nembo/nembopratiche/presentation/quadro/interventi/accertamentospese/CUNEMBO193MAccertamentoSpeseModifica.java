@@ -62,7 +62,7 @@ public class CUNEMBO193MAccertamentoSpeseModifica
       throws InternalUnexpectedException
   {
     Errors errors = new Errors();
-    List<AccertamentoSpeseDTO> list = new ArrayList<AccertamentoSpeseDTO>();
+    List<AccertamentoSpeseDTO> list = new ArrayList<>();
     for (RigaAccertamentoSpese riga : elenco)
     {
       final long idIntervento = riga.getIdIntervento();
@@ -101,7 +101,7 @@ public class CUNEMBO193MAccertamentoSpeseModifica
         accertamentoSpeseDTO.setUsaDocumentiSpesa(usaDocumentiSpesa);
         if (!usaDocumentiSpesa)
         {
-          // Se entra qua dentro è perchè c'è qualcosa che non va, dovrebbe
+          // Se entra qua dentro ï¿½ perchï¿½ c'ï¿½ qualcosa che non va, dovrebbe
           // essere possibile modificare solo le
           // righe con spesa sostenuta attuale < 0
           String nameSpeseAccertateAttuali = "speseAccertateAttuali_"
@@ -222,7 +222,7 @@ public class CUNEMBO193MAccertamentoSpeseModifica
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
     List<RigaAccertamentoSpese> list = rendicontazioneEAccertamentoSpeseEJB

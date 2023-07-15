@@ -408,7 +408,7 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
       RigaElencoInterventi interventoDett = null;
       long idProcedimento = getIdProcedimento(session);
 
-      ArrayList<Long> vct = new ArrayList<Long>();
+      ArrayList<Long> vct = new ArrayList<>();
       vct.add(idDocumentoSpesa);
       List<DecodificaDualLIstDTO<Long>> elencoInterventiSelezionati = interventiEJB
           .getElencoInterventiPerDocSpesa(getIdProcedimento(session), vct,

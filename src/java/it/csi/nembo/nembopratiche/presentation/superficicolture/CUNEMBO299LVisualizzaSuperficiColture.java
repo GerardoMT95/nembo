@@ -84,7 +84,7 @@ public class CUNEMBO299LVisualizzaSuperficiColture extends BaseController
 		  List<SuperficiColtureDettaglioDTO> listSuperficiColtureDettaglio = quadroNemboEJB.getListSuperficiColtureDettaglio(idProcedimentoOggetto);
 		  if(listSuperficiColtureDettaglio == null)
 		  {
-			  listSuperficiColtureDettaglio = new ArrayList<SuperficiColtureDettaglioDTO>();
+			  listSuperficiColtureDettaglio = new ArrayList<>();
 		  }
 		  return listSuperficiColtureDettaglio;
 	  }

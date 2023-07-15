@@ -348,7 +348,7 @@ public class ListeLiquidazioneDAO extends BaseDAO
               {
                 result = new LivelliBandoDTO();
                 result.setDenominazioneBando(rs.getString("DENOMINAZIONE"));
-                final ArrayList<DecodificaDTO<Integer>> livelli = new ArrayList<DecodificaDTO<Integer>>();
+                final ArrayList<DecodificaDTO<Integer>> livelli = new ArrayList<>();
                 result.setLivelli(livelli);
                 do
                 {
@@ -669,7 +669,7 @@ public class ListeLiquidazioneDAO extends BaseDAO
             public List<RisorseImportiOperazioneDTO> extractData(ResultSet rs)
                 throws SQLException
             {
-              List<RisorseImportiOperazioneDTO> result = new ArrayList<RisorseImportiOperazioneDTO>();
+              List<RisorseImportiOperazioneDTO> result = new ArrayList<>();
               while (rs.next())
               {
                 RisorseImportiOperazioneDTO risorsa = new RisorseImportiOperazioneDTO();
@@ -1634,9 +1634,9 @@ public class ListeLiquidazioneDAO extends BaseDAO
                   catch (Exception e)
                   {
                     /*
-                     * Questo è l'unico modo che ho per rilanciare una eccezione
+                     * Questo ï¿½ l'unico modo che ho per rilanciare una eccezione
                      * senza cambiare la firma del metodo (che ovviamente non
-                     * sarebbe più coerente con la definizione fatta nel
+                     * sarebbe piï¿½ coerente con la definizione fatta nel
                      * ResultSetExtractor)
                      */
                     DumpUtils.logGenericException(logger, null, e,
@@ -1653,9 +1653,9 @@ public class ListeLiquidazioneDAO extends BaseDAO
                   else
                   {
                     /*
-                     * Questo è l'unico modo che ho per rilanciare una eccezione
+                     * Questo ï¿½ l'unico modo che ho per rilanciare una eccezione
                      * senza cambiare la firma del metodo (che ovviamente non
-                     * sarebbe più coerente con la definizione fatta nel
+                     * sarebbe piï¿½ coerente con la definizione fatta nel
                      * ResultSetExtractor)
                      */
                     throw new RuntimeException(

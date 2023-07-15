@@ -46,7 +46,7 @@ public class CUNEMBO115EseguiControlli extends BaseController
     TestataProcedimento testataProcedimento = (TestataProcedimento) session
         .getAttribute(TestataProcedimento.SESSION_NAME);
 
-    ArrayList<Long> vId = new ArrayList<Long>();
+    ArrayList<Long> vId = new ArrayList<>();
     vId.add(testataProcedimento.getIdAzienda());
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vId,
         procedimento.getIdBando());

@@ -58,7 +58,7 @@ public class CUNEMBO114Controlli extends BaseController
     if (fonteControlloDTOList.size() > 0)
     {
       // Assegno descrizione utente
-      List<Long> idUtenti = new ArrayList<Long>();
+      List<Long> idUtenti = new ArrayList<>();
       for (FonteControlloDTO fonte : fonteControlloDTOList)
       {
         for (ControlloDTO controllo : fonte.getControlli())

@@ -39,7 +39,7 @@ public class CUNEMBO264ModificaEsitoDefinitivo extends BaseController
     ProcedimentoOggetto po = getProcedimentoOggettoFromSession(session);
 
     List<DecodificaDTO<Long>> elencoTecnici = quadroEJB.getElencoTecniciDisponibiliPerAmmCompetenza(po.getIdProcedimentoOggetto(),getUtenteAbilitazioni(session).getIdProcedimento());
-    List<DecodificaDTO<Long>> elencoEsitiFinali = new ArrayList<>();// quadroEJB.getElencoEsiti(NemboConstants.ESITO.TIPO.FINALE);
+    List<DecodificaDTO<Long>> elencoEsitiFinali = new ArrayList<>();
     List<DecodificaDTO<Long>> elencoEsitiDefinitivi = quadroEJB
         .getElencoEsiti(NemboConstants.ESITO.TIPO.DEFINITIVO);
     List<DecodificaDTO<String>> ufficiZona = getListUfficiZonaFunzionari();

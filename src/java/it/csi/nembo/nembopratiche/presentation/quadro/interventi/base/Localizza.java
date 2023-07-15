@@ -113,7 +113,7 @@ public abstract class Localizza extends LocalizzazioneJSON
       @ModelAttribute("idFileAllegatiIntervento") @PathVariable("idFileAllegatiIntervento") Long idFileAllegatiIntervento)
       throws InternalUnexpectedException
   {
-    ArrayList<Long> ids = new ArrayList<Long>();
+    ArrayList<Long> ids = new ArrayList<>();
     ids.add(idFileAllegatiIntervento);
     HttpSession session = request.getSession();
     LogOperationOggettoQuadroDTO logOperationOggettoQuadroDTO = getLogOperationOggettoQuadroDTO(
@@ -775,7 +775,7 @@ public abstract class Localizza extends LocalizzazioneJSON
           if (superficieImpegnoBD.compareTo(supUtilizzataBD) > 0)
           {
             errors.addError(fieldName,
-                "La superficie oggetto dell'intervento non può superare la \"superficie utilizzata\"");
+                "La superficie oggetto dell'intervento non puï¿½ superare la \"superficie utilizzata\"");
             conduzione.setError(errors.getLastError());
           }
         }
@@ -830,7 +830,7 @@ public abstract class Localizza extends LocalizzazioneJSON
     }
     else
     {
-      List<SuperficieConduzione> superfici = new ArrayList<SuperficieConduzione>();
+      List<SuperficieConduzione> superfici = new ArrayList<>();
       if (conduzioni != null)
       {
         for (RigaJSONConduzioneInteventoDTO conduzione : conduzioni)

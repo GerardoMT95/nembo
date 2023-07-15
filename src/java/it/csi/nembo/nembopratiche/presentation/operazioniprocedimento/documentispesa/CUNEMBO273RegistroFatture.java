@@ -107,7 +107,7 @@ public class CUNEMBO273RegistroFatture extends BaseController
       throws InternalUnexpectedException
   {
     List<DecodificaDTO<Long>> list = null;
-    list = new ArrayList<DecodificaDTO<Long>>();
+    list = new ArrayList<>();
     list = (ArrayList<DecodificaDTO<Long>>) quadroEJB
         .geElencoFornitoriRicercaFatture(CUAA, denominazione);
 

@@ -249,7 +249,7 @@ public class CUNEMBO193RAccertamentoMedianteDocumentiSpesa
                 riga.getImportoRendicontato(), bdimportoCalcoloContributo);
             if (somma.compareTo(spesa) > 0)
             {
-              final String errorMessage = "La somma di 'Importo non riconosciuto sanzionabile' e di 'Importo non riconosciuto non sanzionabile' non può superare la differenza tra la 'Spesa rendicontata attuale' e la 'Spesa riconosciuta per il calcolo del contributo'";
+              final String errorMessage = "La somma di 'Importo non riconosciuto sanzionabile' e di 'Importo non riconosciuto non sanzionabile' non puï¿½ superare la differenza tra la 'Spesa rendicontata attuale' e la 'Spesa riconosciuta per il calcolo del contributo'";
               errors.addError(nameimportoNonRiconosciuto, errorMessage);
               errors.addError(nameimportoDisponibile, errorMessage);
             }
@@ -427,7 +427,7 @@ public class CUNEMBO193RAccertamentoMedianteDocumentiSpesa
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     List<RigaAccertamentoSpese> elenco = rendicontazioneEAccertamentoSpeseEJB
         .getElencoAccertamentoSpese(getIdProcedimentoOggetto(session), ids);

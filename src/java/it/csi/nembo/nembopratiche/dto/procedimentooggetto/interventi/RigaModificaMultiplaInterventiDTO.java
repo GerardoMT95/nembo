@@ -48,7 +48,7 @@ public class RigaModificaMultiplaInterventiDTO implements ILoggable
   {
     if (misurazioneInterventoDTO == null)
     {
-      misurazioneIntervento = new ArrayList<MisurazioneInterventoDTO>();
+      misurazioneIntervento = new ArrayList<>();
     }
     misurazioneIntervento.add(misurazioneInterventoDTO);
   }

@@ -1612,7 +1612,7 @@ public class QuadroDAO extends BaseDAO
             public List<GruppoInfoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<GruppoInfoDTO> list = new ArrayList<GruppoInfoDTO>();
+              ArrayList<GruppoInfoDTO> list = new ArrayList<>();
               Long lastKey = null;
               List<DettaglioInfoDTO> info = null;
               while (rs.next())
@@ -1626,7 +1626,7 @@ public class QuadroDAO extends BaseDAO
                   gruppoInfoDTO.setIdGruppoInfo(rs.getLong("ID_GRUPPO_INFO"));
                   gruppoInfoDTO.setIdUtenteAggiornamento(
                       rs.getLong("EXT_ID_UTENTE_AGGIORNAMENTO"));
-                  info = new ArrayList<DettaglioInfoDTO>();
+                  info = new ArrayList<>();
                   gruppoInfoDTO.setDettaglioInfo(info);
                   list.add(gruppoInfoDTO);
                   lastKey = idGruppoInfo;
@@ -2349,7 +2349,7 @@ public class QuadroDAO extends BaseDAO
                 throws SQLException, DataAccessException
             {
               ProcedimentoDTO result = null;
-              List<ProcedimentoOggettoDTO> lProcOggetto = new ArrayList<ProcedimentoOggettoDTO>();
+              List<ProcedimentoOggettoDTO> lProcOggetto = new ArrayList<>();
               List<IterProcedimentoOggettoDTO> lIterProcOggetto = null;
               Long lastProcOggetto = null;
               while (rs.next())
@@ -2384,7 +2384,7 @@ public class QuadroDAO extends BaseDAO
                   procedimentoOggettoDTO
                       .setFlagIstanza(rs.getString("FLAG_ISTANZA"));
                   procedimentoOggettoDTO.setIdOggetto(rs.getLong("ID_OGGETTO"));
-                  lIterProcOggetto = new ArrayList<IterProcedimentoOggettoDTO>();
+                  lIterProcOggetto = new ArrayList<>();
                   procedimentoOggettoDTO
                       .setIterProcedimentoggetto(lIterProcOggetto);
                   lProcOggetto.add(procedimentoOggettoDTO);
@@ -2664,7 +2664,7 @@ public class QuadroDAO extends BaseDAO
             public List<FonteControlloDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              List<FonteControlloDTO> result = new ArrayList<FonteControlloDTO>();
+              List<FonteControlloDTO> result = new ArrayList<>();
               List<it.csi.nembo.nembopratiche.dto.procedimentooggetto.controlli.ControlloDTO> lcontrolli = null;
               Long lastIdFonteControllo = null;
               while (rs.next())
@@ -2680,7 +2680,7 @@ public class QuadroDAO extends BaseDAO
                   fonteControlloDTO
                       .setDescrizione(rs.getString("DESCR_FONTE_CONTR"));
 
-                  lcontrolli = new ArrayList<it.csi.nembo.nembopratiche.dto.procedimentooggetto.controlli.ControlloDTO>();
+                  lcontrolli = new ArrayList<>();
                   fonteControlloDTO.setControlli(lcontrolli);
                   result.add(fonteControlloDTO);
                 }
@@ -2847,7 +2847,7 @@ public class QuadroDAO extends BaseDAO
                   fonteControlloDTO
                       .setDescrizione(rs.getString("DESCR_FONTE_CONTR"));
 
-                  lcontrolli = new ArrayList<it.csi.nembo.nembopratiche.dto.procedimentooggetto.controlli.ControlloDTO>();
+                  lcontrolli = new ArrayList<>();
                   fonteControlloDTO.setControlli(lcontrolli);
                 }
 
@@ -3023,7 +3023,7 @@ public class QuadroDAO extends BaseDAO
                 List<FileAllegatiDTO> list = map.get(idDettaglioInfo);
                 if (list == null)
                 {
-                  list = new ArrayList<FileAllegatiDTO>();
+                  list = new ArrayList<>();
                   map.put(idDettaglioInfo, list);
                 }
                 list.add(file);
@@ -6981,7 +6981,7 @@ public class QuadroDAO extends BaseDAO
             public List<RaggruppamentoLivelloCriterio> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RaggruppamentoLivelloCriterio> list = new ArrayList<RaggruppamentoLivelloCriterio>();
+              ArrayList<RaggruppamentoLivelloCriterio> list = new ArrayList<>();
               RaggruppamentoLivelloCriterio raggruppamentoLivello = null;
               String descrizione = null;
               String raggruppamento = null;
@@ -7242,7 +7242,7 @@ public class QuadroDAO extends BaseDAO
             public List<RaggruppamentoLivelloCriterio> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RaggruppamentoLivelloCriterio> list = new ArrayList<RaggruppamentoLivelloCriterio>();
+              ArrayList<RaggruppamentoLivelloCriterio> list = new ArrayList<>();
               RaggruppamentoLivelloCriterio raggruppamentoLivello = null;
               String descrizione = null;
               String raggruppamento = null;
@@ -9203,7 +9203,7 @@ public class QuadroDAO extends BaseDAO
               {
                 if (result == null)
                 {
-                  result = new ArrayList<LivelloDTO>();
+                  result = new ArrayList<>();
                 }
                 livello = new LivelloDTO();
                 livello.setIdLivello(rs.getLong("ID_LIVELLO"));
@@ -9332,7 +9332,7 @@ public class QuadroDAO extends BaseDAO
               {
                 if (result == null)
                 {
-                  result = new ArrayList<SettoriDiProduzioneDTO>();
+                  result = new ArrayList<>();
                 }
                 settore = new SettoriDiProduzioneDTO();
                 settore.setDescrizione(rs.getString("DESCRIZIONE"));
@@ -9459,7 +9459,7 @@ public class QuadroDAO extends BaseDAO
               {
                 if (result == null)
                 {
-                  result = new ArrayList<SettoriDiProduzioneDTO>();
+                  result = new ArrayList<>();
                 }
                 settore = new SettoriDiProduzioneDTO();
                 settore.setDescrizione(rs.getString("DESCRIZIONE"));
@@ -9800,7 +9800,7 @@ public class QuadroDAO extends BaseDAO
               {
                 if (result == null)
                 {
-                  result = new ArrayList<GraduatoriaDTO>();
+                  result = new ArrayList<>();
                 }
                 grad = new GraduatoriaDTO();
                 grad.setIdGraduatoria(rs.getLong("ID_GRADUATORIA"));
@@ -11140,7 +11140,7 @@ public class QuadroDAO extends BaseDAO
                 List<String> list = result.get(tipoCollocazioneTesto);
                 if (list == null)
                 {
-                  list = new ArrayList<String>();
+                  list = new ArrayList<>();
                   result.put(tipoCollocazioneTesto, list);
                 }
                 list.add(rs.getString("DESCRIZIONE"));
@@ -11308,7 +11308,7 @@ public class QuadroDAO extends BaseDAO
             public List<ImportoLiquidatoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ImportoLiquidatoDTO> list = new ArrayList<ImportoLiquidatoDTO>();
+              ArrayList<ImportoLiquidatoDTO> list = new ArrayList<>();
               while (rs.next())
               {
 
@@ -11447,7 +11447,7 @@ public class QuadroDAO extends BaseDAO
             public List<String> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<String> list = new ArrayList<String>();
+              ArrayList<String> list = new ArrayList<>();
               while (rs.next())
               {
 
@@ -11514,7 +11514,7 @@ public class QuadroDAO extends BaseDAO
             public List<RipartizioneImportoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RipartizioneImportoDTO> list = new ArrayList<RipartizioneImportoDTO>();
+              ArrayList<RipartizioneImportoDTO> list = new ArrayList<>();
               while (rs.next())
               {
 
@@ -11746,7 +11746,7 @@ public class QuadroDAO extends BaseDAO
             public List<RiduzioniSanzioniDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RiduzioniSanzioniDTO> list = new ArrayList<RiduzioniSanzioniDTO>();
+              ArrayList<RiduzioniSanzioniDTO> list = new ArrayList<>();
               RiduzioniSanzioniDTO riduzione = null;
               long idTipologia = 0l;
               long idTipologiaOld = -1l;
@@ -11875,7 +11875,7 @@ public class QuadroDAO extends BaseDAO
             public List<DecodificaDTO<String>> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<DecodificaDTO<String>> list = new ArrayList<DecodificaDTO<String>>();
+              ArrayList<DecodificaDTO<String>> list = new ArrayList<>();
               DecodificaDTO<String> riduzione = null;
               while (rs.next())
               {
@@ -11939,7 +11939,7 @@ public class QuadroDAO extends BaseDAO
             public List<DecodificaDTO<Long>> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<DecodificaDTO<Long>> list = new ArrayList<DecodificaDTO<Long>>();
+              ArrayList<DecodificaDTO<Long>> list = new ArrayList<>();
               DecodificaDTO<Long> riduzione = null;
               while (rs.next())
               {
@@ -12278,7 +12278,7 @@ public class QuadroDAO extends BaseDAO
         return null;
       }
       Object array = arrayObj.getArray();
-      List<Long> ids = new ArrayList<Long>();
+      List<Long> ids = new ArrayList<>();
       if (array != null)
       {
         for (BigDecimal elemento : (BigDecimal[]) array)
@@ -12687,7 +12687,7 @@ public class QuadroDAO extends BaseDAO
             public List<RigaSimulazioneEstrazioneDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<RigaSimulazioneEstrazioneDTO> list = new ArrayList<RigaSimulazioneEstrazioneDTO>();
+              ArrayList<RigaSimulazioneEstrazioneDTO> list = new ArrayList<>();
               Long lastKey = null;
               List<LivelloDTO> livelli = null;
               while (rs.next())
@@ -12859,7 +12859,7 @@ public class QuadroDAO extends BaseDAO
             public List<SegnapostoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              List<SegnapostoDTO> result = new ArrayList<SegnapostoDTO>();
+              List<SegnapostoDTO> result = new ArrayList<>();
               SegnapostoDTO segnapostoDTO = null;
               while (rs.next())
               {
@@ -16070,7 +16070,7 @@ public class QuadroDAO extends BaseDAO
         + "   SMRGAA_V_DATI_DELEGA VDE                                                                                                                                                                                    \n"
         + " WHERE                                                                                                                                                                                                         \n"
         + "   PO.ID_PROCEDIMENTO = P.ID_PROCEDIMENTO                                                                                                                                                                      \n";
-    ArrayList<String> vIds = new ArrayList<String>(vIdProcedimentoOggetto);
+    ArrayList<String> vIds = new ArrayList<>(vIdProcedimentoOggetto);
     QUERY += " " + getInCondition("PO.ID_PROCEDIMENTO_OGGETTO", NemboUtils.ARRAY.toVectorLong(vIds), true)
         + " ";
     QUERY += "   AND LGO.ID_LEGAME_GRUPPO_OGGETTO = PO.ID_LEGAME_GRUPPO_OGGETTO                                                                                                                                              \n"
@@ -16448,7 +16448,7 @@ public class QuadroDAO extends BaseDAO
             public List<ProspettoEconomicoDTO> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<ProspettoEconomicoDTO> list = new ArrayList<ProspettoEconomicoDTO>();
+              ArrayList<ProspettoEconomicoDTO> list = new ArrayList<>();
               Long lastKey = null;
               List<DomandaPagamentoProspettoEconomicoDTO> records = null;
               while (rs.next())
@@ -17227,7 +17227,7 @@ public class QuadroDAO extends BaseDAO
                 throws SQLException, DataAccessException
             {
               ProcedimentoDTO result = null;
-              List<ProcedimentoOggettoDTO> lProcOggetto = new ArrayList<ProcedimentoOggettoDTO>();
+              List<ProcedimentoOggettoDTO> lProcOggetto = new ArrayList<>();
               List<IterProcedimentoOggettoDTO> lIterProcOggetto = null;
               Long lastProcOggetto = null;
               while (rs.next())
@@ -17262,7 +17262,7 @@ public class QuadroDAO extends BaseDAO
                   procedimentoOggettoDTO.setIdOggetto(rs.getLong("ID_OGGETTO"));
                   procedimentoOggettoDTO.setCodiceRaggruppamento(
                       rs.getInt("CODICE_RAGGRUPPAMENTO"));
-                  lIterProcOggetto = new ArrayList<IterProcedimentoOggettoDTO>();
+                  lIterProcOggetto = new ArrayList<>();
                   procedimentoOggettoDTO
                       .setIterProcedimentoggetto(lIterProcOggetto);
                   lProcOggetto.add(procedimentoOggettoDTO);
@@ -19601,7 +19601,7 @@ public class QuadroDAO extends BaseDAO
             public List<Long> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              ArrayList<Long> list = new ArrayList<Long>();
+              ArrayList<Long> list = new ArrayList<>();
 
               while (rs.next())
               {
@@ -22213,7 +22213,7 @@ public class QuadroDAO extends BaseDAO
 	            public List<RigaSegnalazioneDannoDTO> extractData(ResultSet rs)
 	                throws SQLException, DataAccessException
 	            {
-	              List<RigaSegnalazioneDannoDTO> danni = new ArrayList<RigaSegnalazioneDannoDTO>();
+	              List<RigaSegnalazioneDannoDTO> danni = new ArrayList<>();
 	              while (rs.next())
 	              {
 	                RigaSegnalazioneDannoDTO riga = new RigaSegnalazioneDannoDTO();

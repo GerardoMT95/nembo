@@ -46,7 +46,7 @@ public class CUNEMBO206Monitoraggio extends BaseController
         session);
     final boolean utenteServiziAgri = utenteAbilitazioni.getRuolo()
         .isUtenteServiziAgri();
-    List<String[]> servizi = new ArrayList<String[]>();
+    List<String[]> servizi = new ArrayList<>();
     servizi.add(checkWSProfilazione(utenteAbilitazioni));
     servizi.add(checkWSMessaggistica(utenteAbilitazioni));
     servizi.add(checkAgriwell());
