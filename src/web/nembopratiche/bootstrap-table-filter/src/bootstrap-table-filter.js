@@ -189,10 +189,10 @@
                 			filterData.eq=filterData.eq.trim();
               				values=filterData.eq.split('/');
               			}
-	              	day=values[0];
-	              	month=values[1];
-	              	year = values[2];
-	              	val = year+month+day;
+	              	let day=values[0];
+	              	let month=values[1];
+	              	let year = values[2];
+	              	let val = year+month+day;
               		
               		if(val != valueToCompare)
                       return false;
@@ -204,10 +204,10 @@
                     			filterData.neq=filterData.neq.trim();
                     			values=filterData.neq.split('/');
                     		}
-      	              	day=values[0];
-      	              	month=values[1];
-      	              	year = values[2];
-      	              	val = year+month+day;
+      	              	let day=values[0];
+      	              	let month=values[1];
+      	              	let year = values[2];
+      	              	let val = year+month+day;
       	              	
       	              if(val == valueToCompare)
                           return false;
@@ -220,10 +220,10 @@
                     			filterData.lte=filterData.lte.trim();
                     			values=filterData.lte.split('/');
                     		}
-      	              	day=values[0];
-      	              	month=values[1];
-      	              	year = values[2];
-      	              	val = year+month+day;
+      	              	let day=values[0];
+      	              	let month=values[1];
+      	              	let year = values[2];
+      	              	let val = year+month+day;
       	              	
       	              if(val <= valueToCompare)
                           return false;
@@ -236,10 +236,10 @@
                     			filterData.gte=filterData.gte.trim();
                     			values=filterData.gte.split('/');
                     		}
-      	              	day=values[0];
-      	              	month=values[1];
-      	              	year = values[2];
-      	              	val = year+month+day;
+      	              	let alues[0];
+      	              	let month=values[1];
+      	              	let year = values[2];
+      	              	let val = year+month+day;
                   }
                 	  if(val >= valueToCompare)
                           return false;

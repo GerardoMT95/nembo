@@ -116,6 +116,6 @@ function myList_addItem($list, text, value, onclick)
     text="";
   }
   var title=text.replace(new RegExp('"', 'g'), '&quot;');
-  $a=$("<a href='#' class=\"list-group-item\" title=\""+title+"\"data-value=\""+value+"\" onclick=\""+onclick+"\">"+text+"</a>");
+  let $a=$("<a href='#' class=\"list-group-item\" title=\""+title+"\"data-value=\""+value+"\" onclick=\""+onclick+"\">"+text+"</a>");
   $list.append($a);
 }

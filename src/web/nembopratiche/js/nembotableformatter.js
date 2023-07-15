@@ -245,20 +245,20 @@ function dateSorterddmmyyyyHHmmss(a, b) {
 	if(a!=null && b!=null && a!="" && b!=""){
 
 	let values=a.split("/");
-	day=values[0];
-	month=values[1];
+	let day=values[0];
+	let month=values[1];
 	
 	//resto is yyyy hh:mm:ss
-	resto = values[2];
+	let resto = values[2];
 
 	values=resto.split(' ');
-	year = values[0];
-	time = values[1].split(':');
-	hour = time[0];
-	minutes = time[1];
-	seconds = time[2];
+	let year = values[0];
+	let time = values[1].split(':');
+	let hour = time[0];
+	let minutes = time[1];
+	let seconds = time[2];
 	
-	a = year+month+day+hour+minutes+seconds;
+	let a = year+month+day+hour+minutes+seconds;
     
 	values=b.split('/');
 	day=values[0];
@@ -273,7 +273,7 @@ function dateSorterddmmyyyyHHmmss(a, b) {
 	minutes = time[1];
 	seconds = time[2];
 
-	b = year+month+day+hour+minutes+seconds;
+	let b = year+month+day+hour+minutes+seconds;
 
     if (a > b) return 1;
     if (a < b) return -1;
