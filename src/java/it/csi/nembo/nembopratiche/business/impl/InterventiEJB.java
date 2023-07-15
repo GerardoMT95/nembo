@@ -1722,27 +1722,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 		BigDecimal punteggio  = BigDecimal.ZERO;
 		for(RaggruppamentoLivelloCriterio r : listaRaggruppamento)
 		{
-			for(CriterioVO criterio : r.getCriteri())
-			{
-				mappaIdBandoLivelloCriterio.put(criterio.getIdBandoLivelloCriterio(), Boolean.TRUE);
-				BigDecimal punteggioTmp = BigDecimal.ZERO;
-				if(criterio.getPunteggioIstruttoria() == null)
-				{
-		    		if(criterio.getPunteggioCalcolato() != null)
-		    		{
-		    			punteggioTmp=criterio.getPunteggioCalcolato();
-		    		}
-		    	}else
-		    	{
-		    		punteggioTmp = criterio.getPunteggioIstruttoria();
-		    	}
-				punteggio = punteggio.add(punteggioTmp);
-				
-				if(mappaCodiciPunteggioPerInterventiPrevenzione.containsKey((criterio.getCodice())) && punteggioTmp.compareTo(BigDecimal.ZERO) > 0)
-				{
-					inserisciInterventoPrevenzione = true;
-				}
-			}
+      punteggio = calcolaPunteggio(punteggio, r);
 		}
 		
 	  //creazione degli oggetti di tipo intervento da inserire
@@ -1791,6 +1771,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 		  intervento.setIdIntervento(idIntervento);
 		  
 		  //aggiornare o eliminare l'intervento in base al punteggio
+      aggiornaEliminaIntervento(inserisciInterventoPrevenzione, intervento);
 		  if(inserisciInterventoPrevenzione)
 		  {
 			  List<RigaModificaMultiplaInterventiDTO> listInterventi = new ArrayList<RigaModificaMultiplaInterventiDTO>();
@@ -1806,6 +1787,32 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 		  }
 	  }
 	  return 0;
+}
+
+BigDecimal calcolaPunteggio(BigDecimal punteggio, RaggruppamentoLivelloCriterio r){
+
+			for(CriterioVO criterio : r.getCriteri())
+			{
+				mappaIdBandoLivelloCriterio.put(criterio.getIdBandoLivelloCriterio(), Boolean.TRUE);
+				BigDecimal punteggioTmp = BigDecimal.ZERO;
+				if(criterio.getPunteggioIstruttoria() == null)
+				{
+		    		if(criterio.getPunteggioCalcolato() != null)
+		    		{
+		    			punteggioTmp=criterio.getPunteggioCalcolato();
+		    		}
+		    	}else
+		    	{
+		    		punteggioTmp = criterio.getPunteggioIstruttoria();
+		    	}
+				punteggio = punteggio.add(punteggioTmp);
+				
+				if(mappaCodiciPunteggioPerInterventiPrevenzione.containsKey((criterio.getCodice())) && punteggioTmp.compareTo(BigDecimal.ZERO) > 0)
+				{
+					inserisciInterventoPrevenzione = true;
+				}
+			}
+return punteggio;
 }
 
 
