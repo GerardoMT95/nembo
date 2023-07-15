@@ -19,9 +19,6 @@ public class DocumentoDTO implements ILoggable
   private String            descrizioneEsito;
   private String            noteEsito;
 
-  public DocumentoDTO()
-  {
-  }
 
   public List<EsitoDTO> getEsitiPossibili()
   {
