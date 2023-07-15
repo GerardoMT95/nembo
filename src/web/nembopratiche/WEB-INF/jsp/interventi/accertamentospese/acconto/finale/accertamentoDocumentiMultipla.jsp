@@ -132,7 +132,7 @@
                    $('#importoNonRiconosciuto_'+idDocumentoSpesaInterven).val();
         try
   	    {
-  	    	$number=Number(disp);
+  	    	let $number=Number(disp);
 			$('#importoDisponibile_'+idDocumentoSpesaInterven).html($number.formatCurrency(2));
 			$('#importoDisponibileh_'+idDocumentoSpesaInterven).val($number.formatCurrency(2));
 			
@@ -163,7 +163,7 @@
     {
     	try
     	  {
-    	    $number=Number($value);
+    	    let $number=Number($value);
     	    if (isNaN($number))
     	    {
     	    	return '<span class="pull-right primo_uguale_'+index+'" data-value="'+$value+'">'+$value+'</span>';

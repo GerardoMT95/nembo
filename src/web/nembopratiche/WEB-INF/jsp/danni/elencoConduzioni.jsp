@@ -179,7 +179,7 @@
 	     {
 	       $.each(tableData, function(index, row)
 	       {
-	         $input = $('<input>',
+	         let $input = $('<input>',
 	         {
 	           type : 'hidden',
 	           name : 'idUtilizzoDichiarato',

@@ -94,7 +94,7 @@ $('#interventiDualList').DualListBox();
 	    });
 	    
 		//popolo select principale
-	    for (index = 0; index < arraySelectedValue.length; ++index) {
+	    for (let index = 0; index < arraySelectedValue.length; ++index) {
 		    if(arraySelectedValue[index] != null)
 			 {
 		    	$('#selectedHiddenInterventi').append('<input type="hidden" name="idInterventiHidden"value="'+index+'">');

@@ -160,26 +160,26 @@
                   	value="";
                   }
             	  if(value!=""){
-            		v = value.toString();
-            		values=v.split('/');
-            		day=values[0];
-            		month=values[1];
+            		let v = value.toString();
+            		let values=v.split('/');
+            		let day=values[0];
+            		let month=values[1];
 	              	//resto is yyyy hh:mm:ss
-            		resto = values[2];
+                      let resto = values[2];
 
             		if(resto.length != 4 && resto.length!=5)
 	              	{
-            			values=resto.split(' ');
-		              	year = values[0];
-		              	time = values[1].split(':');
-		              	hour = time[0];
-		              	minutes = time[1];
-		              	seconds = time[2];
+            			let values=resto.split(' ');
+                        let year = values[0];
+                        let time = values[1].split(':');
+                        let hour = time[0];
+                        let minutes = time[1];
+                        let seconds = time[2];
 	              	}
             		else
-            			year = resto.trim(); 
+                    let year = resto.trim(); 
             		
-	              	valueToCompare = year+month+day;
+                    let valueToCompare = year+month+day;
 	              	
 	              	
               	if (typeof filterData.eq !== 'undefined') {

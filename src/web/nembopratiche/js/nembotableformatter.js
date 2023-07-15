@@ -7,7 +7,7 @@ function numberFormatter($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
       return '<span class="pull-right">'+$value+'</span>';
@@ -24,7 +24,7 @@ function numberFormatter1($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
     	return '<span class="pull-right">'+$value+'</span>';
@@ -41,7 +41,7 @@ function numberFormatterGeneric($value, row, index, nDecimalDigits)
 {
 	  try
 	  {
-	    $number=Number($value);
+	    let $number=Number($value);
 	    if (isNaN($number))
 	    {
 	    	return '<span class="pull-right">'+$value+'</span>';
@@ -68,7 +68,7 @@ function numberFormatter2($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
     	return '<span class="pull-right">'+$value+'</span>';
@@ -85,7 +85,7 @@ function numberFormatter4($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
     	return '<span class="pull-right">'+$value+'</span>';
@@ -133,7 +133,7 @@ function euroFormatter($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
       return '<span class="pull-right">'+$value+'</span>';
@@ -150,7 +150,7 @@ function euroFormatterConcat($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
       return '<span class="pull-right">'+$value+'</span>';
@@ -166,7 +166,7 @@ function percentFormatter($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
       return '<span class="pull-right">'+$value+'</span>';
@@ -183,7 +183,7 @@ function numberFormatter4($value, row, index)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
     	return '<span class="pull-right">'+$value+'</span>';
@@ -244,7 +244,7 @@ function dateSorterddmmyyyyHHmmss(a, b) {
 	
 	if(a!=null && b!=null && a!="" && b!=""){
 
-	values=a.split("/");
+	let values=a.split("/");
 	day=values[0];
 	month=values[1];
 	
@@ -282,10 +282,10 @@ function dateSorterddmmyyyyHHmmss(a, b) {
 }
 
 function dataSorterNumeroUnitaMisura(a, b) {
-    nA = parseFloat(a.split(' ')[0].replace(/[.]/g,'').replace(/[,]/g,'.'));
-    nB = parseFloat(b.split(' ')[0].replace(/[.]/g,'').replace(/[,]/g,'.'));
-    umA = a.split(' ')[1];
-    umB = b.split(' ')[1];
+    let nA = parseFloat(a.split(' ')[0].replace(/[.]/g,'').replace(/[,]/g,'.'));
+    let nB = parseFloat(b.split(' ')[0].replace(/[.]/g,'').replace(/[,]/g,'.'));
+    let umA = a.split(' ')[1];
+    let umB = b.split(' ')[1];
     if(!isNaN(nA) && !isNaN(nB))
 	{
     	if (nA > nB) return 1;

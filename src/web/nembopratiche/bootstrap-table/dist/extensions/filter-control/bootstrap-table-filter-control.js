@@ -195,7 +195,7 @@
 
             header.off('mouseup', 'input').on('mouseup', 'input', function (event) {
                 var $input = $(this),
-                oldValue = $input.val();
+                let oldValue = $input.val();
 
                 if (oldValue === "") {
                     return;

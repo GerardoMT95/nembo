@@ -323,7 +323,7 @@ function filtra(idAllSelect)
     }
     
   //popolo select principale
-    for (index = 0; index < arraySelectedIndex.length; ++index) {
+    for (let index = 0; index < arraySelectedIndex.length; ++index) {
 	    if(arraySelectedIndex[index] != null)
 		 {
 	    	$('#'+idSelect).append($('<option>', { value: arraySelectedIndex[index], text: arraySelectedValue[arraySelectedIndex[index]], disabled: 'disabled' }));
@@ -407,7 +407,7 @@ function filtraSelezionati(idAllSelect)
     });
        
   //popolo select principale
-    for (index = 0; index < arraySelectedIndex.length; ++index) {
+    for (let index = 0; index < arraySelectedIndex.length; ++index) {
 	    if(arraySelectedIndex[index] != null)
 		 {
 	    	$('#'+idSelect).append($('<option>', { value: arraySelectedIndex[index], text: arraySelectedValue[arraySelectedIndex[index]], disabled: 'disabled' }));
@@ -501,7 +501,7 @@ function elaboraJsonRicerca(data)
 {
 	$('#oggetti').html('');
 
-	for(key in data) 																																			
+	for(let key in data) 																																			
 	  {
 		  var value=data[key];  
 		  if (key.indexOf('optBandi')==0)
@@ -636,7 +636,7 @@ function elaboraDatiComuni(data, idPiva, idComune)
 		 $("#"+idPiva).val('');
 		 $("#"+idComune).val('');
 		 
-		 for(key in data) 																																			
+		 for(let key in data) 																																			
 		 { 																																							
 			var value=data[key];   																																	
 			if (key.indexOf('comuniDTO')==0)
@@ -1013,7 +1013,7 @@ function showMessageBoxContinuaAnnulla(title, message, modalClass, operationSucc
 
 function submitFormViaAjax(formId, callback)
 {
-  $form=$('#'+formId);
+  let $form=$('#'+formId);
   $.ajax({
 		type : "POST",
 		url : $form.attr('action'),
@@ -1033,7 +1033,7 @@ function submitFormViaAjax(formId, callback)
 
 function submitFormViaAjaxAsync(formId, callback)
 {
-  $form=$('#'+formId);
+  let $form=$('#'+formId);
   $.ajax({
 		type : "POST",
 		url : $form.attr('action'),
@@ -1175,7 +1175,7 @@ Number.prototype.formatCurrency = function(c){
 
   function submitFormTo($form, page)
   {
-    $oldAction=$form.attr('action');
+    let $oldAction=$form.attr('action');
     $form.attr('action',page);
     $form.submit();
     $form.attr('action',$oldAction);
@@ -1198,7 +1198,7 @@ Number.prototype.formatCurrency = function(c){
   {
     try
     {
-      $messaggiTestata = $('#messaggi-testata');
+      let $messaggiTestata = $('#messaggi-testata');
       if ($messaggiTestata.length > 0)
       {
         startMessaggistica($messaggiTestata);
@@ -1229,11 +1229,11 @@ Number.prototype.formatCurrency = function(c){
     if (match!=null && match.length>0)
     {
       var hash=Array();
-      for(_i=0;_i<match.length;_i++)
+      for(let _i=0;_i<match.length;_i++)
       {
         hash[match[_i]]=match[_i];
       }
-      for(url in hash)
+      for(let url in hash)
       {
         testoMessaggio = testoMessaggio.replace(url, '<a href="'+url+'" target="_blank">'+url+'</a>');
       }

@@ -13,7 +13,7 @@ function preferNumberFormatterSvg($value)
 {
   try
   {
-    $number=Number($value);
+    let $number=Number($value);
     if (isNaN($number))
     {
       return $value;

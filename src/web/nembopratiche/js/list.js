@@ -4,7 +4,7 @@ function initDropDown()
   {
     var $dropdown = $(this);
     var $filter = $dropdown.find(".dropdown-filter");
-    $input = $filter.val("");
+    let $input = $filter.val("");
     applyFiltroDropdown($filter.get(0));
   });
 }
@@ -34,7 +34,7 @@ function applyFiltroDropdown(self)
 
   $this.closest('ul').find('li').each(function(index, object)
   {
-    $a = $(object).find("a");
+    let $a = $(object).find("a");
     if ($a.length == 0)
     {
       return;
@@ -58,7 +58,7 @@ function applyFiltroDropdown(self)
 
 function myList_defaultOnClickItem(self, value)
 {
-  $this=$(self);
+  let $this=$(self);
   var $list=$this.closest('.my-list');
   if (!$list.data('multiple-selection'))
   {
@@ -77,7 +77,7 @@ function myList_filterList(filter, $list)
   
   $list.children('a').each(function(index, object)
     {
-      $object=$(object);
+      let $object=$(object);
       if ($object.html().toLowerCase().indexOf(filter)>-1)
       {
         countVisibili++;

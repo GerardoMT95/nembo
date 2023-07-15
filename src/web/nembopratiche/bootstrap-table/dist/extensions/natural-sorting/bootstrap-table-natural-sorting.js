@@ -31,7 +31,7 @@ function alphanum(a, b) {
   var aa = chunkify(a);
   var bb = chunkify(b);
 
-  for (x = 0; aa[x] && bb[x]; x++) {
+  for (let x = 0; aa[x] && bb[x]; x++) {
     if (aa[x] !== bb[x]) {
       var c = Number(aa[x]),
           d = Number(bb[x]);
