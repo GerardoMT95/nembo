@@ -20,7 +20,7 @@
       async:false
       }).success(function(data) 
         {
-        $select=$('#'+idComboComuni);
+        var $select=$('#'+idComboComuni);
         $select.prop("disabled",false);
         if (disabledIfEmpty)
         {
@@ -37,7 +37,7 @@
   
   function caricaComuniPerProvinciaConConduzioniDanniSuperficiColture(istatProvincia, idComboComuni, disabledIfEmpty)
   {
-	  url = "../cunembo298i/elenco_comuni_conduzioni_superfici_"  + istatProvincia + ".do";
+	   let url = "../cunembo298i/elenco_comuni_conduzioni_superfici_"  + istatProvincia + ".do";
 	  return caricaComuniPerProvinciaConConduzioni(istatProvincia, idComboComuni, disabledIfEmpty, url)
   }
   
