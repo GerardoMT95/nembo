@@ -165,12 +165,12 @@ public class ListeLiquidazioneEJB extends
       /*
        * Qualcuno ho creato una nuova lista di liquidazione per la tripletta
        * bando/amm competenza/tipo importo in concorrenza con l'utente
-       * Incompatibilità grave ==> impossibile creare la lista ==> segnalo
+       * Incompatibilitï¿½ grave ==> impossibile creare la lista ==> segnalo
        * all'utente la situazione forzando il ricarico dei dati con una
        * ApplicationException
        */
       throw new ApplicationException(
-          "Attenzione! Si è verificato un errore grave nella creazione lista: un altro utente ha creato nel frattempo una lista di liquidazione su questo stesso bando, per la stessa amministrazione e lo stesso Tipo importo. Impossibile proseguire con la creazione");
+          "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: un altro utente ha creato nel frattempo una lista di liquidazione su questo stesso bando, per la stessa amministrazione e lo stesso Tipo importo. Impossibile proseguire con la creazione");
     }
     /*
      * Devo verificare che il tecnico liquidatore non sia stato un tecnico
@@ -183,7 +183,7 @@ public class ListeLiquidazioneEJB extends
           "Impossibile creare la lista di liquidazione: il funzionario liquidatore risulta aver ricoperto il ruolo di istruttore in almeno uno dei pagamenti in liquidazione; per visualizzare i pagamenti con l'anomalia selezionare il pulsante \"Elenco pratiche in lista\" e filtrare quelle con l'errore.",
           -123);
     }
-    // Se sono arrivato qua è perchè non sono state create nuove liste che
+    // Se sono arrivato qua ï¿½ perchï¿½ non sono state create nuove liste che
     // possono dare fastidio, verifico la congruenza
     // delle risorse
     List<RisorseImportiOperazioneDTO> risorseAttuali = dao.getDatiListaDaCreare(
@@ -192,10 +192,10 @@ public class ListeLiquidazioneEJB extends
     if (risorseAttuali == null || risorseAttuali.isEmpty())
     {
       // In teoria non dovrebbe mai avvenire (o quanto meno solo in casi rari),
-      // comunque meglio una verifica in più che
+      // comunque meglio una verifica in piï¿½ che
       // una in meno
       throw new ApplicationException(
-          "Attenzione! Si è verificato un errore grave nella creazione lista: Non sono state assegnate delle risorse finanziarie per il bando selezionato");
+          "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: Non sono state assegnate delle risorse finanziarie per il bando selezionato");
     }
     List<RisorseImportiOperazioneDTO> risorseUtente = datiListaDaCreareDTO
         .getRisorse();
@@ -203,11 +203,11 @@ public class ListeLiquidazioneEJB extends
     {
       // Se il numero di risorse disponibili attuali non coincide con il numero
       // di risorse disponibili viste dall'utente
-      // allora c'è sicuramente stato un cambiamento che non può essere ignorato
+      // allora c'ï¿½ sicuramente stato un cambiamento che non puï¿½ essere ignorato
       // ==> Errore e visualizzazione dei dati
       // corretti all'utente
       throw new ApplicationException(
-          "Attenzione! Si è verificato un errore grave nella creazione lista: un altro utente nel frattempo ha modificato le risorse finanziarie assegnate al Bando. Impossibile proseguire con la creazione");
+          "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: un altro utente nel frattempo ha modificato le risorse finanziarie assegnate al Bando. Impossibile proseguire con la creazione");
     }
     Map<Long, RisorseImportiOperazioneDTO> mapRisorse = new HashMap<Long, RisorseImportiOperazioneDTO>();
     // Le risorse attuali e quelle visualizzate dall'utente sono uguali in
@@ -224,45 +224,7 @@ public class ListeLiquidazioneEJB extends
 
     for (RisorseImportiOperazioneDTO risorsa : risorseUtente)
     {
-      RisorseImportiOperazioneDTO risorsaAttuale = mapRisorse
-          .get(risorsa.getIdRisorseLivelloBando());
-      if (risorsaAttuale == null)
-      {
-        // Manca ==> Errore grave!
-        throw new ApplicationException(
-            "Attenzione! Si è verificato un errore grave nella creazione lista: un altro utente nel frattempo ha modificato le risorse finanziarie assegnate al Bando. Impossibile proseguire con la creazione");
-      }
-      if (risorsaAttuale.getNumeroPagamentiLista() != risorsa
-          .getNumeroPagamentiLista())
-      {
-        // Numero differente di pagamenti ==> Errore grave!
-        throw new ApplicationException(
-            "Attenzione! Si è verificato un errore grave nella creazione lista: il numero di pratiche e/o l'importo totale da liquidare è variato, probabilmente nel frattempo sono state ammesse a pagamento altre pratiche");
-      }
-      final BigDecimal importoDaLiquidare = risorsa.getImportoDaLiquidare();
-      if (risorsaAttuale.getImportoDaLiquidare()
-          .compareTo(importoDaLiquidare) != 0)
-      {
-        // Cambiato l'importo da liquidare ==> Errore grave!
-        throw new ApplicationException(
-            "Attenzione! Si è verificato un errore grave nella creazione lista: il numero di pratiche e/o l'importo totale da liquidare è variato, probabilmente nel frattempo sono state ammesse a pagamento altre pratiche");
-      }
-      boolean isImportoDaLiquidare = BigDecimal.ZERO
-          .compareTo(importoDaLiquidare) < 0;
-      hasImportiDaLiquidare |= isImportoDaLiquidare;
-      bdTotaleDaLiquidareInListaPrimaCreazione = bdTotaleDaLiquidareInListaPrimaCreazione
-          .add(importoDaLiquidare,
-              MathContext.DECIMAL128)
-          .setScale(2, RoundingMode.HALF_UP);
-      totaleNumeroPagamentiPrimaCreazione += risorsa.getNumeroPagamentiLista();
-      if (risorsaAttuale.getImportoRimanente().compareTo(BigDecimal.ZERO) < 0
-          && isImportoDaLiquidare)
-      {
-        // Per questa operazione ci sono delle pratiche da liquidare ma non c'è
-        // copertura ==> Errore grave!
-        throw new ApplicationException(
-            "Attenzione! Si è verificato un errore grave nella creazione lista: Nel frattempo sono intervenute delle modifiche sulle risorse finanziarie, oppure sono state gerenate da un altro utente liste di liquidazione sullo stesso bando che non permettono più la copertura finanziaria");
-      }
+      gestisciRisorse(risorsa);
     }
     if (!hasImportiDaLiquidare)
     {
@@ -270,7 +232,7 @@ public class ListeLiquidazioneEJB extends
       // pratiche da liquidare ==> inutile creare
       // una lista vuota ==> Errore grave!
       throw new ApplicationException(
-          "Attenzione! Si è verificato un errore grave nella creazione lista: Non esistono pratiche da pagare per questa lista");
+          "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: Non esistono pratiche da pagare per questa lista");
     }
     // uff che fatica, ho superato tutti i controlli posso procedere alla
     // creazione della lista
@@ -279,9 +241,9 @@ public class ListeLiquidazioneEJB extends
         idTecnicoLiquidatore, idUtenteAggiornamento);
 
     /**
-     * ATTENZIONE: L'ordine seguente dei 2 metodi è importante, PRIMA bisogna
+     * ATTENZIONE: L'ordine seguente dei 2 metodi ï¿½ importante, PRIMA bisogna
      * inserire la tabella NEMBO_R_RISORSE_LIV_BANDO e poi la tabella
-     * NEMBO_R_LISTA_LIQUIDAZ_IMP_LIQ perchè la query che estrae i record da
+     * NEMBO_R_LISTA_LIQUIDAZ_IMP_LIQ perchï¿½ la query che estrae i record da
      * inserire in entrambi i casi si basa sul fatto che non siano ancora
      * presenti su NEMBO_R_RISORSE_LIV_BANDO, quindi chiamando in ordine errato
      * i metodi si ottiene di non inserire nulla sulla tabella di relazione
@@ -295,12 +257,12 @@ public class ListeLiquidazioneEJB extends
     /**
      * Ho inserito le relazioni per la lista, ora mi resta da ripartire gli
      * importi liquidati. Lo faccio in 2 tempi. Prima inserisco tutti gli
-     * importi ripartiti come percentuale cioè quelli con
+     * importi ripartiti come percentuale cioï¿½ quelli con
      * FLAG_CRITERIO_RIPARTIZIONE = 'R' che vengono calcolati come percentuale
      * dell'importo liquidato. Poi inserisco i restanti importi ripartiti per
-     * differenza cioè quelli con FLAG_CRITERIO_RIPARTIZIONE = 'D' (in sostanza
+     * differenza cioï¿½ quelli con FLAG_CRITERIO_RIPARTIZIONE = 'D' (in sostanza
      * mi disinteresso della percentuale di ripartizione ma faccio la differenza
-     * tra l'importo liquidato e i record già inseriti al punto precedente per
+     * tra l'importo liquidato e i record giï¿½ inseriti al punto precedente per
      * ogni singolo importo liquidato) in modo da avere sempre il 100% come
      * somma delle ripartizioni. Anche in questo caso, ovviamente, L'ORDINE DI
      * CHIAMATA DEI METODI E' IMPORTANTE!
@@ -311,16 +273,16 @@ public class ListeLiquidazioneEJB extends
     dao.insertFileListaLiquidazione(idListaLiquidazione);
     /**
      * Inizio con le verifiche post creazione Carico la lista appena caricata...
-     * Prendo l'elemento con indice 0. Nessun controllo... Esiste perchè l'ho
-     * appena inserita e nessuno può averla cancellata dato che non è ancora
+     * Prendo l'elemento con indice 0. Nessun controllo... Esiste perchï¿½ l'ho
+     * appena inserita e nessuno puï¿½ averla cancellata dato che non ï¿½ ancora
      * visibile al di fuori della transazione.
      */
     RigaJSONElencoListaLiquidazioneDTO lista = dao
         .getListeLiquidazione(idListaLiquidazione).get(0);
     /**
-     * Perchè tutto sia andato a buon fine occorre che il numero pagamenti e
+     * Perchï¿½ tutto sia andato a buon fine occorre che il numero pagamenti e
      * l'importo totale da liquidare della lista siano uguali a quelli
-     * presentati all'utente, altrimenti è intervenuto qualcosa che ha cambiato
+     * presentati all'utente, altrimenti ï¿½ intervenuto qualcosa che ha cambiato
      * i dati sul db mentre stavo inserendo i dati (nel periodo di tempo che
      * intercorre tra la validazione dei dati e gli insert degli stessi)
      */
@@ -329,17 +291,60 @@ public class ListeLiquidazioneEJB extends
         lista.getNumPagamenti() != totaleNumeroPagamentiPrimaCreazione)
     {
       /**
-       * In questo caso, al 99% il problema è dovuto al fatto che qualche utente
+       * In questo caso, al 99% il problema ï¿½ dovuto al fatto che qualche utente
        * abbia messo come liquidabile una pratica proprio mentre si inseriva la
        * lista di liquidazione. Indipendentemente dal motivo non posso creare
        * una lista di liquidazione con dati differenti da quelli presentati a
        * video ==> Errore!
        */
       throw new ApplicationException(
-          "Attenzione! Si è verificato un errore grave nella creazione lista: sono avvenute delle modifiche che hanno comportato una variazione del numero delle pratiche o importo liquidabili. Impossibile procedere");
+          "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: sono avvenute delle modifiche che hanno comportato una variazione del numero delle pratiche o importo liquidabili. Impossibile procedere");
     }
     // Evvai! Lista fatta e finita! ==> ritorno i dati di creazione della lista
     return dao.getDatiCreazioneLista(idListaLiquidazione);
+  }
+  
+  void gestisciRisorse(RisorseImportiOperazioneDTO risorsa){
+    
+      RisorseImportiOperazioneDTO risorsaAttuale = mapRisorse
+          .get(risorsa.getIdRisorseLivelloBando());
+      if (risorsaAttuale == null)
+      {
+        // Manca ==> Errore grave!
+        throw new ApplicationException(
+            "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: un altro utente nel frattempo ha modificato le risorse finanziarie assegnate al Bando. Impossibile proseguire con la creazione");
+      }
+      if (risorsaAttuale.getNumeroPagamentiLista() != risorsa
+          .getNumeroPagamentiLista())
+      {
+        // Numero differente di pagamenti ==> Errore grave!
+        throw new ApplicationException(
+            "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: il numero di pratiche e/o l'importo totale da liquidare ï¿½ variato, probabilmente nel frattempo sono state ammesse a pagamento altre pratiche");
+      }
+      final BigDecimal importoDaLiquidare = risorsa.getImportoDaLiquidare();
+      if (risorsaAttuale.getImportoDaLiquidare()
+          .compareTo(importoDaLiquidare) != 0)
+      {
+        // Cambiato l'importo da liquidare ==> Errore grave!
+        throw new ApplicationException(
+            "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: il numero di pratiche e/o l'importo totale da liquidare ï¿½ variato, probabilmente nel frattempo sono state ammesse a pagamento altre pratiche");
+      }
+      boolean isImportoDaLiquidare = BigDecimal.ZERO
+          .compareTo(importoDaLiquidare) < 0;
+      hasImportiDaLiquidare |= isImportoDaLiquidare;
+      bdTotaleDaLiquidareInListaPrimaCreazione = bdTotaleDaLiquidareInListaPrimaCreazione
+          .add(importoDaLiquidare,
+              MathContext.DECIMAL128)
+          .setScale(2, RoundingMode.HALF_UP);
+      totaleNumeroPagamentiPrimaCreazione += risorsa.getNumeroPagamentiLista();
+      if (risorsaAttuale.getImportoRimanente().compareTo(BigDecimal.ZERO) < 0
+          && isImportoDaLiquidare)
+      {
+        // Per questa operazione ci sono delle pratiche da liquidare ma non c'ï¿½
+        // copertura ==> Errore grave!
+        throw new ApplicationException(
+            "Attenzione! Si ï¿½ verificato un errore grave nella creazione lista: Nel frattempo sono intervenute delle modifiche sulle risorse finanziarie, oppure sono state gerenate da un altro utente liste di liquidazione sullo stesso bando che non permettono piï¿½ la copertura finanziaria");
+      }
   }
 
   @Override
@@ -351,7 +356,7 @@ public class ListeLiquidazioneEJB extends
       dao.delete("NEMBO_T_FILE_LISTA_LIQUIDAZIONE", "ID_LISTA_LIQUIDAZIONE",
           idListaLiquidazione);
       dao.deleteRisorseLivBandImpLiq(idListaLiquidazione);
-      dao.deleteRImportiRipartiti(idListaLiquidazione); // non c'è nell'analisi
+      dao.deleteRImportiRipartiti(idListaLiquidazione); // non c'ï¿½ nell'analisi
                                                         // ma direi che va anche
                                                         // pulita questa
       dao.delete("NEMBO_R_LISTA_LIQUIDAZ_IMP_LIQ", "ID_LISTA_LIQUIDAZIONE",
@@ -395,19 +400,19 @@ public class ListeLiquidazioneEJB extends
               .getDataUltimoAggiornamento()) > NemboConstants.TEMPO.SECONDI_PRIMA_DI_RIGENERARE_UNA_STAMPA) // 10
       // minuti
       {
-        // Se lo stato è generazione in corso, per aggiornare il record deve
+        // Se lo stato ï¿½ generazione in corso, per aggiornare il record deve
         // essere passato un certo tempo (10 minuti di
         // default)
-        // Non è ancora passato il lasso di tempo per permettere la
-        // rigenerazione == > non faccio nulla, una stampa è
-        // già in corso
-        // Questo caso, se non ci sono errori è dovuto al fatto che più utenti
+        // Non ï¿½ ancora passato il lasso di tempo per permettere la
+        // rigenerazione == > non faccio nulla, una stampa ï¿½
+        // giï¿½ in corso
+        // Questo caso, se non ci sono errori ï¿½ dovuto al fatto che piï¿½ utenti
         // abbiano richiesto la rigenerazione in
         // contemporanea,
         // partono entrambi da una situazione valida per richiedere la
         // rigenerazione ma il secondo che arriva si trova
         // il record
-        // già aggiornato, quindi non fa nulla.
+        // giï¿½ aggiornato, quindi non fa nulla.
         dao.ripristinaListaLiquidazione(stampaListaLiq);
         return true;
       }
@@ -420,7 +425,7 @@ public class ListeLiquidazioneEJB extends
     else
     {
       // Non mi metto a controllare lo stato, TANTO NON ESSENDOCI
-      // EXT_ID_DOCUMENTO_INDEX non può essere andato bene...
+      // EXT_ID_DOCUMENTO_INDEX non puï¿½ essere andato bene...
       // ==> RIGENERO
       dao.ripristinaListaLiquidazione(stampaListaLiq);
       return true;
@@ -526,7 +531,7 @@ public class ListeLiquidazioneEJB extends
           .getIdStatoStampa() == NemboConstants.STATO.STAMPA.ID.FIRMATO_DIGITALMENTE)
       {
         throw new ApplicationException(
-            "La lista di liquidazione indicata è approvata, impossibile proseguire");
+            "La lista di liquidazione indicata ï¿½ approvata, impossibile proseguire");
       }
       dao.aggiornaStatoLista(idListaLiquidazione, flagStatoLista,
           idUtenteAggiornamento);
@@ -542,13 +547,13 @@ public class ListeLiquidazioneEJB extends
 
   /**
    * Il metodo, in caso di errore applicativo gestito, non lancia l'eccezione
-   * ApplicationException ma la ritorna al chiamante. Questo perchè, nel caso di
+   * ApplicationException ma la ritorna al chiamante. Questo perchï¿½, nel caso di
    * errore nella scrittura/protocollazione sul documentale Agriwellweb, il
    * messaggio di errore viene scritto su db, quindi serve che la transazione
    * esegua il commit, cosa che entra in contrasto con il fatto che in caso di
    * eccezione venga eseguito il rollback di default. Per non creare
    * un'eccezione che non forzi il rollback della transazione (cosa che sarebbe
-   * potenzialmente pericolosa) si è preferito restituire l'eccezione.
+   * potenzialmente pericolosa) si ï¿½ preferito restituire l'eccezione.
    */
   @Override
   public ApplicationException approvaLista(long idListaLiquidazione,
@@ -581,14 +586,14 @@ public class ListeLiquidazioneEJB extends
           .getIdStatoStampa() == NemboConstants.STATO.STAMPA.ID.FIRMATO_DIGITALMENTE)
       {
         throw new ApplicationException(
-            "La lista di liquidazione indicata è già approvata, impossibile proseguire");
+            "La lista di liquidazione indicata ï¿½ giï¿½ approvata, impossibile proseguire");
       }
 
       if (dao.isListaLiquidazioneCorrotta(idListaLiquidazione))
       {
         throw new ApplicationException(
-            "La lista di liquidazione indicata è corrotta (a causa di un precedente tentativo non riuscito di approvazione), impossibile procedere. Si prega di contattare l'assistenza tecnica comunicando il seguente messaggio: La lista di liquidazione con ID="
-                + idListaLiquidazione + " è corrotta");
+            "La lista di liquidazione indicata ï¿½ corrotta (a causa di un precedente tentativo non riuscito di approvazione), impossibile procedere. Si prega di contattare l'assistenza tecnica comunicando il seguente messaggio: La lista di liquidazione con ID="
+                + idListaLiquidazione + " ï¿½ corrotta");
       }
       String emailAmmCompetenza = dao
           .getEmailAmmCompetenzaLista(idListaLiquidazione);
@@ -607,7 +612,7 @@ public class ListeLiquidazioneEJB extends
         if (mapParametri.get(param) == null)
         {
           throw new ApplicationException(
-              "Si è verificato un errore interno grave, impossibile proseguire. Contattare l'assistenza tecnica comunicando il seguente messaggio: Parametro \""
+              "Si ï¿½ verificato un errore interno grave, impossibile proseguire. Contattare l'assistenza tecnica comunicando il seguente messaggio: Parametro \""
                   + param + "\" non presente");
         }
       }
@@ -616,10 +621,10 @@ public class ListeLiquidazioneEJB extends
           stampaFirmata, idUtenteAggiornamento,
           mapParametri, emailAmmCompetenza, utenteAbilitazioni.getIdProcedimento());
       /*
-       * A questo punto la lista è su Agriwell / Doqui. Quindi nel caso qualcosa
+       * A questo punto la lista ï¿½ su Agriwell / Doqui. Quindi nel caso qualcosa
        * andasse male nelle fasi sequenti sarebbe un problema GRAVE da segnalare
        * all'utente e che necessiterebbe una correzione manuale, dato che non ho
-       * transazionalità sui WS.
+       * transazionalitï¿½ sui WS.
        */
       long extIdDocumentoIndex = esito.getIdDocumentoIndex();
       try
@@ -633,10 +638,10 @@ public class ListeLiquidazioneEJB extends
         /*
          * Converto in ApplicationException in modo che venga catturata dal
          * catch successivo e restituita senza generare rollback. Non mi importa
-         * se i dati su db non resteranno congruenti: l'obiettivo è tenere
-         * traccia in qualsiasi modo che la lista sia già stata mandata al
-         * documentale ed evitare di rimandarla. Se l'errore è avvenuto
-         * sull'aggiornamento di NEMBO_T_FILE_LISTA_LIQUIDAZIONE non c'è nulla
+         * se i dati su db non resteranno congruenti: l'obiettivo ï¿½ tenere
+         * traccia in qualsiasi modo che la lista sia giï¿½ stata mandata al
+         * documentale ed evitare di rimandarla. Se l'errore ï¿½ avvenuto
+         * sull'aggiornamento di NEMBO_T_FILE_LISTA_LIQUIDAZIONE non c'ï¿½ nulla
          * per cui fare rollback (quindi inutile farlo), mentre se l'errore
          * fosse avvenuto sull'aggiornamento di NEMBO_T_LISTA_LIQUIDAZIONE, ho i
          * dati del documentale su NEMBO_T_FILE_LISTA_LIQUIDAZIONE e posso
@@ -645,8 +650,8 @@ public class ListeLiquidazioneEJB extends
          * creerebbero solo problemi), quindi meglio evitare il rollback
          */
         throw new ApplicationException(
-            "Si è verificato un errore interno GRAVE nell'applicazione. "
-                + "La lista di liquidazione è stata registrata e protocollata sul documentale ma non è stato possibile aggiornare la base dati. "
+            "Si ï¿½ verificato un errore interno GRAVE nell'applicazione. "
+                + "La lista di liquidazione ï¿½ stata registrata e protocollata sul documentale ma non ï¿½ stato possibile aggiornare la base dati. "
                 + "Si prega di NON ripetere l'operazione ma contattare immediatamente l'assistenza tecnica e comunicare il seguente messaggio di errore: "
                 + "Errore nel cambio di stato della lista di liquidazione con ID="
                 + idListaLiquidazione
@@ -657,7 +662,7 @@ public class ListeLiquidazioneEJB extends
     }
     catch (ApplicationException e)
     {
-      logger.error("Si è verificato una eccezione ApplicationException", e);
+      logger.error("Si ï¿½ verificato una eccezione ApplicationException", e);
       DumpUtils.logGenericException(logger, null, e, (LogParameter[]) null,
           (LogVariable[]) null,
           "[" + THIS_CLASS + "." + THIS_METHOD + "]");
@@ -694,6 +699,35 @@ public class ListeLiquidazioneEJB extends
               emailAmmCompetenza,
               idUtenteAggiornamento,
               idProcedimentoAgricolo);
+      archiviazioneListeLiquidazione(inputVO);
+    }
+    catch (ApplicationException e)
+    {
+      throw e;
+    }
+    catch (InvalidParameterException | ProtocollaSystemException
+        | MalformedURLException | UnrecoverableException e)
+    {
+      logger.error("[" + THIS_CLASS + "." + THIS_METHOD
+          + " Si ï¿½ verificato un errore nel richiamo del servizio archiviaProtocollaDocumento() di agriwell. Il messaggio di errore restituito ï¿½: "
+          + e.getMessage());
+      dao.scriviEccezioneAgriwell(idListaLiquidazione, e);
+      throw new ApplicationException(
+          "Si ï¿½ verificato un errore nella registrazione/protocollazione della lista di liquidazione sul sistema documentale. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+    }
+    catch (Exception e)
+    {
+      logger.error("[" + THIS_CLASS + "." + THIS_METHOD
+          + " Si ï¿½ verificato un errore generico nell'invio della lista di liquidazione sul documentale di agriwell. Il messaggio di errore restituito ï¿½: "
+          + e.getMessage());
+      dao.scriviEccezioneAgriwell(idListaLiquidazione, e);
+      throw new ApplicationException(
+          "Si ï¿½ verificato un errore nella registrazione/protocollazione della lista di liquidazione sul sistema documentale. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+    }
+  }
+
+  void archiviazioneListeLiquidazione(SiapCommWsDocumentoInputVO inputVO){
+    
       if (NemboConstants.FLAGS.SI.equals(inputVO.getFlagTimbroProtocollo()))
       {
         String[] PARAM_NAMES_COORDINATE_LISTE_LIQUIDAZIONE =
@@ -710,7 +744,7 @@ public class ListeLiquidazioneEJB extends
           if (mapParametriCoordinate.get(param) == null)
           {
             throw new ApplicationException(
-                "Si è verificato un errore interno grave, impossibile proseguire. Contattare l'assistenza tecnica comunicando il seguente messaggio: Parametro \""
+                "Si ï¿½ verificato un errore interno grave, impossibile proseguire. Contattare l'assistenza tecnica comunicando il seguente messaggio: Parametro \""
                     + param + "\" non presente");
           }
         }
@@ -729,7 +763,7 @@ public class ListeLiquidazioneEJB extends
       {
         logger.info("[" + THIS_CLASS + "." + THIS_METHOD
             + "] La lista di liquidazione " + idListaLiquidazione
-            + " è stata archiviata e protocollata con idDocumentoIndex = "
+            + " ï¿½ stata archiviata e protocollata con idDocumentoIndex = "
             + esito.getIdDocumentoIndex()
             + ", numeroProtocolloDocumento = "
             + esito.getNumeroProtocolloDocumento()
@@ -752,42 +786,18 @@ public class ListeLiquidazioneEJB extends
         {
           messaggioErrore = esito.getEsitoVO().getMessaggio();
         }
-        final String errorMessage = "Si è verificato un errore nel richiamo dels servizio archiviaProtocollaDocumento() di agriwell. Il messaggio di errore restituito è: "
+        final String errorMessage = "Si ï¿½ verificato un errore nel richiamo dels servizio archiviaProtocollaDocumento() di agriwell. Il messaggio di errore restituito ï¿½: "
             + messaggioErrore;
         logger.error("[" + THIS_CLASS + "." + THIS_METHOD + " " + errorMessage);
         // Registro l'errore
         dao.scriviEccezioneAgriwell(idListaLiquidazione,
             new ApplicationException(errorMessage));
         // E rilancio un'eccezione "pulita" (senza quindi informazioni tecniche,
-        // già registrate su db) che verrà
+        // giï¿½ registrate su db) che verrï¿½
         // visualizzata all'utente
         throw new ApplicationException(
-            "Si è verificato un errore nella registrazione/protocollazione della lista di liquidazione sul sistema documentale. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+            "Si ï¿½ verificato un errore nella registrazione/protocollazione della lista di liquidazione sul sistema documentale. Se il problema persistesse si prega di contattare l'assistenza tecnica");
       }
-    }
-    catch (ApplicationException e)
-    {
-      throw e;
-    }
-    catch (InvalidParameterException | ProtocollaSystemException
-        | MalformedURLException | UnrecoverableException e)
-    {
-      logger.error("[" + THIS_CLASS + "." + THIS_METHOD
-          + " Si è verificato un errore nel richiamo del servizio archiviaProtocollaDocumento() di agriwell. Il messaggio di errore restituito è: "
-          + e.getMessage());
-      dao.scriviEccezioneAgriwell(idListaLiquidazione, e);
-      throw new ApplicationException(
-          "Si è verificato un errore nella registrazione/protocollazione della lista di liquidazione sul sistema documentale. Se il problema persistesse si prega di contattare l'assistenza tecnica");
-    }
-    catch (Exception e)
-    {
-      logger.error("[" + THIS_CLASS + "." + THIS_METHOD
-          + " Si è verificato un errore generico nell'invio della lista di liquidazione sul documentale di agriwell. Il messaggio di errore restituito è: "
-          + e.getMessage());
-      dao.scriviEccezioneAgriwell(idListaLiquidazione, e);
-      throw new ApplicationException(
-          "Si è verificato un errore nella registrazione/protocollazione della lista di liquidazione sul sistema documentale. Se il problema persistesse si prega di contattare l'assistenza tecnica");
-    }
   }
 
   @Override
