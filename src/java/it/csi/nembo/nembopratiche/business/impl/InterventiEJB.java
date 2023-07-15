@@ -279,6 +279,21 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
       }
       for (RigaModificaMultiplaInterventiDTO intervento : listInterventi)
       {
+        modificaintervento(intervento);
+      }
+      logOperationOggettoQuadro(logOperationDTO);
+    }
+    finally
+    {
+      if (debugLevel)
+      {
+        logger.debug(THIS_METHOD + " END.");
+      }
+    }
+  }
+
+  void modificaintervento(RigaModificaMultiplaInterventiDTO intervento){
+    
         long idIntervento = dao.insertIntervento(intervento);
         intervento.setIdIntervento(idIntervento);
         long idDettIntervProcOgg = dao
@@ -306,16 +321,6 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
         	DanniDTO danno = dao.getDannoByIdDannoAtm(idProcedimentoOggetto,idDannoAtm);
         	dao.inserisciDannoAtmIntervento(idProcedimentoOggetto,idIntervento,danno);
         }
-      }
-      logOperationOggettoQuadro(logOperationDTO);
-    }
-    finally
-    {
-      if (debugLevel)
-      {
-        logger.debug(THIS_METHOD + " END.");
-      }
-    }
   }
 
   @Override
