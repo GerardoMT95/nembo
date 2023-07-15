@@ -941,7 +941,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         }
         else
         {
-          return null;
+          return false;
         }
       }
       return false;
