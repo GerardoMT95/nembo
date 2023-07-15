@@ -125,7 +125,7 @@ public class DanniDTO implements ILoggable
 	}
 	public String getImportoFormattedStampa()
 	{
-		return NemboUtils.FORMAT.formatGenericNumber(importo, 2, true) + " €";
+		return NemboUtils.FORMAT.formatGenericNumber(importo, 2, true) + " ï¿½";
 	}
 	public String getDescrizione()
 	{
@@ -178,6 +178,9 @@ public class DanniDTO implements ILoggable
 			disabled=true;
 			break;
 		}
+		default:
+			logger.debug("Nessun caso");
+		break;
 		return disabled;
 	}
 
@@ -187,7 +190,7 @@ public class DanniDTO implements ILoggable
 		{
 			return null;
 		}
-		return denominazione.replaceAll("<br/>", "\r\n");
+		return denominazione.replace("<br/>", "\r\n");
 	}
 	public String getNomeTabella()
 	{
