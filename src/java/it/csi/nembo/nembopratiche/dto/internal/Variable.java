@@ -3,7 +3,7 @@ package it.csi.nembo.nembopratiche.dto.internal;
 import java.io.Serializable;
 
 /**
- * Classe di utilità che rappresenta una variabile un metodo. Viene utilizzato
+ * Classe di utilitï¿½ che rappresenta una variabile un metodo. Viene utilizzato
  * dai metodi di logging per ricevere l'elenco delle variabili di un metodo
  * quando si verifica un errore e bisogna stamparle.
  * 
@@ -34,19 +34,19 @@ public class Variable implements Serializable
   public Variable(String nome, long valore)
   {
     this.nome = nome;
-    this.valore = new Long(valore);
+    this.valore = valore;
   }
 
   public Variable(String nome, int valore)
   {
     this.nome = nome;
-    this.valore = new Long(valore);
+    this.valore = valore;
   }
 
   public Variable(String nome, boolean valore)
   {
     this.nome = nome;
-    this.valore = new Boolean(valore);
+    this.valore = valore;
   }
 
   public Variable(String nome, char valore)
@@ -58,13 +58,13 @@ public class Variable implements Serializable
   public Variable(String nome, double valore)
   {
     this.nome = nome;
-    this.valore = new Double(valore);
+    this.valore = valore;
   }
 
   public Variable(String nome, float valore)
   {
     this.nome = nome;
-    this.valore = new Float(valore);
+    this.valore = valore;
   }
 
   public String getNome()

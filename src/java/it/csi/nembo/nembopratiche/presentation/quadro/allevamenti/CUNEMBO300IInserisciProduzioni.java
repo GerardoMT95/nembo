@@ -83,7 +83,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 		  String paginaDaCaricare;
 		  Map<String,Boolean> mapIdProduzioniInserite = new HashMap<String,Boolean>();
 		  Errors errors = new Errors();
-		  Long numeroCapiTotale = new Long(0L);
+		  Long numeroCapiTotale = 0L;
 		  String[] arrayIdProduzione =  getArrayIdProduzione(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
 		  String[] idsDaInserire = request.getParameterValues("idDaInserire");
 		  
@@ -105,7 +105,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 				  errors.validateMandatoryBigDecimalInRange(fieldGiornateLavorativeMedie, fieldNameGiornateLavorativeMedie, 2, giornateLavorativeMin, giornateLavorativeMax);
 		  
 		  Integer maxIdDaInserire = START_VALUE_ID_DA_INSERIRE;
-		  Long maxNumeroCapi = new Long(0L);
+		  Long maxNumeroCapi = 0L;
 		  List<ProduzioneCategoriaAnimaleDTO> listProduzioniVendibili = new ArrayList<ProduzioneCategoriaAnimaleDTO>();
 		  if(idsDaInserire != null)
 		  {
@@ -141,7 +141,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 				  
 				  if(mapIdProduzioniInserite.containsKey(currentFieldIdProduzione))
 				  {
-					  errors.addError(currentFieldNameIdProduzione, "Non è consentito inserire più volte la stessa produzione per lo stesso allevamento.");
+					  errors.addError(currentFieldNameIdProduzione, "Non ï¿½ consentito inserire piï¿½ volte la stessa produzione per lo stesso allevamento.");
 				  }else
 				  {
 					  errors.validateMandatoryValueList(currentFieldIdProduzione, currentFieldNameIdProduzione, arrayIdProduzione);
@@ -199,7 +199,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 		  if(numeroCapiTotale > maxNumeroCapi)
 		  {
 			  errors.validateMandatory(fieldNote,fieldNameNote,
-					  "Campo obbligatorio. Il numero dei capi inseriti supera la quantità di capi registrati in anagrafe.");
+					  "Campo obbligatorio. Il numero dei capi inseriti supera la quantitï¿½ di capi registrati in anagrafe.");
 		  }
 		  if(errors.addToModelIfNotEmpty(model))
 		  {

@@ -371,7 +371,6 @@ public class RigaJSONElencoListaLiquidazioneDTO implements ILoggable
 
   public String getElencoCodiciLivelliMisureHtml()
   {
-    // return elencoCodiciLivelliHtml;
     String htmlElenco = "";
     List<String> lCodici = new ArrayList<String>();
     List<LivelloDTO> liv = this.getLivelli();
@@ -397,7 +396,6 @@ public class RigaJSONElencoListaLiquidazioneDTO implements ILoggable
 
   public String getElencoMisureHtml()
   {
-    // return elencoCodiciLivelliHtml;
     String htmlElenco = "";
     List<String> lCodici = new ArrayList<String>();
     List<LivelloDTO> liv = this.getLivelli();

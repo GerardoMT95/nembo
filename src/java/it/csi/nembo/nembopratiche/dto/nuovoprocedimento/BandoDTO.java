@@ -371,7 +371,6 @@ public class BandoDTO implements ILoggable
 
 	public String getElencoCodiciLivelliHtml()
 	{
-		// return elencoCodiciLivelliHtml;
 		String htmlElenco = "";
 
 		List<LivelloDTO> liv = this.getLivelli();
@@ -477,7 +476,6 @@ public class BandoDTO implements ILoggable
 
 	public String getElencoCodiciLivelliMisureHtml()
 	{
-		// return elencoCodiciLivelliHtml;
 		String htmlElenco = "";
 		List<String> lCodici = new ArrayList<String>();
 		List<LivelloDTO> liv = this.getLivelli();

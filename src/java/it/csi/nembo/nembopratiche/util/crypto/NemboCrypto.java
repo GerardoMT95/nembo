@@ -38,7 +38,7 @@ public class NemboCrypto {
             byte[] encryptedBytes = cipher.doFinal(value.getBytes(StandardCharsets.UTF_8));
             return Base64.encodeBase64String(encryptedBytes);
         } catch (Exception ex) {
-            //ex.printStackTrace();
+            logger.debug("eccezione");
         }
 
         return null;
@@ -60,7 +60,7 @@ public class NemboCrypto {
             byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
             return new String(decryptedBytes, StandardCharsets.UTF_8);
         } catch (Exception ex) {
-            //ex.printStackTrace();
+            logger.debug("eccezione");
         }
 
         return null;

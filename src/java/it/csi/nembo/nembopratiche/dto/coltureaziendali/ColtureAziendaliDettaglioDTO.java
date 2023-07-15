@@ -101,10 +101,14 @@ public class ColtureAziendaliDettaglioDTO extends SuperficiColtureDettaglioDTO i
 	{
 		this.percentualeDanno = percentualeDanno;
 	}
+
+	@Override
 	public String getRecordModificato()
 	{
 		return recordModificato;
 	}
+	
+	@Override
 	public void setRecordModificato(String recordModificato)
 	{
 		this.recordModificato = recordModificato;

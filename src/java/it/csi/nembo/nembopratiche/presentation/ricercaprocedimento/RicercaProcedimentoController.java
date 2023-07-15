@@ -1885,7 +1885,7 @@ public class RicercaProcedimentoController extends BaseController
     if (op == null)
       return null;
 
-    Long i = new Long(0);
+    Long i = 0;
     for (LivelloDTO l : op)
     {
       i++;

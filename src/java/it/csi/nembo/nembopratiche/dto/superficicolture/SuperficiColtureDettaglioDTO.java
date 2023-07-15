@@ -23,7 +23,7 @@ public class SuperficiColtureDettaglioDTO implements ILoggable
 	private BigDecimal plvTotDich;
 	private String recordModificato;
 	
-	//proprietà non visualizzate a video
+	//proprietï¿½ non visualizzate a video
 	private String extIstatComune;
 	private String ubicazioneTerreno;
 	private String note;
@@ -231,10 +231,14 @@ public class SuperficiColtureDettaglioDTO implements ILoggable
 	{
 		this.note = note;
 	}
+
+	@Override
 	public String getRecordModificato()
 	{
 		return recordModificato;
 	}
+	
+	@Override
 	public void setRecordModificato(String recordModificato)
 	{
 		this.recordModificato = recordModificato;

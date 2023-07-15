@@ -610,10 +610,10 @@ public class DocumentoSpesaVO implements ILoggable
       ret += "000&&&";
 
     BigDecimal impR = getImportoRendicontato();
-    if (importoAssociato != null && impR != null)
-      if (importoAssociato.subtract(impR).compareTo(BigDecimal.ZERO) != 0
+    if (importoAssociato != null && impR != null && (importoAssociato.subtract(impR).compareTo(BigDecimal.ZERO) != 0
           || (importoAssociato.compareTo(BigDecimal.ZERO) == 0
-              && impR.compareTo(BigDecimal.ZERO) == 0))
+              && impR.compareTo(BigDecimal.ZERO) == 0)))
+    
         ret += "000&&&";
 
     if (oggettiDoc != null && !oggettiDoc.isEmpty())

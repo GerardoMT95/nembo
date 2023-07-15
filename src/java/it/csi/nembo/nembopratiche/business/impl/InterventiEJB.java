@@ -360,7 +360,7 @@ public class InterventiEJB extends NemboAbstractEJB<InterventiDAO>
         for (RigaElencoInterventi intervento : interventi)
         {
           intervento.setDescComuni(map.get(intervento.getIdIntervento()));
-//          intervento.setIdTipoLocalizzazione(3);
+
         }
       }
       return interventi;

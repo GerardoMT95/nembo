@@ -787,13 +787,10 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     {
       ProcedimentoOggetto procedimentoOggetto = dao
           .getProcedimentoOggetto(idProcedimentoOggetto);
-      if (procedimentoOggetto != null)
+      if (procedimentoOggetto != null && procedimentoOggetto.getDataFine() == null)
       {
-        if (procedimentoOggetto.getDataFine() == null)
-        {
           throw new ApplicationException(
               "L'oggetto non � chiuso, impossibile eliminare la stampa");
-        }
       }
       ProcedimOggettoStampaDTO stampa = dao
           .getProcedimOggettoStampaByIdOggetoIcona(idProcedimentoOggetto,
@@ -1212,7 +1209,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
   }
 
   private String completeRiaperturaProcedimentoOggetto(
-      long idProcedimentoOggetto, long idUtente)
+      long idProcedimentoOggetto)
       throws InternalUnexpectedException
   {
     String THIS_METHOD = "[" + THIS_CLASS
@@ -1251,10 +1248,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
                   esitoVO = NemboUtils.PORTADELEGATA
                       .getAgriwellCSIInterface()
                       .agriwellServiceCancellaDoquiAgri(extIdDocumentoIndex);
-                  if (esitoVO.getEsito() != null && esitoVO
-                      .getEsito() == NemboConstants.SERVICE.AGRIWELL.RETURN_CODE.SUCCESS)
-                  {
-                  }
+               
                   else
                   {
                     logger.error(THIS_METHOD
@@ -1361,16 +1355,14 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 	}
 	try
 	{
-	    if (utenteAbilitazioni.getRuolo().isUtenteTitolareCf() || utenteAbilitazioni.getRuolo().isUtenteLegaleRappresentante())
+	    if (utenteAbilitazioni.getRuolo().isUtenteTitolareCf() || utenteAbilitazioni.getRuolo().isUtenteLegaleRappresentante() && !dao.isBeneficiarioAbilitatoATrasmettere(utenteAbilitazioni.getCodiceFiscale(), idProcedimentoOggetto))
 	    {
 	      // Se l'utente � un beneficiario in proprio (quindi con ruolo titolare CF o legale rappresentante)
 	      // deve avere potere di firma per poter trasmettere la domanda in quanto il sistema segna la domanda come firmata con firma semplice dall'utente connesso 
-	      
-	    	if (!dao.isBeneficiarioAbilitatoATrasmettere(utenteAbilitazioni.getCodiceFiscale(), idProcedimentoOggetto))
-	      {
+
 	        // Nel caso non ce l'abbia ==> errore (comunque non dovrebbe mai accadere in quanto a monte l'utente non dovrebbe vedere l'icona di trasmissione)
 	        return "L'utente corrente non � autorizzato a firmare per conto dell'azienda, impossibile proseguire con l'operazione di trasmissione";
-	      }
+
 	    }
 		dao.lockProcedimentoOggetto(idProcedimentoOggetto);
 		ProcedimentoOggetto po = dao.getProcedimentoOggetto(idProcedimentoOggetto);
@@ -1387,10 +1379,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 		if (NemboConstants.OGGETTO.CODICE.COMUNICAZIONE_RINUNCIA.equals(codiceOggetto))
 		{
 		  final Date dataLimiteRinunciaTotale = dao.getDataLimiteRinunciaTotale(idProcedimentoOggetto);
-		  if (dataLimiteRinunciaTotale!=null && !new Date().after(dataLimiteRinunciaTotale))
-		  {
-		    //dao.updateProcedimento(idProcedimento, NemboConstants.STATO.OGGETTO.ID.RINUNCIA_BENEFICIARIO, utenteAbilitazioni.getIdUtenteLogin());
-		  }
+		 
 		}
 		else
 		{
@@ -1642,7 +1631,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 				    		 StringWriter sw = new StringWriter();
 				    			JAXB.marshal(pecRequestVO, sw);
 				    			String xmlString = sw.toString();
-				    			System.out.println(xmlString);
+				    			logger.debug(xmlString);
 							 NemboUtils.WS.getServiceProtocolloInformaticoserv().notificaByPec(pecRequestVO);
 				    	 }
 					 }
@@ -1656,7 +1645,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 				    		 StringWriter sw = new StringWriter();
 			    			JAXB.marshal(pecRequestVO, sw);
 			    			String xmlString = sw.toString();
-			    			System.out.println(xmlString);
+			    			logger.debug(xmlString);
 							 NemboUtils.WS.getServiceProtocolloInformaticoserv().notificaByPec(pecRequestVO);
 				    	 }
 					 }					 
@@ -1697,7 +1686,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 			  }
 			  catch(java.lang.Exception ex){
 				  sessionContext.setRollbackOnly();
-				  //ex.printStackTrace();
 				 logger.error( " Eccezione con la chiamata al servizio insertProtocollo() in protocollaStampaAllegati ="+ex.getMessage());
 				 return " si � verificato un problema durante il richiamo al servizio di protocollazione.";
 			  }
@@ -1705,7 +1693,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 		} 
 		catch (java.lang.Exception ex) {
 			sessionContext.setRollbackOnly();
-			//ex.printStackTrace();
 			logger.error("-- Exception in generaPdfNuovoCorso ="+ ex.getMessage());		
 			 return " si � verificato un problema durante il richiamo al servizio di protocollazione.";
 		} 
@@ -1968,7 +1955,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     }
     catch(NamingException ne)
     {
-    	//Logger.logMsg(Logger.ERROR, "Errore verificatosi durante l'esecuzione della lookup di interventiEJB\n" + ne.getMessage());
     	throw new InternalUnexpectedException(ne);
     }
     List<RaggruppamentoLivelloCriterio> listaRaggruppamento = getCriteriPunteggioManuali(
@@ -2006,7 +1992,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     }
     catch(NamingException ne)
     {
-    	//Logger.logMsg(Logger.ERROR, "Errore verificatosi durante l'esecuzione della lookup di interventiEJB\n" + ne.getMessage());
     	throw new InternalUnexpectedException(ne);
     }
     
@@ -3053,7 +3038,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 				else if(NemboConstants.STATO.ESITO.ID.TIPO_ESITO_O.COMPLETATO == po.getIdEsito())
 				{
 					dao.updateProcedimentoOggetto(idProcedimentoOggetto,  NemboConstants.STATO.ESITO.ID.APPROVATA_POSITIVO, utenteAbilitazioni.getIdUtenteLogin());
-					//dao.updateProcedimento(idProcedimento, NemboConstants.STATO.PROCEDIMENTO.ID.AMMESSO_FINANZIAMENTO, utenteAbilitazioni.getIdUtenteLogin());
 				}
 				else
 				{
@@ -3073,7 +3057,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
 				else if(NemboConstants.STATO.ESITO.ID.TIPO_ESITO_O.COMPLETATO == po.getIdEsito())
 				{
 					dao.updateProcedimentoOggetto(idProcedimentoOggetto,  NemboConstants.STATO.ESITO.ID.APPROVATA_POSITIVO, utenteAbilitazioni.getIdUtenteLogin());
-					//dao.updateProcedimento(idProcedimento, NemboConstants.STATO.PROCEDIMENTO.ID.AMMESSO_FINANZIAMENTO, utenteAbilitazioni.getIdUtenteLogin());
 				}
 				else if(NemboConstants.STATO.ESITO.ID.TIPO_ESITO_O.NEGATIVO == po.getIdEsito())
 				{
@@ -3837,12 +3820,11 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         dao.updateRDocSpesaIntervento(idDocumentoSpesa, importo);
       else
       {
-        // dao.delete("NEMBO_R_DOCUMENTO_SPESA_INTERV", "ID_DOCUMENTO_SPESA",
-        // idDocumentoSpesa);
+
         dao.inserisciInterventoSpesa(idDocumentoSpesa, importo, idUtente);
       }
     }
-    // dao.updateRDocSpesaIntervento(idDocumentoSpesa);
+
   }
 
   @Override
@@ -4369,11 +4351,6 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     }
   }
 
-  /*
-   * @Override public FileAllegatoDTO getFileAllegatoRicevutaPagamento(long
-   * idDettRicevutaPagamento) throws InternalUnexpectedException{ return
-   * dao.getFileAllegatoRicevutaPagamento(idDettRicevutaPagamento); }
-   */
 
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public RicevutaPagamentoVO getRicevutaPagamento(long idDettRicevutaPagamento)
@@ -4390,15 +4367,7 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
     Long idRicevutaPagamento = dao
         .getIdRicevutaPagamento(idDettRicevutaPagamento);
 
-    /*
-     * List<Long> idsInterventi =
-     * dao.getListInterventiByIdRicevutaPagamento(idRicevutaPagamento); Long
-     * idDocumentoSpesa =
-     * dao.getIdDocumentoSpesaByIdRicevutaPagamento(idRicevutaPagamento);
-     * for(Long idIntervento : idsInterventi) {
-     * dao.deleteRDocSpesaIntRic(idIntervento, idDocumentoSpesa,
-     * idRicevutaPagamento); }
-     */
+   
     dao.delete("NEMBO_R_DOC_SPESA_INT_RICEV_PA", "ID_RICEVUTA_PAGAMENTO",
         idRicevutaPagamento);
 

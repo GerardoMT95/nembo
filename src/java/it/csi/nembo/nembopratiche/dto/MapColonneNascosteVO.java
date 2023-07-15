@@ -10,12 +10,11 @@ public class MapColonneNascosteVO
 
   public boolean visible(String key, String field)
   {
-    if (this.containsKey(key))
+    if (this.containsKey(key) && this.get(key).containsKey(field))
     {
-      if (this.get(key).containsKey(field))
-      {
+
         return this.get(key).get(field).booleanValue();
-      }
+
     }
 
     return false;
@@ -23,12 +22,11 @@ public class MapColonneNascosteVO
 
   public boolean hidden(String key, String field)
   {
-    if (this.containsKey(key))
+    if (this.containsKey(key) && this.get(key).containsKey(field))
     {
-      if (this.get(key).containsKey(field))
-      {
+     
         return !this.get(key).get(field).booleanValue();
-      }
+
     }
 
     return false;
@@ -36,12 +34,11 @@ public class MapColonneNascosteVO
 
   public boolean hide(String key, String field, boolean defaultValue)
   {
-    if (this.containsKey(key))
+    if (this.containsKey(key) && this.get(key).containsKey(field))
     {
-      if (this.get(key).containsKey(field))
-      {
+
         return this.get(key).get(field).booleanValue();
-      }
+
     }
 
     return defaultValue;

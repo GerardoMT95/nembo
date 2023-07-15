@@ -448,8 +448,7 @@ public class ImportoLiquidatoDTO implements ILoggable
 
   public Long getNumeroLista()
   {
-    if (numeroLista != null)
-      if (numeroLista.longValue() == 0)
+    if (numeroLista != null && numeroLista.longValue() == 0)
         return null;
     return numeroLista;
   }
@@ -504,7 +503,7 @@ public class ImportoLiquidatoDTO implements ILoggable
     if (flagInvioSigop != null)
     {
       if (flagInvioSigop.compareTo("S") == 0)
-        return "Sì";
+        return "Sï¿½";
       if (flagInvioSigop.compareTo("N") == 0)
         return "No";
     }
