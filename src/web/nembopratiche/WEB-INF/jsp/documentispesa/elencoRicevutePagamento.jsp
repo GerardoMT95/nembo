@@ -126,7 +126,7 @@
 	});
 	
 		function iconeFormatter($value, row, index) {
-			var html = '';
+			let html = '';
 
 			//vedi dettaglio interventi spesa
 			//html += '&nbsp;<span id="espandi_'+row.idDocumentoSpesa+'"><a style="text-decoration: none;font-size:18px;vertical-align:middle;margin-bottom:1em;" class="glyphicon glyphicon-plus-sign"  href=\"#'+row.idDocumentoSpesa+'\" onclick=\"visualizzainterventi('+row.idDocumentoSpesa+');\"></a></span>';
@@ -153,7 +153,7 @@
 			            async : false,
 			            success : function(html)
 			            {
-			              var COMMENT = '<success>';
+			              let COMMENT = '<success>';
 			              if (html != null && html.indexOf(COMMENT) >= 0)
 			              {
 			      			return openPageInPopup('../cunembo263e/confermaEliminaRicevuta_' + idDettRicevutaPagamento + '.do', 'dlgEliminaDocumento',
@@ -174,7 +174,7 @@
 		}
 
 		function allegatiFormatter($value, row, index) {
-			var ret = row.nomeLogicoFile
+			let ret = row.nomeLogicoFile
 					+ ' <a href=\"../cunembo263m/downloadRicevuta_'+row.idDettRicevutaPagamento+'.do\" class=\"ico24 '+row.iconaFile+'\" title = '+row.nomeFisicoFile+'></a>';
 			return ret;
 
@@ -182,8 +182,8 @@
 
 		function checkAddRicevuta() {
 
-			var importoLordo = $("#importoLordo").val();
-			var importoLordoPagamento = $("#importoLordoPagamento").val();
+			let importoLordo = $("#importoLordo").val();
+			let importoLordoPagamento = $("#importoLordoPagamento").val();
 			if(importoLordo==importoLordoPagamento)
 			{
 				showMessageBox("Attenzione", "Le ricevute di pagamento presenti in elenco coprono gi� interamente l'importo lordo del documento di spesa. Non � pi� consentito inserire nuove ricevute di pagamento." , "modal-large")

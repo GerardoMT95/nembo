@@ -95,12 +95,12 @@
     $('input[data-toggle="bs-toggle"]').bootstrapToggle();
     function calcolaImportoNonRiconosciuto(id)
     {
-      var $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).html().replace('.', '').replace(',', '.'));
-      var $spesaRiconosciutaPerCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace(',', '.'));
-      var $importoRispendibile = Number($('#importoRispendibile_'+id).val().replace(',', '.'));
+      let $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).html().replace('.', '').replace(',', '.'));
+      let $spesaRiconosciutaPerCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace(',', '.'));
+      let $importoRispendibile = Number($('#importoRispendibile_'+id).val().replace(',', '.'));
       if (!isNaN($spesaRendicontataAttuale) && !isNaN($spesaRiconosciutaPerCalcolo) && !isNaN($importoRispendibile))
       {
-				var importoNonRiconosciuto = $spesaRendicontataAttuale - $spesaRiconosciutaPerCalcolo - $importoRispendibile;
+				let importoNonRiconosciuto = $spesaRendicontataAttuale - $spesaRiconosciutaPerCalcolo - $importoRispendibile;
 				importoNonRiconosciuto = Math.round(importoNonRiconosciuto*100) / 100;
 				$('#importoNonRiconosciuto_'+id).html(importoNonRiconosciuto.formatCurrency());
 				return true;
@@ -110,9 +110,9 @@
     }
     function calcolaContributo(id, perc)
     {
-      var $spesaRiconosciutaPerCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace('.', '').replace(',', '.'));
+      let $spesaRiconosciutaPerCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace('.', '').replace(',', '.'));
       perc=Number(perc);
-      var contributo=null;
+      let contributo=null;
       if (!isNaN($spesaRiconosciutaPerCalcolo) && !isNaN(perc))
       {
         contributo=Math.round(Number($spesaRiconosciutaPerCalcolo*perc/100)*100)/100;

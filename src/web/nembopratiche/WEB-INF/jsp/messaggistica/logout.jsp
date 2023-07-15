@@ -18,7 +18,7 @@
 		<a class="btn btn-primary" href="/" role="button">chiudi</a>
 	</div>
 	<script type="text/javascript">
-    var noLogout = true;
+    let noLogout = true;
   </script>
 	<br class="left" />
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />

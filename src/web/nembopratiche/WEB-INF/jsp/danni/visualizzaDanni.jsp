@@ -102,7 +102,7 @@
 		$( document ).ready(function() {
 			loadBootstrapTable('${tableName}', '');
 			
-			var errorModificaMultipla = "${errorModificaMultipla}";
+			let errorModificaMultipla = "${errorModificaMultipla}";
 			if(errorModificaMultipla != null && errorModificaMultipla == 'true')
 			{
 				$('#errorBoxDiv').show();
@@ -119,7 +119,7 @@
 		<script type="text/javascript">		
 		function modificaFormatter($value, row, index)
 		{
-			var risultato = '';
+			let risultato = '';
 			
 			/*
 				<p:abilitazione-azione codiceQuadro="DANNI" codiceAzione="DETTAGLIO">
@@ -157,7 +157,7 @@
 		
 		function modificaDanno(idDannoAtm)
 		{
-			var href = '../cunembo298m/modifica_danno_' + idDannoAtm + '.do';
+			let href = '../cunembo298m/modifica_danno_' + idDannoAtm + '.do';
 		    $.ajax({
 		        type: "POST",
 		        url: '../cunembo298m/get_n_interventi_danno_' + idDannoAtm +'.do',
@@ -198,7 +198,7 @@
 		
 		function eliminazioneMultipla()
 		{
-			var allUnchecked = isAllCheckboxUnchecked();
+			let allUnchecked = isAllCheckboxUnchecked();
 			if(allUnchecked)
 			{
 				showMessageBox("Eliminazione Danni", "Selezionare almeno un danno da eliminare", 'modal-large');  
@@ -215,7 +215,7 @@
 		<script type="text/javascript">
 			function verificaModificaMultipla()
 			{
-				var allUnchecked = isAllCheckboxUnchecked();
+				let allUnchecked = isAllCheckboxUnchecked();
 				if(allUnchecked)
 				{
 					showMessageBox("Modifica Danni", "Selezionare almeno un danno da modificare", 'modal-large');  
@@ -257,7 +257,7 @@
 			}
 	
 			function isAllCheckboxUnchecked() {
-				var allUnchecked = true;
+				let allUnchecked = true;
 				$("input[name='idDannoAtm']").each(function() 
 				{
 					if ($(this).prop("checked") == true) 

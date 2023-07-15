@@ -8,8 +8,8 @@
 
     'use strict';
 
-    var diacriticsMap = {};
-    var defaultAccentsDiacritics = [
+    let diacriticsMap = {};
+    let defaultAccentsDiacritics = [
         {'base':'A', 'letters':'\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F'},
         {'base':'AA','letters':'\uA732'},
         {'base':'AE','letters':'\u00C6\u01FC\u01E2'},
@@ -98,16 +98,16 @@
         {'base':'z','letters':'\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763'}
     ];
 
-    var initNeutraliser = function () {
-        for (var i=0; i < defaultAccentsDiacritics.length; i++){
-            var letters = defaultAccentsDiacritics[i].letters;
-            for (var j=0; j < letters.length ; j++){
+    let initNeutraliser = function () {
+        for (let i=0; i < defaultAccentsDiacritics.length; i++){
+            let letters = defaultAccentsDiacritics[i].letters;
+            for (let j=0; j < letters.length ; j++){
                 diacriticsMap[letters[j]] = defaultAccentsDiacritics[i].base;
             }
         }
     };
 
-    var removeDiacritics = function (str) {
+    let removeDiacritics = function (str) {
         return str.replace(/[^\u0000-\u007E]/g, function(a){
             return diacriticsMap[a] || a;
         });
@@ -117,7 +117,7 @@
         searchAccentNeutralise: false
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init,
         _initSearch = BootstrapTable.prototype.initSearch;
 
@@ -129,15 +129,15 @@
     };
 
     BootstrapTable.prototype.initSearch = function () {
-        var that = this;
+        let that = this;
 
         if (this.options.sidePagination !== 'server') {
-            var s = this.searchText && this.searchText.toLowerCase();
-            var f = $.isEmptyObject(this.filterColumns) ? null : this.filterColumns;
+            let s = this.searchText && this.searchText.toLowerCase();
+            let f = $.isEmptyObject(this.filterColumns) ? null : this.filterColumns;
 
             // Check filter
             this.data = f ? $.grep(this.options.data, function (item, i) {
-                for (var key in f) {
+                for (let key in f) {
                     if (item[key] !== f[key]) {
                         return false;
                     }
@@ -146,9 +146,9 @@
             }) : this.options.data;
 
             this.data = s ? $.grep(this.data, function (item, i) {
-                for (var key in item) {
+                for (let key in item) {
                     key = $.isNumeric(key) ? parseInt(key, 10) : key;
-                    var value = item[key],
+                    let value = item[key],
                         column = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)],
                         j = $.inArray(key, that.header.fields);
 
@@ -157,7 +157,7 @@
                             that.header.formatters[j], [value, item, i], value);
                     }
 
-                    var index = $.inArray(key, that.header.fields);
+                    let index = $.inArray(key, that.header.fields);
                     if (index !== -1 && that.header.searchables[index] && (typeof value === 'string' || typeof value === 'number')) {
                         if (that.options.searchAccentNeutralise) {
                             value = removeDiacritics(value);

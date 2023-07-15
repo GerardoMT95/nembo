@@ -88,7 +88,7 @@ $('#interventiDualList').DualListBox();
 	function avanti()
 	{
 		//reperisco value selezionati nella popup
-		var arraySelectedValue = []; 
+		let arraySelectedValue = []; 
 	    $('#dual-list-box-Interventi #selectedList option').each(function(index) {
 	    	arraySelectedValue[$(this).val()] = $(this).text();
 	    });
@@ -110,7 +110,7 @@ $('#interventiDualList').DualListBox();
             async:false,
             success: function(html) 
             {
-                var COMMENT = 'continue';
+                let COMMENT = 'continue';
                 if (html.indexOf(COMMENT) >= 0) 
                 {
             		$('#elencoForm').attr('action', 'confermainterventi.do').submit();

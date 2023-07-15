@@ -6,8 +6,8 @@
     // ======================
     
 
-    var rowLabel = function(el) {
-        var ret = el;
+    let rowLabel = function(el) {
+        let ret = el;
         if (typeof el === 'object') {
             ret = el.label;
             if (typeof el.i18n === 'object') {
@@ -16,16 +16,16 @@
         }
         return ret;
     };
-    var rowId = function(id, el) {
+    let rowId = function(id, el) {
         return typeof el === 'object' ? el.id : id;
     };
-    var getOptionData = function($option) {
-        var val = false;
-        var name;
-        var data = {}, cnt = 0;
-        var $chck = $option.find('.filter-enabled');
+    let getOptionData = function($option) {
+        let val = false;
+        let name;
+        let data = {}, cnt = 0;
+        let $chck = $option.find('.filter-enabled');
         $(':input', $option).each(function() {
-            var $this = $(this);
+            let $this = $(this);
             if ($this.is($chck)) {
                 return;
             }
@@ -42,7 +42,7 @@
 
     // FILTER CLASS DEFINITION
     // ======================
-    var BootstrapTableFilter = function(el, options) {
+    let BootstrapTableFilter = function(el, options) {
 
         this.options = options;
         this.$el = $(el);
@@ -154,7 +154,7 @@
                  ],
             check: function(filterData, value) {
 
-            	var v, values, day,month,year,time,hour,minutes,seconds,valueToCompare,val,resto;
+            	let v, values, day,month,year,time,hour,minutes,seconds,valueToCompare,val,resto;
             	  if(value == null)
                   {
                   	value="";
@@ -302,7 +302,7 @@
             		return false;
             	
                 value = value.toUpperCase();
-                var searchPhrase = $(".search-values").val();
+                let searchPhrase = $(".search-values").val();
                 searchPhrase = searchPhrase.toUpperCase();
 
                 if (value.indexOf(searchPhrase) == -1) {
@@ -316,7 +316,7 @@
             search: false,
             rows: [],
             rowsCallback: function(filter, searchPhrase) {
-                var that = this;
+                let that = this;
                 //clearTimeout(this.timeoutId_);
                 this.timeoutId_ = setTimeout(function() {
                     $.ajax(filter.source, {dataType: 'json', async:true, data: {q: searchPhrase}})
@@ -331,7 +331,7 @@
             search: false,
             rows: [],
             rowsCallback: function(filter, searchPhrase) {
-                var that = this;
+                let that = this;
                 //clearTimeout(this.timeoutId_);
                 this.timeoutId_ = setTimeout(function() {
                     $.ajax(filter.source, {dataType: 'json', async:true, data: {q: searchPhrase}})
@@ -343,11 +343,11 @@
             },
             check: function(filterData, value) {
             	
-            	var ok = false;
+            	let ok = false;
             	
-            	var i =0;
+            	let i =0;
             	for (i=0;i< filterData._values.length;i++) {
-            		var s = "&&&" + filterData._values[i] + "&&&";
+            		let s = "&&&" + filterData._values[i] + "&&&";
             		  if(value.indexOf(s)>-1)
             			  ok = true;
             		}
@@ -359,8 +359,8 @@
             search: true,
             rows: [],
             rowsCallback: function(filter, searchPhrase) {
-                var vals = filter.values;
-                var label;
+                let vals = filter.values;
+                let label;
                 if (searchPhrase.length) {
                     vals = vals.filter(function(el) {
                         return rowLabel(el).indexOf(searchPhrase) > -1;
@@ -375,8 +375,8 @@
             search: false,
             rows: [],
             rowsCallback: function(filter, searchPhrase) {
-                var vals = filter.values;
-                var label;
+                let vals = filter.values;
+                let label;
                 if (searchPhrase.length) {
                     vals = vals.filter(function(el) {
                         return rowLabel(el).indexOf(searchPhrase) > -1;
@@ -391,7 +391,7 @@
             search: false,
             rows: [],
             customCallback: function(filter, searchPhrase) {
-            	 var that = this;
+            	 let that = this;
                  //clearTimeout(this.timeoutId_);
                  this.timeoutId_ = setTimeout(function() {
                      $.ajax(filter.source)
@@ -406,7 +406,7 @@
             search: false,
             rows: [],
             customCallback: function(filter, searchPhrase) {
-            	 var that = this;
+            	 let that = this;
                  //clearTimeout(this.timeoutId_);
                  this.timeoutId_ = setTimeout(function() {
                      $.ajax(filter.source)
@@ -418,14 +418,14 @@
             }  ,
             check: function(filterData, value) {
             	//added by nicolo - filtro specifico per CUPSR215
-            	var y = filterData._values[filterData._values.length-1];
+            	let y = filterData._values[filterData._values.length-1];
             	//Estratti a campione tutti (y=0)
             	//Estratti a campione (Controllo in Loco) (y=1)
             	//tutti (y=-1)
             	if(y!==undefined)
             		{
             		
-		            	var x = value;
+		            	let x = value;
 		            	if(y==-1) //tutti -> torno sempre true
 		            		return true;
 		            	if(y==0)
@@ -457,7 +457,7 @@
     };
 
     BootstrapTableFilter.prototype.initContainer = function() {
-        var that = this;
+        let that = this;
         this.$toolbar = $([
             '<div class="btn-toolbar">',
                 '<div class="btn-group btn-group-filter-main">',
@@ -486,9 +486,9 @@
         
         //my delegate - hide datepickers on changing date
        this.$toolbar.delegate('div[id^="datepickerFilterLess"]', 'change', function (e) {
-       	 var val = $(this).val();
-  		var idStr = this.id;
-  		var numberOfDateFilter = idStr[idStr.length-1];
+       	 let val = $(this).val();
+  		let idStr = this.id;
+  		let numberOfDateFilter = idStr[idStr.length-1];
        	 $('#datepickerFilterLess'+numberOfDateFilter).hide();
        	 $('#datepickerFilterLess'+numberOfDateFilter).trigger('click');
        	 $('#datepickerInputLess'+numberOfDateFilter).trigger('click');
@@ -499,9 +499,9 @@
 
        this.$toolbar.delegate('div[id^="datepickerFilterMore"]', 'change', function (e) {
 
-          	 var val = $(this).val();
-       		var idStr = this.id;
-      		var numberOfDateFilter = idStr[idStr.length-1];
+          	 let val = $(this).val();
+       		let idStr = this.id;
+      		let numberOfDateFilter = idStr[idStr.length-1];
           	 $('#datepickerFilterMore'+numberOfDateFilter).hide();
           	 $('#datepickerFilterMore'+numberOfDateFilter).trigger('click');
           	 $('#datepickerInputMore'+numberOfDateFilter).trigger('click');
@@ -512,9 +512,9 @@
 
        this.$toolbar.delegate('div[id^="datepickerFilterEq"]', 'change', function (e) {
 
-          	 var val = $(this).val();
-       		var idStr = this.id;
-      		var numberOfDateFilter = idStr[idStr.length-1];
+          	 let val = $(this).val();
+       		let idStr = this.id;
+      		let numberOfDateFilter = idStr[idStr.length-1];
           	 $('#datepickerFilterEq'+numberOfDateFilter).hide();
           	 $('#datepickerFilterEq'+numberOfDateFilter).trigger('click');
           	 $('#datepickerInputEq'+numberOfDateFilter).trigger('click');
@@ -525,9 +525,9 @@
 
        this.$toolbar.delegate('div[id^="datepickerFilterNeq"]', 'change', function (e) {
 
-          	 var val = $(this).val();
-       		var idStr = this.id;
-      		var numberOfDateFilter = idStr[idStr.length-1];
+          	 let val = $(this).val();
+       		let idStr = this.id;
+      		let numberOfDateFilter = idStr[idStr.length-1];
           	 $('#datepickerFilterNeq'+numberOfDateFilter).hide();
           	 $('#datepickerFilterNeq'+numberOfDateFilter).trigger('click');
           	 $('#datepickerInputNeq'+numberOfDateFilter).trigger('click');
@@ -545,13 +545,13 @@
 
         
        this.$toolbar.delegate('.btn-group-filters li .filter-enabled', 'click', function(e) {
-        	var $chck = $(this);
-            var field = $chck.closest('[data-filter-field]').attr('data-filter-field');
-            var $option = $chck.closest('[data-val]');
-            var option = $option.attr('data-val');
+        	let $chck = $(this);
+            let field = $chck.closest('[data-filter-field]').attr('data-filter-field');
+            let $option = $chck.closest('[data-val]');
+            let option = $option.attr('data-val');
             
             if ($chck.prop('checked')) {
-                var data = getOptionData($option);              
+                let data = getOptionData($option);              
                 that.selectFilterOption(field, option, data);
             }
             else {
@@ -563,13 +563,13 @@
 
 
         this.$toolbar.delegate('.btn-group-filters li :input:not(.filter-enabled)', 'click change', function(e) {
-            var $inp = $(this);
-            var field = $inp.closest('[data-filter-field]').attr('data-filter-field');
-            var $option = $inp.closest('[data-val]');
-            var option = $option.attr('data-val');
-            var $chck = $option.find('.filter-enabled');
+            let $inp = $(this);
+            let field = $inp.closest('[data-filter-field]').attr('data-filter-field');
+            let $option = $inp.closest('[data-val]');
+            let option = $option.attr('data-val');
+            let $chck = $option.find('.filter-enabled');
             if ($inp.val()) {
-                var data = getOptionData($option);
+                let data = getOptionData($option);
                 that.selectFilterOption(field, option, data);
                 $chck.prop('checked', true);
             }
@@ -581,11 +581,11 @@
             e.stopImmediatePropagation();
         });
         this.$toolbar.delegate('.search-values', 'keyup', function(e) {
-            var $this = $(this);
-            var phrase = $this.val();
-            var field = $this.closest('[data-filter-field]').attr('data-filter-field');
-            var filter = that.getFilter(field);
-            var fType = that.getFilterType(filter);
+            let $this = $(this);
+            let phrase = $this.val();
+            let field = $this.closest('[data-filter-field]').attr('data-filter-field');
+            let filter = that.getFilter(field);
+            let fType = that.getFilterType(filter);
             if (fType.rowsCallback) {
                 fType.rowsCallback.call(that, filter, phrase);
             }
@@ -599,7 +599,7 @@
     };
 
     BootstrapTableFilter.prototype.initRefreshButton = function() {
-        var that = this;
+        let that = this;
         this.$refreshButton = this.$toolbar.find('.btn-refresh');
 
         this.$refreshButton.click(function(e) {
@@ -612,7 +612,7 @@
     };
 
     BootstrapTableFilter.prototype.initFilters = function() {
-        var that = this;
+        let that = this;
         this.$buttonList.append('<li class="remove-filters"><a href="javascript:void(0)">' + this.options.clearAllIcon + ' ' + this.options.formatRemoveFiltersMessage() + '</a></li>');
         this.$buttonList.append('<li class="divider"></li>');
         $.each(this.options.filters, function(i, filter) {
@@ -630,9 +630,9 @@
     };
 
     BootstrapTableFilter.prototype.initFilterSelector = function() {
-        var that = this;
-        var applyFilter = function($chck) {
-            var filterField = $chck.closest('[data-filter-field]').attr('data-filter-field');
+        let that = this;
+        let applyFilter = function($chck) {
+            let filterField = $chck.closest('[data-filter-field]').attr('data-filter-field');
             if ($chck.prop('checked')) {
                 that.enableFilter(filterField);
             }
@@ -645,13 +645,13 @@
             e.stopImmediatePropagation();
         });
         this.$buttonList.delegate('li, li a', 'click', function(e) {
-            var $chck = $(':input[type=checkbox]', this);
+            let $chck = $(':input[type=checkbox]', this);
             if ($chck.length) {
                 $chck.prop('checked', !$chck.is(':checked'));
                 applyFilter($chck);
                 e.stopImmediatePropagation();
             }
-            var $inp = $(':input[type=text]', this);
+            let $inp = $(':input[type=text]', this);
             if ($inp.length) {
                 $inp.focus();
             }
@@ -659,7 +659,7 @@
     };
 
     BootstrapTableFilter.prototype.initExternals = function() {
-        var that = this;
+        let that = this;
         $.each(BootstrapTableFilter.EXTERNALS, function(i, ext) {
             ext.call(that);
         });
@@ -673,13 +673,13 @@
     };
     BootstrapTableFilter.prototype.getFilterType = function(field, type) {
         if (field) {
-            var filter = typeof field === 'object' ? field : this.getFilter(field);
+            let filter = typeof field === 'object' ? field : this.getFilter(field);
             type = filter.type;
         }
         if (typeof BootstrapTableFilter.FILTER_SOURCES[type] === 'undefined') {
             throw 'Invalid filter type ' + type;
         }
-        var ret = BootstrapTableFilter.FILTER_SOURCES[type];
+        let ret = BootstrapTableFilter.FILTER_SOURCES[type];
         if (typeof ret.extend !== 'undefined') {
             ret = $.extend({}, ret, this.getFilterType(null, ret.extend));
         }
@@ -698,26 +698,26 @@
     };
 
     BootstrapTableFilter.prototype.clearFilterOptions = function(field) {
-        var filter = this.getFilter(field);
+        let filter = this.getFilter(field);
         filter.$dropdownList.find('li:not(.static)').remove();
         this.toggleRefreshButton(true);
     };
 
 
     BootstrapTableFilter.prototype.fillFilterOptions = function(field, data, cls) {
-        var that = this;
-        var filter = this.getFilter(field);
+        let that = this;
+        let filter = this.getFilter(field);
        
         cls = cls || '';
-        var option, checked;
+        let option, checked;
         $.each(data, function(i, row) {
         	
         	//deep copy dell'oggetto row (così non lo modifico e resta la stringa IDTOSUBSTITUTE)
-        	var myRow = jQuery.extend(true, {}, row);
+        	let myRow = jQuery.extend(true, {}, row);
         	 if(filter.type=="date")
              	//increment id - change substring
              	{
-             		var numberOfDateFilter = $("#numberOfDateFilter").val();
+             		let numberOfDateFilter = $("#numberOfDateFilter").val();
              		//modifico myRow
              		myRow.label=myRow.label.replace(/IDTOSUBSTITUTE/g, numberOfDateFilter.toString());
              	}            
@@ -731,16 +731,16 @@
     };
 /*NICO LIST SELEC AJAX*/
     BootstrapTableFilter.prototype.clearFilterOptionsList = function(field) {
-        var filter = this.getFilter(field);
+        let filter = this.getFilter(field);
         filter.$dropdownList.find('li:not(.static)').remove();
         this.toggleRefreshButton(true);
     };
 
     BootstrapTableFilter.prototype.fillFilterOptionsList = function(field, data, cls) {
-        var that = this;
-        var filter = this.getFilter(field);
+        let that = this;
+        let filter = this.getFilter(field);
         cls = cls || '';
-        var option, checked;
+        let option, checked;
         $.each(data, function(i, row) {
             option = rowId(i, row);
             checked = that.isSelected(field, option);
@@ -751,7 +751,7 @@
     
     /*FINE*/
     BootstrapTableFilter.prototype.trigger = function(name) {
-        var args = Array.prototype.slice.call(arguments, 1);
+        let args = Array.prototype.slice.call(arguments, 1);
 
         name += '.bs.table.filter';
         if (typeof BootstrapTableFilter.EVENTS[name] === 'undefined') {
@@ -793,12 +793,12 @@
 
     BootstrapTableFilter.prototype.enableFilter = function(field) {
     
-    	var numberOfDateFilter = $("#numberOfDateFilter").val();
+    	let numberOfDateFilter = $("#numberOfDateFilter").val();
     	$("#numberOfDateFilter").val(parseInt(numberOfDateFilter)+1);
     	numberOfDateFilter = $("#numberOfDateFilter").val();
     	
-        var filter = this.getFilter(field);
-        var $filterDropdown = $([
+        let filter = this.getFilter(field);
+        let $filterDropdown = $([
             '<div class="btn-group" data-filter-field="' + field + '">',
                 '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">',
                     filter.label,
@@ -815,7 +815,7 @@
 
         this.$buttonList.find('[data-filter-field=' + field + '] input[type=checkbox]').prop('checked', true);
 
-        var fType = this.getFilterType(filter);
+        let fType = this.getFilterType(filter);
         if (fType.search) {
             filter.$dropdownList.append($('<li class="static"><span><input type="text" class="form-control search-values" placeholder="' + this.options.formatSearchMessage() + '"></span></li>'));
             if(fType.rows!=null && fType.rows.length!=0)
@@ -836,14 +836,14 @@
     };
 
     BootstrapTableFilter.prototype.disableFilters = function() {
-        var that = this;
+        let that = this;
         $.each(this.filters, function(i, filter) {
             that.disableFilter(filter.field);
         });
     };
 
     BootstrapTableFilter.prototype.disableFilter = function(field) {
-        var filter = this.getFilter(field);
+        let filter = this.getFilter(field);
         this.$buttonList.find('[data-filter-field=' + field + '] input[type=checkbox]').prop('checked', false);
         filter.enabled = false;
         if (filter.$dropdown) {
@@ -855,7 +855,7 @@
     };
 
     BootstrapTableFilter.prototype.selectFilterOption = function(field, option, data) {
-        var filter = this.getFilter(field);
+        let filter = this.getFilter(field);
         if (typeof filter.selectedOptions === 'undefined')
             filter.selectedOptions = {};
         if (data) {
@@ -872,7 +872,7 @@
     };
 
     BootstrapTableFilter.prototype.unselectFilterOption = function(field, option) {
-        var filter = this.getFilter(field);
+        let filter = this.getFilter(field);
         if (typeof filter.selectedOptions !== 'undefined' && typeof filter.selectedOptions[option] !== 'undefined') {
             delete filter.selectedOptions[option];
         }
@@ -892,8 +892,8 @@
     };
 
     BootstrapTableFilter.prototype.setupFilterFromJSON = function(jsonFields) {
-    	var that = this;
-    	var jsonObj = jQuery.parseJSON(jsonFields);
+    	let that = this;
+    	let jsonObj = jQuery.parseJSON(jsonFields);
 
     	$.each(jsonObj, function(key, data) {
     		that.setupFilter(key,data);
@@ -904,7 +904,7 @@
     }
     
     BootstrapTableFilter.prototype.setupFilter = function(field, options) {
-        var that = this;
+        let that = this;
         if(this.filters[field]!==undefined && this.filters[field]!=null)
         {
 	        this.enableFilter(field);
@@ -935,7 +935,7 @@
     };
 
     BootstrapTableFilter.prototype.isSelected = function(field, option, value) {
-        var filter = this.getFilter(field);
+        let filter = this.getFilter(field);
         if (typeof filter.selectedOptions !== 'undefined') {
             if (typeof filter.selectedOptions[option] !== 'undefined') {
                 if (value ? (filter.selectedOptions[option] == value) : filter.selectedOptions[option]) {
@@ -952,8 +952,8 @@
     };
 
     BootstrapTableFilter.prototype.getData = function() {
-        var that = this;
-        var ret = {};
+        let that = this;
+        let ret = {};
         $.each(that.filters, function(field, filter) {
 
             if (filter.enabled) {
@@ -962,7 +962,7 @@
                 }
                 if(filter.type=='searchText')
                 	{
-                		var searchValue=$(".search-values").val();
+                		let searchValue=$(".search-values").val();
                 		ret[field] = searchValue;
                 	}
             }
@@ -977,7 +977,7 @@
     $.fn.bootstrapTableFilter = function(option, _relatedTarget, _param2) {
         BootstrapTableFilter.externals = this.externals;
 
-        var allowedMethods = [
+        let allowedMethods = [
             'addFilter', 'removeFilter',
             'enableFilter', 'disableFilter', 'disableFilters',
             'selectFilterOption', 'unselectFilterOption',
@@ -989,7 +989,7 @@
         value;
 
         this.each(function() {
-            var $this = $(this),
+            let $this = $(this),
                 data = $this.data('bootstrap.tableFilter'),
                 options = $.extend(
                     {}, BootstrapTableFilter.DEFAULTS, $this.data(),
@@ -1038,7 +1038,7 @@
 
 }(jQuery);
 
-var l=0,m=0,e=0,n=0;
+let l=0,m=0,e=0,n=0;
 function showDatepickerLess(numberOfDateFilter){
 hideDatepickers(numberOfDateFilter);
 $("#datepickerFilterLess"+numberOfDateFilter).show();	

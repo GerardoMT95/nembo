@@ -13,7 +13,7 @@
 	<script type="text/javascript">
     function confermaElimina()
     {
-        var idListaLiquidazione = '${idListaLiquidazione}';
+        let idListaLiquidazione = '${idListaLiquidazione}';
       $
           .ajax(
           {
@@ -23,7 +23,7 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success>';
+              let COMMENT = '<success>';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
                 window.location.reload();
@@ -32,13 +32,13 @@
               {
                 //$('#EliminaVisita .modal-body').html(html);
                 doErrorTooltip();
-                writeModalBodyError("Il procedimento è di competenza di un'altra amministrazione");
+                writeModalBodyError("Il procedimento ï¿½ di competenza di un'altra amministrazione");
                 
               }
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

@@ -8,7 +8,7 @@
 
     'use strict';
 
-    var showHideColumns = function (that, checked) {
+    let showHideColumns = function (that, checked) {
         if (that.options.columnsHidden.length > 0 ) {
             $.each(that.columns, function (i, column) {
                 if (that.options.columnsHidden.indexOf(column.field) !== -1) {
@@ -20,13 +20,13 @@
         }
     };
 
-    var resetView = function (that) {
+    let resetView = function (that) {
         if (that.options.height || that.options.showFooter) {
             setTimeout(that.resetView, 1);
         }
     };
 
-    var changeView = function (that, width, height) {
+    let changeView = function (that, width, height) {
         if (that.options.minHeight) {
             if ((width <= that.options.minWidth) && (height <= that.options.minHeight)) {
                 conditionCardView(that);
@@ -44,27 +44,27 @@
         resetView(that);
     };
 
-    var conditionCardView = function (that) {
+    let conditionCardView = function (that) {
         changeTableView(that, false);
         showHideColumns(that, false);
     };
 
-    var conditionFullView = function (that) {
+    let conditionFullView = function (that) {
         changeTableView(that, true);
         showHideColumns(that, true);
     };
 
-    var changeTableView = function (that, cardViewState) {
+    let changeTableView = function (that, cardViewState) {
         that.options.cardView = cardViewState;
         that.toggleView();
     };
 
-    var debounce = function(func,wait) {
-        var timeout;
+    let debounce = function(func,wait) {
+        let timeout;
         return function() {
-            var context = this,
+            let context = this,
                 args = arguments;
-            var later = function() {
+            let later = function() {
                 timeout = null;
                 func.apply(context,args);
             };
@@ -82,7 +82,7 @@
         columnsHidden: []
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init;
 
     BootstrapTable.prototype.init = function () {
@@ -96,7 +96,7 @@
             return;
         }
 
-        var that = this,
+        let that = this,
             old = {
                 width: $(window).width(),
                 height: $(window).height()
@@ -104,7 +104,7 @@
 
         $(window).on('resize orientationchange',debounce(function (evt) {
             // reset view if height has only changed by at least the threshold.
-            var height = $(this).height(),
+            let height = $(this).height(),
                 width = $(this).width();
 
             if (Math.abs(old.height - height) > that.options.heightThreshold || old.width != width) {
@@ -117,7 +117,7 @@
         },200));
 
         if (this.options.checkOnInit) {
-            var height = $(window).height(),
+            let height = $(window).height(),
                 width = $(window).width();
             changeView(this, width, height);
             old = {

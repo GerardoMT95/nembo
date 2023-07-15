@@ -105,10 +105,10 @@
 		 });
 
 		function importoAdder(rows, field) {
-			var __sum = 0;
+			let __sum = 0;
 			$(rows).each(function(index, currentRow)
 			{
-				var value = currentRow[field];
+				let value = currentRow[field];
 				if (value != null && !isNaN(value) && value.length != 0)
 				{
 					__sum += parseFloat(value);
@@ -119,7 +119,7 @@
 		
 		function modificaFormatter($value, row, index)
 		{
-			var risultato='';
+			let risultato='';
 			risultato = risultato +
 						'<div class="th-innder">' +
 						'<a><i class="ico24"></i></a>';
@@ -136,7 +136,7 @@
 		
 		function checkboxFormatter($value, row, index)
 		{
-			var risultato =	
+			let risultato =	
 						'<p:abilitazione-azione codiceQuadro="PRAGR" codiceAzione="MODIFICA">' +
 						'<input type="checkbox" name="idPrestitiAgrari" value="' + $value + '"></input>';
 						'</p:abilitazione-azione>';
@@ -150,7 +150,7 @@
 		
 		function eliminazioneMultipla()
 		{
-			var checkboxName='idPrestitiAgrari';
+			let checkboxName='idPrestitiAgrari';
 			if(isAllCheckboxUnchecked(checkboxName))
 			{
 				showMessageBox('Elimina Prestiti', 'Selezionare almeno un prestito da eliminare.','modal-large');
@@ -163,7 +163,7 @@
 
 		function verificaModificaMultipla(formName,checkboxesName,titoloMessageBox,bodyMessageBox,messageBoxSize)
 		{
-			var allUnchecked = isAllCheckboxUnchecked(checkboxesName);
+			let allUnchecked = isAllCheckboxUnchecked(checkboxesName);
 			if(allUnchecked)
 			{
 				showMessageBox(titoloMessageBox, bodyMessageBox, messageBoxSize);

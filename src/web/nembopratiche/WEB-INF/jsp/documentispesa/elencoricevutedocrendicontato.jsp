@@ -147,7 +147,7 @@
 		});
 
 		function iconeFormatter($value, row, index) {
-			var html = '';
+			let html = '';
 
 			if(row.visibleIcons=='S'){
 				/*<p:abilitazione-cdu codiceCdu="CU-NEMBO-263-E">*/
@@ -170,7 +170,7 @@
 			            async : false,
 			            success : function(html)
 			            {
-			              var COMMENT = '<success>';
+			              let COMMENT = '<success>';
 			              if (html != null && html.indexOf(COMMENT) >= 0)
 			              {
 			      			return openPageInPopup('../cunembo263e/confermaEliminaRicevuta_' + idDettRicevutaPagamento + '.do', 'dlgEliminaDocumento',
@@ -192,8 +192,8 @@
 
 		function checkInsertFile() {
 
-			var importoLordo = $("#importoLordo").val();
-			var importoLordoPagamento = $("#importoLordoPagamento").val();
+			let importoLordo = $("#importoLordo").val();
+			let importoLordoPagamento = $("#importoLordoPagamento").val();
 			if(importoLordo==importoLordoPagamento)
 			{
 				showMessageBox("Attenzione", "Le ricevute di pagamento presenti in elenco coprono gi� interamente l'importo lordo del documento di spesa. Non � pi� consentito inserire nuove ricevute di pagamento." , "modal-large")
@@ -210,7 +210,7 @@
 		}
 
 		function allegatiFormatter($value, row, index) {
-			var ret = row.nomeLogicoFile
+			let ret = row.nomeLogicoFile
 					+ ' <a href=\"../cunembo263m/downloadRicevuta_'+row.idDettRicevutaPagamento+'.do\" class=\"ico24 '+row.iconaFile+'\" title = '+row.nomeFisicoFile+'></a>';
 			return ret;
 
@@ -218,7 +218,7 @@
 
 		function canDeleteAllegato(){
 
-			var idDocumentoSpesaFile = $("#idDocumentoSpesaFile").val();
+			let idDocumentoSpesaFile = $("#idDocumentoSpesaFile").val();
 
 			if(idDocumentoSpesaFile!==undefined && idDocumentoSpesaFile!=null && idDocumentoSpesaFile!="")
 		      $.ajax(
@@ -229,7 +229,7 @@
 		                async : false,
 		                success : function(html)
 		                {
-		                  var COMMENT = 'success';
+		                  let COMMENT = 'success';
 		                  if (html != null && html.indexOf(COMMENT) >= 0)
 		                  {
 		                	  return openPageInPopup('../cunembo263e/confermaEliminaAllegato_' + idDocumentoSpesaFile + '.do', 'dlgEliminaDocumento',

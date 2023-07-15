@@ -1,5 +1,5 @@
 Number.prototype.formatCurrency = function(c){
-	  var n = this, 
+	  let n = this, 
 	      c = isNaN(c = Math.abs(c)) ? 2 : c, 
 	      d = "," , 
 	      t = ".", 
@@ -28,9 +28,9 @@ function preferNumberFormatterSvg($value)
 
 function createNewChart(idElencoQuery, className, idContainer, isPopup, showStampa)
 	{
-		var newGrafBlock = document.createElement('div');
-		var newInfoBlock = document.createElement('div');
-		var newContainerBlock = document.createElement('div');
+		let newGrafBlock = document.createElement('div');
+		let newInfoBlock = document.createElement('div');
+		let newContainerBlock = document.createElement('div');
 		newContainerBlock.className = className;
 		newGrafBlock.className = "dettChart";
 		newInfoBlock.className = "infoChart";
@@ -38,7 +38,7 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
        
         
         
-        var cnt = document.getElementById(idContainer);
+        let cnt = document.getElementById(idContainer);
         newContainerBlock.appendChild(newInfoBlock);
         newContainerBlock.appendChild(newGrafBlock);
         cnt.appendChild(newContainerBlock);
@@ -59,12 +59,12 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 			              async: false,
 			              success: function(jsonObj) 
 			              {
-			            	  var data = new google.visualization.DataTable(jsonObj.jsonData);
+			            	  let data = new google.visualization.DataTable(jsonObj.jsonData);
 			            	  newGrafBlock.innerHTML = "";
 			                  
 			            	  if(jsonObj.idTipoVisualizzazione == 1) // Torta
 			                  {
-			            	   var options;
+			            	   let options;
 		                	   if(!isPopup)
 	                		   {
 			                	   options = {
@@ -84,35 +84,35 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 						                  };	
 		                	   }
 		                	   
-			                   var chart = new google.visualization.PieChart(newGrafBlock);
+			                   let chart = new google.visualization.PieChart(newGrafBlock);
 			                   chart.draw(data, options);
 
 			                   if(isPopup)
 	                		   {	
-			                	   var total = 0;
-			                       for (var i = 0; i < data.getNumberOfRows(); i++) {
+			                	   let total = 0;
+			                       for (let i = 0; i < data.getNumberOfRows(); i++) {
 			                           total += data.getValue(i, 1);
 			                       }
 			                	   //Mostro il dettaglio dei valori, pre evitare di dover andare sopra al grafico col mouse
-			                       var labelSelector = '> g:eq(1) g g text:nth-last-child(1)';
-				                   var svg = $('svg', newGrafBlock );
+			                       let labelSelector = '> g:eq(1) g g text:nth-last-child(1)';
+				                   let svg = $('svg', newGrafBlock );
 				                   $(labelSelector, svg).each(function (i, v) {
-				                     var value = data.getValue(i, 1);
-				                     var percent = Number(100 * value / total).toFixed(1);
-				                     var newLabel = $(this).text() + ' '+preferNumberFormatterSvg(value)+' (' +percent+'%)';
+				                     let value = data.getValue(i, 1);
+				                     let percent = Number(100 * value / total).toFixed(1);
+				                     let newLabel = $(this).text() + ' '+preferNumberFormatterSvg(value)+' (' +percent+'%)';
 				                     $(this).text( newLabel );
 				                   });
 	                		   }
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 2)//  Istogramma Verticale
 			                  {
-			                	  var view = new google.visualization.DataView(data);
+			                	  let view = new google.visualization.DataView(data);
 			                      view.setColumns([0, 1,
 			                                       { calc: "stringify",
 			                                         sourceColumn: 1,
 			                                         type: "string",
 			                                         role: "annotation" }]);
-			                      var options2;
+			                      let options2;
 			                      if(!isPopup)
 		                		   {	                      
 			                	 options2 = {
@@ -138,12 +138,12 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 			                	 	}
 			                      
 			                	         };  
-			                    var chart = new google.visualization.BarChart(newGrafBlock);
+			                    let chart = new google.visualization.BarChart(newGrafBlock);
 			                    chart.draw(view, options2); 
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 5)//  Istogramma Orizzontale
 			                  {
-			                	  var view = new google.visualization.DataView(data);
+			                	  let view = new google.visualization.DataView(data);
 			                      view.setColumns([0, 1,
 			                                       { calc: "stringify",
 			                                         sourceColumn: 1,
@@ -151,7 +151,7 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 			                                         role: "annotation" }]);
 			                    if(!isPopup)
 		                		   {	
-			                	var options2 = {
+			                	let options2 = {
 			                	            title: jsonObj.descrBreve,
 			                	            colors: ['green'],
 			                	            orientation: 'vertical',
@@ -159,7 +159,7 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 			                	         }; 
 		                		   }
 			                      else{
-			                    	  var options2 = {
+			                    	  let options2 = {
 				                	            title: jsonObj.descrCompleta,
 				                	            colors: ['green'],
 				                	            orientation: 'vertical',
@@ -170,14 +170,14 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 				                	         };   
 			                      }
 			                	
-			                    var chart = new google.visualization.BarChart(newGrafBlock);
+			                    let chart = new google.visualization.BarChart(newGrafBlock);
 			                    chart.draw(view, options2); 
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 4) // Proienzione
 			                  {
 			                	  if(!isPopup)
 		                		   {	
-			                	  var options2 = {
+			                	  let options2 = {
 			                	          chart: {
 			                	            title: jsonObj.descrBreve,
 			                	            subtitle: '',
@@ -187,7 +187,7 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 		                		   }
 			                	  else
 			                		  {
-			                		  var options2 = {
+			                		  let options2 = {
 				                	          chart: {
 				                	            title: jsonObj.descrCompleta,
 				                	            subtitle: '',
@@ -196,14 +196,14 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 				                	        }; 
 			                		  }
 			                	  
-			                    var chart = new google.charts.Bar(newGrafBlock);
+			                    let chart = new google.charts.Bar(newGrafBlock);
 			                    chart.draw(data, google.charts.Bar.convertOptions(options2)); 
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 6)//  Istogramma Stacked
 			                  {
 			                	  if(!isPopup)
 		                		   {
-			                	var options2 = {
+			                	let options2 = {
 			                	            title: jsonObj.descrBreve,
 			                	            chartArea: {width: '50%'},
 			                	            fontSize:14,
@@ -211,31 +211,31 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 			                	          }; 
 		                		   }
 			                	  else{
-			                		  var options2 = {
+			                		  let options2 = {
 				                	            title: jsonObj.descrCompleta,
 				                	            chartArea: {width: '50%'},
 				                	            fontSize:14,
 				                	            isStacked: true
 				                	          };  
 			                	  }
-			                    var chart = new google.visualization.BarChart(newGrafBlock);
+			                    let chart = new google.visualization.BarChart(newGrafBlock);
 			                    chart.draw(data, options2); 
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 7)//  GeoChart Regioni
 			                  {
-	                              var options2 = {
+	                              let options2 = {
 	                                region: 'IT',
 	                                displayMode: 'markers',
 	                                resolution:'provinces',
 	                                colorAxis: {colors: ['green', 'blue']}
 	                              };
-			                    var chart = new google.visualization.GeoChart(newGrafBlock);
+			                    let chart = new google.visualization.GeoChart(newGrafBlock);
 			                    chart.draw(data, options2); 
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 8)//  Cruscotto
 			                  {
 			                	  
-	                              var options2 = {
+	                              let options2 = {
 	                                      width: 900, height: 340,
 	                                      redFrom: 90, redTo: 100,
 	                                      yellowFrom:75, yellowTo: 90,
@@ -259,30 +259,30 @@ function createNewChart(idElencoQuery, className, idContainer, isPopup, showStam
 		                                        }
 		                                    };
 		                		  }
-			                    var chart = new google.visualization.Gauge(newGrafBlock);
+			                    let chart = new google.visualization.Gauge(newGrafBlock);
 			                    chart.draw(data, options2); 
 			                  }
 			                  else if(jsonObj.idTipoVisualizzazione == 9)//  Diagramma LineChart
 			                  {
 			                	  if(!isPopup)
 		                		   {
-			                		  var options2 = {
+			                		  let options2 = {
 			                	            title: jsonObj.descrBreve,
 			                	            legend: {position: 'top', maxLines: 3},
 			                	         };  
 		                		   }
 			                	  else{
-			                		  var options2 = {
+			                		  let options2 = {
 				                	            title: jsonObj.descrCompleta,
 				                	            legend: {position: 'top', maxLines: 3},
 				                	         };  
 			                	  } 
-			                    var chart = new google.visualization.LineChart(newGrafBlock);
+			                    let chart = new google.visualization.LineChart(newGrafBlock);
 			                    chart.draw(data, options2); 
 			                  }
 			                  else // idTipoVisualizzazione == 3 ---- Elenco
 			                  {
-			                	  var table = new google.visualization.Table(newGrafBlock);
+			                	  let table = new google.visualization.Table(newGrafBlock);
 			                      table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});  
 			                  }
 			            	  

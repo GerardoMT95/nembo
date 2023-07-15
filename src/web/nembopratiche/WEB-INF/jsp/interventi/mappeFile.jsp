@@ -68,7 +68,7 @@
 
     function fileFormatter($value, row, index)
     {
-      var href = 'visualizza_allegato_' + ${idIntervento}
+      let href = 'visualizza_allegato_' + ${idIntervento}
       +"_" + row['idFileAllegatiIntervento'] + '.do';
       return '<table cellspacing="0" cellpadding="0" style="border:none !important"><tr><td style="border:none !important;width:32px"><a href="'+href+'" class="ico32 '+row['iconClassMimeType']+'"></a></td><td style="border:none !important;vertical-align:middle"><a href="'+href+'" style="padding-left:8px">'
           + $value + '</a></td></tr></table>';
@@ -90,7 +90,7 @@
     }
     function eliminaMultiplo()
     {
-      var $selezionati=$('input[name="idFileAllegatiIntervento"]:checked');
+      let $selezionati=$('input[name="idFileAllegatiIntervento"]:checked');
       if ($selezionati.length==0)
       {
         alert('Selezionare almeno un allegato');

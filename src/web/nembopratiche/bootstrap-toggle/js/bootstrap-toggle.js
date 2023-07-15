@@ -13,7 +13,7 @@
 	// TOGGLE PUBLIC CLASS DEFINITION
 	// ==============================
 
-	var Toggle = function (element, options) {
+	let Toggle = function (element, options) {
 		this.$element  = $(element)
 		this.options   = $.extend({}, this.defaults(), options)
 		this.render()
@@ -50,19 +50,19 @@
 	Toggle.prototype.render = function () {
 		this._onstyle = 'btn-' + this.options.onstyle
 		this._offstyle = 'btn-' + this.options.offstyle
-		var size = this.options.size === 'large' ? 'btn-lg'
+		let size = this.options.size === 'large' ? 'btn-lg'
 			: this.options.size === 'small' ? 'btn-sm'
 			: this.options.size === 'mini' ? 'btn-xs'
 			: ''
-		var $toggleOn = $('<label class="btn">').html(this.options.on)
+		let $toggleOn = $('<label class="btn">').html(this.options.on)
 			.addClass(this._onstyle + ' ' + size)
-		var $toggleOff = $('<label class="btn">').html(this.options.off)
+		let $toggleOff = $('<label class="btn">').html(this.options.off)
 			.addClass(this._offstyle + ' ' + size + ' active')
-		var $toggleHandle = $('<span class="toggle-handle btn btn-default">')
+		let $toggleHandle = $('<span class="toggle-handle btn btn-default">')
 			.addClass(size)
-		var $toggleGroup = $('<div class="toggle-group">')
+		let $toggleGroup = $('<div class="toggle-group">')
 			.append($toggleOn, $toggleOff, $toggleHandle)
-		var $toggle = $('<div class="toggle btn" data-toggle="toggle">')
+		let $toggle = $('<div class="toggle btn" data-toggle="toggle">')
 			.addClass( this.$element.prop('checked') ? this._onstyle : this._offstyle+' off' )
 			.addClass(size).addClass(this.options.style)
 
@@ -75,8 +75,8 @@
 		})
 		this.$toggle.append($toggleGroup)
 
-		var width = this.options.width || Math.max($toggleOn.outerWidth(), $toggleOff.outerWidth())+($toggleHandle.outerWidth()/2)
-		var height = this.options.height || Math.max($toggleOn.outerHeight(), $toggleOff.outerHeight())
+		let width = this.options.width || Math.max($toggleOn.outerWidth(), $toggleOff.outerWidth())+($toggleHandle.outerWidth()/2)
+		let height = this.options.height || Math.max($toggleOn.outerHeight(), $toggleOff.outerHeight())
 		$toggleOn.addClass('toggle-on')
 		$toggleOff.addClass('toggle-off')
 		this.$toggle.css({ width: width, height: height })
@@ -91,7 +91,7 @@
 	Toggle.prototype.toggleHandler = function () {
 		if (this.options.handler)
 		{ 
-		  var ok=this.options.handler(this.$element);
+		  let ok=this.options.handler(this.$element);
 		  if (ok!==true)
 		  {
 		    return;
@@ -156,16 +156,16 @@
 
 	function Plugin(option) {
 		return this.each(function () {
-			var $this   = $(this)
-			var data    = $this.data('bs.toggle')
-			var options = typeof option == 'object' && option
+			let $this   = $(this)
+			let data    = $this.data('bs.toggle')
+			let options = typeof option == 'object' && option
 
 			if (!data) $this.data('bs.toggle', (data = new Toggle(this, options)))
 			if (typeof option == 'string' && data[option]) data[option]()
 		})
 	}
 
-	var old = $.fn.bootstrapToggle
+	let old = $.fn.bootstrapToggle
 
 	$.fn.bootstrapToggle             = Plugin
 	$.fn.bootstrapToggle.Constructor = Toggle
@@ -186,10 +186,10 @@
 	})
 
 	$(document).on('click.bs.toggle', 'div[data-toggle^=toggle]', function(e) {
-		var $checkbox = $(this).find('input[type=checkbox]')
+		let $checkbox = $(this).find('input[type=checkbox]')
     $checkbox.bootstrapToggle('toggleHandler');
 		e.preventDefault()
 	})
 
 }(jQuery);
-var toggle_loaded=true;
+let toggle_loaded=true;

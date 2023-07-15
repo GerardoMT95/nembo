@@ -270,8 +270,8 @@
             ],
             connectTo: '#elencoDocumenti',
             onSubmit: function() {
-            	var data = $('#filter-bar').bootstrapTableFilter('getData');
-            	 var elabFilter = JSON.stringify(data);
+            	let data = $('#filter-bar').bootstrapTableFilter('getData');
+            	 let elabFilter = JSON.stringify(data);
 				
 		            $.ajax({
 		            	  type: "POST",
@@ -285,7 +285,7 @@
             	$('#elencoDocumenti').bootstrapTable('refresh');
             }
         });
-		var filterJSON = $('#filtroAziende').val();
+		let filterJSON = $('#filtroAziende').val();
 		if(filterJSON){
 			$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);}
 
@@ -306,7 +306,7 @@
 			$(".colConColspan").show();
   			$(".colConColspanFornitore").show();
 			
-			var colspan = 0;
+			let colspan = 0;
 	  		if($("input[data-field=dataDocumentoSpesaStr]")[0].checked==true)
 		  		colspan++;
 	  		if($("input[data-field=numeroDocumentoSpesa]")[0].checked==true)
@@ -333,7 +333,7 @@
 	  		if(colspan==0)
 	  			$(".colConColspan").hide();
 
-	  		var colspan2=0;
+	  		let colspan2=0;
 	  		if($("input[data-field=codiceFornitore]")[0].checked==true)
 	  			colspan2++;
 	  		if($("input[data-field=ragioneSociale]")[0].checked==true)
@@ -343,7 +343,7 @@
 	  			$(".colConColspanFornitore").hide();
 
 
-	  		var colspan3=0;
+	  		let colspan3=0;
 	  		if($("input[data-field=importoLordoPagamento]")[0].checked==true)
 	  			colspan3++;
 	  		if($("input[data-field=importoAssociatoRic]")[0].checked==true)
@@ -364,15 +364,15 @@
 	
 	function allegatiFormatter($value, row, index)
     {
-      var allegati = row['allegati'];
-      //var ret=row.nomeFileLogicoDocumentoSpe+' <a href=\"../cunembo263m/download_'+row.idDettDocumentoSpesa+'.do\" class=\"ico24 '+row.iconaFile+'\" title = '+row.nomeFileFisicoDocumentoSpe+'></a>';
-      var ret= '<ul style=\"padding-left: 2em;\">';
-	  var i =0;
+      let allegati = row['allegati'];
+      //let ret=row.nomeFileLogicoDocumentoSpe+' <a href=\"../cunembo263m/download_'+row.idDettDocumentoSpesa+'.do\" class=\"ico24 '+row.iconaFile+'\" title = '+row.nomeFileFisicoDocumentoSpe+'></a>';
+      let ret= '<ul style=\"padding-left: 2em;\">';
+	  let i =0;
 
 	  if(allegati!=null)
       for(i=0;i<allegati.length;i++)
           {
-			var all = allegati[i];
+			let all = allegati[i];
 			if(all.poApprovatoNegativo)
 				ret = ret.concat('<li class=\"myLi\"><span class=\"mySpan\"><a style=\"color:red;\" href=\"../cunembo263m/download_'+all.idDocumentoSpesaFile+'.do\" title = \"'+all.nomeFileFisicoDocumentoSpe+'\">'+all.nomeFileLogicoDocumentoSpe+'</a></span></li><br>');
 			else
@@ -386,7 +386,7 @@
 	
 	function iconeFormatter($value, row, index)
     {
-        var html = '';
+        let html = '';
 
 		//vedi dettaglio interventi spesa
 
@@ -473,7 +473,7 @@
 			            async : false,
 			            success : function(html)
 			            {
-			              var COMMENT = '<success>';
+			              let COMMENT = '<success>';
 			              if (html != null && html.indexOf(COMMENT) >= 0)
 			              {
 			      			

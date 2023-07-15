@@ -97,7 +97,7 @@ h4 {
 	<script type="text/javascript">
 	function radioFormatter(rows, field) {
 
-		var html=[];
+		let html=[];
 		html.push('<div class="radio"> <label><input type="radio" id="'+field['idAzienda']+'" value="'+field['idAzienda']+'" name="optradio"></label></div>');
 		return html.join("");
 	}

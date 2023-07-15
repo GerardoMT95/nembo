@@ -229,7 +229,7 @@
 	<script type="text/javascript">
     function fileFormatter($value, row, index)
     {
-      var href = 'visualizza_allegato_' + $
+      let href = 'visualizza_allegato_' + $
       {
         idIntervento
       }

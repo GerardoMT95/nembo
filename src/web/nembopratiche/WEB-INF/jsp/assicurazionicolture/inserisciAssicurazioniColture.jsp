@@ -28,7 +28,7 @@
 		<form name="formVisualizzaAssicurazioniColture" id="formVisualizzaAssicurazioniColture" action="index.do" method="POST">
 				
 				<h4>Assicurazioni Colture</h4>
-				<c:set var ="tableName"  value ="tableInserisciAssicurazioniColture"/>
+				<c:set let="tableName"  value ="tableInserisciAssicurazioniColture"/>
 				<table id="${tableName}"
 					class="table table-hover table-striped table-bordered tableBlueTh">
 					<thead>
@@ -110,7 +110,7 @@
 		
 		<script type="text/javascript">
 			function idAssicurazioniColtureFormatter($value, row, index){
-				var risultato;
+				let risultato;
 				/*
 					<p:abilitazione-azione codiceQuadro="ASSIC" codiceAzione="MODIFICA">
 				*/
@@ -122,7 +122,7 @@
 				/*
 					<p:abilitazione-azione codiceQuadro="ASSIC" codiceAzione="ELIMINA">
 				*/
-					var modifica = 'openPageInPopup("../cunembo${cuNumber}e/index_" + $value +".do",\'dlgEliminaAssicurazioni\',\'Elimina Assicurazioni\',\'modal-large\',false, null);';
+					let modifica = 'openPageInPopup("../cunembo${cuNumber}e/index_" + $value +".do",\'dlgEliminaAssicurazioni\',\'Elimina Assicurazioni\',\'modal-large\',false, null);';
 					risultato+='<a class="ico24 ico_trash" onclick="' + modifica +'"></a>';
 					risultato+='<input type="checkbox" name="chkIdAssicurazioniColture" id="chkIdAssicurazioniColture" value="' + $value + '" />';
 				/*
@@ -132,7 +132,7 @@
 		
 		function loadSlcConsorzi()
 		{
-			var idProvincia = $('#slcProvincia').val();
+			let idProvincia = $('#slcProvincia').val();
 					    $.ajax({
 		        type: "GET",
 		        url: '../cunembo${cuNumber}i/get_list_consorzi_' + idProvincia +'.do',

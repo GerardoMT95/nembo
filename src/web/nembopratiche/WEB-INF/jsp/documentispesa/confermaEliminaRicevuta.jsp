@@ -7,7 +7,7 @@
 		<div class="alert alert-danger">
 			<p>
 				<strong>Attenzione!</strong><br />
-				<c:out value="L'importo della ricevuta di pagamento selezionata è già stata associata almeno in parte ad uno o più interventi; 
+				<c:out value="L'importo della ricevuta di pagamento selezionata ï¿½ giï¿½ stata associata almeno in parte ad uno o piï¿½ interventi; 
 							eliminandola verranno eliminate anche queste associazioni. Si desidera proseguire?"></c:out>
 			</p>
 		</div>
@@ -23,7 +23,7 @@
 	<script type="text/javascript">
     function confermaElimina()
     {
-        var idDettRicevutaPagamento = '${idDettRicevutaPagamento}';
+        let idDettRicevutaPagamento = '${idDettRicevutaPagamento}';
         $.ajax(
           {
             type : "GET",
@@ -32,11 +32,11 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success>';
+              let COMMENT = '<success>';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
-                  var giaRend = $("#giaRend").val();
-                  var idDoc = $("#idDocSpesa").val();
+                  let giaRend = $("#giaRend").val();
+                  let idDoc = $("#idDocSpesa").val();
                   
                   if(giaRend=='S')
                 	  forwardToPage('../cunembo263m/elencoricevuteDocRendicontato_'+idDoc+'.do');
@@ -47,12 +47,12 @@
               else
               {
                 doErrorTooltip();
-                writeModalBodyError("Il documento di spesa a cui è associata la ricevuta di pagamento è già stato utilizzato per la rendicontazione spese, per cui non è più possibile eliminarla");
+                writeModalBodyError("Il documento di spesa a cui ï¿½ associata la ricevuta di pagamento ï¿½ giï¿½ stato utilizzato per la rendicontazione spese, per cui non ï¿½ piï¿½ possibile eliminarla");
               }
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

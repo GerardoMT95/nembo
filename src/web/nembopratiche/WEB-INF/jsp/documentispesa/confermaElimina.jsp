@@ -13,7 +13,7 @@
 	<script type="text/javascript">
     function confermaElimina()
     {
-        var idDocumentoSpesa = '${idDocumentoSpesa}';
+        let idDocumentoSpesa = '${idDocumentoSpesa}';
         $.ajax(
           {
             type : "GET",
@@ -22,7 +22,7 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success>';
+              let COMMENT = '<success>';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
                 window.location.reload();

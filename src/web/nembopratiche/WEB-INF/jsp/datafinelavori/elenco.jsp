@@ -78,7 +78,7 @@
 	{
 		if(index <= 0)
 	    {
- 	       var iconModify = "<a href=\"../cunembo231m/index.do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_modify\" title=\"Modifica\" style=\"font-size:1.4em;\"></i></a>";
+ 	       let iconModify = "<a href=\"../cunembo231m/index.do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_modify\" title=\"Modifica\" style=\"font-size:1.4em;\"></i></a>";
  	       iconModify = iconModify +"<a onclick=\"return openPageInPopup('../cunembo231e/popupindex_"+row['idFineLavori']+".do','dlgElimina','Elimina Data Fine','modal-lg',false)\" href=\"popupindex_"+row['idFineLavori']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_trash\" title=\"Elimina operazione in campo\"></i></a>";
 		   return iconModify;
 	    }

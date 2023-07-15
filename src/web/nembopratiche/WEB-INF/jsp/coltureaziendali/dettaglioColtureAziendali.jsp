@@ -172,7 +172,7 @@
 <script src="/nembopratiche/js/nembotableformatter.js"></script>
 
 <script type="text/javascript">
-var mapIdSuperficieColturaAnomalia={};
+let mapIdSuperficieColturaAnomalia={};
 </script>	
 	
 <c:forEach items="${mapIdSuperficieColturaAnomalia}" var="elem">

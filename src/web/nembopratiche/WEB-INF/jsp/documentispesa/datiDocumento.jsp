@@ -72,10 +72,10 @@
 						</c:if>
 						
 						<c:if test="${tipoDocumentoSpesaVO.flagIdModalitaPagamento == 'F'}">
-							<m:select label="Modalità Pagamento" selectedValue="${documentoSpesaVO.idModalitaPagamento}" id="idModalitaPagamento" list="${elencoModalitaPagamento}" name="idModalitaPagamento" preferRequestValues="${prfReqValues}">></m:select>
+							<m:select label="Modalitï¿½ Pagamento" selectedValue="${documentoSpesaVO.idModalitaPagamento}" id="idModalitaPagamento" list="${elencoModalitaPagamento}" name="idModalitaPagamento" preferRequestValues="${prfReqValues}">></m:select>
 						</c:if>
 						<c:if test="${tipoDocumentoSpesaVO.flagIdModalitaPagamento == 'S' || tipoDocumentoSpesaVO.flagIdModalitaPagamento == 'K'}">
-							<m:select label="Modalità Pagamento *" selectedValue="${documentoSpesaVO.idModalitaPagamento}" id="idModalitaPagamento" list="${elencoModalitaPagamento}" name="idModalitaPagamento" preferRequestValues="${prfReqValues}">></m:select>
+							<m:select label="Modalitï¿½ Pagamento *" selectedValue="${documentoSpesaVO.idModalitaPagamento}" id="idModalitaPagamento" list="${elencoModalitaPagamento}" name="idModalitaPagamento" preferRequestValues="${prfReqValues}">></m:select>
 						</c:if>
 						
 						
@@ -114,7 +114,7 @@
 									<div class="form-group">
                       <span class="col-sm-3"></span>
                       <div class="col-sm-9" >
-                      <span class="text-danger">Allegare in un unico file il documento spesa e i documenti necessari per la tracciabilità dei pagamenti, così come previsti dai bandi.</span>
+                      <span class="text-danger">Allegare in un unico file il documento spesa e i documenti necessari per la tracciabilitï¿½ dei pagamenti, cosï¿½ come previsti dai bandi.</span>
                       </div>
                     </div>
 									<b:file label="Documento Spesa" name="fileDaAllegare" id="fileDaAllegare"  />
@@ -143,11 +143,11 @@
 
 	function calculateImportoLordo(){
 
-		var netto = $("#importoSpesa").val();
-		var iva = $("#importoIva").val();
+		let netto = $("#importoSpesa").val();
+		let iva = $("#importoIva").val();
 		netto = netto.replace(",",".");
 		iva = iva.replace(",",".");
-		var lordo = parseFloat(netto)+parseFloat(iva);
+		let lordo = parseFloat(netto)+parseFloat(iva);
 		
 		if(isNaN(parseFloat(iva)))
 			lordo = netto;

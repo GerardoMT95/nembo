@@ -7,7 +7,7 @@
 (function ($) {
     'use strict';
 
-    var initResizable = function (that) {
+    let initResizable = function (that) {
         //Deletes the plugin to re-create it
         that.$el.colResizable({disable: true});
 
@@ -40,7 +40,7 @@
         }
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _toggleView = BootstrapTable.prototype.toggleView,
         _resetView = BootstrapTable.prototype.resetView;
 
@@ -54,7 +54,7 @@
     };
 
     BootstrapTable.prototype.resetView = function () {
-        var that = this;
+        let that = this;
 
         _resetView.apply(this, Array.prototype.slice.apply(arguments));
 
@@ -67,7 +67,7 @@
     };
 
     BootstrapTable.prototype.onResize = function (e) {
-        var that = $(e.currentTarget);
+        let that = $(e.currentTarget);
         that.bootstrapTable('resetView');
         that.data('bootstrap.table').options.onResizableResize.apply(e);
     }

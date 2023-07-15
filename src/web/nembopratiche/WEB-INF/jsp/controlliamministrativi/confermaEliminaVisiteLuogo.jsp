@@ -30,7 +30,7 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success';
+              let COMMENT = '<success';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
                 window.location.reload();
@@ -43,7 +43,7 @@
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

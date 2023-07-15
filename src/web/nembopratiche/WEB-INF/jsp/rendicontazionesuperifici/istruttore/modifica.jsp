@@ -98,11 +98,11 @@
 	 <script type="text/javascript">
     function ricalcolaTotale(classTextField, idTotale)
     {
-      var totale=0;
+      let totale=0;
       $('.'+classTextField).each(function(index, tag)
       {
-        var value=$(tag).val();
-        var superficie = Number(value.replace(',', '.'));
+        let value=$(tag).val();
+        let superficie = Number(value.replace(',', '.'));
         if (!isNaN(superficie))
         {
           totale+=superficie;

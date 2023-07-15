@@ -39,7 +39,7 @@
 
   function ricercaComuni()
   {
-    var $listComuni=$('#partecipanti');
+    let $listComuni=$('#partecipanti');
     $val = $('#partCuaa').val();
     if ($val=='')
     {
@@ -57,8 +57,8 @@
 
   function popolaListPartecipanti(cuaa, denominazione){
 	  
-	  var page="../cunembo171l/getElencoPartecipantiFiltrati.json";
-	  var $listComuni=$('#partecipanti');
+	  let page="../cunembo171l/getElencoPartecipantiFiltrati.json";
+	  let $listComuni=$('#partecipanti');
 	  $listComuni.empty();
 	    $.ajax({
 	        type: "POST",

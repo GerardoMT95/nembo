@@ -64,7 +64,7 @@
 	function checkboxFormatter($value, row, index) {
 
 		
-		var ret =  '<div style="text-align:center"><input type="checkbox" title=""';
+		let ret =  '<div style="text-align:center"><input type="checkbox" title=""';
 		if(row['checked'])
 			ret+='checked';
 		ret+=' value="'+row['idProcedimentoOggetto']+'" name = "idPOCheck" /></div>';
@@ -81,14 +81,14 @@
 
 	function escludiPratiche(idBando){
 
-		var lenSelected = $("input[name='idPOCheck']:checked").length;
+		let lenSelected = $("input[name='idPOCheck']:checked").length;
 		if (lenSelected > 0) {
 			//controllo che non ci siano pratichce non selezionate relative allo stesso id_procedimento_oggetto
-			var i=0;
+			let i=0;
 			for(i=0;i<lenSelected;i++){
-				var selectedVal = $("input[name='idPOCheck']:checked")[i].value;
+				let selectedVal = $("input[name='idPOCheck']:checked")[i].value;
 				
-				var unChecked = $("input[name='idPOCheck'][value='"+selectedVal+"']:not(:checked)").length;
+				let unChecked = $("input[name='idPOCheck'][value='"+selectedVal+"']:not(:checked)").length;
 				if(unChecked>0)
 					{
 						showMessageBox("Attenzione", "Attenzione sono stati selezionati pagamenti parziali riferiti alla stessa pratica, non � possibile escludere parzialmente il pagamento di una pratica.", "modal-large")
@@ -134,8 +134,8 @@
 			} ],
 			connectTo : '#elencoPratiche',
 			onSubmit : function() {
-				var data = $('#filter-bar').bootstrapTableFilter('getData');
-				var elabFilter = JSON.stringify(data);
+				let data = $('#filter-bar').bootstrapTableFilter('getData');
+				let elabFilter = JSON.stringify(data);
 				$.ajax({
 					type : "POST",
 					url : '../session/salvaFiltri.do',
@@ -145,7 +145,7 @@
 				});
 			}
 		});
-		var filterJSON = $('#filtroJSON').html();
+		let filterJSON = $('#filtroJSON').html();
 		if (filterJSON)
 			$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON", filterJSON);
 

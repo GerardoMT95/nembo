@@ -34,7 +34,7 @@
 	<br />
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	<script type="text/javascript">
-    var time = 2000;
+    let time = 2000;
     function checkStampa()
     {
       $.getJSON("json/stampa.json", function(data)
@@ -59,7 +59,7 @@
         }
         if (time > 6000)
         {
-          alert('Si è verificato un problema nel reperimento dello stato della genenerazione della stampa');
+          alert('Si ï¿½ verificato un problema nel reperimento dello stato della genenerazione della stampa');
           window.location.href = '../cunembo227/index.do';
         }
         else

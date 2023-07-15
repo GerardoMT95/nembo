@@ -101,8 +101,8 @@
 	<c:if test="${hasflagAssociatoAltraMisura}">
     <script src="/nembopratiche/bootstrap-toggle/js/bootstrap-toggle.js"></script>
 		<script type="text/javascript">
-      var toggleHandler = null;
-      var toggleEnabled=false;
+      let toggleHandler = null;
+      let toggleEnabled=false;
     </script>
 		<c:choose>
 			<c:when test="${isAbilita}">
@@ -111,15 +111,15 @@
           function associaAltraMisura(checkbox)
           {
             $this = checkbox;
-            var id = $this.data('id');
-            var $url = '../cunembo${cuNumber}m/';
-            var checked = !$this.prop('checked');
+            let id = $this.data('id');
+            let $url = '../cunembo${cuNumber}m/';
+            let checked = !$this.prop('checked');
             if (!checked)
             {
               $url = $url + 'non';
             }
             $url = $url + 'richiesto412_' + id + '.do'
-            var retVal = false;
+            let retVal = false;
             $.ajax(
             {
               url : $url,
@@ -178,7 +178,7 @@
           })
         });
       });
-      var disabled = '';
+      let disabled = '';
       if (!toggleEnabled)
       {
         disabled = 'disabled = "disabled" ';
@@ -191,7 +191,7 @@
         }
         try
         {
-          var checked = "";
+          let checked = "";
           if ($value == 'S')
           {
             checked = ' checked="checked" ';
@@ -211,8 +211,8 @@
 
   $('#tblInterventi').on('load-success.bs.table', function()
   {
-    var tableData = $('#tblInterventi').bootstrapTable('getData');
-    var visible = false;
+    let tableData = $('#tblInterventi').bootstrapTable('getData');
+    let visible = false;
     if (tableData != null && tableData.length)
     {
       $.each(tableData, function(index, row)
@@ -229,12 +229,12 @@
 
     function importoInvestimentoAdder(rows, field)
     {
-      var __sum = 0;
+      let __sum = 0;
       $(rows).each(function(index, currentRow)
       {
         if (currentRow['flagTipoOperazione'] != 'D')
         {
-          var value = currentRow[field];
+          let value = currentRow[field];
           if (value!=null && !isNaN(value) && value.length != 0)
           {
             __sum += parseFloat(value);
@@ -248,7 +248,7 @@
     {
       if (row['flagTipoOperazione'] == 'D')
       {
-        var retValue =
+        let retValue =
         {
           classes : 'danger'
         };
@@ -291,7 +291,7 @@
       	return '';
       }
     }
-    var ICONE = [];
+    let ICONE = [];
     ICONE['DE'] = '<a href="../cunembo${cuNumber}v/index_:ID_INTERVENTO.do" class="ico24 ico_magnify" title="Dettaglio"></a>';
     ICONE['MO'] = '<a href="../cunembo${cuNumber}m/modifica_singola_:ID_INTERVENTO.do" class="ico24 ico_modify" title="Modifica"></a>';
     ICONE['MS'] = '<a href="../cunembo${cuNumber}ms/modifica_singola_:ID_INTERVENTO.do" class="ico24 ico_modify" title="Modifica"></a>';
@@ -311,7 +311,7 @@
       {
         while ($value.length > 1)
         {
-          var icona = $value.substr(0, 2);
+          let icona = $value.substr(0, 2);
           $value = $value.substr(2);
           $htmlIcona = ICONE[icona];
           if ($htmlIcona)
@@ -324,22 +324,22 @@
     }
     function misurazioniFormatter($value, row, index)
     {
-      var $html = '';
+      let $html = '';
       for ($i = 0; $i < $value.length; ++$i)
       {
         if ($i > 0)
         {
           $html += "<br/>"
         }
-        var descMisurazione = $value[$i]['descMisurazione'];
+        let descMisurazione = $value[$i]['descMisurazione'];
         if (descMisurazione != null)
         {
           $html += descMisurazione;
         }
-        var codiceUnitaMisura = $value[$i]['codiceUnitaMisura'];
+        let codiceUnitaMisura = $value[$i]['codiceUnitaMisura'];
         if (codiceUnitaMisura != 'NO_MISURA')
         {
-          var valore = $value[$i]['valore'];
+          let valore = $value[$i]['valore'];
           $number = Number(valore);
           if (!isNaN($number))
           {

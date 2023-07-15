@@ -111,7 +111,7 @@
 	<script>
 		$(document).ready(function() {
 			// Get the input field
-			var input = document.getElementById("cuaaFiltro");
+			let input = document.getElementById("cuaaFiltro");
 
 			// Execute a function when the user releases a key on the keyboard
 			input.addEventListener("keydown", function(event) {
@@ -131,9 +131,9 @@
 
 			$('#errorBox').html("");
 
-			var cuaa = $.trim($('#cuaaFiltro').val());
-			var denominazioneAzienda = $.trim($('#denominazioneAziendaFiltro').val());
-			var ok = true;
+			let cuaa = $.trim($('#cuaaFiltro').val());
+			let denominazioneAzienda = $.trim($('#denominazioneAziendaFiltro').val());
+			let ok = true;
 			if (cuaa == "" && denominazioneAzienda == "") {
 				$('#errorBox').html("<div class='alert alert-danger'>Inserire un filtro di ricerca</div>");
 				ok = false;

@@ -87,9 +87,9 @@
 	</div>
 	<script type="text/javascript">
 		function checkConfirm() {
-			var elems = $("input[name^='contributoRiduzioniSanzioni_']");
+			let elems = $("input[name^='contributoRiduzioniSanzioni_']");
 
-			var i = 0;
+			let i = 0;
 			if (elems != null)
 				for (i = 0; i < elems.length; i++) {
 					if (elems[i].value === undefined || elems[i].value == '')

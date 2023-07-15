@@ -2,8 +2,8 @@ function initDropDown()
 {
   $('.my-dropdown').on('show.bs.dropdown', function()
   {
-    var $dropdown = $(this);
-    var $filter = $dropdown.find(".dropdown-filter");
+    let $dropdown = $(this);
+    let $filter = $dropdown.find(".dropdown-filter");
     let $input = $filter.val("");
     applyFiltroDropdown($filter.get(0));
   });
@@ -12,14 +12,14 @@ $(document).ready(initDropDown);
 
 function selectDropdownItem(self)
 {
-  var $this = $(self);
-  var $li=$this.closest('li');
+  let $this = $(self);
+  let $li=$this.closest('li');
   $li.closest('ul').find('li').removeClass('active');
   $li.addClass('active');
-  var $dropdown = $this.closest('.dropdown');
-  var $dropdownValue = $dropdown.find('button').find('.dropdown-value');
+  let $dropdown = $this.closest('.dropdown');
+  let $dropdownValue = $dropdown.find('button').find('.dropdown-value');
   $dropdownValue.html($this.html());
-  var value=$this.data('value');
+  let value=$this.data('value');
   $dropdown.data('value', value);
   $dropdown.find('.my-dropdown-hidden').data('value', value);
   $dropdown.trigger("change");
@@ -28,9 +28,9 @@ function selectDropdownItem(self)
 
 function applyFiltroDropdown(self)
 {
-  var $this = $(self);
-  var filtro = jQuery.trim($this.val()).toLowerCase();
-  var countVisibili = 0;
+  let $this = $(self);
+  let filtro = jQuery.trim($this.val()).toLowerCase();
+  let countVisibili = 0;
 
   $this.closest('ul').find('li').each(function(index, object)
   {
@@ -59,7 +59,7 @@ function applyFiltroDropdown(self)
 function myList_defaultOnClickItem(self, value)
 {
   let $this=$(self);
-  var $list=$this.closest('.my-list');
+  let $list=$this.closest('.my-list');
   if (!$list.data('multiple-selection'))
   {
     $($list.find('a').removeClass('active'));
@@ -73,7 +73,7 @@ function myList_defaultOnClickItem(self, value)
 function myList_filterList(filter, $list)
 {
   filter=jQuery.trim(filter).toLowerCase();
-  var countVisibili=0;
+  let countVisibili=0;
   
   $list.children('a').each(function(index, object)
     {
@@ -92,11 +92,11 @@ function myList_filterList(filter, $list)
 
 function dropdown_onKeydown(self, event)
 {
-  var ch=event.which || event.keyCode;
+  let ch=event.which || event.keyCode;
   if (ch > 47)
   {
-    var $this=$(self);
-    var $filter = $this.find(".dropdown-filter");
+    let $this=$(self);
+    let $filter = $this.find(".dropdown-filter");
     $filter.focus();
   }
 }
@@ -115,7 +115,7 @@ function myList_addItem($list, text, value, onclick)
   {
     text="";
   }
-  var title=text.replace(new RegExp('"', 'g'), '&quot;');
+  let title=text.replace(new RegExp('"', 'g'), '&quot;');
   let $a=$("<a href='#' class=\"list-group-item\" title=\""+title+"\"data-value=\""+value+"\" onclick=\""+onclick+"\">"+text+"</a>");
   $list.append($a);
 }

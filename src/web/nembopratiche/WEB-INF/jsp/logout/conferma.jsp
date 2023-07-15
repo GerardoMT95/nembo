@@ -35,8 +35,8 @@
   }
   function logout()
   {
-    var $messaggio = $('#messaggio');
-    var logoutSispie = $('#logoutSispie').prop('checked');
+    let $messaggio = $('#messaggio');
+    let logoutSispie = $('#logoutSispie').prop('checked');
     $('#btn-group1').remove();
     $messaggio.html('');
     $messaggio.append("Disconnessione dall'applicativo in corso... ");

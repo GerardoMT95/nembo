@@ -45,7 +45,7 @@
 	function selezionaFornitore($this,id, codice, indirizzo){
 		
 		$("#idFornitore").val(id);
-		var res = codice;
+		let res = codice;
 		if(indirizzo!==undefined && indirizzo!=null && indirizzo!="" && indirizzo!="null")
 			res += " - " +indirizzo;
 		$("#fornitore").val(res);
@@ -54,10 +54,10 @@
 		
 	function cercafornitori() {
 		$('.stdMessagePanel').remove();
-		var $cuaa = $('#cuaa').val();
-		var $den = $('#denominazione').val();
+		let $cuaa = $('#cuaa').val();
+		let $den = $('#denominazione').val();
 
-		var $listSportelli = $('#fornitori');
+		let $listSportelli = $('#fornitori');
 		if ($cuaa == '' && $den == '') {
 			$listSportelli.empty();
 			return;
@@ -70,7 +70,7 @@
 		$('#fornitori').hide();
 		$('#loadingdiv').show();
 
-		var page = "ricerca_fornitori.json";
+		let page = "ricerca_fornitori.json";
 		$.ajax({
 			url : page,
 			type : "POST",
@@ -93,7 +93,7 @@
 
 								if(sportello.descrizione == null)
 									sportello.descrizione = "";
-								var text = sportello.codice;
+								let text = sportello.codice;
 								if(sportello.descrizione!==undefined && sportello.descrizione!=null && sportello.descrizione!="")
 									text += " - " +sportello.descrizione;
 								myList_addItem($listSportelli, text, ' ',

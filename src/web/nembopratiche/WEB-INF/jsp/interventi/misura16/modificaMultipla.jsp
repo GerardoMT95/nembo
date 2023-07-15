@@ -114,7 +114,7 @@
 	<script type="text/javascript">
     function onChangeAttivita(id)
 	  {
-  	  var idAttivita=$("#id_attivita_"+id).val();
+  	  let idAttivita=$("#id_attivita_"+id).val();
   	  if (idAttivita!="")
    	  {
         ajaxReplaceElement("load_partecipanti_"+id+"_"+idAttivita+".do", null, "id_partecipante_"+id);   
@@ -136,7 +136,7 @@
           $('#'+idToReplace).replaceWith(data);
           
         }
-	    ).fail(function(){alert("Errore nel richiamo della funzionalità")});
+	    ).fail(function(){alert("Errore nel richiamo della funzionalitï¿½")});
 	  }
     function calcolaImporto(id)
     {
@@ -146,7 +146,7 @@
         $importo=Number($("#importo_unitario_"+id).val().replace(',','.'));
         if (!isNaN($importo))
         {
-          var txt=Number($importo*$n).formatCurrency();
+          let txt=Number($importo*$n).formatCurrency();
           $('#lbl_importo_'+id).html(txt);
           return true;
         }
@@ -157,7 +157,7 @@
     $('.importo_unitario').each(
         function(index, tag)
         {
-          var tagId=tag.id;
+          let tagId=tag.id;
           tagId=tagId.substring(tagId.lastIndexOf('_')+1);
           calcolaImporto(tagId);
         });

@@ -17,7 +17,7 @@
 	<script type="text/javascript">
 function updateModalWindow() {
 		debugger;
-		var html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
+		let html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
 		if (html != null && html.indexOf('<refresh>') == 0) {
 	          window.location.reload();
 		} else {

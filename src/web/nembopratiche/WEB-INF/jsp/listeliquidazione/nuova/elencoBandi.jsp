@@ -68,14 +68,14 @@
 	<script type="text/javascript">
     function iconeFormatter($value, row, index)
     {
-      var html = '<a href="elenco_operazioni_bando_'+$value+'.do"><i class="ico24 ico_add"></i></a>';
+      let html = '<a href="elenco_operazioni_bando_'+$value+'.do"><i class="ico24 ico_add"></i></a>';
       return html;
     }
 
 	$( document ).ready(function() {
 		
 		$('body').on( "column-switch.bs.table", function(obj, field) {
-			  var value = $('input[data-field="'+field+'"]').prop("checked");
+			  let value = $('input[data-field="'+field+'"]').prop("checked");
 			  $.ajax({
           	  type: "POST",
           	  url: '../session/salvaColonna.do',
@@ -127,9 +127,9 @@
             ],
             connectTo: '#listeLiquidazione',
             onSubmit: function() {
-            	var data = $('#filter-bar').bootstrapTableFilter('getData');
+            	let data = $('#filter-bar').bootstrapTableFilter('getData');
        
-                var elabFilter = JSON.stringify(data);
+                let elabFilter = JSON.stringify(data);
                 $.ajax({
                 	  type: "POST",
                 	  url: '../session/salvaFiltri.do',
@@ -141,7 +141,7 @@
             }
         });
 		
-		var filterJSON = $('#filtroAziende').val();
+		let filterJSON = $('#filtroAziende').val();
 		if(filterJSON)
 			$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 	});

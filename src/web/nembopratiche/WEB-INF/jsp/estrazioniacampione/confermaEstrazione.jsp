@@ -43,7 +43,7 @@
 	<br />
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	<script type="text/javascript">
-	  var chiusuraInCorso=false;
+	  let chiusuraInCorso=false;
     function confermaregistra()
     {
     	$("#confermaregistra")
@@ -56,7 +56,7 @@
       }
       chiusuraInCorso=true;
 
-      var idStatoEstrazione =  ${idStatoEstrazione};
+      let idStatoEstrazione =  ${idStatoEstrazione};
       if(idStatoEstrazione == 1)
       {
     	  showConfirmMessageBox('CONFERMA', 'L\'estrazione a campione che si intende registrare non ha elementi estratti. Si desidera proseguire comunque?', 'modal-large','../cunembo219/index_${idNumeroLotto}.do','callEseguiRegistra()');
@@ -96,7 +96,7 @@
 	        error : function(xhr, status, text)
 	        {
 	          $('#dlgChiusura').modal('hide');
-	          showRedirectMessageBox("Errore", "Si è verificato un errore di sistema e non è possibile completare la registrazione, se il problema persiste contattare l'assistenza.", 'modal-large','../cunembo219/index_${idNumeroLotto}.do');
+	          showRedirectMessageBox("Errore", "Si ï¿½ verificato un errore di sistema e non ï¿½ possibile completare la registrazione, se il problema persiste contattare l'assistenza.", 'modal-large','../cunembo219/index_${idNumeroLotto}.do');
 	          chiusuraInCorso=false;
 	        }
 	      });

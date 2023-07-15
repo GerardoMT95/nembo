@@ -277,14 +277,14 @@
 		$("input[id^='importo_']").keyup(function() {
 
 			this.value = this.value.replace('.',',');
-			var val = this.value;
-			var id = this.id;
-			var idSpl = id.split('_');
-			var idIntervento = idSpl[1];
-			var idDocumento = idSpl[2];
+			let val = this.value;
+			let id = this.id;
+			let idSpl = id.split('_');
+			let idIntervento = idSpl[1];
+			let idDocumento = idSpl[2];
 
 			//RICALCOLO IL TOTALE DELL'IMP DA RENDICONTARE PER INTERVENTO
-			var totImpRend = 0;
+			let totImpRend = 0;
 			$("input[id^='importo_" + idIntervento + "_']").each(function(index) {
 				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					totImpRend += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
@@ -294,7 +294,7 @@
 			}) + "</strong>");
 
 			//RICALCOLO IL TOTALE DEI TOTALI
-			var complImpRend = 0;
+			let complImpRend = 0;
 			$("input[id^='importo_']").each(function(index) {
 				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					complImpRend += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
@@ -309,15 +309,15 @@
 
 			this.value = this.value.replace('.',',');
 			
-			var val = this.value;
-			var id = this.id;
-			var idSpl = id.split('_');
-			var idIntervento = idSpl[1];
-			var idDocumento = idSpl[2];
-			var idRicevuta = idSpl[3];
+			let val = this.value;
+			let id = this.id;
+			let idSpl = id.split('_');
+			let idIntervento = idSpl[1];
+			let idDocumento = idSpl[2];
+			let idRicevuta = idSpl[3];
 			
 			//RICALCOLO IL TOTALE DELL'IMP DA ASSOCIARE PER DOC SPESA
-			var totImpRic = 0;
+			let totImpRic = 0;
 			$("input[id^='importoRicevuta_" + idIntervento + "_" + idDocumento + "_']").each(function(index) {
 				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					totImpRic += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
@@ -329,7 +329,7 @@
 
 
 			//RICALCOLO IL TOTALE DEI TOTALI PER INTERVENTO
-			var totTotImpRic = 0;
+			let totTotImpRic = 0;
 			$("input[id^='importoRicevuta_"+idIntervento+"_']").each(function(index) {
 				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					totTotImpRic += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
@@ -339,7 +339,7 @@
 			}) + "</strong>");
 
 			//RICALCOLO IL TOTALE DEI TOTALI
-			var complexImpRic = 0;
+			let complexImpRic = 0;
 			$("input[id^='importoRicevuta_']").each(function(index) {
 				if (this.value !== undefined && this.value != null && this.value.not.equals(""))
 					complexImpRic += parseFloat(this.value.replace(/\./g, '').replace(',', '.'));
@@ -352,7 +352,7 @@
 
 		function controllaImporti() {
 			clearErrors();
-			var ser = $("#inserisciForm").serialize();
+			let ser = $("#inserisciForm").serialize();
 			$.ajax({
 				type : 'POST',
 				url : 'controllaimporti.do',
@@ -374,7 +374,7 @@
 		}
 
 		function clearErrors() {
-			var field = $('[data-toggle="error-tooltip"]');
+			let field = $('[data-toggle="error-tooltip"]');
 			field.tooltip('disable');
 			field.removeClass('has-error red-tooltip');
 			field.removeAttr('data-toggle');
@@ -383,7 +383,7 @@
 		}
 
 		function setError(key, message) {
-			var field = $('#' + key).parent();
+			let field = $('#' + key).parent();
 			field.addClass('has-error red-tooltip');
 			field.attr("data-toggle", "error-tooltip");
 			field.attr("title", message);

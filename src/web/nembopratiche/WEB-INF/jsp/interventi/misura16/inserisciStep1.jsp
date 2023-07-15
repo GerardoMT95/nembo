@@ -95,7 +95,7 @@
 	<script type="text/javascript">
 		loadPartecipanti();
 		function loadPartecipanti() {
-			var idAttivita = $("#idAttivita").val();
+			let idAttivita = $("#idAttivita").val();
 			if (idAttivita !== undefined && idAttivita != null && idAttivita.not.equals(""))
 				$.ajax({
 					url : "../cunembo266i/loadPartecipanti_" + idAttivita + ".do",

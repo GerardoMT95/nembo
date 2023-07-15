@@ -67,7 +67,7 @@
 </div>
 
 <script type="text/javascript">
-	var first = true;
+	let first = true;
 
 
 	function updateModalWindow() {
@@ -78,7 +78,7 @@
 				return;
 			}
 		}
-		var html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
+		let html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
 		if (html != null && html.indexOf('<success') == 0) {
 			$("#annulla").click();
 			location.reload();

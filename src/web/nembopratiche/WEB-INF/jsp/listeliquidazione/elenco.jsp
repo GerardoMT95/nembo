@@ -104,11 +104,11 @@
 	
     function iconeFormatter($value, row, index)
     {
-      var html = '<a href="#" onclick="visualizzaStampa('+$value+')"><i class="ico24 ico_print"></i></a>';
+      let html = '<a href="#" onclick="visualizzaStampa('+$value+')"><i class="ico24 ico_print"></i></a>';
       html += '<a href="#" onclick="return openPageInPopup(\'json/elenco_pratiche_nuova_lista_'+$value+'.do\', \'popup_elenco_pratiche_nuova_lista\', \'Elenco pratiche\', \'modal-lg\')"><i class="ico24 ico_magnify"></i></a>';
       if (row['flagStatoLista'] == 'B' || row['flagStatoLista'] == 'D')
       {
-        var idStatoStampa = Number(row['idStatoStampa']);
+        let idStatoStampa = Number(row['idStatoStampa']);
         /*<p:abilitazione-cdu codiceCdu="<%=NemboConstants.USECASE.LISTE_LIQUIDAZIONE.APPROVA%>">*/
           html += '<a href="../cunembo228/approva_'+$value+'.do"><i class="ico24 ico_ok"></i></a>';
         /*</p:abilitazione-cdu>*/
@@ -194,8 +194,8 @@
 				        connectTo : '#listeLiquidazione',
 				        onSubmit : function()
 				        {
-				          var data = $('#filter-bar').bootstrapTableFilter('getData');
-				          var elabFilter = JSON.stringify(data);
+				          let data = $('#filter-bar').bootstrapTableFilter('getData');
+				          let elabFilter = JSON.stringify(data);
 				          $.ajax(
 				          {
 				            type : "POST",
@@ -207,7 +207,7 @@
 				          });
 				        }
 				      });
-				      var filterJSON = $('#filtroJSON').html();
+				      let filterJSON = $('#filtroJSON').html();
 				      $('#filter-bar').bootstrapTableFilter("setupFilterFromJSON", filterJSON);
 
 				      $('.btn-refresh').click();
@@ -232,14 +232,14 @@
       {
         if (data.indexOf('<renew>')>=0)
         {
-          var url=data.replace('<renew>','').replace('</renew>','');
+          let url=data.replace('<renew>','').replace('</renew>','');
           openPageInPopup(url, 'dlgStampeOggetto', 'Conferma rigenerazione stampa', '');
         }
         else
         {
           if (data.indexOf('<stampa>')>=0)
           {
-            var url=data.replace('<stampa>','').replace('</stampa>','');
+            let url=data.replace('<stampa>','').replace('</stampa>','');
             window.location.href=url;
           }
         }

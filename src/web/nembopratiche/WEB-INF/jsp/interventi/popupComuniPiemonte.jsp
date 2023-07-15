@@ -14,7 +14,7 @@
   function onProsegui()
   {
     
-    var formData = {istatComune : new Array(), conferma:'true', idIntervento:"${param['idIntervento']}" };
+    let formData = {istatComune : new Array(), conferma:'true', idIntervento:"${param['idIntervento']}" };
     $('#dual-list-box-Comuni #selectedListHidden option').each(function(index) {
       formData.istatComune[index] = $(this).val();
     });
@@ -39,7 +39,7 @@
           {
 	          if (data.indexOf('<error>')==0)
 	          {
-		          var message=data.replace("<error>","");
+		          let message=data.replace("<error>","");
 		          message=data.replace("</error>","");
               $('#dlgLocalizza_errorBox').show();
               $('#dlgLocalizza_errorMessage').html(message);

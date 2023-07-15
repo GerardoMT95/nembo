@@ -116,7 +116,7 @@
     function gestisciTipoDanno()
     {
     	debugger;
-    	var tipoDanno = $('#idDanno').val();
+    	let tipoDanno = $('#idDanno').val();
     	$('.dualListMultipli').hide();
     	$('#errorBoxDiv').hide();
     	switch(tipoDanno)
@@ -163,7 +163,7 @@
     function onProsegui()
     {
     	
-    	var tipoDanno = $('#idDanno').val();
+    	let tipoDanno = $('#idDanno').val();
  //TODO:   	
     	switch(tipoDanno)
     	{
@@ -195,19 +195,19 @@
 	
 	function inserimentoDanniComplessi(idDanno)
 	{
-    	var length=1;
+    	let length=1;
     	switch(idDanno)
     	{
 	    	
 	    	case 1:
-	   			var formData = {idAllevamento : new Array(), prosegui:'true' };
+	   			let formData = {idAllevamento : new Array(), prosegui:'true' };
 		   		$('#dual-list-box-Allevamenti #selectedListHidden option').each(function(index) {
 		      		formData.idAllevamenti[index] = $(this).val();
 		    	});
 	   			length = formData.idAllevamento.length; 		
 	    	
 	    	case 2:
-	    		var formData = {idFabbricato : new Array(), prosegui:'true' };
+	    		let formData = {idFabbricato : new Array(), prosegui:'true' };
 		   		$('#dual-list-box-Fabbricati #selectedListHidden option').each(function(index) {
 		      		formData.idFabbricati[index] = $(this).val();
 		    	});
@@ -216,7 +216,7 @@
 	    	
 	    	case 4:
 	    	case 10:
-		    	var formData = {idScortaMagazzino : new Array(), prosegui:'true' };
+		    	let formData = {idScortaMagazzino : new Array(), prosegui:'true' };
 		   		$('#dual-list-box-Scorte #selectedListHidden option').each(function(index) {
 		      		formData.idScortaMagazzino[index] = $(this).val();
 		    	});
@@ -224,7 +224,7 @@
 	   		break;
 	   		case 3:
 	   		case 9:
-	   			var formData = {idMacchina : new Array(), prosegui:'true' };
+	   			let formData = {idMacchina : new Array(), prosegui:'true' };
 		   		$('#dual-list-box-Macchine #selectedListHidden option').each(function(index) {
 		      		formData.idMacchina[index] = $(this).val();
 		    	});

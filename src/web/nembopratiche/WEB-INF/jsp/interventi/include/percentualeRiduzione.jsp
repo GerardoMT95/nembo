@@ -22,7 +22,7 @@
 
         return false;
       }
-      var totaleInterventiCorrente='${totaleInterventi}';
+      let totaleInterventiCorrente='${totaleInterventi}';
       function abilitaModificaPercentuale()
       {
         $('#ico_modifica_percentuale').hide();
@@ -39,7 +39,7 @@
         $('#annulla_percentuale').hide();
         if (totaleInterventiCorrente!=$('#totaleInterventi').val())
         {
-          // E' cambiato il totale degli interventi (cioè qualcuno ha modificato gli interventi in contemporanea) ==> ricarico la pagina
+          // E' cambiato il totale degli interventi (cioï¿½ qualcuno ha modificato gli interventi in contemporanea) ==> ricarico la pagina
           window.location.reload();
         }
         else

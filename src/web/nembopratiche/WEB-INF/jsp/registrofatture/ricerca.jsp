@@ -138,7 +138,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
-									<h4 class="modal-title" id="myModalLabel">Filtro modalità pagamento</h4>
+									<h4 class="modal-title" id="myModalLabel">Filtro modalitï¿½ pagamento</h4>
 								</div>
 								<div class="modal-body">
 
@@ -188,21 +188,21 @@
 			$("#idFornitore").val('');
 		}
 		function selectSelected() {
-			//seleziono gli elementi che erano già selezionati
-			var idsTipo = $("#idsTipoDocumentoStr").val();
-			var idsModPag = $("#idsModalitaPagamentoStr").val();
+			//seleziono gli elementi che erano giï¿½ selezionati
+			let idsTipo = $("#idsTipoDocumentoStr").val();
+			let idsModPag = $("#idsModalitaPagamentoStr").val();
 
 			if ((idsTipo === undefined || idsTipo == null || idsTipo == '')
 					&& (idsModPag === undefined || idsModPag == null || idsModPag == ''))
 				return false;
 
-			var idsT = idsTipo.split("&&&");
-			var idsM = idsModPag.split("&&&");
+			let idsT = idsTipo.split("&&&");
+			let idsM = idsModPag.split("&&&");
 
 			$("#idTipoDocumento2").find("option").removeAttr("selected");
 			$("#idModalitaPagamento2").find("option").removeAttr("selected");
 			
-			var i = 0;
+			let i = 0;
 			if (idsT !== undefined && idsT.length != 0) {
 				for (i = 0; i < idsT.length - 1; i++) {
 					$("#idTipoDocumento2").find("option[value=" + idsT[i] + "]").prop('selected', true);
@@ -224,9 +224,9 @@
 		selectSelected();
 		function confermaDatiRicerca() {
 
-			var i;
-			var idsTipi = "";
-			var idsMod = "";
+			let i;
+			let idsTipi = "";
+			let idsMod = "";
 			for (i = 0; i < $("#idTipoDocumento").find("option").length; i++) {
 				idsTipi += $("#idTipoDocumento").find("option")[i].value + "&&&";
 			}

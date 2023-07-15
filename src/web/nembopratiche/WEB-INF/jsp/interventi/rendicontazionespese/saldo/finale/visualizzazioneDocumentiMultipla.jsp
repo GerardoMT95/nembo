@@ -91,7 +91,7 @@
     {
       $value = "";
     }
-    var html = ' <a';
+    let html = ' <a';
     if (row['warningDocumento'])
     {
       html+=' class="text-danger"';

@@ -37,7 +37,7 @@
 			</c:if>
 			<c:choose>
 				<c:when test="${nDanniScorte == 1}">
-				<h4>Il danno associato sarà eliminato. Vuoi continuare?</h4>
+				<h4>Il danno associato sarï¿½ eliminato. Vuoi continuare?</h4>
 				</c:when>
 				<c:when test="${nDanniScorte > 1}">
 				<h4>I ${nDanniScorte} danni associati saranno eliminati. Vuoi continuare?</h4>	
@@ -64,7 +64,7 @@
 			            async:false,
 			            success: function(html) 
 			            {
-			                var COMMENT = '<success';
+			                let COMMENT = '<success';
 			                if (html != null && html.indexOf(COMMENT) >= 0) 
 			                {
 			                  window.location.reload();
@@ -77,7 +77,7 @@
 			            },
 			            error: function(jqXHR, html, errorThrown) 
 			             {
-			                writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+			                writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
 			             }  
 			        });
 			    }

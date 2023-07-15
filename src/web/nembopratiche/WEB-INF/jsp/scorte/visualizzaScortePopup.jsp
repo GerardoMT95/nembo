@@ -56,7 +56,7 @@
 	
 		function quantitaFormatter($value, row, index)
 		{
-			var risultato = row['quantita'] + '-' + row['descUnitaMisura'];
+			let risultato = row['quantita'] + '-' + row['descUnitaMisura'];
 			return risultato;
 		}
 		</script>
@@ -64,14 +64,14 @@
 		<script type="text/javascript">		
 		function selezionaScortaFormatter($value, row, index)
 		{
-			var risultato;
+			let risultato;
 			risultato = '<input type="radio" name="idScortaMagazzinoPopup" value="'+ $value + '"></input>';
 			return risultato;
 		}
 		
 		function selezionaScorta()
 		{
-			var elem = $('input[name=idScortaMagazzinoPopup]:checked', '#formVisualizzaScorteMagazzino').val()
+			let elem = $('input[name=idScortaMagazzinoPopup]:checked', '#formVisualizzaScorteMagazzino').val()
 	          	$.ajax(
 		        {
 		            type : "POST",

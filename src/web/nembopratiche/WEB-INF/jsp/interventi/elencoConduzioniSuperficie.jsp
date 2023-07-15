@@ -62,7 +62,7 @@
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblConduzioni').bootstrapTable('getData');
+      let tableData = $('#tblConduzioni').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)
@@ -75,7 +75,7 @@
           }).appendTo($hiddens);
         });
       }
-      var $form = $('#formFiltri');
+      let $form = $('#formFiltri');
       $.ajax(
       {
         type : "GET",
@@ -119,7 +119,7 @@
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblConduzioni').bootstrapTable('getData');
+      let tableData = $('#tblConduzioni').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)
@@ -149,7 +149,7 @@
       }
       if (row['error'] != null)
       {
-        var _error=row['error'];
+        let _error=row['error'];
         if (_error!=null)
         {
           _error=_error.replace(/"/g,'&quot;');
@@ -166,12 +166,12 @@
   </script>
 	<c:if test="${json!=null}">
 		<script type="text/javascript">
-      var json=${json};
+      let json=${json};
       $(document).ready
       (
         function()
         {
-          var data = $('#tblConduzioni').bootstrapTable("append", json);
+          let data = $('#tblConduzioni').bootstrapTable("append", json);
           doErrorTooltip();
         }
       )

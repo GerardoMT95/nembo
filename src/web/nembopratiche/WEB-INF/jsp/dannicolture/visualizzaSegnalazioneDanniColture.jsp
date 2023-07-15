@@ -138,7 +138,7 @@ function flagColturaAssicurataFormatter($value, row, index)
 {
   try
   {
-    var checked = "";
+    let checked = "";
     if ($value == 'S')
     {
       checked = ' checked="checked" ';
@@ -176,7 +176,7 @@ function flagColturaAssicurataFormatter($value, row, index)
 	function iconeFormatter($value, row, index)
     {
 		debugger;
-        var html = '';
+        let html = '';
         html += '<a style="cursor:pointer" href="#" onclick="elimina('+row.idDettaglioSegnalDan+')"><i class="ico24 ico_pleasewait"></i></a>';
         html += '  <a style="cursor:pointer" href=\"../cunembo310m/modifica_'+row.idDettaglioSegnalDan+'.do\"><i class="ico24 ico_modify"></i></a>';
         html += '  <input type="checkbox" name="idDettaglioSegnalDan" value="' + $value + '"></input>';

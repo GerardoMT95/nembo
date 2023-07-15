@@ -19,7 +19,7 @@
 				</div>
 			</c:if>
 		<div class="alert alert-warning" role="alert">In caso di
-			conferma dell'operazione il sistema aggiornerà il contributo
+			conferma dell'operazione il sistema aggiornerï¿½ il contributo
 			erogabile e di conseguenza i dati presenti nel quadro di accertamento
 			delle spese.</div>
 
@@ -64,7 +64,7 @@
 					dataType : "html",
 					async : false,
 					success : function(html) {
-						var COMMENT = '<success>' + 'true' + '</success>';
+						let COMMENT = '<success>' + 'true' + '</success>';
 						if (html != null && html.indexOf(COMMENT) >= 0) {
 							window.location.reload();
 						} else {
@@ -73,7 +73,7 @@
 						}
 					},
 					error : function(jqXHR, html, errorThrown) {
-						writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+						writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
 					}
 				});
 	}

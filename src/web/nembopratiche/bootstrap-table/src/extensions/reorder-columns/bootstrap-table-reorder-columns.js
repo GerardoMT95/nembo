@@ -21,7 +21,7 @@
         'reorder-column.bs.table': 'onReorderColumn'
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initHeader = BootstrapTable.prototype.initHeader,
         _toggleColumn = BootstrapTable.prototype.toggleColumn,
         _toggleView = BootstrapTable.prototype.toggleView,
@@ -72,7 +72,7 @@
     };
 
     BootstrapTable.prototype.makeRowsReorderable = function () {
-        var that = this;
+        let that = this;
         try {
             $(this.$el).dragtable('destroy');
         } catch (e) {}
@@ -81,7 +81,7 @@
             dragaccept: that.options.dragaccept,
             clickDelay:200,
             beforeStop: function() {
-                var ths = [],
+                let ths = [],
                     formatters = [],
                     columns = [],
                     columnsHidden = [],
@@ -96,13 +96,13 @@
                     columnsHidden = $.grep(that.columns, function (column) {
                        return !column.visible;
                     });
-                    for (var i = 0; i < columnsHidden.length; i++) {
+                    for (let i = 0; i < columnsHidden.length; i++) {
                         ths.push(columnsHidden[i].field);
                         formatters.push(columnsHidden[i].formatter);
                     }
                 }
 
-                for (var i = 0; i < ths.length; i++ ) {
+                for (let i = 0; i < ths.length; i++ ) {
                     columnIndex = $.fn.bootstrapTable.utils.getFieldIndex(that.columns, ths[i]);
                     if (columnIndex !== -1) {
                         columns.push(that.columns[columnIndex]);

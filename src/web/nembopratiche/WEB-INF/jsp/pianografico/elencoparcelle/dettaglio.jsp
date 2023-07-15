@@ -157,8 +157,8 @@
             ],
             connectTo: '#tblElencoParticelle',
             onSubmit: function() {
-                var data = $('#filter-bar').bootstrapTableFilter('getData');
-                var elabFilter = JSON.stringify(data);
+                let data = $('#filter-bar').bootstrapTableFilter('getData');
+                let elabFilter = JSON.stringify(data);
                 $.ajax({
                 	  type: "POST",
                 	  url: '../session/salvaFiltri.do',
@@ -168,7 +168,7 @@
                 console.log(data);
             }
         });
-		var filterJSON = $('#filtroParticelle').val();
+		let filterJSON = $('#filtroParticelle').val();
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 
 
@@ -196,8 +196,8 @@
 	
 	function impegnoBaseFormatter($value, row, index)
     {
-	  var ret="";  
-      var impList = row['impegniBaseList'];
+	  let ret="";  
+      let impList = row['impegniBaseList'];
       if(impList!=null)
       {
     	  impList.forEach(function(entry) {
@@ -209,8 +209,8 @@
     }
 	function impegnoAggiuntivoFormatter($value, row, index)
     {
-	  var ret="";  
-      var impList = row['impegniAggiuntiviList'];
+	  let ret="";  
+      let impList = row['impegniAggiuntiviList'];
       if(impList!=null)
       {
     	  impList.forEach(function(entry) {

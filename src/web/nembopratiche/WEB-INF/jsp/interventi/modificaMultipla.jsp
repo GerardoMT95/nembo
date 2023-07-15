@@ -83,7 +83,7 @@
 									<td style="vertical-align: middle; width: 176px" rowspan="${intervento.misurazioneIntervento.size()}"><c:if
 											test="${intervento.flagGestioneCostoUnitario=='S'}">
 											<c:if test="${unicoCostoPossibile.contains(intervento.id)}">
-												<div data-toggle="tooltip" data-placement="top" title="Impossibile modificare l'importo. L'unico valore ammesso è ${intervento.costoUnitarioMinimo} &euro;">
+												<div data-toggle="tooltip" data-placement="top" title="Impossibile modificare l'importo. L'unico valore ammesso ï¿½ ${intervento.costoUnitarioMinimo} &euro;">
 													<m:textfield cssClass="importo_unitario" name="importo_unitario_${intervento.id}" id="importo_unitario_${intervento.id}"
 													type="euro" maxlength="13" value="${intervento.costoUnitarioMinimo}" 
 													disabled = "true" />
@@ -134,7 +134,7 @@
 	</form>
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	<script type="text/javascript">
-	var idPartecipanteSelezionato;
+	let idPartecipanteSelezionato;
 
 	function selezionaPartecipante(self, cuaa) {
 		$('#beneficiario_'+idPartecipanteSelezionato).val(cuaa);
@@ -157,7 +157,7 @@
         $importo=Number($("#importo_unitario_"+id).val().replace(',','.'));
         if (!isNaN($importo))
         {
-          var txt=Number($importo*$n).formatCurrency();
+          let txt=Number($importo*$n).formatCurrency();
           $('#lbl_importo_'+id).html(txt);
           return true;
         }
@@ -168,7 +168,7 @@
     $('.importo_unitario').each(
         function(index, tag)
         {
-          var tagId=tag.id;
+          let tagId=tag.id;
           tagId=tagId.substring(tagId.lastIndexOf('_')+1);
           calcolaImporto(tagId);
         });

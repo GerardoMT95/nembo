@@ -96,11 +96,11 @@
 <script src="/nembopratiche/bootstrap-table-filter/src/locale/bootstrap-table-filter.it-IT.js"></script>
 <script type="text/javascript">
     	$( document ).ready(function() {
-    		var filterJSON = $('#filtroProcedimentiEstrazione').val();
+    		let filterJSON = $('#filtroProcedimentiEstrazione').val();
     		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
     		
     		$('body').on( "column-switch.bs.table", function(obj, field) {
-  			  var value = $('input[data-field="'+field+'"]').prop("checked");
+  			  let value = $('input[data-field="'+field+'"]').prop("checked");
   			  $.ajax({
               	  type: "POST",
               	  url: '../session/salvaColonna.do',
@@ -173,9 +173,9 @@
                 ],
                 connectTo: '#elencoProcedimenti',
                 onSubmit: function() {
-                	var data = $('#filter-bar').bootstrapTableFilter('getData');
+                	let data = $('#filter-bar').bootstrapTableFilter('getData');
            
-                    var elabFilter = JSON.stringify(data);
+                    let elabFilter = JSON.stringify(data);
                     $.ajax({
                     	  type: "POST",
                     	  url: '../session/salvaFiltri.do',

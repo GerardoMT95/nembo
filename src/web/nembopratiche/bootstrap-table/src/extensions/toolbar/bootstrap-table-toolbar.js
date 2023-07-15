@@ -8,13 +8,13 @@
 !function($) {
     'use strict';
 
-    var firstLoad = false;
+    let firstLoad = false;
 
-    var sprintf = $.fn.bootstrapTable.utils.sprintf;
+    let sprintf = $.fn.bootstrapTable.utils.sprintf;
 
-    var showAvdSearch = function(pColumns, searchTitle, searchText, that) {
+    let showAvdSearch = function(pColumns, searchTitle, searchText, that) {
         if (!$("#avdSearchModal" + "_" + that.options.idTable).hasClass("modal")) {
-            var vModal = sprintf("<div id=\"avdSearchModal%s\"  class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">", "_" + that.options.idTable);
+            let vModal = sprintf("<div id=\"avdSearchModal%s\"  class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\" aria-hidden=\"true\">", "_" + that.options.idTable);
             vModal += "<div class=\"modal-dialog modal-xs\">";
             vModal += " <div class=\"modal-content\">";
             vModal += "  <div class=\"modal-header\">";
@@ -31,7 +31,7 @@
 
             $("body").append($(vModal));
 
-            var vFormAvd = createFormAvd(pColumns, searchText, that),
+            let vFormAvd = createFormAvd(pColumns, searchText, that),
                 timeoutId = 0;;
 
             $('#avdSearchModalContent' + "_" + that.options.idTable).append(vFormAvd.join(''));
@@ -53,11 +53,11 @@
         }
     };
 
-    var createFormAvd = function(pColumns, searchText, that) {
-        var htmlForm = [];
+    let createFormAvd = function(pColumns, searchText, that) {
+        let htmlForm = [];
         htmlForm.push(sprintf('<form class="form-horizontal" id="%s" action="%s" >', that.options.idForm, that.options.actionForm));
-        for (var i in pColumns) {
-            var vObjCol = pColumns[i];
+        for (let i in pColumns) {
+            let vObjCol = pColumns[i];
             if (!vObjCol.checkbox && vObjCol.visible && vObjCol.searchable) {
                 htmlForm.push('<div class="form-group">');
                 htmlForm.push(sprintf('<label class="col-sm-4 control-label">%s</label>', vObjCol.title));
@@ -107,7 +107,7 @@
 
     $.extend($.fn.bootstrapTable.defaults, $.fn.bootstrapTable.locales);
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initToolbar = BootstrapTable.prototype.initToolbar,        
         _load = BootstrapTable.prototype.load,
         _initSearch = BootstrapTable.prototype.initSearch;
@@ -127,7 +127,7 @@
             return;
         }
 
-        var that = this,
+        let that = this,
             html = [];
 
         html.push(sprintf('<div class="columns columns-%s btn-group pull-%s" role="group">', this.options.buttonsAlign, this.options.buttonsAlign));
@@ -154,7 +154,7 @@
             return;
         } else {
             if (!firstLoad) {
-                var height = parseInt($(".bootstrap-table").height());
+                let height = parseInt($(".bootstrap-table").height());
                 height += 10;
                 $("#" + this.options.idTable).bootstrapTable("resetView", {height: height});
                 firstLoad = true;
@@ -169,13 +169,13 @@
             return;
         }
 
-        var that = this;
-        var fp = $.isEmptyObject(this.filterColumnsPartial) ? null : this.filterColumnsPartial;
+        let that = this;
+        let fp = $.isEmptyObject(this.filterColumnsPartial) ? null : this.filterColumnsPartial;
 
         this.data = fp ? $.grep(this.data, function (item, i) {
-            for (var key in fp) {
-                var fval = fp[key].toLowerCase();
-                var value = item[key];
+            for (let key in fp) {
+                let fval = fp[key].toLowerCase();
+                let value = item[key];
                 value = $.fn.bootstrapTable.utils.calculateObjectValue(that.header,
                     that.header.formatters[$.inArray(key, that.header.fields)],
                     [value, item, i], value);
@@ -191,8 +191,8 @@
     };
 
     BootstrapTable.prototype.onColumnAdvancedSearch = function (event) {
-        var text = $.trim($(event.currentTarget).val());
-        var $field = $(event.currentTarget)[0].id;
+        let text = $.trim($(event.currentTarget).val());
+        let $field = $(event.currentTarget)[0].id;
 
         if ($.isEmptyObject(this.filterColumnsPartial)) {
             this.filterColumnsPartial = {};

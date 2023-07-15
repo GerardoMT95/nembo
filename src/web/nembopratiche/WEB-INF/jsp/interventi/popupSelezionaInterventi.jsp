@@ -49,13 +49,13 @@
 <input type="button" class="btn btn-default" data-dismiss="modal" value="annulla"/>
 <input type="button" class="btn btn-primary pull-right" value="prosegui" onclick="onProsegui()" />
 <script type="text/javascript">
-  var dualDiv = document.getElementById('dual-div').innerHTML;
-  var tmpHtmlDualList = dualDiv.replace(":URL","");
+  let dualDiv = document.getElementById('dual-div').innerHTML;
+  let tmpHtmlDualList = dualDiv.replace(":URL","");
   $('#dual-div').html(tmpHtmlDualList);	
-  var dualList = $('#interventiDualList').DualListBox();
+  let dualList = $('#interventiDualList').DualListBox();
   function onProsegui()
   {
-    var idDannoAtmValue = null;
+    let idDannoAtmValue = null;
     if($('#idDannoAtm').length == 0)
     {
 	    idDannoAtmValue = null;
@@ -64,7 +64,7 @@
     {
     	idDannoAtmValue = $('#idDannoAtm').val();
     }
-    var formData = {idDescrizioneIntervento : new Array(), prosegui:'true', idDannoAtm : idDannoAtmValue};
+    let formData = {idDescrizioneIntervento : new Array(), prosegui:'true', idDannoAtm : idDannoAtmValue};
     $('#dual-list-box-Interventi #selectedListHidden option').each(function(index) {
       formData.idDescrizioneIntervento[index] = $(this).val();
     });
@@ -85,11 +85,11 @@
 
 <c:if test="${withDanni != null && withDanni == true}">
 	<script type="text/javascript">
-			var cuNumber = "${cuNumber}";
+			let cuNumber = "${cuNumber}";
 	  		//Descrizione danni come NClob, non ordinabile con order by
 			$(function() {
 			 	  // choose target dropdown
-				  var select = $('#slcListDanni');
+				  let select = $('#slcListDanni');
 				  select.html(select.find('option').sort(function(x, y) {
 				    return $(x).text().toLowerCase() > $(y).text().toLowerCase() ? 1 : -1;
 				  }));
@@ -98,14 +98,14 @@
 		
 		function loadInterventiDanni()
 		{
-			var dannoSelezionato = $('#slcListDanni').val();
-			var url=""
+			let dannoSelezionato = $('#slcListDanni').val();
+			let url=""
 			if(dannoSelezionato!=null && dannoSelezionato != '')
 			{
 				url = "../cunembo"+cuNumber+"i/json/load_elenco_interventi_danno_" + dannoSelezionato + ".json"; 
  				$('#idDannoAtm').val(dannoSelezionato);
 			}
-			var htmlDualList = dualDiv.replace(":URL",url);
+			let htmlDualList = dualDiv.replace(":URL",url);
 			$('#dual-div').html(htmlDualList);	
  			$('#interventiDualList').DualListBox();
 		}

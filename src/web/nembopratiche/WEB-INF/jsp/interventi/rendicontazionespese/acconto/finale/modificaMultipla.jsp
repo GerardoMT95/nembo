@@ -91,7 +91,7 @@
         $importo=Number($("#percentualeContributo_"+id).val().replace(',','.'));
         if (!isNaN($importo))
         {
-          var contributoRichiesto = Number($importo*$n);
+          let contributoRichiesto = Number($importo*$n);
           contributoRichiesto = Math.round(contributoRichiesto)/100;
           $('#contributoRichiesto_'+id).html(contributoRichiesto.formatCurrency());
           return true;

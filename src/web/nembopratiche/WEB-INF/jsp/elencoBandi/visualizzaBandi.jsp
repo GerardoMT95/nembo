@@ -157,8 +157,8 @@
         ],
         connectTo: '#elencoBandi',
         onSubmit: function() {
-        	var data = $('#filter-bar').bootstrapTableFilter('getData');
-            var elabFilter = JSON.stringify(data);
+        	let data = $('#filter-bar').bootstrapTableFilter('getData');
+            let elabFilter = JSON.stringify(data);
             $.ajax({
             	  type: "POST",
             	  url: '../session/salvaFiltri.do',
@@ -171,7 +171,7 @@
     
     });
 
-	var filterJSON = $('#filtroBandi').val();
+	let filterJSON = $('#filtroBandi').val();
 	if(filterJSON)
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 	
@@ -180,22 +180,22 @@
 		function formatterIcon($value, row, index) {
 
 			if(row['flagGrafico']!=null || row['flagReport']!=null || row['haveGraduatorie'])		
-		      var iconDettagli = "<a href=\"gestBar_"+row['idBando']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_graphic\" title=\"Dettagli bando\" style=\"font-size:1.4em;\"></i></a>";
+		      let iconDettagli = "<a href=\"gestBar_"+row['idBando']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_graphic\" title=\"Dettagli bando\" style=\"font-size:1.4em;\"></i></a>";
 
 			   return iconDettagli;
 			}
 
 		function allegatiFormatter($value, row, index)
 	    {
-	      var allegati = row['allegati'];
+	      let allegati = row['allegati'];
 	      
-	      var ret='<ul style=\"padding-left: 2em;\">';
-	      var i =0;
+	      let ret='<ul style=\"padding-left: 2em;\">';
+	      let i =0;
 
 	      if(allegati!=null)
 	      {
 		      for (i=0;i<allegati.length;i++){
-				  var descr = allegati[i].descrizione;
+				  let descr = allegati[i].descrizione;
 		    	  ret = ret.concat('<li><a href=\"downloadAllegatiElencoBandi_'+allegati[i].idAllegatiBando+'.do\" title = \"'+descr+'\">'+allegati[i].nomeFile+'</a></li><br>');
 				} 
 		  }

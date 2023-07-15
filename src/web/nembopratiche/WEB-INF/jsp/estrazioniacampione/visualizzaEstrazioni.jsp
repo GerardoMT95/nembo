@@ -91,8 +91,8 @@ $( document ).ready(function() {
       ],
       connectTo: '#elencoEstrazioniTable',
       onSubmit: function() {
-    	  var data = $('#filter-bar').bootstrapTableFilter('getData');
-            var elabFilter = JSON.stringify(data);
+    	  let data = $('#filter-bar').bootstrapTableFilter('getData');
+            let elabFilter = JSON.stringify(data);
             $.ajax({
             	  type: "POST",
             	  url: '../session/salvaFiltri.do',
@@ -103,7 +103,7 @@ $( document ).ready(function() {
       }
   });
 	  
-	var filterJSON = $('#filtroEstrazioni').val();
+	let filterJSON = $('#filtroEstrazioni').val();
 	if(filterJSON!=null)
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 	
@@ -115,7 +115,7 @@ function showDetails($value, row, index) {
 		if(row['dataAnnullamento']!=null && row['dataAnnullamento']!==undefined && row['dataAnnullamento']!="")
 			return "";
 		
-	   var iconDettagli = "<a href=\"dettaglio_"+row['idEstrazioneCampione']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_magnify\" title=\"Dettagli estrazione\" style=\"font-size:1.4em;\"></i></a>";
+	   let iconDettagli = "<a href=\"dettaglio_"+row['idEstrazioneCampione']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_magnify\" title=\"Dettagli estrazione\" style=\"font-size:1.4em;\"></i></a>";
 
 	   return iconDettagli;
 }

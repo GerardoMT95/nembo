@@ -177,7 +177,7 @@
 <script src="/nembopratiche/js/nembotableformatter.js"></script>
 
 <script type="text/javascript">
-var mapIdSuperficieColturaAnomalia={};
+let mapIdSuperficieColturaAnomalia={};
 </script>	
 	
 <c:forEach items="${mapIdSuperficieColturaAnomalia}" var="elem">
@@ -200,7 +200,7 @@ var mapIdSuperficieColturaAnomalia={};
 	
 	function bloccanteFormatter($value, row, index)
 	{
-		var commento = mapIdSuperficieColturaAnomalia[$value];
+		let commento = mapIdSuperficieColturaAnomalia[$value];
 		if(row['bloccante'] == 'S')
 		{
 			return '<a onclick=\'showMessageBox(\"Descrizione anomalie\", \"' + commento + '\" , \"modal-large\"); \'><i style="cursor: pointer;" class="ico24 ico_errorG"></i></a>';
@@ -222,7 +222,7 @@ var mapIdSuperficieColturaAnomalia={};
 	
 	function modificaFormatter($value, row, index)
 	{
-		var risultato = '';
+		let risultato = '';
 		
 		/*
 		<p:abilitazione-azione codiceQuadro="COLAZ" codiceAzione="DETTAGLIO">
@@ -247,7 +247,7 @@ var mapIdSuperficieColturaAnomalia={};
 	
 	function rowStyleFormatter(row, index) {
 		if(row['recordModificato'] != null && row['recordModificato'] === 'S') {
-			var retValue = {
+			let retValue = {
 				classes : 'red-bold'
 			};
 			return retValue;

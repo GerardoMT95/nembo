@@ -36,7 +36,7 @@
 		<br />
 		<div class="alert alert-warning" role="alert">Proseguendo il sistema effettuer&agrave; l'elaborazione dell'estrazione a campione. Continuare?</div>
 				<div class="col-sm-12" >
-		<m:checkBox cssClass="chkRegistra" chkLabel="Sono già state raggiunte le percentuali previste" name="chkRegistra" value="S" preferRequestValues="${prfvalues}"></m:checkBox>
+		<m:checkBox cssClass="chkRegistra" chkLabel="Sono giï¿½ state raggiunte le percentuali previste" name="chkRegistra" value="S" preferRequestValues="${prfvalues}"></m:checkBox>
 		</div>
 		
 		<div class="col-sm-6" style="margin-top: 2em">
@@ -50,7 +50,7 @@
 	<br />
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	<script type="text/javascript">
-	  var chiusuraInCorso=false;
+	  let chiusuraInCorso=false;
     function confermaregistra()
     {
       if (chiusuraInCorso)
@@ -59,14 +59,14 @@
       }
       chiusuraInCorso=true;
 
-      var idStatoEstrazione =  ${idStatoEstrazione};
+      let idStatoEstrazione =  ${idStatoEstrazione};
       openPageInPopup('attendere.do', 'dlgChiusura', 'Attendere prego...', 'modal-large', true);
       callEseguiRegistra();
     }
 
     function callEseguiRegistra()
     {
-    	var chk = "N";
+    	let chk = "N";
 
 		if($('.chkRegistra').is(':checked')){
 		 chk = "S";
@@ -96,7 +96,7 @@
 	        error : function(xhr, status, text)
 	        {
 	          $('#dlgChiusura').modal('hide');
-	          showRedirectMessageBox("Errore", "Si è verificato un errore di sistema e non è possibile completare l'estrazione, se il problema persiste contattare l'assistenza.", 'modal-large','../cunembo219/index_${idNumeroLotto}.do');
+	          showRedirectMessageBox("Errore", "Si ï¿½ verificato un errore di sistema e non ï¿½ possibile completare l'estrazione, se il problema persiste contattare l'assistenza.", 'modal-large','../cunembo219/index_${idNumeroLotto}.do');
 	          chiusuraInCorso=false;
 	        }
 	      });

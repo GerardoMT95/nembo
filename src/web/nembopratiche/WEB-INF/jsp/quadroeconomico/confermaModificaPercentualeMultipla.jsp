@@ -37,7 +37,7 @@
 	</div>
 	<script type="text/javascript">
 	$('#formModificaPercentualeMultipla').on("keyup keypress", function(e) {
-		  var code = e.keyCode || e.which; 
+		  let code = e.keyCode || e.which; 
 		  if (code  == 13) {   
 			confermaModifica();        
 		    e.preventDefault();
@@ -56,7 +56,7 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success>' + 'true' + '</success>';
+              let COMMENT = '<success>' + 'true' + '</success>';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
                 window.location.reload();
@@ -69,7 +69,7 @@
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

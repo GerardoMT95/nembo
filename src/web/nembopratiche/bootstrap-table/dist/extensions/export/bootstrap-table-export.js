@@ -6,7 +6,7 @@
 (function ($) {
     'use strict';
 
-    var TYPE_NAME = {
+    let TYPE_NAME = {
         json: 'JSON',
         xml: 'XML',
         png: 'PNG',
@@ -27,7 +27,7 @@
         exportOptions: {}
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initToolbar = BootstrapTable.prototype.initToolbar;
 
     BootstrapTable.prototype.initToolbar = function () {
@@ -36,7 +36,7 @@
         _initToolbar.apply(this, Array.prototype.slice.apply(arguments));
 
         if (this.options.showExport) {
-            var that = this,
+            let that = this,
                 $btnGroup = this.$toolbar.find('>.btn-group'),
                 $export = $btnGroup.find('div.export');
 
@@ -52,11 +52,11 @@
                         '</ul>',
                     '</div>'].join('')).appendTo($btnGroup);
 
-                var $menu = $export.find('.dropdown-menu'),
+                let $menu = $export.find('.dropdown-menu'),
                     exportTypes = this.options.exportTypes;
 
                 if (typeof this.options.exportTypes === 'string') {
-                    var types = this.options.exportTypes.slice(1, -1).replace(/ /g, '').split(',');
+                    let types = this.options.exportTypes.slice(1, -1).replace(/ /g, '').split(',');
 
                     exportTypes = [];
                     $.each(types, function (i, value) {
@@ -74,7 +74,7 @@
                 });
 
                 $menu.find('li').click(function () {
-                    var type = $(this).data('type'),
+                    let type = $(this).data('type'),
                         doExport = function () {
                             that.$el.tableExport($.extend({}, that.options.exportOptions, {
                                 type: type,
@@ -90,7 +90,7 @@
                             that.togglePagination();
                         });
                     } else if (that.options.exportDataType === 'selected') {
-                        var data = that.getData(),
+                        let data = that.getData(),
                             selectedData = that.getAllSelections();
 
                         that.load(selectedData);

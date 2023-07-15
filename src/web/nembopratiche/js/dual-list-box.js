@@ -22,7 +22,7 @@
     /** Initializes the DualListBox code as jQuery plugin. */
     $.fn.DualListBox = function(paramOptions, selected) {
         return this.each(function () {
-            var defaults = {
+            let defaults = {
                 element:    $(this).context,    // Select element which creates this dual list box.
                 uri:        'local.json',       // JSON file that can be opened for the data.
                 value:      'id',               // Value that is assigned to the value field in the option.
@@ -40,7 +40,7 @@
                 warning:    'Hai superato il limite massimo di 512 elementi!'
             };
 
-            var htmlOptions = {
+            let htmlOptions = {
                 element:    $(this).context,
                 uri:        $(this).data('source'),
                 uriSelected: $(this).data('sourceselected'),
@@ -61,7 +61,7 @@
                 labelcombo: $(this).data('labelcombo')
             };
 
-            var options = $.extend({}, defaults, htmlOptions, paramOptions);
+            let options = $.extend({}, defaults, htmlOptions, paramOptions);
 
             $.each(options, function(i, item) {
                 if (item === undefined || item === null) { throw 'DualListBox: ' + i + ' is undefined.'; }
@@ -78,7 +78,7 @@
             } else {
                 construct(options);
             }   
-            var tmpOptions = options;
+            let tmpOptions = options;
             //gestione dell'elenco "selected" della dual list
             $('body').unbind('nembopratiche.dualistbox.loaded');
             $('body').on('nembopratiche.dualistbox.loaded', function() {
@@ -115,7 +115,7 @@
          	           		
            			   $(options.parentElement + " #selectedList").filterByText($(options.parentElement + '#input.filter.form-control filter-selected'),500,null);
            			   
-           			   var options = [];
+           			   let options = [];
            	           $(options.parentElement + " #selectedList").find('option').each(function() {
            	             options.push({value: $(this).val(), text: $(this).text()});
            	           });
@@ -140,10 +140,10 @@
 
     /** Retrieves all the option elements through a JSON request. */
     function addElementsViaJSON(options, selected) {
-        var multipleTextFields = false;
+        let multipleTextFields = false;
 
         if (options.text.indexOf(':') > -1) {
-            var textToUse = options.text.split(':');
+            let textToUse = options.text.split(':');
 
             if (textToUse.length > 1) {
                 multipleTextFields = true;
@@ -152,7 +152,7 @@
 
         $.getJSON(options.uri, function(json) {
             $.each(json, function(key, item) {
-                var text = '';
+                let text = '';
 
                 if (multipleTextFields) {
                     textToUse.forEach(function (entry) { text += item[entry] + ' '; });
@@ -177,8 +177,8 @@
     
     /** Adds the event listeners to the buttons and filters. */
     function addListeners(options) {
-        var unselected = $(options.parentElement + ' .unselected');
-        var selected = $(options.parentElement + ' .selected');
+        let unselected = $(options.parentElement + ' .unselected');
+        let selected = $(options.parentElement + ' .selected');
 
         $(options.parentElement).find('button').bind('click', function() {
             switch ($(this).data('type')) {
@@ -287,15 +287,15 @@
                 		options.horizontal = false;
                 	}
                 	
-                	var bckSelectedValues = $(options.parentElement + ' #selectedList').html();
-                	var bckUnSelectedValues = $(options.parentElement + ' #unselectedList').html();
-                	var bckUnselectedComboBox = $(options.parentElement + ' #unselectedComboBox').html();
-                	var bckValUnselectedComboBox = $(options.parentElement + ' #unselectedComboBox').val();
+                	let bckSelectedValues = $(options.parentElement + ' #selectedList').html();
+                	let bckUnSelectedValues = $(options.parentElement + ' #unselectedList').html();
+                	let bckUnselectedComboBox = $(options.parentElement + ' #unselectedComboBox').html();
+                	let bckValUnselectedComboBox = $(options.parentElement + ' #unselectedComboBox').val();
                 	
-                	var bckSelectedComboBox = $(options.parentElement + ' #selectedComboBox').html();
-                	var bckValSelectedComboBox = $(options.parentElement + ' #selectedComboBox').val();
-                	var bckUnselectedListHidden = $(options.parentElement + ' #unselectedListHidden').html();
-                	var bckSelectedListHidden = $(options.parentElement + ' #selectedListHidden').html();
+                	let bckSelectedComboBox = $(options.parentElement + ' #selectedComboBox').html();
+                	let bckValSelectedComboBox = $(options.parentElement + ' #selectedComboBox').val();
+                	let bckUnselectedListHidden = $(options.parentElement + ' #unselectedListHidden').html();
+                	let bckSelectedListHidden = $(options.parentElement + ' #selectedListHidden').html();
                 	
                 	$(options['parentElement']).html('');
                     
@@ -454,7 +454,7 @@
 
     /** Parses the stub select / list box that is first created. */
     function parseStubListBox(options) {
-        var textIsTooLong = false;
+        let textIsTooLong = false;
 
         $(options.element).find('option').text(function (i, text) {
             $(this).data('title', text);
@@ -487,8 +487,8 @@
      */
     $.fn.filterByText = function(textBox, timeout, parentElement) {
     	return this.each(function() {
-            var select = this;
-            var options = [];
+            let select = this;
+            let options = [];
 
             $(select).find('option').each(function() {
                 options.push({value: $(this).val(), text: $(this).text()});
@@ -499,13 +499,13 @@
             $(textBox).bind('keyup', function() {
                 delay(function() 
                 {
-                	var options = $(select).next().data('options');
+                	let options = $(select).next().data('options');
                     if(options != '')
                     {
                     	$(select).html('');
                     }
-                    var search = $.trim($(textBox).val());
-                    var regex = new RegExp(search.replace('%',''),'gi');
+                    let search = $.trim($(textBox).val());
+                    let regex = new RegExp(search.replace('%',''),'gi');
                     $.each(options, function(i) {
                     	
                     	if(search.indexOf('%') === 0) {
@@ -539,7 +539,7 @@
     //created by Michele Macagno
     $.fn.updateData = function() {
         console.log("updateData");
-        var options = $.extend({}, this.defaults, this.htmlOptions, this.paramOptions);
+        let options = $.extend({}, this.defaults, this.htmlOptions, this.paramOptions);
         options['parent'] = 'dual-list-box-' + options.title;
         options['parentElement'] = '#' + options.parent;
 
@@ -563,15 +563,15 @@
     $.fn.sortOptions = function() {
         return this.each(function() {
             $(this).append($(this).find('option').remove().sort(function(a, b) {
-                var at = $(a).text(), bt = $(b).text();
+                let at = $(a).text(), bt = $(b).text();
                 return (at > bt) ? 1 : ((at < bt) ? -1 : 0);
             }));
         });
     };
 
     /** Simple delay function that can wrap around an existing function and provides a callback. */
-    var delay = (function() {
-        var timer = 0;
+    let delay = (function() {
+        let timer = 0;
         return function (callback, ms) {
             clearTimeout(timer);
             timer = setTimeout(callback, ms);
@@ -583,7 +583,7 @@ function initSelectedList(parentElement)
 {
 	$(parentElement+" #selectedList").html('');
 	$(parentElement+ ' #selectedListHidden option').each(function(){
-		var $options = $(this).clone();
+		let $options = $(this).clone();
 		$options.appendTo(parentElement+" #selectedList");
 	});
 	countElements(parentElement);
@@ -593,7 +593,7 @@ function initUnSelectedList(parentElement)
 {
 	$(parentElement+" #unselectedList").html('');
 	$(parentElement+' #unselectedListHidden option').each(function(){
-		var $options = $(this).clone();
+		let $options = $(this).clone();
 		$options.appendTo(parentElement+" #unselectedList");
 	});
 	countElements(parentElement);
@@ -603,13 +603,13 @@ function filterUnSelectedList(parentElement)
 {
 	//cerco nella hidden list tutte le option che abbiano questo gruppo e le copio nella lista visibile
 	$(parentElement+" #unselectedList").html('');
-	var val = $(parentElement+" #unselectedComboBox").val();
+	let val = $(parentElement+" #unselectedComboBox").val();
 	
 	if( val == '0')
 	{
 		if($(parentElement+' #selectedListHidden option[value="'+val+'"]').length <= 0){
 			$(parentElement+" #unselectedListHidden option").each(function(){
-				var $options = $(this).clone();
+				let $options = $(this).clone();
 				$options.appendTo(parentElement+" #unselectedList");
 			});
 		}
@@ -618,7 +618,7 @@ function filterUnSelectedList(parentElement)
 	{
 		if($(parentElement+' #selectedListHidden option[value="'+val+'"]').length <= 0){
 			$(parentElement+' #unselectedListHidden option[data-group="'+val+'"]').each(function(){
-				var $options = $(this).clone();
+				let $options = $(this).clone();
 				$options.appendTo(parentElement+" #unselectedList");
 			});
 		}
@@ -629,7 +629,7 @@ function filterUnSelectedList(parentElement)
 
 /** Counts the elements per list box/select and shows it. */
 function countElements(parentElement) {
-    var countUnselected = 0, countSelected = 0;
+    let countUnselected = 0, countSelected = 0;
 
     $(parentElement + ' .unselected').find('option').each(function() { if ($(this).isVisible()) { countUnselected++; } });
     $(parentElement + ' .selected').find('option').each(function() { if ($(this).isVisible()) { countSelected++ } });
@@ -668,19 +668,19 @@ function filterSelectedList(parentElement)
 {
 	//cerco nella hidden list tutte le option che abbiano questo gruppo e le copio nella lista visibile
 	$(parentElement+" #selectedList").html('');
-	var val = $(parentElement+" #selectedComboBox").val();
+	let val = $(parentElement+" #selectedComboBox").val();
 	
 	if( val == '0')
 	{
 		$(parentElement+" #selectedListHidden option").each(function(){
-			var $options = $(this).clone();
+			let $options = $(this).clone();
 			$options.appendTo(parentElement+" #selectedList");
 		});
 	}
 	else
 	{
 		$(parentElement+' #selectedListHidden option[data-group="'+val+'"]').each(function(){
-			var $options = $(this).clone();
+			let $options = $(this).clone();
 			$options.appendTo(parentElement+" #selectedList");
 		});
 	}
@@ -692,10 +692,10 @@ function loadSelectedComboBox(parentElement)
 	$(parentElement+" #selectedComboBox").html('');
 	$('<option value="0" selected="selected">--seleziona--</option>').appendTo($(parentElement+" #selectedComboBox"));
 	
-	var tmp = "";
+	let tmp = "";
 	
 	$(parentElement+" #selectedListHidden option").each(function(){
-		var gruppo = $(this).attr("data-group");
+		let gruppo = $(this).attr("data-group");
 		if(tmp.indexOf("&&"+gruppo+"&_&") == -1)
 		{
 			tmp = tmp + "&&"+gruppo+"&_&";
@@ -714,10 +714,10 @@ function loadUnSelectedComboBox(parentElement)
 	$(parentElement+" #unselectedComboBox").html('');
 	$('<option value="0" selected="selected">--seleziona--</option>').appendTo($(parentElement+" #unselectedComboBox"));
 	
-	var tmp = "";
+	let tmp = "";
 	
 	$(parentElement+" #unselectedListHidden option").each(function(){
-		var gruppo = $(this).attr("data-group");
+		let gruppo = $(this).attr("data-group");
 		if(tmp.indexOf("&&"+gruppo+"&_&") == -1)
 		{
 			tmp = tmp + "&&"+gruppo+"&_&";

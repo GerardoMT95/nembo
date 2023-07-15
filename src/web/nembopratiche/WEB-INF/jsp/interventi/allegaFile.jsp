@@ -18,14 +18,14 @@
 	</div>
 	<iframe title= "hiddenIFrame" id="iframeUpload" style="position: absolute; left: -1000px; clip: rect(0px, 0px, 0px, 0px)" name="hiddenIFrame"></iframe>
 	<script type="text/javascript">
-		var first = true;
+		let first = true;
 		function updateModalWindow() {
 			if (first) 
 			{
 				first = false;
 				return;
 			}
-			var html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
+			let html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
 			if (html != null && html.indexOf('<refresh>') == 0) 
 		  {
 			  if ($('#tblMappeFile').length>0)

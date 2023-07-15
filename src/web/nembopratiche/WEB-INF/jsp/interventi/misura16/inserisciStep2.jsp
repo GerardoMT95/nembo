@@ -33,7 +33,7 @@
 						<div class="stepwizard-row setup-panel">
 							<div class="stepwizard-step">
 								<a href="#step-1" type="button" class="btn btn-default btn-circle">1</a>
-								<p>Attività/Partecipante</p>
+								<p>Attivitï¿½/Partecipante</p>
 							</div>
 							<div class="stepwizard-step">
 								<a href="#step-2" type="button" class="btn btn-primary btn-circle">2</a>
@@ -85,7 +85,7 @@
 
 		/*	$('body').on('DOMNodeInserted', '#unselectedComboBox', function () {
 			      //$(this).combobox();
-			    var idTipoIntervento = '${attivita.descrTipoIntervento}';
+			    let idTipoIntervento = '${attivita.descrTipoIntervento}';
 				$("#unselectedComboBox")[0].value=idTipoIntervento;
 				$("#unselectedComboBox")[0].disabled= true
 				$("#selectedComboBox")[0].value=idTipoIntervento;
@@ -95,7 +95,7 @@
 			$(document).bind("DOMSubtreeModified", function(evt) {
 				if($("#unselectedComboBox")[0]!==undefined)
 					{
-					 var idTipoIntervento = '${attivita.descrTipoIntervento}';
+					 let idTipoIntervento = '${attivita.descrTipoIntervento}';
 						$("#unselectedComboBox")[0].value=idTipoIntervento;
 						$("#unselectedComboBox")[0].disabled= true
 						$("#selectedComboBox")[0].value=idTipoIntervento;

@@ -114,17 +114,17 @@
 <script src="/nembopratiche/bootstrap-table-filter/src/locale/bootstrap-table-filter.it-IT.js"></script>
 <script>
 		function iconeFormatter($value, row, index) {
-			var html = '';
+			let html = '';
 			html += '<a href=\"../nuovoprocedimento/prosegui_'+row.idBando+'.do\"><i class="icon-list icon-large"></i></a>';
 			return html;
 		}
 		
 		function allegatiFormatter($value, row, index) {
-			var ret="";
+			let ret="";
 			if(row.allegati!=null)
 			{
 				for (i = 0; i < row.allegati.length; i++) { 
-				    var alleg = row.allegati[i];
+				    let alleg = row.allegati[i];
 				    ret = ret + "<li>"+ ' <a href=\"download_'+alleg.idAllegatiBando+'.do\"  title =\"'+alleg.descrizione+'\">'+alleg.nomeFile+'</a>'+"</li>";
 				}
 			}
@@ -133,16 +133,16 @@
 		}
 
 		function mailFormatter($value, row, index) {
-			var ret=' <a href=\"mailto:'+row.emailReferenteBando+'.do\"  title =\"'+row.emailReferenteBando+'\">'+row.referenteBando+'</a>';
+			let ret=' <a href=\"mailto:'+row.emailReferenteBando+'.do\"  title =\"'+row.emailReferenteBando+'\">'+row.referenteBando+'</a>';
 			return ret;
 		}
 
 		function amministrazioniFormatter($value, row, index) {
-			var ret="";
+			let ret="";
 			if(row.amministrazioniCompetenza!=null)
 			{
 				for (i = 0; i < row.amministrazioniCompetenza.length; i++) { 
-				    var amm = row.amministrazioniCompetenza[i];
+				    let amm = row.amministrazioniCompetenza[i];
 				    ret = ret + "<li>"+amm.descrizione+"</li>";
 				}
 			}
@@ -151,11 +151,11 @@
 		}
 
 		function livelliFormatter($value, row, index) {
-			var ret="";
+			let ret="";
 			if(row.livelli!=null)
 			{
 				for (i = 0; i < row.livelli.length; i++) { 
-				    var op = row.livelli[i];
+				    let op = row.livelli[i];
 				    ret = ret + op.codice+"-"+op.descrizione+"<br>";
 				}
 			}
@@ -200,8 +200,8 @@
 						],
 				        connectTo: "#elencoBandi",
 				        onSubmit: function() {
-				        	var data = $('#filter-bar').bootstrapTableFilter('getData');
-				            var elabFilter = JSON.stringify(data);
+				        	let data = $('#filter-bar').bootstrapTableFilter('getData');
+				            let elabFilter = JSON.stringify(data);
 							//reset variabili per ricostruire correttamente la tabella
 						
 				            $.ajax({
@@ -216,7 +216,7 @@
 				        }
 								    
 				    });
-			var filterJSON = $('#filtroAziende').val();
+			let filterJSON = $('#filtroAziende').val();
 			if(filterJSON){
 				$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 			}

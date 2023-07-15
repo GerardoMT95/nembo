@@ -150,8 +150,8 @@
 	
 	function impegnoBaseFormatter($value, row, index)
     {
-	  var ret="";  
-      var impList = row['impegniBaseList'];
+	  let ret="";  
+      let impList = row['impegniBaseList'];
       if(impList!=null)
       {
     	  impList.forEach(function(entry) {
@@ -163,8 +163,8 @@
     }
 	function impegnoAggiuntivoFormatter($value, row, index)
     {
-	  var ret="";  
-      var impList = row['impegniAggiuntiviList'];
+	  let ret="";  
+      let impList = row['impegniAggiuntiviList'];
       if(impList!=null)
       {
     	  impList.forEach(function(entry) {
@@ -183,8 +183,8 @@
             url: "getConsultaPianoGraficoUrl.do",
             async:false,
             success: function(data) {
-            	 var w=900; 
-	       		 var h=700;
+            	 let w=900; 
+	       		 let h=700;
 	       		 window.open(data,"piano_grafico",'width='+w+',height='+h+',location=no,directories=no,menubar=no,resizable=yes,titlebar=no,toolbar=no,scrollbar=yes');
 	       		 return false;
             }

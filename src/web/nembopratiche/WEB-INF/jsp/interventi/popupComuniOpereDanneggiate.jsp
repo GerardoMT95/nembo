@@ -51,7 +51,7 @@
   function onProsegui()
   {
     
-    var formData = {istatComune : new Array(), conferma:'true', idIntervento:"${param['idIntervento']}" };
+    let formData = {istatComune : new Array(), conferma:'true', idIntervento:"${param['idIntervento']}" };
     debugger;
     if($('#flagCanale').prop('checked')) formData.flagCanale=$('#flagCanale').val();
     if($('#flagOpereDiPresa').prop('checked')) formData.flagOpereDiPresa=$('#flagOpereDiPresa').val();
@@ -81,7 +81,7 @@
           {
 	          if (data.indexOf('<error>')==0)
 	          {
-		          var message=data.replace("<error>","");
+		          let message=data.replace("<error>","");
 		          message=data.replace("</error>","");
               $('#dlgLocalizza_errorBox').show();
               $('#dlgLocalizza_errorMessage').html(message);

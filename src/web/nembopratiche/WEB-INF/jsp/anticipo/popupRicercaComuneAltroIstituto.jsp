@@ -29,14 +29,14 @@
   function onSelezionaProvincia()
   {
     $('#descComune').val('');
-    var $val=$('#province').data('value');
-    var $listComuni=$('#comuni');
+    let $val=$('#province').data('value');
+    let $listComuni=$('#comuni');
     if ($val=='')
     {
       $listComuni.empty();
       return;
     }
-    var page="elenco_comuni_attivi_";
+    let page="elenco_comuni_attivi_";
     page+=$val;
     
     page+=".json";

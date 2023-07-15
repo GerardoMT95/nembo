@@ -88,7 +88,7 @@
                   <th>File</th>
                   <th>Estremi pagamento</th>
                   <th>Data pagamento</th>
-                  <th>Modalità pagamento</th>
+                  <th>Modalitï¿½ pagamento</th>
                   <th>Importo pagamento</th>
                   <th>Importo associato <br/>per la rendicontazione</th>
                   <!-- th>Documento</th-->
@@ -287,18 +287,18 @@
 	         function(index, obj)
            {
 	           obj=$(obj);
-	           var progressivo = $(obj).data('progressivo');
+	           let progressivo = $(obj).data('progressivo');
 	           $('.totale_intervento[data-progressivo='+progressivo+']').last().show();
 
-	           var list=$('.cella_progressivo[data-progressivo='+progressivo+']');
-	           var rowSpan=0;
+	           let list=$('.cella_progressivo[data-progressivo='+progressivo+']');
+	           let rowSpan=0;
 	           list.each(function(idx, cell)
 	  	         {
 	  	          cell=$(cell);
-	  	          var currentRowSpan = $(cell).attr("rowspan");
+	  	          let currentRowSpan = $(cell).attr("rowspan");
 	  	          rowSpan+=parseInt(currentRowSpan);
   	           });
-	           var first=list.first();
+	           let first=list.first();
 	           first.attr("rowspan",rowSpan);
 	           first.removeClass("cella_progressivo");
 	           $('.cella_progressivo[data-progressivo='+progressivo+']').remove();
@@ -306,7 +306,7 @@
        )
   	  });
 		function controllaImporti() {
-			var ser = $("#inserisciForm").serialize();
+			let ser = $("#inserisciForm").serialize();
 			$.ajax({
 				type : 'POST',
 				url : 'controllaimporti.do',
@@ -327,7 +327,7 @@
 		}
 
 		function clearErrors() {
-			var field = $('[data-toggle="error-tooltip"]');
+			let field = $('[data-toggle="error-tooltip"]');
 			field.tooltip('disable');
 			field.removeClass('has-error red-tooltip');
 			field.removeAttr('data-toggle');
@@ -335,7 +335,7 @@
 		}
 
 		function setError(key, message) {
-			var field = $('#' + key).parent();
+			let field = $('#' + key).parent();
 			field.addClass('has-error red-tooltip');
 			field.attr("data-toggle", "error-tooltip");
 			field.attr("title", message);

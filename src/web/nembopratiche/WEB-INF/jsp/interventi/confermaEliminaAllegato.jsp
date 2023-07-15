@@ -21,13 +21,13 @@
             dataType : "html",
             success : function(html)
             {
-              var id=${idFileAllegatiIntervento};
+              let id=${idFileAllegatiIntervento};
               $('#tblMappeFile').bootstrapTable('remove',{field : 'idFileAllegatiIntervento',values : [ id ]});
               closeModal();
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

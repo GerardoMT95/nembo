@@ -86,7 +86,7 @@
 		<script type="text/javascript">		
 		function modificaFormatter($value, row, index)
 		{
-			var risultato='';
+			let risultato='';
 			risultato = risultato +
 						'<div class="th-innder">' +
 						'<a><i class="ico24"></i></a>';
@@ -156,7 +156,7 @@
 		<script type="text/javascript">
 		function isAllCheckboxUnchecked(checkboxesName) 
 		{
-			var allUnchecked = true;
+			let allUnchecked = true;
 			$("input[name="+checkboxesName+"]").each(function() 
 			{
 				if ($(this).prop("checked") == true) 

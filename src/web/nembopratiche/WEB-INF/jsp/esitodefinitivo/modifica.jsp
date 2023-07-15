@@ -55,8 +55,8 @@
 		
 		function checkIfMotivazioniObbligatorie() {
 
-			var idEsitoDefinitivo = $("#idEsitoDefinitivo").val();
-			var motivazioniNeeded = false;
+			let idEsitoDefinitivo = $("#idEsitoDefinitivo").val();
+			let motivazioniNeeded = false;
 
 			if (idEsitoDefinitivo !== undefined && idEsitoDefinitivo != null && idEsitoDefinitivo.not.equals(""))
 				$.ajax({
@@ -71,7 +71,7 @@
 				});
 
 			if (idEsitoDefinitivo != null && idEsitoDefinitivo !== undefined && idEsitoDefinitivo.not.equals("")) {
-				var addExclamationMark = false;
+				let addExclamationMark = false;
 				if($("label:contains('Motivazioni') .icon-exclamation-sign").length==1)
 					addExclamationMark= true;
 				

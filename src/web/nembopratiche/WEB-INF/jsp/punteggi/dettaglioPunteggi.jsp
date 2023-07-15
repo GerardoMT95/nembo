@@ -156,14 +156,14 @@
 	<script type="text/javascript">
 	$( document ).ready(function() {
 		/*<c:if test="${!isOggettoIstanza}">*/
-		var reduceColSpanBy = 1;
+		let reduceColSpanBy = 1;
 		/*</c:if>*/
 		/*<c:if test="${isOggettoIstanza}">*/
-		var reduceColSpanBy = 0;
+		let reduceColSpanBy = 0;
 		/*</c:if>*/
 		$('.bTable').each(function(){ 
 			$(this).on('column-switch.bs.table', function (field, checked) {
-				var colspan = $("#"+$(this).attr('id')+" tbody tr:first td").length - 1;
+				let colspan = $("#"+$(this).attr('id')+" tbody tr:first td").length - 1;
 				$("#"+$(this).attr('id')+" tfoot td:first").attr("colspan",colspan-reduceColSpanBy);
 				console.log(colspan);
 			})

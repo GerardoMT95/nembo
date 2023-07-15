@@ -89,8 +89,8 @@ $("#popup_elenco_pratiche_nuova_lista").on('hidden.bs.modal', function () {
 			} ],
 			connectTo : '#elencoPratiche',
 			onSubmit : function() {
-				var data2 = $('#filter-bar2').bootstrapTableFilter('getData');
-				var elabFilter2 = JSON.stringify(data2);
+				let data2 = $('#filter-bar2').bootstrapTableFilter('getData');
+				let elabFilter2 = JSON.stringify(data2);
 				$.ajax({
 					type : "POST",
 					url : '../session/salvaFiltri.do',
@@ -100,7 +100,7 @@ $("#popup_elenco_pratiche_nuova_lista").on('hidden.bs.modal', function () {
 				});
 			}
 		});
-		var filterJSON2 = $('#filtroJSON2').html();
+		let filterJSON2 = $('#filtroJSON2').html();
 		if (filterJSON2)
 			$('#filter-bar2').bootstrapTableFilter("setupFilterFromJSON", filterJSON2);
 

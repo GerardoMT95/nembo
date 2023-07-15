@@ -112,7 +112,7 @@
 
 		function reloadColspan() {
 			$('.divideColspanOnload').each(function() {
-				var colspan = $(this).attr('colspan');
+				let colspan = $(this).attr('colspan');
 				$(this).attr('colspan', colspan / 2);
 			});
 		}
@@ -132,8 +132,8 @@
 
 		function importoLiquidatoFormatter(index, row) {
 
-			var idListaLiquidazImpLiq = row['idListaLiquidazImpLiq'];
-			var html = [];
+			let idListaLiquidazImpLiq = row['idListaLiquidazImpLiq'];
+			let html = [];
 			html
 					.push("<a data-toggle=\"tooltip\" title=\"Visualizza ripartizione importo\" style=\"cursor:pointer;padding-left:0.8em;\" onclick=\"popup("
 							+ idListaLiquidazImpLiq
@@ -152,13 +152,13 @@
 
 		function esitoLiquidazioneFormatter(index, row) {
 
-			var invioSigop = row['flagInvioSigop'];
-			var id = row['idImportoLiquidato'];
-			var esitoLiq = row['flagEsitoLiquidazione'];
-			var motivoResp = row['motivoResp'];
+			let invioSigop = row['flagInvioSigop'];
+			let id = row['idImportoLiquidato'];
+			let esitoLiq = row['flagEsitoLiquidazione'];
+			let motivoResp = row['motivoResp'];
 			if (motivoResp != null)
 				motivoResp = motivoResp.replace("\'", "\\'");
-			var html = [];
+			let html = [];
 			if (invioSigop == "S")
 				html.push(index);
 			if (esitoLiq == "S")

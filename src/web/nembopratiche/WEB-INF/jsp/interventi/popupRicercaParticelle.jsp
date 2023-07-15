@@ -34,9 +34,9 @@
 <script type="text/javascript">
 function onAggiungiParticelle()
 {
-  var data = $('#tblRicercaParticelle').bootstrapTable("getData");
-  var chk=[];
-  var checkedCheckboxes=$("input[name='idParticellaCertificata']:checked");
+  let data = $('#tblRicercaParticelle').bootstrapTable("getData");
+  let chk=[];
+  let checkedCheckboxes=$("input[name='idParticellaCertificata']:checked");
   if (checkedCheckboxes.length==0)
   {
     alert('Selezionare almeno un elemento');
@@ -44,20 +44,20 @@ function onAggiungiParticelle()
   }
   checkedCheckboxes.each(function(index, value)
   {
-    var val=$(value).val();
+    let val=$(value).val();
     chk[val]=val;
   });
-  var json=Array();
+  let json=Array();
   $.each(data, function(index, row)
   {
-    var id=row['idParticellaCertificata'];
+    let id=row['idParticellaCertificata'];
     if (chk[id])
     {
       json.push(row);
     }
   });
   closeModal();
-  var data = $('#tblParticelle').bootstrapTable("append", json);
+  let data = $('#tblParticelle').bootstrapTable("append", json);
 }
 function stateFormatterConduzione($value, row, index) {
   return [

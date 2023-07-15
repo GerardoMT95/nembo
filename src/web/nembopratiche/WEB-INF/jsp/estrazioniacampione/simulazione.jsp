@@ -112,11 +112,11 @@ $( document ).ready(function() {
       ],
       connectTo: '#estrazioniTable',
       onSubmit: function() {
-    	  var data = $('#filter-bar').bootstrapTableFilter('getData');
-          var elabFilter = JSON.stringify(data);
+    	  let data = $('#filter-bar').bootstrapTableFilter('getData');
+          let elabFilter = JSON.stringify(data);
       }
   });
-	var filterJSON = $('#filtroEstrazioni').val();
+	let filterJSON = $('#filtroEstrazioni').val();
 	$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 	
 });
@@ -124,7 +124,7 @@ $( document ).ready(function() {
 
 function showDetails($value, row, index) {
 	if(row['flagEstratta']!="N")
-	  var iconDettagli = "<a href=\"dettaglio_"+row['idEstrazioneCampione']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_magnify\" title=\"Dettagli estrazione\" style=\"font-size:1.4em;\"></i></a>";
+	  let iconDettagli = "<a href=\"dettaglio_"+row['idEstrazioneCampione']+".do\" style=\"text-decoration: none;\"><i class=\"ico24 ico_magnify\" title=\"Dettagli estrazione\" style=\"font-size:1.4em;\"></i></a>";
 
 	   return iconDettagli;
 }

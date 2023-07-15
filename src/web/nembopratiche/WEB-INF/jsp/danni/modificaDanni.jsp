@@ -21,7 +21,7 @@
 	<p:messaggistica />
 	<p:testata cu="CU-NEMBO-298-M" />
 	<script type="text/javascript">
-		var idUnitaMisuraDannoAtm={};
+		let idUnitaMisuraDannoAtm={};
 	</script>
 	<div class="container-fluid" id="content">
 		<m:panel id="panelVisualizzaTipologieDanni">

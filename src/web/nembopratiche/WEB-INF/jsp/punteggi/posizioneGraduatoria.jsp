@@ -85,7 +85,7 @@
 
 	
 		function SNFormatter(index, row) {
-			var html = [];
+			let html = [];
 	
 			if(row['flagIstruttoria']=="S")
 				html.push("SI");
@@ -98,7 +98,7 @@
 
 		function detailFormatter(index, row) {
 			
-			var html = [];
+			let html = [];
 								html.push('<table id="ordinamenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh">');
 								html.push('<thead>');
 								html.push('<tr>');

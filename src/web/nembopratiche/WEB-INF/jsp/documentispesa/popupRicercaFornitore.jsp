@@ -42,8 +42,8 @@
 	function cercafornitori()
 	{
 			$('.stdMessagePanel').remove();
-		var $val=$('#filtroPIVA').val();
-	    var $listSportelli=$('#fornitori');
+		let $val=$('#filtroPIVA').val();
+	    let $listSportelli=$('#fornitori');
 	    if ($val=='')
 	    {
 	      $listSportelli.empty();
@@ -54,7 +54,7 @@
 		$('#elencofornitorilabel').hide();
 		$('#loadingdiv').show();
 
-		var page="ricerca_fornitori.json";
+		let page="ricerca_fornitori.json";
 	    $.ajax({
 	      url: page,
 	      type: "POST",
@@ -72,7 +72,7 @@
 	        	  $('#firstRow').before(
 	        	  "<div class=\"stdMessagePanel\">"+	
 		            " <div class=\"alert alert-danger\">"+
-		               "  <p>Non è stato trovato nessun fornitore!</p>"+
+		               "  <p>Non ï¿½ stato trovato nessun fornitore!</p>"+
 		             " </div>"+
 		         " </div>");
 			  }

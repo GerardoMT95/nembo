@@ -102,7 +102,7 @@
 			return false;
 		}
 
-		var first = true;
+		let first = true;
 
 		$(document).ready(function() {
 			$(".date-txt").datepicker({
@@ -121,7 +121,7 @@
 					return;
 				}
 			}
-			var html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
+			let html = document.getElementById('iframeUpload').contentWindow.document.body.innerHTML;
 			if (html != null && html.indexOf('<success') == 0) {
 				location.reload();
 			} else {
@@ -140,8 +140,8 @@
 		//in questo modo posso aggiungere o togliere l'asterisco alle lable che indica obbligatorieta
 		function getFlagObbligatorieta() {
 
-			var idTipoSol = $("#idTipoRisoluzione").val();
-			var element = $("label:contains('Note: *')");
+			let idTipoSol = $("#idTipoRisoluzione").val();
+			let element = $("label:contains('Note: *')");
 			$(element).empty();
 			$(element).append("Note:");
 			element = $("label:contains('Nome allegato: *')");
@@ -156,7 +156,7 @@
 					url : '../cunembo234/getFlagObbligatorieta_' + idTipoSol + '.do',
 					success : function(data) {
 						if (data.indexOf("entrambi") == 0) {
-							var element = $("label:contains('Note:')");
+							let element = $("label:contains('Note:')");
 							$(element).empty();
 							$(element).append("Note: *");
 							element = $("label:contains('Nome allegato:')");
@@ -167,7 +167,7 @@
 							$(element).append("File da allegare: *");
 						}
 						if (data.indexOf("soloNote") == 0) {
-							var element = $("label:contains('Note:')");
+							let element = $("label:contains('Note:')");
 							$(element).empty();
 							$(element).append("Note: *");
 
@@ -179,7 +179,7 @@
 							$(element).append("File da allegare:");
 						}
 						if (data.indexOf("soloFile") == 0) {
-							var element = $("label:contains('Nome allegato:')");
+							let element = $("label:contains('Nome allegato:')");
 							$(element).empty();
 							$(element).append("Nome allegato: *");
 							element = $("label:contains('File da allegare:')");
@@ -191,7 +191,7 @@
 							$(element).append("Note:");
 						}
 						if (data.indexOf("nessuno") == 0) {
-							var element = $("label:contains('Note: *')");
+							let element = $("label:contains('Note: *')");
 							$(element).empty();
 							$(element).append("Note:");
 							element = $("label:contains('Nome allegato: *')");

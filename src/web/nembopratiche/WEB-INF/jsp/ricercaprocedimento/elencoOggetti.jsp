@@ -130,8 +130,8 @@
 	 <script>
 		$( document ).ready(function() {
 			$(".toggle_handle").click(function() {
-			  var id = $(this).attr('id');
-			  var secId = id.split('toggle_handle_')[1];
+			  let id = $(this).attr('id');
+			  let secId = id.split('toggle_handle_')[1];
 			  $('.toggle_target_'+secId).toggle();
 			  if($('.toggle_target_'+secId).is(":visible"))
 				  $('#icona_espandi_'+secId).removeClass('icon-plus-sign').addClass('icon-minus-sign');

@@ -1,5 +1,5 @@
-var typewatch = function(){
-    var timer = 0;
+let typewatch = function(){
+    let timer = 0;
     return function(callback, ms){
         clearTimeout (timer);
         timer = setTimeout(callback, ms);
@@ -20,7 +20,7 @@ function expandAllPageArrows()
  
 function getSelectValueString(idSelect)
 {
-	var ser = '';
+	let ser = '';
 	$('#'+idSelect+'  option').each(function(index) {
     	ser = ser + '&' + $(this).val() + '=' + $(this).html();
     });
@@ -31,18 +31,18 @@ function getSelectValueString(idSelect)
 
 function toggleRow(id, hide)
 {
-	var children=$('.toggle_'+id);
+	let children=$('.toggle_'+id);
 	if (hide===true)
 	{
 		children.hide();
-		var tmp=$('#freccia_'+id);
+		let tmp=$('#freccia_'+id);
 		tmp.addClass("freccia");
 		tmp.removeClass("freccia_giu");
 	}
 	else
 	{
 		children.toggle();
-		var tmp=$('#freccia_'+id);
+		let tmp=$('#freccia_'+id);
 		if (children.is(':visible'))
 		{
 			tmp.addClass("freccia_giu");
@@ -57,13 +57,13 @@ function toggleRow(id, hide)
 	
 	if( children.is(':visible') ) 
 	{
-		var tmp=$('.toggle_'+id+" .freccia");
+		let tmp=$('.toggle_'+id+" .freccia");
 		tmp.addClass("freccia");
 		tmp.removeClass("freccia_giu");
 	}
 	else 
 	{
-		var tmp=$('.toggle_'+id+" .freccia_giu");
+		let tmp=$('.toggle_'+id+" .freccia_giu");
 		tmp.addClass("freccia_giu");
 		tmp.removeClass("freccia");
 		children.each(function(index, element)
@@ -74,7 +74,7 @@ function toggleRow(id, hide)
 	return false;
 }
 
-var currentDialog = null;
+let currentDialog = null;
 
 function closeDialog()
 {
@@ -103,14 +103,14 @@ function destroyModal()
   return false;
 }
 
-var lastShowDialogStatusOK = false;
+let lastShowDialogStatusOK = false;
 
 function showDialog(url, title)
 {
 	lastShowDialogStatusOK = false;
 	$('#currentDialog').remove();
 	$('body').append("<div id='currentDialog' style='display:none'></div>");
-	var html='';
+	let html='';
 	$.ajax({
 		url: url,
 		context: document.body,
@@ -170,8 +170,8 @@ function changeInPleaseWait(messaggio)
 
 function postDialogToPage($form, $page)
 {
-	var datastring = $($form).serialize();
-	var htmlData = null;
+	let datastring = $($form).serialize();
+	let htmlData = null;
 	$.ajax({
 	            type: "POST",
 	            url: $page,
@@ -255,7 +255,7 @@ $('document').ready(function(){
 });	
 
 function fileUploadChangeName(fileTag, textTag) {
-	var fileName = $(fileTag).val();
+	let fileName = $(fileTag).val();
 	if (fileName) {
 		fileName = fileName.replace(/^.*[\\\/]/, '');
 	}
@@ -263,17 +263,17 @@ function fileUploadChangeName(fileTag, textTag) {
 }
 
 function selectAll( id, isToSelect){
-	var selectBox = document.getElementById(id);
-	var optNum = document.getElementById(id).length;
-    for (var i = 0; i < optNum; i++) { 
+	let selectBox = document.getElementById(id);
+	let optNum = document.getElementById(id).length;
+    for (let i = 0; i < optNum; i++) { 
          selectBox.options[i].selected = isToSelect; 
     } 
 }
 
 function selectAllCheck( name, isToSelect){
 
-	var x = document.getElementsByName(name);
-	var i;
+	let x = document.getElementsByName(name);
+	let i;
 	for (i = 0; i < x.length; i++) {
 	    if (x[i].type == "checkbox") {
 	        x[i].checked = isToSelect;
@@ -285,12 +285,12 @@ function selectAllCheck( name, isToSelect){
 function fireEvent(element,event){
     if (document.createEventObject){
 	    // dispatch for IE
-	    var evt = document.createEventObject();
+	    let evt = document.createEventObject();
 	    return element.fireEvent('on'+event,evt)
     }
     else{
 	    // dispatch for firefox + others
-	    var evt = document.createEvent("HTMLEvents");
+	    let evt = document.createEvent("HTMLEvents");
 	    evt.initEvent(event, true, true ); // event type,bubbling,cancelable
 	    return !element.dispatchEvent(evt);
     }
@@ -301,12 +301,12 @@ function fireEvent(element,event){
 function filtra(idAllSelect)
 {
 	//pulisco select principale
-	var idSelect = idAllSelect.split('all_')[1];
+	let idSelect = idAllSelect.split('all_')[1];
 	$('#'+idSelect).find('option').remove();
 
 	//reperisco value selezionati nella popup
-	var arraySelectedValue = [];
-	var arraySelectedIndex = [];
+	let arraySelectedValue = [];
+	let arraySelectedIndex = [];
     $('#'+idAllSelect+'  option:selected').each(function(index) {
     	arraySelectedIndex[index] = $(this).val();
     	arraySelectedValue[$(this).val()] = $(this).text();
@@ -330,7 +330,7 @@ function filtra(idAllSelect)
 		 }
 	}
     
-    var listRef = '';
+    let listRef = '';
 	if(idSelect == 'misura')
 	{
 		listRef = 'misura';
@@ -354,7 +354,7 @@ function filtra(idAllSelect)
 	
 	if(listRef != '')
 	{
-		var ser = $("#ricercaProcedimenti").serialize() + serializeField();
+		let ser = $("#ricercaProcedimenti").serialize() + serializeField();
 		$.ajax({
 			  type: 'POST',
 			  url: 'ricalcolalistbox_'+listRef+'.json',
@@ -395,12 +395,12 @@ function filtra(idAllSelect)
 function filtraSelezionati(idAllSelect)
 {
 	//pulisco select principale
-	var idSelect = idAllSelect.split('all_')[1];
+	let idSelect = idAllSelect.split('all_')[1];
 	$('#'+idSelect).find('option').remove();
 
 	//reperisco value selezionati nella popup
-	var arraySelectedValue = [];
-	var arraySelectedIndex = [];
+	let arraySelectedValue = [];
+	let arraySelectedIndex = [];
     $('#'+idAllSelect+'  option:selected').each(function(index) {
     	arraySelectedIndex[index] = $(this).val();
     	arraySelectedValue[$(this).val()] = $(this).text();
@@ -415,7 +415,7 @@ function filtraSelezionati(idAllSelect)
 	}
     
 //TODO: FIXME:    
-    var listRef = '';
+    let listRef = '';
 	if(idSelect == 'misura')
 	{
 		listRef = 'misura';
@@ -435,7 +435,7 @@ function filtraSelezionati(idAllSelect)
 	
 	if(listRef != '')
 	{
-		var ser = $("#ricercaProcedimenti").serialize() + serializeField();
+		let ser = $("#ricercaProcedimenti").serialize() + serializeField();
 		$.ajax({
 			  type: 'POST',
 			  url: 'ricalcolalistbox_'+listRef+'.json',
@@ -488,8 +488,8 @@ function prepareRicercaHiddenField()
 
 function serializeSelectField(idSelect)
 {
-	var ser = '';
-	var name = idSelect.split('-')[0];
+	let ser = '';
+	let name = idSelect.split('-')[0];
 	$('#'+idSelect+'  option').each(function(index) {
     	ser = ser + '&' + name + '=' + $(this).val();
     });
@@ -503,7 +503,7 @@ function elaboraJsonRicerca(data)
 
 	for(let key in data) 																																			
 	  {
-		  var value=data[key];  
+		  let value=data[key];  
 		  if (key.indexOf('optBandi')==0)
 		  {
 			  $('#bando').html(value.replace(/option/g,'option disabled '));
@@ -607,7 +607,7 @@ function openPopupComuni (idProv, idComune)
 {
 	$("#"+idProv).val($("#"+idProv).val().replace(/[^0-9a-z]/gi, ''));
 	$("#"+idComune).val($("#"+idProv).val().replace(/[^0-9a-z]/gi, ''));
-	var ser = $("#"+idProv).serialize() +"&"+ $("#"+idComune).serialize();
+	let ser = $("#"+idProv).serialize() +"&"+ $("#"+idComune).serialize();
 	$.ajax({
 		  type: 'POST',
 		  url: 'searchComuni.json',
@@ -630,7 +630,7 @@ function openPopupComuni (idProv, idComune)
 
 function elaboraDatiComuni(data, idPiva, idComune)																																		
 {		
-	   var elemntiPerPagina;
+	   let elemntiPerPagina;
 	   if (data["isValidJSON"]=="true") 																															
 	   { 
 		 $("#"+idPiva).val('');
@@ -638,11 +638,11 @@ function elaboraDatiComuni(data, idPiva, idComune)
 		 
 		 for(let key in data) 																																			
 		 { 																																							
-			var value=data[key];   																																	
+			let value=data[key];   																																	
 			if (key.indexOf('comuniDTO')==0)
 			{ 
 				$('#popupComuniTable tbody').html('');			
-				 for (var count in value) {																																
+				 for (let count in value) {																																
 					 appendRowComuni(value[count]); 																																						
 				} 																																						
 			} 																																							
@@ -654,15 +654,15 @@ function elaboraDatiComuni(data, idPiva, idComune)
 
 function appendRowComuni(obj)
 {
-		var tr = '<tr> \n';
+		let tr = '<tr> \n';
 		$('#popupComuniTable thead th').each(function() {
-			var idTh = obj[$(this).attr('data-property')];
+			let idTh = obj[$(this).attr('data-property')];
 			if(idTh == undefined)
 				idTh = ' ';
 			
 			if($(this).attr('data-property') == 'chk')
 			{
-				var inputHidden = '<input type="hidden" id="istatComuneHidden'+obj['istatComune']+'" value="'+obj['istatComune']+'" />'
+				let inputHidden = '<input type="hidden" id="istatComuneHidden'+obj['istatComune']+'" value="'+obj['istatComune']+'" />'
 								+ '<input type="hidden" id="provinciaHidden'+obj['istatComune']+'" value="'+obj['siglaProvincia']+'" />'
 								+ '<input type="hidden" id="comuneHidden'+obj['istatComune']+'" value="'+obj['descrizioneComune']+'" />';
 				tr = tr + '<th scope="row" style="border: 1px solid #91A2B2;padding: 5px;"><input type="radio" name="chkComuni" id="'+obj['istatComune']+'" /> '+inputHidden+' </th>  \n';
@@ -680,7 +680,7 @@ function popolaComuneProvincia ()
 {
 	if($('input[name=chkComuni]:checked'))
 	{
-		var idSelezionato = $('input[name=chkComuni]:checked').attr('id');
+		let idSelezionato = $('input[name=chkComuni]:checked').attr('id');
 		$('#provSceltaComune').val($('#provinciaHidden'+idSelezionato).val());
 		$('#comuneSceltaComune').val($('#comuneHidden'+idSelezionato).val());
 	}
@@ -703,7 +703,7 @@ function loadProcedimentoAndOpenPageInPopup (idProcedimento, page, id, title, mo
 
 function openPageInPopupMethod(page, id, title, modalClass, hideCloseButton, formData, method)
 {
-	var html=
+	let html=
 		   "<div class=\"modal fade :modalClass\" id=\":id\" tabindex=\"-1\" data-backdrop=\"static\" data-keyboard=\"false\" role=\"dialog\" aria-labelledby=\"dlgTitle_:id\" aria-hidden=\"true\">"
 		 + "		<div class=\"modal-dialog :modalDialogClass\">"
 		 + "			<div class=\"modal-content\">"
@@ -723,7 +723,7 @@ function openPageInPopupMethod(page, id, title, modalClass, hideCloseButton, for
 	  _lastModalID=id;
 		html=html.replace(':id',id);
 		html=html.replace(':title',title);
-		var modalDialogClass='';
+		let modalDialogClass='';
 		if (modalClass==null || modalClass==undefined)
 		{
 			modalClass="";
@@ -772,7 +772,7 @@ function openPageInPopup(page, id, title, modalClass, hideCloseButton, formData)
 
 function asyncOpenPageInPopup(page, id, title, modalClass, hideCloseButton, formData)
 {
-  var html=
+  let html=
     "<div class=\"modal fade :modalClass\" id=\":id\" tabindex=\"-1\" data-backdrop=\"static\" data-keyboard=\"false\" role=\"dialog\" aria-labelledby=\"dlgTitle_:id\" aria-hidden=\"true\">"
     + "		<div class=\"modal-dialog :modalDialogClass\">"
     + "			<div class=\"modal-content\">"
@@ -792,7 +792,7 @@ function asyncOpenPageInPopup(page, id, title, modalClass, hideCloseButton, form
   _lastModalID=id;
   html=html.replace(':id',id);
   html=html.replace(':title',title);
-  var modalDialogClass='';
+  let modalDialogClass='';
   if (modalClass==null || modalClass==undefined)
   {
     modalClass="";
@@ -833,13 +833,13 @@ function asyncOpenPageInPopup(page, id, title, modalClass, hideCloseButton, form
   return false;
 }
 
-var _lastModalID=null;
+let _lastModalID=null;
 
 
 function showConfirmMessageBox(title, message, modalClass, hrefChiudi, onclickconfirm)
 {
-  var id='__std_messagebox__';
-  var html=
+  let id='__std_messagebox__';
+  let html=
      "<div class=\"modal fade :modalClass\" id=\":id\" tabindex=\"-1\" data-backdrop=\"static\" data-keyboard=\"false\" role=\"dialog\" aria-labelledby=\"dlgTitle_:id\" aria-hidden=\"true\">"
    + "    <div class=\"modal-dialog\">"
    + "      <div class=\"modal-content\">"
@@ -884,8 +884,8 @@ function showConfirmMessageBox(title, message, modalClass, hrefChiudi, onclickco
 
 function showRedirectMessageBox(title, message, modalClass, hrefChiudi)
 {
-  var id='__std_messagebox__';
-  var html=
+  let id='__std_messagebox__';
+  let html=
      "<div class=\"modal fade :modalClass\" id=\":id\" tabindex=\"-1\" data-backdrop=\"static\" data-keyboard=\"false\" role=\"dialog\" aria-labelledby=\"dlgTitle_:id\" aria-hidden=\"true\">"
    + "    <div class=\"modal-dialog\">"
    + "      <div class=\"modal-content\">"
@@ -926,8 +926,8 @@ function showRedirectMessageBox(title, message, modalClass, hrefChiudi)
 
 function showMessageBox(title, message, modalClass)
 {
-  var id='__std_messagebox__';
-  var html=
+  let id='__std_messagebox__';
+  let html=
      "<div class=\"modal fade :modalClass\" id=\":id\" tabindex=\"-1\" data-backdrop=\"static\" data-keyboard=\"false\" role=\"dialog\" aria-labelledby=\"dlgTitle_:id\" aria-hidden=\"true\">"
    + "    <div class=\"modal-dialog\">"
    + "      <div class=\"modal-content\">"
@@ -968,8 +968,8 @@ function showMessageBox(title, message, modalClass)
 
 function showMessageBoxContinuaAnnulla(title, message, modalClass, operationSuccess, operationFailure)
 {
-  var id='__std_messagebox__';
-  var html=
+  let id='__std_messagebox__';
+  let html=
      "<div class=\"modal fade :modalClass\" id=\":id\" tabindex=\"-1\" data-backdrop=\"static\" data-keyboard=\"false\" role=\"dialog\" aria-labelledby=\"dlgTitle_:id\" aria-hidden=\"true\">"
    + "    <div class=\"modal-dialog\">"
    + "      <div class=\"modal-content\">"
@@ -1059,12 +1059,12 @@ function initializeControlsForPopup()
 
 function callbackPannelloStampe() 
 {
-  var html="\n<span class=\"please_wait\" style=\"vertical-align:middle\"></span> Attendere prego, caricamento dell'elenco stampe in corso...";
+  let html="\n<span class=\"please_wait\" style=\"vertical-align:middle\"></span> Attendere prego, caricamento dell'elenco stampe in corso...";
   $('#pannello_stampe .panel-body').html(html);
-  var href=window.location.href;
+  let href=window.location.href;
   href=href.substr(0,
       href.indexOf("/", href.indexOf("/", href.indexOf("//") + 2) + 1));
-  var contesto=href.substr(href.lastIndexOf('/'));
+  let contesto=href.substr(href.lastIndexOf('/'));
   $('#pannello_stampe').off('show.bs.collapse', callbackPannelloStampe);
   $.ajax(
   {
@@ -1102,7 +1102,7 @@ function visualizzaStampaOggettoCallbackSuccess(data)
   {
     if (data.indexOf('<stampa>')>=0)
     {
-      var url=data.replace('<stampa>','').replace('</stampa>','');
+      let url=data.replace('<stampa>','').replace('</stampa>','');
       window.location.href=url;
     }
     else
@@ -1131,7 +1131,7 @@ function visualizzaStampaOggetto(id)
 
 function selezionaPopupOptions(idSelect)
 {
-	var arraySelectedValue = [];
+	let arraySelectedValue = [];
 	$('#'+idSelect+'  option').each(function(index) {
     	 arraySelectedValue[$(this).val()] = $(this).val();
     });
@@ -1141,7 +1141,7 @@ function selezionaPopupOptions(idSelect)
 
 
 Number.prototype.formatCurrency = function(c){
-  var n = this, 
+  let n = this, 
       c = isNaN(c = Math.abs(c)) ? 2 : c, 
       d = "," , 
       t = ".", 
@@ -1157,7 +1157,7 @@ Number.prototype.formatCurrency = function(c){
      {
        modalID=_lastModalID;
      }
-     var html='<span class="fail_big" style="vertical-align: middle; float:left"></span><h4>'+errorMessage+
+     let html='<span class="fail_big" style="vertical-align: middle; float:left"></span><h4>'+errorMessage+
      '</h4><br /><br/><button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Chiudi</button><br style="clear:left"/>';
      $('#'+modalID+' .modal-body').html(html);   
   }
@@ -1168,7 +1168,7 @@ Number.prototype.formatCurrency = function(c){
     {
       modalID=_lastModalID;
     }
-    var html='<span class="success_big" style="vertical-align: middle; float:left"></span><h4>'+message+
+    let html='<span class="success_big" style="vertical-align: middle; float:left"></span><h4>'+message+
     '</h4><br /><br/><button type="button" class="btn btn-primary pull-right" data-dismiss="modal">Chiudi</button><br style="clear:left"/>';
     $('#'+modalID+' .modal-body').html(html);   
   }
@@ -1185,8 +1185,8 @@ Number.prototype.formatCurrency = function(c){
 
   function reorderSelectOptions(idSelect)
   {
-    var options = $(idSelect+' option');
-      var arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
+    let options = $(idSelect+' option');
+      let arr = options.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
       arr.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
       options.each(function(i, o) {
         o.value = arr[i].v;
@@ -1209,14 +1209,14 @@ Number.prototype.formatCurrency = function(c){
       //Ignoro tutto
     }
   });
-  var _messaggistica_rolling=true;
-  var _messaggistica_end_time = null;
+  let _messaggistica_rolling=true;
+  let _messaggistica_end_time = null;
   function startMessaggistica($messaggiTestata)
   {
-    var testoMessaggio=$messaggiTestata.html();
-    var regex=/http[s]*:\/\/[-a-zA-Z0-9@:%._\+~#=]+[^.]/;
-    var match=testoMessaggio.match(regex);
-    var time=$('#banner_messaggistica').data('time');
+    let testoMessaggio=$messaggiTestata.html();
+    let regex=/http[s]*:\/\/[-a-zA-Z0-9@:%._\+~#=]+[^.]/;
+    let match=testoMessaggio.match(regex);
+    let time=$('#banner_messaggistica').data('time');
     if (time)
     {
       _messaggistica_end_time=new Date(new Date().getTime()+time).getTime();
@@ -1228,7 +1228,7 @@ Number.prototype.formatCurrency = function(c){
     }
     if (match!=null && match.length>0)
     {
-      var hash=Array();
+      let hash=Array();
       for(let _i=0;_i<match.length;_i++)
       {
         hash[match[_i]]=match[_i];
@@ -1239,8 +1239,8 @@ Number.prototype.formatCurrency = function(c){
       }
     }
     
-    var offset=$messaggiTestata.offset();
-    var pos={left:$('#banner_messaggistica').width(),top:offset.top};
+    let offset=$messaggiTestata.offset();
+    let pos={left:$('#banner_messaggistica').width(),top:offset.top};
     $messaggiTestata.html(testoMessaggio);
     $messaggiTestata.offset({left:pos.left,top:pos.top});
     setTimeout(runMessaggistica,20);
@@ -1266,9 +1266,9 @@ Number.prototype.formatCurrency = function(c){
       }
       if (_messaggistica_rolling)
       {
-          var $messaggiTestata=$('#messaggi-testata');
-          var offset=$messaggiTestata.offset();
-          var pos={left:offset.left-1,top:offset.top};
+          let $messaggiTestata=$('#messaggi-testata');
+          let offset=$messaggiTestata.offset();
+          let pos={left:offset.left-1,top:offset.top};
           if (pos.left+$messaggiTestata.width()<-1)
           {
             pos.left=$('#banner_messaggistica').width();
@@ -1342,17 +1342,17 @@ Number.prototype.formatCurrency = function(c){
   
   function openDocumentale(url)
   {
-    var sh=screen.height;
-    var sw=screen.width;
-    var h=Math.round(sh*0.9);
-    var w=Math.round(sw*0.9);
-    var left =Math.round((sw-w)/2);
-    var top =Math.round((sh-h)/2);
+    let sh=screen.height;
+    let sw=screen.width;
+    let h=Math.round(sh*0.9);
+    let w=Math.round(sw*0.9);
+    let left =Math.round((sw-w)/2);
+    let top =Math.round((sh-h)/2);
     window.open(url, "nembo_documentale","left="+left+",top="+top+",toolbar=no,width="+w+",height="+h+",location=no,menubar=no,scrollbars=yes,resizable=yes");
     return false;
   }
   
-  var __click_allowed__=true;
+  let __click_allowed__=true;
   function singleClick()
   {
     if (__click_allowed__)
@@ -1404,7 +1404,7 @@ Number.prototype.formatCurrency = function(c){
 	 */
 	function isAllCheckboxUnchecked(checkboxesName) 
 	{
-		var allUnchecked = true;
+		let allUnchecked = true;
 		$("input[name="+checkboxesName+"]").each(function() 
 		{
 			if ($(this).prop("checked") == true) 
@@ -1426,10 +1426,10 @@ Number.prototype.formatCurrency = function(c){
 		$('#' + idSelect + '_a_choice_' + dataCode + ' span').replaceWith('<span class="glyphicon glyphicon-ok-circle" style="margin-right:5px;" aria-hidden="true"></span>');
 		$('#' + idSelect + '_choice').val(dataCode);
 		 
-		var optionDefault = '<option data-code="CODE-DEFAULT" value="">-- selezionare --</option>';
+		let optionDefault = '<option data-code="CODE-DEFAULT" value="">-- selezionare --</option>';
 		
-		var dataCodeSelected = $('#' + idSelect + ' option:selected').attr("data-code");
-		var valueSelected = $('#' + idSelect + ' option:selected').val();
+		let dataCodeSelected = $('#' + idSelect + ' option:selected').attr("data-code");
+		let valueSelected = $('#' + idSelect + ' option:selected').val();
 		$('#' + idSelect).children('option').remove();  																	//rimuove tutti gli elementi
 		$('#' + idSelect).append(htmlSelectId);
 		

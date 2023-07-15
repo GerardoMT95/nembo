@@ -64,9 +64,9 @@
   
   function onAggiungiUtilizzo()
   {
-    var data = $('#tblRicercaConduzioni').bootstrapTable("getData");
-    var chk = [];
-    var checkedCheckboxes = $("input[name='chkIdUtilizzoDichiarato']:checked");
+    let data = $('#tblRicercaConduzioni').bootstrapTable("getData");
+    let chk = [];
+    let checkedCheckboxes = $("input[name='chkIdUtilizzoDichiarato']:checked");
     if (checkedCheckboxes.length == 0)
     {
       alert('Selezionare almeno un elemento');
@@ -74,33 +74,33 @@
     }
     checkedCheckboxes.each(function(index, value)
     {
-      var val = $(value).val();
+      let val = $(value).val();
       chk[val] = val;
     });
-    var json = Array();
+    let json = Array();
     $.each(data, function(index, row)
     {
-      var id = row['idUtilizzoDichiarato'];
+      let id = row['idUtilizzoDichiarato'];
       if (chk[id])
       {
         json.push(row);
       }
     })
     closeModal();
-    var data = $('#tblConduzioni').bootstrapTable("append", json);
+    let data = $('#tblConduzioni').bootstrapTable("append", json);
   }
   $('#tblRicercaConduzioni').off('load-success.bs.table');
   $('#tblRicercaConduzioni').on('load-success.bs.table', function()
   {
     $(function()
     {
-      var $tblRicercaConduzioni = $('#tblRicercaConduzioni');
-      var tableData = $tblRicercaConduzioni.bootstrapTable('getData');
+      let $tblRicercaConduzioni = $('#tblRicercaConduzioni');
+      let tableData = $tblRicercaConduzioni.bootstrapTable('getData');
       if (tableData.length)
       {
-        var firstRow = tableData[0];
+        let firstRow = tableData[0];
         $('#filtroRicercaConduzioni_comune').html(firstRow['comune']);
-        var sezione = firstRow['sezione'];
+        let sezione = firstRow['sezione'];
         if (sezione==null)
         {
           sezione = 'Non presente';

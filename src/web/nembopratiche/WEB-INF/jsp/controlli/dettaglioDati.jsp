@@ -222,8 +222,8 @@
 				],
 		        connectTo: "",
 		        onSubmit: function() {
-		        	var data = $('#filter-bar').bootstrapTableFilter('getData');
-		            var elabFilter = JSON.stringify(data);
+		        	let data = $('#filter-bar').bootstrapTableFilter('getData');
+		            let elabFilter = JSON.stringify(data);
 					//reset variabili per ricostruire correttamente la tabella
 				
 		            $.ajax({
@@ -245,7 +245,7 @@
 					}
 						    
 		    });
-	var filterJSON = $('#filtroAziende').val();
+	let filterJSON = $('#filtroAziende').val();
 	if(filterJSON){
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 	}

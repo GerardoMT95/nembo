@@ -30,14 +30,14 @@
 
   function ricercaComuni()
   {
-    var $listComuni=$('#comuni');
+    let $listComuni=$('#comuni');
     $val = $('#descComune').val();
     if ($val=='')
     {
       $listComuni.empty();
       return;
     }
-    var page="elenco_comuni_attivi.json";
+    let page="elenco_comuni_attivi.json";
     
     $.ajax({
         type: "POST",

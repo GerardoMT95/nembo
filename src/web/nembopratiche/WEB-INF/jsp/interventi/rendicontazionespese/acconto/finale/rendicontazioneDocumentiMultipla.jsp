@@ -114,10 +114,10 @@
 
   function calcolaTotale(cssName)
   {
-    var totale=0;
+    let totale=0;
     $('.'+cssName+' input').each(function(idx, element)
       {
-        var val=Number($(element).val().replace(',','.'));
+        let val=Number($(element).val().replace(',','.'));
         if (!isNaN(val))
         {
           totale+=val;
@@ -128,7 +128,7 @@
   
   function calcolaImportoRendicontato()
   {
-    var totale=calcolaTotale('importo_rendicontato');
+    let totale=calcolaTotale('importo_rendicontato');
     $('#rendicontazioneDocumenti tfoot td[data-field="importoRendicontatoCorrente"] span').html(totale.formatCurrency());
     return totale;
   }
@@ -140,8 +140,8 @@
         $value = "";
       }
       
-      var html = $('#invisibleTextfield').html();
-      var id = "importoRendicontato_" + row['idDocumentoSpesaInterven'];
+      let html = $('#invisibleTextfield').html();
+      let id = "importoRendicontato_" + row['idDocumentoSpesaInterven'];
       html = html.replace(":ID", id);
       html = html.replace(":NAME", id);
       html = html.replace(":VALUE", $value);
@@ -168,7 +168,7 @@
       {
         $value = "";
       }
-      var html = ' <a';
+      let html = ' <a';
       if (row['warningDocumento'])
       {
         html+=' class="text-danger"';

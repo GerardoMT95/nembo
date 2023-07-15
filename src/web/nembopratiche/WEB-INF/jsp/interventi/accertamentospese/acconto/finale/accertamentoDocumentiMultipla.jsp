@@ -127,7 +127,7 @@
 	$('input[data-toggle="bs-toggle"]').bootstrapToggle();
     function aggiornaImportoDisponibile(idDocumentoSpesaInterven)
     {
-        var disp = Number($('#importoRendicontato_'+idDocumentoSpesaInterven).html().replace(',','.')) - 
+        let disp = Number($('#importoRendicontato_'+idDocumentoSpesaInterven).html().replace(',','.')) - 
         		   $('#importoCalcoloContributo_'+idDocumentoSpesaInterven).val() -
                    $('#importoNonRiconosciuto_'+idDocumentoSpesaInterven).val();
         try
@@ -144,8 +144,8 @@
 	}
     function inputFormatterNonRiconosciutoNonSanzionabile($value, row, index)
     {
-      var id = "importoDisponibile_" + row['idDocumentoSpesaInterven'];
-      var html = inputFormatter($value, row, index, id, ' onkeyup=calcolaTotaleImportoNonRiconosciutoNonSanzionabile() onchange=calcolaTotaleImportoNonRiconosciutoNonSanzionabile()');
+      let id = "importoDisponibile_" + row['idDocumentoSpesaInterven'];
+      let html = inputFormatter($value, row, index, id, ' onkeyup=calcolaTotaleImportoNonRiconosciutoNonSanzionabile() onchange=calcolaTotaleImportoNonRiconosciutoNonSanzionabile()');
       if (row['errorMessageImportoDisponibile'])
           {
             html = html.replace(":CSS", 'has-error red-tooltip importo_non_riconosciuto_non_sanzionabile forza_uguale_'+index);
@@ -189,26 +189,26 @@
     function calcolaTotaleImportoCalcoloContributo()
     {
       aggiornaTotale("importo_calcolo_contributo","importoCalcoloContributo");
-      var $speseAccertateAttuali=calcolaTotale("importo_accertato","importoAccertato");
-      var $spesaRendicontataAttuale=getSpesaRendicontataAttuale();
-      var $spesaAmmessa=getSpesaAmmessa();
+      let $speseAccertateAttuali=calcolaTotale("importo_accertato","importoAccertato");
+      let $spesaRendicontataAttuale=getSpesaRendicontataAttuale();
+      let $spesaAmmessa=getSpesaAmmessa();
       calcolaImportoNonRiconosciutoSanzionabileGlobale($spesaAmmessa, $speseAccertateAttuali, $spesaRendicontataAttuale);
     }
     
     function calcolaTotaleSpeseAccertateAttuali()
     {
-      var $speseAccertateAttuali=aggiornaTotale("importo_accertato","importoAccertato");
-      var $spesaRendicontataAttuale=getSpesaRendicontataAttuale();
-      var $spesaAmmessa=getSpesaAmmessa();
+      let $speseAccertateAttuali=aggiornaTotale("importo_accertato","importoAccertato");
+      let $spesaRendicontataAttuale=getSpesaRendicontataAttuale();
+      let $spesaAmmessa=getSpesaAmmessa();
       calcolaImportoNonRiconosciutoSanzionabileGlobale($spesaAmmessa, $speseAccertateAttuali, $spesaRendicontataAttuale);
     }
     
     function calcolaTotale(cssName)
     {
-      var totale=0;
+      let totale=0;
       $('.'+cssName+' input').each(function(idx, element)
         {
-          var val=Number($(element).val().replace(',','.'));
+          let val=Number($(element).val().replace(',','.'));
           if (!isNaN(val))
           {
             totale+=val;
@@ -219,7 +219,7 @@
     
     function aggiornaTotale(cssName, dataField)
     {
-      var totale=calcolaTotale(cssName);
+      let totale=calcolaTotale(cssName);
       $('#rendicontazioneDocumenti tfoot td[data-field="'+dataField+'"] span').html(totale.formatCurrency());
       return totale;
     }
@@ -241,7 +241,7 @@
     
     function calcolaImportoNonRiconosciutoSanzionabileGlobale($spesaAmmessa, $speseAccertateAttuali, $spesaRendicontataAttuale)
     {
-      var $importoNonRiconosciutoSanzionabileGlobale="0,00";
+      let $importoNonRiconosciutoSanzionabileGlobale="0,00";
       if (!isNaN($spesaRendicontataAttuale) && !isNaN($speseAccertateAttuali) && !isNaN($spesaAmmessa))
       {
         $importoNonRiconosciutoSanzionabileGlobale = $spesaRendicontataAttuale - $speseAccertateAttuali;
@@ -253,9 +253,9 @@
     }
     function calcolaImportoNonRiconosciutoNonSanzionabileGlobale($spesaAmmessa, $spesaRendicontataAttuale, $importoNonRiconosciutoSanzionabileGlobale)
     {
-      var $speseRiconosciutaPerIlCalcolo = calcolaTotale("importo_calcolo_contributo","importoCalcoloContributo")
+      let $speseRiconosciutaPerIlCalcolo = calcolaTotale("importo_calcolo_contributo","importoCalcoloContributo")
       $importoNonRiconosciutoSanzionabileGlobale = Number((''+$importoNonRiconosciutoSanzionabileGlobale).replace(',','.'));
-      var importoNonRiconosciutoNonSanzionabile="0,00";
+      let importoNonRiconosciutoNonSanzionabile="0,00";
       if (!isNaN($spesaRendicontataAttuale) && !isNaN($speseRiconosciutaPerIlCalcolo) && !isNaN($importoNonRiconosciutoSanzionabileGlobale))
       {
         importoNonRiconosciutoNonSanzionabile = $spesaRendicontataAttuale - $speseRiconosciutaPerIlCalcolo - $importoNonRiconosciutoSanzionabileGlobale;
@@ -266,21 +266,21 @@
     }
     function calcolaImportoNonRiconosciutoNonSanzionabileGlobaleDaSanzionabile()
     {
-      var $spesaRendicontataAttuale=getSpesaRendicontataAttuale();
-      var $spesaAmmessa=getSpesaAmmessa();
-      var $importoNonRiconosciutoSanzionabileGlobale=Number($('#importoNonRiconosciutoSanzionabile').val().replace(',','.'));
+      let $spesaRendicontataAttuale=getSpesaRendicontataAttuale();
+      let $spesaAmmessa=getSpesaAmmessa();
+      let $importoNonRiconosciutoSanzionabileGlobale=Number($('#importoNonRiconosciutoSanzionabile').val().replace(',','.'));
       calcolaImportoNonRiconosciutoNonSanzionabileGlobale($spesaAmmessa, $spesaRendicontataAttuale, $importoNonRiconosciutoSanzionabileGlobale);
     }
 
     function verificaImportiUguali($index)
     {
-      var primoValore = Number($('.primo_uguale_'+$index).data('value'));
-      var uguali=true;
+      let primoValore = Number($('.primo_uguale_'+$index).data('value'));
+      let uguali=true;
       $('.verifica_uguale_'+$index+" input").each
       (
         function(idx, obj)
         {
-          var valoreTextField=Number($(obj).val().replace(',','.'));
+          let valoreTextField=Number($(obj).val().replace(',','.'));
           if (valoreTextField!=primoValore)
           {
             uguali=false;
@@ -297,8 +297,8 @@
 	
 	function inputFormatterAccertato($value, row, index)
     {
-		var id = "importoAccertato_" + row['idDocumentoSpesaInterven'];
-		var html = inputFormatter($value, row, index, id, ' onchange="verificaImportiUguali('+index+');calcolaTotaleSpeseAccertateAttuali()" onkeyup="verificaImportiUguali('+index+');calcolaTotaleSpeseAccertateAttuali()"');
+		let id = "importoAccertato_" + row['idDocumentoSpesaInterven'];
+		let html = inputFormatter($value, row, index, id, ' onchange="verificaImportiUguali('+index+');calcolaTotaleSpeseAccertateAttuali()" onkeyup="verificaImportiUguali('+index+');calcolaTotaleSpeseAccertateAttuali()"');
 		if (row['errorMessageImportoAccertato'])
     {
       html = html.replace(":CSS", 'has-error red-tooltip importo_accertato verifica_uguale_'+index);
@@ -314,8 +314,8 @@
 
 	function inputFormatterNonRiconosciuto($value, row, index)
     {
-		var id = "importoNonRiconosciuto_" + row['idDocumentoSpesaInterven'];
-		var html =  inputFormatter($value, row, index, id, ' onkeyup="calcolaTotaleImportoNonRiconosciuto();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+')" onchange="calcolaTotaleImportoNonRiconosciuto();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+');"');
+		let id = "importoNonRiconosciuto_" + row['idDocumentoSpesaInterven'];
+		let html =  inputFormatter($value, row, index, id, ' onkeyup="calcolaTotaleImportoNonRiconosciuto();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+')" onchange="calcolaTotaleImportoNonRiconosciuto();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+');"');
 		if (row['errorMessageImportoNonRiconosciuto'])
         {
           html = html.replace(":CSS", 'has-error red-tooltip importo_non_riconosciuto forza_uguale_'+index);
@@ -332,8 +332,8 @@
 
 	function inputFormatterCalcoloContributo($value, row, index)
     {
-		var id = "importoCalcoloContributo_" + row['idDocumentoSpesaInterven'];
-		var html = inputFormatter($value, row, index, id, ' onkeyup="verificaImportiUguali('+index+');calcolaTotaleImportoCalcoloContributo();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+')" onchange="verificaImportiUguali('+index+');calcolaTotaleImportoCalcoloContributo();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+')"');
+		let id = "importoCalcoloContributo_" + row['idDocumentoSpesaInterven'];
+		let html = inputFormatter($value, row, index, id, ' onkeyup="verificaImportiUguali('+index+');calcolaTotaleImportoCalcoloContributo();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+')" onchange="verificaImportiUguali('+index+');calcolaTotaleImportoCalcoloContributo();aggiornaImportoDisponibile('+row['idDocumentoSpesaInterven']+')"');
 		if (row['errorMessageImportoCalcoloContributo'])
     {
       html = html.replace(":CSS", 'has-error red-tooltip importo_calcolo_contributo verifica_uguale_'+index);
@@ -355,7 +355,7 @@
       {
         $value = "";
       }
-      var html = $('#invisibleTextfield').html();
+      let html = $('#invisibleTextfield').html();
 
       if(changeFn)
       {
@@ -380,7 +380,7 @@
       {
         $value = "";
       }
-      var html = ' <a';
+      let html = ' <a';
       if (row['warningDocumento'])
       {
         html+=' class="text-danger"';

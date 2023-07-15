@@ -8,16 +8,16 @@
 
     'use strict';
 
-    var originalRowAttr,
+    let originalRowAttr,
         dataTTId = 'data-tt-id',
         dataTTParentId = 'data-tt-parent-id',
         obj = {},
         parentId = undefined;
 
-    var getParentRowId = function (that, id) {
-        var parentRows = that.$body.find('tr').not('[' + 'data-tt-parent-id]');
+    let getParentRowId = function (that, id) {
+        let parentRows = that.$body.find('tr').not('[' + 'data-tt-parent-id]');
 
-        for (var i = 0; i < parentRows.length; i++) {
+        for (let i = 0; i < parentRows.length; i++) {
             if (i === id) {
                 return $(parentRows[i]).attr('data-tt-id');
             }
@@ -26,11 +26,11 @@
         return undefined;
     };
 
-    var sumData = function (that, data) {
-        var sumRow = {};
+    let sumData = function (that, data) {
+        let sumRow = {};
         $.each(data, function (i, row) {
             if (!row.IsParent) {
-                for (var prop in row) {
+                for (let prop in row) {
                     if (!isNaN(parseFloat(row[prop]))) {
                         if (that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, prop)].groupBySumGroup) {
                             if (sumRow[prop] === undefined) {
@@ -45,7 +45,7 @@
         return sumRow;
     };
 
-    var rowAttr = function (row, index) {
+    let rowAttr = function (row, index) {
         //Call the User Defined Function
         originalRowAttr.apply([row, index]);
 
@@ -61,13 +61,13 @@
         return obj;
     };
 
-    var setObjectKeys = function () {
+    let setObjectKeys = function () {
         // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
         Object.keys = function (o) {
             if (o !== Object(o)) {
                 throw new TypeError('Object.keys called on a non-object');
             }
-            var k = [],
+            let k = [],
                 p;
             for (p in o) {
                 if (Object.prototype.hasOwnProperty.call(o, p)) {
@@ -78,18 +78,18 @@
         }
     };
 
-    var getDataArrayFromItem = function (that, item) {
-        var itemDataArray = [];
-        for (var i = 0; i < that.options.groupByField.length; i++) {
+    let getDataArrayFromItem = function (that, item) {
+        let itemDataArray = [];
+        for (let i = 0; i < that.options.groupByField.length; i++) {
             itemDataArray.push(item[that.options.groupByField[i]]);
         }
 
         return itemDataArray;
     };
 
-    var getNewRow = function (that, result, index) {
-        var newRow = {};
-        for (var i = 0; i < that.options.groupByField.length; i++) {
+    let getNewRow = function (that, result, index) {
+        let newRow = {};
+        for (let i = 0; i < that.options.groupByField.length; i++) {
             newRow[that.options.groupByField[i].toString()] = result[index][0][that.options.groupByField[i]];
         }
 
@@ -98,10 +98,10 @@
         return newRow;
     };
 
-    var groupBy = function (array, f) {
-        var groups = {};
+    let groupBy = function (array, f) {
+        let groups = {};
         $.each(array, function (i, o) {
-            var group = JSON.stringify(f(o));
+            let group = JSON.stringify(f(o));
             groups[group] = groups[group] || [];
             groups[group].push(o);
         });
@@ -110,15 +110,15 @@
         });
     };
 
-    var makeGrouped = function (that, data) {
-        var newData = [],
+    let makeGrouped = function (that, data) {
+        let newData = [],
             sumRow = {};
 
-        var result = groupBy(data, function (item) {
+        let result = groupBy(data, function (item) {
             return getDataArrayFromItem(that, item);
         });
 
-        for (var i = 0; i < result.length; i++) {
+        for (let i = 0; i < result.length; i++) {
             result[i].unshift(getNewRow(that, result, i));
             if (that.options.groupBySumGroup) {
                 sumRow = sumData(that, result[i]);
@@ -155,7 +155,7 @@
         groupBySumGroup: false
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init,
         _initData = BootstrapTable.prototype.initData;
 
@@ -163,7 +163,7 @@
         //Temporal validation
         if (!this.options.sortName) {
             if ((this.options.groupBy) && (this.options.groupByField.length > 0)) {
-                var that = this;
+                let that = this;
 
                 // Compatibility: IE < 9 and old browsers
                 if (!Object.keys) {

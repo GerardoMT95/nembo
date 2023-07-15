@@ -17,7 +17,7 @@
 <script type="text/javascript">
   function onProsegui()
   {
-    var formData = {idDescrizioneIntervento : new Array(), prosegui:'true' };
+    let formData = {idDescrizioneIntervento : new Array(), prosegui:'true' };
     $('#dual-list-box-Interventi #selectedListHidden option').each(function(index) {
       formData.idDescrizioneIntervento[index] = $(this).val();
     });

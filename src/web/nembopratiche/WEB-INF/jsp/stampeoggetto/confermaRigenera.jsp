@@ -11,8 +11,8 @@
 	<script type="text/javascript">
 	 function confermaRigenera()
 	 {
-		 var w=500;
-		 var h=160;
+		 let w=500;
+		 let h=160;
 		 window.open("../cunembo126l/rigenera_${idOggettoIcona}.do","attendere_prego_stampe_"+(new Date().getTime()),'width='+w+',height='+h+',menubar=no,resizable=no,titlebar=no,toolbar=no,scrollbar=no');
 		 $('#dlgStampeOggetto').modal('hide');
 		 return false;

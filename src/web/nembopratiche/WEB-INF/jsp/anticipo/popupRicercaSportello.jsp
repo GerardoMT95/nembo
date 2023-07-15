@@ -29,14 +29,14 @@
   function onChangeBanca()
   {
     $('#filtroSportello').val('');
-    var $val=$('#banche').data('value');
-    var $listSportelli=$('#sportelli');
+    let $val=$('#banche').data('value');
+    let $listSportelli=$('#sportelli');
     if ($val=='')
     {
       $listSportelli.empty();
       return;
     }
-    var page="elenco_sportelli_"+$val+".json";
+    let page="elenco_sportelli_"+$val+".json";
     $.ajax({
       url: page,
       async:false

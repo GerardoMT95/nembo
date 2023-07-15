@@ -83,8 +83,8 @@
 	  {
 	   //$('#tblInterventi').
 	   //    $('#tblInterventi').each($('#tblInterventi')
-	   var countVisible=0;
-	   var column=
+	   let countVisible=0;
+	   let column=
 	   $.each($('#tblInterventi').bootstrapTable("getOptions").columns[0], function(index, column)
 	   {
 	     if (column.visible)
@@ -93,8 +93,8 @@
        }
 	   });
 	   --countVisible; // Tolgo la colonna multipla Importo
-	   var rows=$('#tblInterventi').bootstrapTable("getData");
-     var html='         <tr><th colspan="'+countVisible+'" class="numero">Totale</th>'+
+	   let rows=$('#tblInterventi').bootstrapTable("getData");
+     let html='         <tr><th colspan="'+countVisible+'" class="numero">Totale</th>'+
        '<th class="numero">'+importoAdder(rows,'importoInvestimento')+' &euro;</th>'+
        '<th class="numero">'+importoAdder(rows,'importoAmmesso')+' &euro;</th>'+
        '<th>&nbsp;</th>'+
@@ -108,12 +108,12 @@
      
     function importoAdder(rows, field)
     {
-      var __sum = 0;
+      let __sum = 0;
       $(rows).each(function(index, currentRow)
       {
         if (currentRow['flagTipoOperazione'] != 'D')
         {
-          var value = Number(currentRow[field]);
+          let value = Number(currentRow[field]);
           if (!isNaN(value) && value.length != 0)
           {
             __sum += parseFloat(value);
@@ -127,7 +127,7 @@
     {
       if (row['flagTipoOperazione'] == 'D')
       {
-        var retValue =
+        let retValue =
         {
           classes : 'danger'
         };
@@ -163,7 +163,7 @@
     {
       return row['flagTipoOperazione'] != 'D' ? '<input type="checkbox" name="idIntervento" value="'+$value+'" />' : '';
     }
-    var ICONE = [];
+    let ICONE = [];
     ICONE['MO'] = '<a href="../cunembo163m/modifica_singola_:ID_INTERVENTO.do" class="ico24 ico_modify"></a>';
     function iconeFormatter($value, row, index)
     {
@@ -172,7 +172,7 @@
       {
         while ($value.length > 1)
         {
-          var icona = $value.substr(0, 2);
+          let icona = $value.substr(0, 2);
           $value = $value.substr(2);
           $htmlIcona = ICONE[icona];
           if ($htmlIcona)
@@ -185,22 +185,22 @@
     }
     function misurazioniFormatter($value, row, index)
     {
-      var $html = '';
+      let $html = '';
       for ($i = 0; $i < $value.length; ++$i)
       {
         if ($i > 0)
         {
           $html += "<br/>"
         }
-        var descMisurazione = $value[$i]['descMisurazione'];
+        let descMisurazione = $value[$i]['descMisurazione'];
         if (descMisurazione != null)
         {
           $html += descMisurazione;
         }
-        var codiceUnitaMisura = $value[$i]['codiceUnitaMisura'];
+        let codiceUnitaMisura = $value[$i]['codiceUnitaMisura'];
         if (codiceUnitaMisura != 'NO_MISURA')
         {
-          var valore = $value[$i]['valore'];
+          let valore = $value[$i]['valore'];
           $number = Number(valore);
           if (!isNaN($number))
           {

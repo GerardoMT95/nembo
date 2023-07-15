@@ -18,10 +18,10 @@
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/${sessionScope.headerProcedimento}" />
 	
 	<script type="text/javascript">
-		var cProd = parseInt("${maxIdDaInserire}");
-		var idsDaInserire = "${idsDaInserire}";
-		var arrayCProd = [];
-		var mapCProd = new Map();
+		let cProd = parseInt("${maxIdDaInserire}");
+		let idsDaInserire = "${idsDaInserire}";
+		let arrayCProd = [];
+		let mapCProd = new Map();
 	</script>
 
 	<p:utente />
@@ -155,10 +155,10 @@
 		 });
 		</script>
 		<script type="text/javascript">
-		var idProduzioneVendibile={};
+		let idProduzioneVendibile={};
 		function idProduzioneVendibileFormatter($value,row,index)
 		{
-			var valore='';
+			let valore='';
 		 	valore = valore + 
 		 		'<a class="ico24 ico_trash" onclick="eliminaProduzione(' + index + ')"></a>'
 		 	return valore;
@@ -168,13 +168,13 @@
 		function aggiungiProduzione()
 		{
 			cProd = cProd + 1;
-			var risultato = '';
-			var selectListProduzioni = $('#hiddenDiv').html()
+			let risultato = '';
+			let selectListProduzioni = $('#hiddenDiv').html()
 						.replace('genericID','idProduzione_' + cProd)
 						.replace('genericID','idProduzione_' + cProd)
 						.replace('cProd', cProd)
 						.replace('cProd', cProd);
-			var selectListUnitaMisura = $('#hiddenDivUM').html()
+			let selectListUnitaMisura = $('#hiddenDivUM').html()
 						.replace('genericID','unitaMisura_' + cProd)
 						.replace('genericID','unitaMisura_' + cProd)
 						.replace('cProd', cProd);
@@ -195,13 +195,13 @@
 		
 		function eliminaProduzione(cProd)
 		{
-			var idProduzione = $('#idProduzione_'+cProd).val();
+			let idProduzione = $('#idProduzione_'+cProd).val();
 			$('#row_'+cProd).remove();
 		}
 		
 		function modificaUnitaMisura(cProd)
 		{
-			var idProduzione = $('#idProduzione_'+cProd).val();
+			let idProduzione = $('#idProduzione_'+cProd).val();
 			$('#unitaMisura_'+cProd).val(idProduzione);
 		}
 

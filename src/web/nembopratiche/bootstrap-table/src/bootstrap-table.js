@@ -10,16 +10,16 @@
     // TOOLS DEFINITION
     // ======================
 
-    var cachedWidth = null;
+    let cachedWidth = null;
 
     // it only does '%s', and return '' when arguments are undefined
-    var sprintf = function (str) {
-        var args = arguments,
+    let sprintf = function (str) {
+        let args = arguments,
             flag = true,
             i = 1;
 
         str = str.replace(/%s/g, function () {
-            var arg = args[i++];
+            let arg = args[i++];
 
             if (typeof arg === 'undefined') {
                 flag = false;
@@ -30,8 +30,8 @@
         return flag ? str : '';
     };
 
-    var getPropertyFromOther = function (list, from, to, value) {
-        var result = '';
+    let getPropertyFromOther = function (list, from, to, value) {
+        let result = '';
         $.each(list, function (i, item) {
             if (item[from] === value) {
                 result = item[to];
@@ -42,8 +42,8 @@
         return result;
     };
 
-    var getFieldIndex = function (columns, field) {
-        var index = -1;
+    let getFieldIndex = function (columns, field) {
+        let index = -1;
 
         $.each(columns, function (i, column) {
             if (column.field === field) {
@@ -56,8 +56,8 @@
     };
 
     // http://jsfiddle.net/wenyi/47nz7ez9/3/
-    var setFieldIndex = function (columns) {
-        var i, j, k,
+    let setFieldIndex = function (columns) {
+        let i, j, k,
             totalCol = 0,
             flag = [];
 
@@ -74,7 +74,7 @@
 
         for (i = 0; i < columns.length; i++) {
             for (j = 0; j < columns[i].length; j++) {
-                var r = columns[i][j],
+                let r = columns[i][j],
                     rowspan = r.rowspan || 1,
                     colspan = r.colspan || 1,
                     index = $.inArray(false, flag[i]);
@@ -97,9 +97,9 @@
         }
     };
 
-    var getScrollBarWidth = function () {
+    let getScrollBarWidth = function () {
         if (cachedWidth === null) {
-            var inner = $('<p/>').addClass('fixed-table-scroll-inner'),
+            let inner = $('<p/>').addClass('fixed-table-scroll-inner'),
                 outer = $('<div/>').addClass('fixed-table-scroll-outer'),
                 w1, w2;
 
@@ -120,12 +120,12 @@
         return cachedWidth;
     };
 
-    var calculateObjectValue = function (self, name, args, defaultValue) {
-        var func = name;
+    let calculateObjectValue = function (self, name, args, defaultValue) {
+        let func = name;
 
         if (typeof name === 'string') {
             // support obj.func1.func2
-            var names = name.split('.');
+            let names = name.split('.');
 
             if (names.length > 1) {
                 func = window;
@@ -155,9 +155,9 @@
         	return defaultValue;
     };
 
-    var compareObjects = function (objectA, objectB, compareLength) {
+    let compareObjects = function (objectA, objectB, compareLength) {
     	// Create arrays of property names
-        var objectAProperties = Object.getOwnPropertyNames(objectA),
+        let objectAProperties = Object.getOwnPropertyNames(objectA),
             objectBProperties = Object.getOwnPropertyNames(objectB),
             propName = '';
 
@@ -168,7 +168,7 @@
             }
         }
 
-        for (var i = 0; i < objectAProperties.length; i++) {
+        for (let i = 0; i < objectAProperties.length; i++) {
             propName = objectAProperties[i];
 
             // If the property is not in the object B properties, continue with the next property
@@ -184,7 +184,7 @@
         return true;
     };
 
-    var escapeHTML = function (text) {
+    let escapeHTML = function (text) {
         if (typeof text === 'string') {
             return text
                 .replace(/&/g, "&amp;")
@@ -196,8 +196,8 @@
         return text;
     };
 
-    var getRealHeight = function ($el) {
-        var height = 0;
+    let getRealHeight = function ($el) {
+        let height = 0;
         $el.children().each(function () {
             if (height < $(this).outerHeight(true)) {
                 height = $(this).outerHeight(true);
@@ -206,9 +206,9 @@
         return height;
     };
 
-    var getRealDataAttr = function (dataAttr) {
-        for (var attr in dataAttr) {
-            var auxAttr = attr.split(/(?=[A-Z])/).join('-').toLowerCase();
+    let getRealDataAttr = function (dataAttr) {
+        for (let attr in dataAttr) {
+            let auxAttr = attr.split(/(?=[A-Z])/).join('-').toLowerCase();
             if (auxAttr !== attr) {
                 dataAttr[auxAttr] = dataAttr[attr];
                 delete dataAttr[attr];
@@ -218,14 +218,14 @@
         return dataAttr;
     };
 
-    var getItemField = function (item, field) {
-        var value = item;
+    let getItemField = function (item, field) {
+        let value = item;
 
         if (typeof field !== 'string' || item.hasOwnProperty(field)) {
             return item[field];
         }
-        var props = field.split('.');
-        for (var p in props) {
+        let props = field.split('.');
+        for (let p in props) {
             value = value[props[p]];
         }
         return value;
@@ -234,7 +234,7 @@
     // BOOTSTRAP TABLE CLASS DEFINITION
     // ======================
 
-    var BootstrapTable = function (el, options) {
+    let BootstrapTable = function (el, options) {
         this.options = options;
         this.$el = $(el);
         this.$el_ = this.$el.clone();
@@ -566,7 +566,7 @@
 
     BootstrapTable.prototype.initLocale = function () {
         if (this.options.locale) {
-            var parts = this.options.locale.split(/-|_/);
+            let parts = this.options.locale.split(/-|_/);
             parts[0].toLowerCase();
             parts[1] && parts[1].toUpperCase();
             if ($.fn.bootstrapTable.locales[this.options.locale]) {
@@ -626,7 +626,7 @@
     };
 
     BootstrapTable.prototype.initTable = function () {
-        var that = this,
+        let that = this,
             columns = [],
             data = [];
 
@@ -635,7 +635,7 @@
             this.$header = $('<thead></thead>').appendTo(this.$el);
         }
         this.$header.find('tr').each(function () {
-            var column = [];
+            let column = [];
 
             $(this).find('th').each(function () {
                 column.push($.extend({}, {
@@ -678,7 +678,7 @@
         }
 
         this.$el.find('>tbody>tr').each(function () {
-            var row = {};
+            let row = {};
 
             // save tr's id, class and data-* attributes
             row._id = $(this).attr('id');
@@ -686,7 +686,7 @@
             row._data = getRealDataAttr($(this).data());
 
             $(this).find('td').each(function (i) {
-                var field = that.columns[i].field;
+                let field = that.columns[i].field;
 
                 row[field] = $(this).html();
                 // save td's id, class and data-* attributes
@@ -702,7 +702,7 @@
     };
 
     BootstrapTable.prototype.initHeader = function () {
-        var that = this,
+        let that = this,
             visibleColumns = {},
             html = [];
 
@@ -729,7 +729,7 @@
             }
 
             $.each(columns, function (j, column) {
-                var text = '',
+                let text = '',
                     halign = '', // header align style
                     align = '', // body align style
                     style = '',
@@ -850,7 +850,7 @@
 
         this.$header.children().children().off('keypress').on('keypress', function (event) {
             if (that.options.sortable && $(this).data().sortable) {
-                var code = event.keyCode || event.which;
+                let code = event.keyCode || event.which;
                 if (code == 13) { //Enter keycode
                     that.onSort(event);
                 }
@@ -872,7 +872,7 @@
         this.$selectAll = this.$header.find('[name="btSelectAll"]');
         this.$container.off('click', '[name="btSelectAll"]')
             .on('click', '[name="btSelectAll"]', function () {
-                var checked = $(this).prop('checked');
+                let checked = $(this).prop('checked');
                 that[checked ? 'checkAll' : 'uncheckAll']();
             });
     };
@@ -914,7 +914,7 @@
     };
 
     BootstrapTable.prototype.initSort = function () {
-        var that = this,
+        let that = this,
             name = this.options.sortName,
             order = this.options.sortOrder === 'desc' ? -1 : 1,
             index = $.inArray(this.options.sortName, this.header.fields);
@@ -924,7 +924,7 @@
                 if (that.header.sortNames[index]) {
                     name = that.header.sortNames[index];
                 }
-                var aa = getItemField(a, name),
+                let aa = getItemField(a, name),
                     bb = getItemField(b, name),
                     value = calculateObjectValue(that.header, that.header.sorters[index], [aa, bb]);
 
@@ -970,7 +970,7 @@
     };
 
     BootstrapTable.prototype.onSort = function (event) {
-        var $this = event.type === "keypress" ? $(event.currentTarget) : $(event.currentTarget).parent(),
+        let $this = event.type === "keypress" ? $(event.currentTarget) : $(event.currentTarget).parent(),
             $this_ = this.$header.find('th').eq($this.index());
 
         this.$header.add(this.$header_).find('span.order').remove();
@@ -998,7 +998,7 @@
     };
 
     BootstrapTable.prototype.initToolbar = function () {
-        var that = this,
+        let that = this,
             html = [],
             testo = [],
             timeoutId = 0,
@@ -1067,7 +1067,7 @@
                     return;
                 }
 
-                var checked = column.visible ? ' checked="checked"' : '';
+                let checked = column.visible ? ' checked="checked"' : '';
 
                 
                 if (column.switchGroupLabel) {
@@ -1127,7 +1127,7 @@
                 event.stopImmediatePropagation();
             });
             $keepOpen.find('input').off('click').on('click', function () {
-                var $this = $(this);
+                let $this = $(this);
 
                 
                 if($(this).data('field'))
@@ -1140,10 +1140,10 @@
             		$.each(that.options.columnsWidthGroup, function (i, val) {
                         if (val.switchGroup === $this.data('group')) {
                         	//that.toggleColumnRow(val.rowIndex, val.colIndex, $this.prop('checked'), false);
-                        	var checked = $this.prop('checked');
+                        	let checked = $this.prop('checked');
                             that.options.columns[val.rowIndex][val.colIndex].visible = checked;
                             if (that.options.showColumns) {
-                                var $items = that.$toolbar.find('.keep-open input').prop('disabled', false);
+                                let $items = that.$toolbar.find('.keep-open input').prop('disabled', false);
 
                                 if ($items.filter(':checked').length <= that.options.minimumCountColumns) {
                                     $items.filter(':checked').prop('disabled', true);
@@ -1180,7 +1180,7 @@
     };
 
     BootstrapTable.prototype.onSearch = function (event) {
-        var text = $.trim($(event.currentTarget).val());
+        let text = $.trim($(event.currentTarget).val());
 
         // trim search input
         if (this.options.trimOnSearch && $(event.currentTarget).val() !== text) {
@@ -1199,15 +1199,15 @@
     };
 
     BootstrapTable.prototype.initSearch = function () {
-        var that = this;
+        let that = this;
 
         if (this.options.sidePagination !== 'server') {
-            var s = this.searchText && this.searchText.toLowerCase();
-            var f = $.isEmptyObject(this.filterColumns) ? null : this.filterColumns;
+            let s = this.searchText && this.searchText.toLowerCase();
+            let f = $.isEmptyObject(this.filterColumns) ? null : this.filterColumns;
 
             // Check filter
             this.data = f ? $.grep(this.options.data, function (item, i) {
-                for (var key in f) {
+                for (let key in f) {
                     if (item[key] !== f[key]) {
                         return false;
                     }
@@ -1216,9 +1216,9 @@
             }) : this.options.data;
 
             this.data = s ? $.grep(this.data, function (item, i) {
-                for (var key in item) {
+                for (let key in item) {
                     key = $.isNumeric(key) ? parseInt(key, 10) : key;
-                    var value = item[key],
+                    let value = item[key],
                         column = that.columns[getFieldIndex(that.columns, key)],
                         j = $.inArray(key, that.header.fields);
 
@@ -1228,7 +1228,7 @@
                             that.header.formatters[j], [value, item, i], value);
                     }
 
-                    var index = $.inArray(key, that.header.fields);
+                    let index = $.inArray(key, that.header.fields);
                     if (index !== -1 && that.header.searchables[index] && (typeof value === 'string' || typeof value === 'number')) {
                         if (that.options.strictSearch) {
                             if ((value + '').toLowerCase() === s) {
@@ -1254,7 +1254,7 @@
             this.$pagination.show();
         }
 
-        var that = this,
+        let that = this,
             html = [],
             $allSelected = false,
             i, from, to,
@@ -1276,7 +1276,7 @@
             } else if (this.options.pageSize === this.options.totalRows) {
                 // Fix #667 Table with pagination,
                 // multiple pages and a search that matches to one page throws exception
-                var pageLst = typeof this.options.pageList === 'string' ?
+                let pageLst = typeof this.options.pageList === 'string' ?
                     this.options.pageList.replace('[', '').replace(']', '')
                         .replace(/ /g, '').toLowerCase().split(',') : this.options.pageList;
                 if (pageLst.indexOf(this.options.formatAllRows().toLowerCase()) > -1) {
@@ -1320,7 +1320,7 @@
 
         html.push('<span class="page-list">');
 
-        var pageNumber = [
+        let pageNumber = [
                 sprintf('<span class="btn-group %s">',
                     this.options.paginationVAlign === 'top' || this.options.paginationVAlign === 'both' ?
                         'dropdown' : 'dropup'),
@@ -1337,7 +1337,7 @@
             pageList = this.options.pageList;
 
         if (typeof this.options.pageList === 'string') {
-            var list = this.options.pageList.replace('[', '').replace(']', '')
+            let list = this.options.pageList.replace('[', '').replace(']', '')
                 .replace(/ /g, '').split(',');
 
             pageList = [];
@@ -1349,7 +1349,7 @@
 
         $.each(pageList, function (i, page) {
             if (!that.options.smartDisplay || i === 0 || pageList[i - 1] <= that.options.totalRows) {
-                var active;
+                let active;
                 if ($allSelected) {
                     active = page === that.options.formatAllRows() ? ' class="active"' : '';
                 } else {
@@ -1456,7 +1456,7 @@
     };
 
     BootstrapTable.prototype.onPageListChange = function (event) {
-        var $this = $(event.currentTarget);
+        let $this = $(event.currentTarget);
 
         $this.parent().addClass('active').siblings().removeClass('active');
         this.options.pageSize = $this.text().toUpperCase() === this.options.formatAllRows().toUpperCase() ?
@@ -1497,7 +1497,7 @@
     };
 
     BootstrapTable.prototype.initBody = function (fixedScroll) {
-        var that = this,
+        let that = this,
             html = [],
             data = this.getData();
 
@@ -1515,8 +1515,8 @@
             this.pageTo = data.length;
         }
 
-        for (var i = this.pageFrom - 1; i < this.pageTo; i++) {
-            var key,
+        for (let i = this.pageFrom - 1; i < this.pageTo; i++) {
+            let key,
                 item = data[i],
                 style = {},
                 csses = [],
@@ -1574,7 +1574,7 @@
             }
 
             $.each(this.header.fields, function (j, field) {
-                var text = '',
+                let text = '',
                     value = getItemField(item, field),
                     type = '',
                     cellStyle = {},
@@ -1613,8 +1613,8 @@
                     class_ = sprintf(' class="%s"', cellStyle.classes);
                 }
                 if (cellStyle.css) {
-                    var csses_ = [];
-                    for (var key in cellStyle.css) {
+                    let csses_ = [];
+                    for (let key in cellStyle.css) {
                         csses_.push(key + ': ' + cellStyle.css[key]);
                     }
                     style = sprintf('style="%s"', csses_.concat(that.header.styles[j]).join('; '));
@@ -1705,7 +1705,7 @@
 
         // click to select by column
         this.$body.find('> tr[data-index] > td').off('click dblclick').on('click dblclick', function (e) {
-            var $td = $(this),
+            let $td = $(this),
                 $tr = $td.parent(),
                 item = that.data[$tr.data('index')],
                 index = $td[0].cellIndex,
@@ -1722,7 +1722,7 @@
 
             // if click to select - then trigger the checkbox/radio click
             if (e.type === 'click' && that.options.clickToSelect && column.clickToSelect) {
-                var $selectItem = $tr.find(sprintf('[name="%s"]', that.options.selectItemName));
+                let $selectItem = $tr.find(sprintf('[name="%s"]', that.options.selectItemName));
                 if ($selectItem.length) {
                     $selectItem[0].click(); // #144: .trigger('click') bug
                 }
@@ -1730,7 +1730,7 @@
         });
 
         this.$body.find('> tr[data-index] > td > .detail-icon').off('click').on('click', function () {
-            var $this = $(this),
+            let $this = $(this),
                 $tr = $this.parent().parent(),
                 index = $tr.data('index'),
                 row = data[index]; // Fix #980 Detail view, when searching, returns wrong row
@@ -1754,7 +1754,7 @@
         this.$selectItem.off('click').on('click', function (event) {
             event.stopImmediatePropagation();
 
-            var $this = $(this),
+            let $this = $(this),
                 checked = $this.prop('checked'),
                 row = that.data[$this.data('index')];
 
@@ -1786,16 +1786,16 @@
                 events = calculateObjectValue(null, events);
             }
 
-            var field = that.header.fields[i],
+            let field = that.header.fields[i],
                 fieldIndex = $.inArray(field, that.getVisibleFields());
 
             if (that.options.detailView && !that.options.cardView) {
                 fieldIndex += 1;
             }
 
-            for (var key in events) {
+            for (let key in events) {
                 that.$body.find('>tr').each(function () {
-                    var $tr = $(this),
+                    let $tr = $(this),
                         $td = $tr.find(that.options.cardView ? '.card-view' : 'td').eq(fieldIndex),
                         index = key.indexOf(' '),
                         name = key.substring(0, index),
@@ -1803,7 +1803,7 @@
                         func = events[key];
 
                     $td.find(el).off(name).on(name, function (e) {
-                        var index = $tr.data('index'),
+                        let index = $tr.data('index'),
                             row = that.data[index],
                             value = row[field];
 
@@ -1820,7 +1820,7 @@
     };
 
     BootstrapTable.prototype.initServer = function (silent, query) {
-        var that = this,
+        let that = this,
             data = {},
             params = {
                 pageSize: this.options.pageSize === this.options.formatAllRows() ?
@@ -1900,7 +1900,7 @@
     BootstrapTable.prototype.initSearchText = function () {
         if (this.options.search) {
             if (this.options.searchText !== '') {
-                var $search = this.$toolbar.find('.search input');
+                let $search = this.$toolbar.find('.search input');
                 $search.val(this.options.searchText);
                 this.onSearch({currentTarget: $search});
             }
@@ -1908,7 +1908,7 @@
     };
 
     BootstrapTable.prototype.getCaret = function () {
-        var that = this;
+        let that = this;
 
         $.each(this.$header.find('th'), function (i, th) {
             $(th).find('.sortable').removeClass('desc asc').addClass($(th).data('field') === that.options.sortName ? that.options.sortOrder : 'both');
@@ -1916,7 +1916,7 @@
     };
 
     BootstrapTable.prototype.updateSelected = function () {
-        var checkAll = this.$selectItem.filter(':enabled').length &&
+        let checkAll = this.$selectItem.filter(':enabled').length &&
             this.$selectItem.filter(':enabled').length ===
             this.$selectItem.filter(':enabled').filter(':checked').length;
 
@@ -1928,7 +1928,7 @@
     };
 
     BootstrapTable.prototype.updateRows = function () {
-        var that = this;
+        let that = this;
 
         this.$selectItem.each(function () {
             that.data[$(this).data('index')][that.header.stateField] = $(this).prop('checked');
@@ -1936,7 +1936,7 @@
     };
 
     BootstrapTable.prototype.resetRows = function () {
-        var that = this;
+        let that = this;
 
         $.each(this.data, function (i, row) {
             that.$selectAll.prop('checked', false);
@@ -1948,7 +1948,7 @@
     };
 
     BootstrapTable.prototype.trigger = function (name) {
-        var args = Array.prototype.slice.call(arguments, 1);
+        let args = Array.prototype.slice.call(arguments, 1);
 
         name += '.bs.table';
         this.options[BootstrapTable.EVENTS[name]].apply(this.options, args);
@@ -1966,7 +1966,7 @@
     };
 
     BootstrapTable.prototype.fitHeader = function () {
-        var that = this,
+        let that = this,
             fixedBody,
             scrollWidth,
             focused,
@@ -1986,11 +1986,11 @@
 
         focused = $(':focus');
         if (focused.length > 0) {
-            var $th = focused.parents('th');
+            let $th = focused.parents('th');
             if ($th.length > 0) {
-                var dataField = $th.attr('data-field');
+                let dataField = $th.attr('data-field');
                 if (dataField !== undefined) {
-                    var $headerTh = this.$header.find("[data-field='" + dataField + "']");
+                    let $headerTh = this.$header.find("[data-field='" + dataField + "']");
                     if ($headerTh.length > 0) {
                         $headerTh.find(":input").addClass("focus-temp");
                     }
@@ -2018,10 +2018,10 @@
             that.$header_.find(sprintf('th[data-field="%s"]', $(this).data('field'))).data($(this).data());
         });
 
-        var visibleFields = this.getVisibleFields();
+        let visibleFields = this.getVisibleFields();
 
         this.$body.find('>tr:first-child:not(.no-records-found) > *').each(function (i) {
-            var $this = $(this),
+            let $this = $(this),
                 index = i;
 
             if (that.options.detailView && !that.options.cardView) {
@@ -2047,7 +2047,7 @@
     };
 
     BootstrapTable.prototype.resetFooter = function () {
-        var that = this,
+        let that = this,
             data = that.getData(),
             html = [];
 
@@ -2060,7 +2060,7 @@
         }
 
         $.each(this.columns, function (i, column) {
-            var falign = '', // footer align style
+            let falign = '', // footer align style
                 style = '',
                 class_ = sprintf(' class="%s"', column['class']);
 
@@ -2093,7 +2093,7 @@
     };
 
     BootstrapTable.prototype.fitFooter = function () {
-        var that = this,
+        let that = this,
             $footerTd,
             elWidth,
             scrollWidth;
@@ -2115,7 +2115,7 @@
         $footerTd = this.$tableFooter.find('td');
 
         this.$body.find('>tr:first-child:not(.no-records-found) > *').each(function (i) {
-            var $this = $(this);
+            let $this = $(this);
 
             $footerTd.eq(i).find('.fht-cell').width($this.innerWidth());
         });
@@ -2132,7 +2132,7 @@
         this.initBody();
 
         if (this.options.showColumns) {
-            var $items = this.$toolbar.find('.keep-open input').prop('disabled', false);
+            let $items = this.$toolbar.find('.keep-open input').prop('disabled', false);
 
             if (needUpdate) {
                 $items.filter(sprintf('[value="%s"]', index)).prop('checked', checked);
@@ -2155,7 +2155,7 @@
         this.initBody();
 
         if (this.options.showColumns) {
-            var $items = this.$toolbar.find('.keep-open input').prop('disabled', false);
+            let $items = this.$toolbar.find('.keep-open input').prop('disabled', false);
 
             if (needUpdate) {
                 $items.filter(sprintf('[value="%s"]', index)).prop('checked', checked);
@@ -2179,11 +2179,11 @@
     };
 
     BootstrapTable.prototype.getVisibleFields = function () {
-        var that = this,
+        let that = this,
             visibleFields = [];
 
         $.each(this.header.fields, function (j, field) {
-            var column = that.columns[getFieldIndex(that.columns, field)];
+            let column = that.columns[getFieldIndex(that.columns, field)];
 
             if (!column.visible) {
                 return;
@@ -2197,7 +2197,7 @@
     // =======================
 
     BootstrapTable.prototype.resetView = function (params) {
-        var padding = 0;
+        let padding = 0;
 
         if (params && params.height) {
             this.options.height = params.height;
@@ -2207,7 +2207,7 @@
             this.$selectItem.length === this.$selectItem.filter(':checked').length);
 
         if (this.options.height) {
-            var toolbarHeight = getRealHeight(this.$toolbar),
+            let toolbarHeight = getRealHeight(this.$toolbar),
                 paginationHeight = getRealHeight(this.$pagination),
                 height = this.options.height - toolbarHeight - paginationHeight;
 
@@ -2250,7 +2250,7 @@
     };
 
     BootstrapTable.prototype.load = function (data) {
-        var fixedScroll = false;
+        let fixedScroll = false;
 
         // #431: support pagination
         if (this.options.sidePagination === 'server') {
@@ -2283,7 +2283,7 @@
     };
 
     BootstrapTable.prototype.remove = function (params) {
-        var len = this.options.data.length,
+        let len = this.options.data.length,
             i, row;
 
         if (!params.hasOwnProperty('field') || !params.hasOwnProperty('values')) {
@@ -2320,7 +2320,7 @@
     };
 
     BootstrapTable.prototype.getRowByUniqueId = function (id) {
-        var uniqueId = this.options.uniqueId,
+        let uniqueId = this.options.uniqueId,
             len = this.options.data.length,
             dataRow = null,
             i, row;
@@ -2352,7 +2352,7 @@
     };
 
     BootstrapTable.prototype.removeByUniqueId = function (id) {
-        var len = this.options.data.length,
+        let len = this.options.data.length,
             row = this.getRowByUniqueId(id);
 
         if (row) {
@@ -2403,7 +2403,7 @@
     };
 
     BootstrapTable.prototype.getRowsHidden = function (show) {
-        var rows = $(this.$body[0]).children().filter(':hidden'),
+        let rows = $(this.$body[0]).children().filter(':hidden'),
             i = 0;
         if (show) {
             for (; i < rows.length; i++) {
@@ -2414,7 +2414,7 @@
     };
 
     BootstrapTable.prototype.mergeCells = function (options) {
-        var row = options.index,
+        let row = options.index,
             col = $.inArray(options.field, this.getVisibleFields()),
             rowspan = options.rowspan || 1,
             colspan = options.colspan || 1,
@@ -2457,7 +2457,7 @@
     };
 
     BootstrapTable.prototype.getSelections = function () {
-        var that = this;
+        let that = this;
 
         return $.grep(this.data, function (row) {
             return row[that.header.stateField];
@@ -2465,7 +2465,7 @@
     };
 
     BootstrapTable.prototype.getAllSelections = function () {
-        var that = this;
+        let that = this;
 
         return $.grep(this.options.data, function (row) {
             return row[that.header.stateField];
@@ -2481,7 +2481,7 @@
     };
 
     BootstrapTable.prototype.checkAll_ = function (checked) {
-        var rows;
+        let rows;
         if (!checked) {
             rows = this.getSelections();
         }
@@ -2522,7 +2522,7 @@
             return;
         }
 
-        var that = this,
+        let that = this,
             rows = [];
         $.each(this.options.data, function (index, row) {
             if (!row.hasOwnProperty(obj.field)) {
@@ -2560,7 +2560,7 @@
 
     BootstrapTable.prototype.togglePagination = function () {
         this.options.pagination = !this.options.pagination;
-        var button = this.$toolbar.find('button[name="paginationSwitch"] i');
+        let button = this.$toolbar.find('button[name="paginationSwitch"] i');
         if (this.options.pagination) {
             button.attr("class", this.options.iconsPrefix + " " + this.options.icons.paginationSwitchDown);
         } else {
@@ -2665,13 +2665,13 @@
     };
 
     BootstrapTable.prototype.resetSearch = function (text) {
-        var $search = this.$toolbar.find('.search input');
+        let $search = this.$toolbar.find('.search input');
         $search.val(text || '');
         this.onSearch({currentTarget: $search});
     };
 
     BootstrapTable.prototype.expandRow_ = function (expand, index) {
-        var $tr = this.$body.find(sprintf('> tr[data-index="%s"]', index));
+        let $tr = this.$body.find(sprintf('> tr[data-index="%s"]', index));
         if ($tr.next().is('tr.detail-view') === (expand ? false : true)) {
             $tr.find('> td > .detail-icon').click();
         }
@@ -2687,7 +2687,7 @@
 
     BootstrapTable.prototype.expandAllRows = function (isSubTable) {
         if (isSubTable) {
-            var $tr = this.$body.find(sprintf('> tr[data-index="%s"]', 0)),
+            let $tr = this.$body.find(sprintf('> tr[data-index="%s"]', 0)),
                 that = this,
                 detailIcon = null,
                 executeInterval = false,
@@ -2716,8 +2716,8 @@
                 }
             }
         } else {
-            var trs = this.$body.children();
-            for (var i = 0; i < trs.length; i++) {
+            let trs = this.$body.children();
+            for (let i = 0; i < trs.length; i++) {
                 this.expandRow_(true, $(trs[i]).data("index"));
             }
         }
@@ -2727,8 +2727,8 @@
         if (isSubTable) {
             this.expandRow_(false, 0);
         } else {
-            var trs = this.$body.children();
-            for (var i = 0; i < trs.length; i++) {
+            let trs = this.$body.children();
+            for (let i = 0; i < trs.length; i++) {
                 this.expandRow_(false, $(trs[i]).data("index"));
             }
         }
@@ -2737,7 +2737,7 @@
     // BOOTSTRAP TABLE PLUGIN DEFINITION
     // =======================
 
-    var allowedMethods = [
+    let allowedMethods = [
         'getOptions',
         'getSelections', 'getAllSelections', 'getData',
         'load', 'append', 'prepend', 'remove', 'removeAll',
@@ -2765,11 +2765,11 @@
     ];
 
     $.fn.bootstrapTable = function (option) {
-        var value,
+        let value,
             args = Array.prototype.slice.call(arguments, 1);
 
         this.each(function () {
-            var $this = $(this),
+            let $this = $(this),
                 data = $this.data('bootstrap.table'),
                 options = $.extend({}, BootstrapTable.DEFAULTS, $this.data(),
                     typeof option === 'object' && option);
@@ -2846,11 +2846,11 @@ $('body').on('load-success.bs.table', function()
       $(".show-totali").each(function()
       {
         
-        var tableID = $(this).attr('id');
+        let tableID = $(this).attr('id');
         $('#'+tableID+' tfoot').remove();
         //aggiungo riga separatore
-        var colCount = 0;
-        var row = '<tr>';
+        let colCount = 0;
+        let row = '<tr>';
         $('#'+tableID+' tbody tr:nth-child(1) td').each(function () {
               if ($(this).attr('colspan')) {
                   colCount += +$(this).attr('colspan');
@@ -2864,12 +2864,12 @@ $('body').on('load-success.bs.table', function()
         $('<tfoot><tr><td colspan="'+colCount+'"></td></tr>'+row+'</tfoot>').appendTo('#'+tableID);
         
         //calcolo totali per ogni colonna con data-totale="true"
-        var rows=$(this).bootstrapTable('getData',{useCurrentPage:true});
+        let rows=$(this).bootstrapTable('getData',{useCurrentPage:true});
         $('#'+tableID+' th[data-totale="true"]').each(function () {
-          var field = $(this).data("field");
+          let field = $(this).data("field");
           
-          var sum = null;
-          var __adder=$(this).data('adder');
+          let sum = null;
+          let __adder=$(this).data('adder');
           if (__adder)
           {
             sum=eval(__adder+'(rows, field)');
@@ -2880,7 +2880,7 @@ $('body').on('load-success.bs.table', function()
           }
           /*/ iterate through each td based on class and add the values
           $('#'+tableID+' tbody tr td[data-field="'+field+'"]').each(function() {
-              var value = $(this).text();
+              let value = $(this).text();
               if(!isNaN(value) && value.length != 0) {
                   sum += parseFloat(value);
               }
@@ -2892,7 +2892,7 @@ $('body').on('load-success.bs.table', function()
             //arrotondo a 4 decimali se il numero è appunto decimale
             sum = parseFloat(sum).toFixed(4);
           }
-          var __dataFormatter = $(this).data("totale-formatter");
+          let __dataFormatter = $(this).data("totale-formatter");
           if (!__dataFormatter)
           {
             __dataFormatter = $(this).data("formatter");
@@ -2908,10 +2908,10 @@ $('body').on('load-success.bs.table', function()
     
     function totalAdder(rows, field)
     {
-      var __sum=null;
+      let __sum=null;
       $(rows).each(function(index, currentRow)
        {
-        var value = currentRow[field];
+        let value = currentRow[field];
         
         if(value != null)
         {
@@ -2949,8 +2949,8 @@ $('body').on('load-success.bs.table', function()
           connectTo: '#'+tableName+'',
           onSubmit: function() {
 	
-	          	var data = $('#filter-bar').bootstrapTableFilter('getData');
-	              var elabFilter = JSON.stringify(data);
+	          	let data = $('#filter-bar').bootstrapTableFilter('getData');
+	              let elabFilter = JSON.stringify(data);
 	              $.ajax({
 	              	  type: "POST",
 	              	  url: '../session/salvaFiltri.do',
@@ -3005,7 +3005,7 @@ $('body').on('load-success.bs.table', function()
 		});
 		
 		/* Load filters */
-		var filterJSON = $('#filtro').val();
+		let filterJSON = $('#filtro').val();
 		if(filterJSON)
 			$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 

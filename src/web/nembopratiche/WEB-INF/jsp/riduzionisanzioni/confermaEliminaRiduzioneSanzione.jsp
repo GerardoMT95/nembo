@@ -25,15 +25,15 @@
 					<div class="alert alert-danger" hidden="true" id="configErr">
 						<p>
 							<strong>Attenzione!</strong><br />
-							Si è verificato un errore della configurazione del quadro "Riduzioni e sanzioni", l'aggiornamento del 
-							contributo erogabile è previsto solo per le istruttorie delle domande di acconto e saldo. 
-							Non è possibile proseguire con l'operazione.
+							Si ï¿½ verificato un errore della configurazione del quadro "Riduzioni e sanzioni", l'aggiornamento del 
+							contributo erogabile ï¿½ previsto solo per le istruttorie delle domande di acconto e saldo. 
+							Non ï¿½ possibile proseguire con l'operazione.
 						</p>
 					</div>
 				</div>
 	<div class="alert alert-warning" role="alert">
 			In caso di
-			conferma dell'operazione il sistema aggiornerà il contributo
+			conferma dell'operazione il sistema aggiornerï¿½ il contributo
 			erogabile e di conseguenza i dati presenti nel quadro di accertamento
 			delle spese.</div>
 			
@@ -57,7 +57,7 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success>';
+              let COMMENT = '<success>';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
                 window.location.reload();
@@ -71,7 +71,7 @@
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di eliminazione. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

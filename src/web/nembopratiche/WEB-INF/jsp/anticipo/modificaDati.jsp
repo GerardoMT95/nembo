@@ -57,8 +57,8 @@
 				<m:textfield preferRequestValues="${preferRequest}" id="importoAnticipo" name="importoAnticipo" label="Importo anticipo" onchange="cambioImporto()"
 					type="EURO" value="${datiAnticipo.importoAnticipo}" maxlength="13" />
 				<script type="text/javascript">
-          var __percentualeAnticipo = document.getElementById('percentualeAnticipo').value;
-          var __importoAnticipo = document.getElementById('importoAnticipo').value;
+          let __percentualeAnticipo = document.getElementById('percentualeAnticipo').value;
+          let __importoAnticipo = document.getElementById('importoAnticipo').value;
         </script>
 				<m:panel id="panelFideiussione" title="Dati fideiussione">
 					<m:textfield preferRequestValues="${preferRequest}" id="numeroFideiussione" name="numeroFideiussione" label="Numero fideiussione"
@@ -132,7 +132,7 @@
 	$('#importoFideiussione').val($('#importoAnticipo').val());
     function selezionaSportello(self, id)
     {
-      var page = "dati_sportello_" + id + ".json";
+      let page = "dati_sportello_" + id + ".json";
       $.ajax(
       {
         url : page,
@@ -176,19 +176,19 @@
     }
     function ricalcolaImportiPerLivello()
     {
-      var importoAnticipabile = ${datiAnticipo.importoContributoAnticipabile};
-      var $importiElement = $('.anticipabile');
-      var $lastCodiceLivello = $importiElement.last().find('.codiceLivello').html();
-      var totImporto = 0;
-      var importoAnticipo=Number($('#importoAnticipo').val().replace(',','.'));
+      let importoAnticipabile = ${datiAnticipo.importoContributoAnticipabile};
+      let $importiElement = $('.anticipabile');
+      let $lastCodiceLivello = $importiElement.last().find('.codiceLivello').html();
+      let totImporto = 0;
+      let importoAnticipo=Number($('#importoAnticipo').val().replace(',','.'));
       $importiElement.each(
           function(idx, element)
 		      {
   		      $element=$(element);
-  		      var contributoConcessoHtml=$element.find('.contributoConcesso').html().replace(".","").replace(",",".");
-  		      var contributoConcesso = parseFloat(contributoConcessoHtml);
+  		      let contributoConcessoHtml=$element.find('.contributoConcesso').html().replace(".","").replace(",",".");
+  		      let contributoConcesso = parseFloat(contributoConcessoHtml);
   		      $codiceLivello =  $element.find('.codiceLivello').html();
-  		      var importoAnticipoLivello = 0;
+  		      let importoAnticipoLivello = 0;
   		      if ($codiceLivello==$lastCodiceLivello)
    		      {
               importoAnticipoLivello = importoAnticipo-totImporto;
@@ -205,9 +205,9 @@
     		    {
   		        totImporto+=importoAnticipoLivello;
       		  }
-      		  var percentuale = Number($('#percentualeAnticipo').val().replace(',','.'));
-  		      var elemImportoAnticipo = $element.find('.importoAnticipo');
-  		      var elemPercentualeAnticipo = $element.find('.percentualeAnticipo');
+      		  let percentuale = Number($('#percentualeAnticipo').val().replace(',','.'));
+  		      let elemImportoAnticipo = $element.find('.importoAnticipo');
+  		      let elemPercentualeAnticipo = $element.find('.percentualeAnticipo');
   		      if (isNaN(percentuale))
     		    {
   		        percentuale = 0;
@@ -236,21 +236,21 @@
     }
     function cambioPercentuale()
     {
-      var sPercentuale = $('#percentualeAnticipo').val();
+      let sPercentuale = $('#percentualeAnticipo').val();
       if (__percentualeAnticipo == sPercentuale)
       {
         return false;
       }
       __percentualeAnticipo = percentuale;
-      var percentuale = Number(sPercentuale.replace(',', '.'));
+      let percentuale = Number(sPercentuale.replace(',', '.'));
       if (isNaN(percentuale))
       {
         $('#importoAnticipo').val('0');
       }
       else
       {
-        var contributoConcesso = ${datiAnticipo.importoContributoAnticipabile};
-        var importoAnticipo = Math.floor(contributoConcesso * percentuale * 100) / 10000.0;
+        let contributoConcesso = ${datiAnticipo.importoContributoAnticipabile};
+        let importoAnticipo = Math.floor(contributoConcesso * percentuale * 100) / 10000.0;
         importoAnticipo = importoAnticipo.formatCurrency();
         importoAnticipo = importoAnticipo.replace(new RegExp('\\.', 'g'), '');
         $('#importoAnticipo').val(importoAnticipo);
@@ -261,21 +261,21 @@
 
     function cambioImporto()
     {
-      var sImportoAnticipo = $('#importoAnticipo').val();
+      let sImportoAnticipo = $('#importoAnticipo').val();
       if (__importoAnticipo == sImportoAnticipo)
       {
         return false;
       }
       __importoAnticipo = sImportoAnticipo;
-      var importoAnticipo = Number(sImportoAnticipo.replace(',', '.'));
+      let importoAnticipo = Number(sImportoAnticipo.replace(',', '.'));
       if (isNaN(importoAnticipo))
       {
         $('#percentualeAnticipo').val(0);
       }
       else
       {
-        var contributoConcesso = ${datiAnticipo.importoContributoAnticipabile};
-        var percentuale = importoAnticipo / contributoConcesso * 100;
+        let contributoConcesso = ${datiAnticipo.importoContributoAnticipabile};
+        let percentuale = importoAnticipo / contributoConcesso * 100;
         percentuale = percentuale.formatCurrency(2);
         percentuale = percentuale.replace(new RegExp('\\.', 'g'), '');
         percentuale = percentuale.replace(new RegExp('(0)+$', 'g'), '');
@@ -288,13 +288,13 @@
       $('#importoFideiussione').val($('#importoAnticipo').val());
       ricalcolaImportiPerLivello();
     }
-    var savePercentualeAnticipo = '';
-    var saveImportoAnticipo = '';
+    let savePercentualeAnticipo = '';
+    let saveImportoAnticipo = '';
     $(document).ready(function()
     {
       $('#importoAnticipo').keyup(function(event)
       {
-        var currentVal = $(this).val();
+        let currentVal = $(this).val();
         if (saveImportoAnticipo != currentVal)
         {
           saveImportoAnticipo = currentVal;
@@ -306,7 +306,7 @@
     {
       $('#percentualeAnticipo').keyup(function(event)
       {
-        var currentVal = $(this).val();
+        let currentVal = $(this).val();
         if (savePercentualeAnticipo != currentVal)
         {
           savePercentualeAnticipo = currentVal;

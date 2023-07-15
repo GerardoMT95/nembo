@@ -269,7 +269,7 @@
 	
 	function popupSelezione()
 	{
-		var checkedRadio = $('input[name=idDanno]:checked', '#formVisualizzaDanni').val();
+		let checkedRadio = $('input[name=idDanno]:checked', '#formVisualizzaDanni').val();
 		//TODO: gestire tutti i tipi possibili di danno
 		switch(checkedRadio) {
 			case '4': //scorte

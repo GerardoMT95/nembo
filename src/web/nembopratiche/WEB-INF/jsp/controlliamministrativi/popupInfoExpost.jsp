@@ -5,7 +5,7 @@
 	<m:select label="Rischio elevato" id="idRischioElevato" name="idRischioElevato" selectedValue="${infoExPosts.idRischioElevato}" preferRequestValues="${preferRequest}" list="${elencorischi}"/>
     <m:checkbox-list name="idAnnoExPosts" id="idAnnoExPosts" checkedProperty="checked" list="${elencoanni}" textProperty="valoreHtml" valueProperty="idAnnoExPosts" label="Anni successivi alla liquidazione in cui aumentare il criterio di rischio "></m:checkbox-list> 
     <m:textarea label="Note" id="note" name="note" preferRequestValues="${preferRequest}">${infoExPosts.note}</m:textarea>
-	<i>N.B: Il campo Note è obbligatorio se si seleziona il rischio elevato</i>
+	<i>N.B: Il campo Note ï¿½ obbligatorio se si seleziona il rischio elevato</i>
 	<div class="form-group puls-group" style="margin-top: 1.5em;margin-right:0px">
 			<button type="button" data-dismiss="modal" class="btn btn-default">annulla</button>
 			<button type="button" name="conferma" id="conferma" class="btn btn-primary pull-right" onclick="confermaModifica()">conferma</button>
@@ -24,7 +24,7 @@
             async : false,
             success : function(html)
             {
-              var COMMENT = '<success>'+'true'+'</success>';
+              let COMMENT = '<success>'+'true'+'</success>';
               if (html != null && html.indexOf(COMMENT) >= 0)
               {
                 window.location.reload();
@@ -37,7 +37,7 @@
             },
             error : function(jqXHR, html, errorThrown)
             {
-              writeModalBodyError("Si è verificato un errore grave nell'accesso alla funzionalità di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
+              writeModalBodyError("Si ï¿½ verificato un errore grave nell'accesso alla funzionalitï¿½ di aggiornamento. Se il problema persistesse si prega di contattare l'assistenza tecnica");
             }
           });
     }

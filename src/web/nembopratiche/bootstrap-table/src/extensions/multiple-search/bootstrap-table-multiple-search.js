@@ -12,12 +12,12 @@
         multipleSearch: false
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initSearch = BootstrapTable.prototype.initSearch;
 
     BootstrapTable.prototype.initSearch = function () {
         if (this.options.multipleSearch) {
-            var strArray = this.searchText.split(" "),
+            let strArray = this.searchText.split(" "),
                 that = this,
                 f = $.isEmptyObject(this.filterColumns) ? null : this.filterColumns,
                 dataFiltered = [];
@@ -25,12 +25,12 @@
             if (strArray.length === 1) {
                 _initSearch.apply(this, Array.prototype.slice.apply(arguments));
             } else {
-                for (var i = 0; i < strArray.length; i++) {
-                    var str = strArray[i].trim();
+                for (let i = 0; i < strArray.length; i++) {
+                    let str = strArray[i].trim();
                     dataFiltered = str ? $.grep(dataFiltered.length === 0 ? this.options.data : dataFiltered, function (item, i) {
-                        for (var key in item) {
+                        for (let key in item) {
                             key = $.isNumeric(key) ? parseInt(key, 10) : key;
-                            var value = item[key],
+                            let value = item[key],
                                 column = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)],
                                 j = $.inArray(key, that.header.fields);
 
@@ -40,7 +40,7 @@
                                     that.header.formatters[j], [value, item, i], value);
                             }
 
-                            var index = $.inArray(key, that.header.fields);
+                            let index = $.inArray(key, that.header.fields);
                             if (index !== -1 && that.header.searchables[index] && (typeof value === 'string' || typeof value === 'number')) {
                                 if (that.options.strictSearch) {
                                     if ((value + '').toLowerCase() === str) {

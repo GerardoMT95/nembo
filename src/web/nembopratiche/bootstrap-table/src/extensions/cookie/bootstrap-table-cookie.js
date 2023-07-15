@@ -9,7 +9,7 @@
 (function ($) {
     'use strict';
 
-    var cookieIds = {
+    let cookieIds = {
         sortOrder: 'bs.table.sortOrder',
         sortName: 'bs.table.sortName',
         pageNumber: 'bs.table.pageNumber',
@@ -19,8 +19,8 @@
         filterControl: 'bs.table.filterControl'
     };
 
-    var getCurrentHeader = function (that) {
-        var header = that.$header;
+    let getCurrentHeader = function (that) {
+        let header = that.$header;
         if (that.options.height) {
             header = that.$tableHeader;
         }
@@ -28,8 +28,8 @@
         return header;
     };
 
-    var getCurrentSearchControls = function (that) {
-        var searchControls = 'select, input';
+    let getCurrentSearchControls = function (that) {
+        let searchControls = 'select, input';
         if (that.options.height) {
             searchControls = 'table select, table input';
         }
@@ -37,14 +37,14 @@
         return searchControls;
     };
 
-    var cookieEnabled = function () {
+    let cookieEnabled = function () {
         return !!(navigator.cookieEnabled);
     };
 
-    var inArrayCookiesEnabled = function (cookieName, cookiesEnabled) {
-        var index = -1;
+    let inArrayCookiesEnabled = function (cookieName, cookiesEnabled) {
+        let index = -1;
 
-        for (var i = 0; i < cookiesEnabled.length; i++) {
+        for (let i = 0; i < cookiesEnabled.length; i++) {
             if (cookieName.toLowerCase() === cookiesEnabled[i].toLowerCase()) {
                 index = i;
                 break;
@@ -54,7 +54,7 @@
         return index;
     };
 
-    var setCookie = function (that, cookieName, cookieValue) {
+    let setCookie = function (that, cookieName, cookieValue) {
         if ((!that.options.cookie) || (!cookieEnabled()) || (that.options.cookieIdTable === '')) {
             return;
         }
@@ -72,7 +72,7 @@
         return true;
     };
 
-    var getCookie = function (that, tableName, cookieName) {
+    let getCookie = function (that, tableName, cookieName) {
         if (!cookieName) {
             return null;
         }
@@ -86,14 +86,14 @@
         return decodeURIComponent(document.cookie.replace(new RegExp('(?:(?:^|.*;)\\s*' + encodeURIComponent(cookieName).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=\\s*([^;]*).*$)|^.*$'), '$1')) || null;
     };
 
-    var hasCookie = function (cookieName) {
+    let hasCookie = function (cookieName) {
         if (!cookieName) {
             return false;
         }
         return (new RegExp('(?:^|;\\s*)' + encodeURIComponent(cookieName).replace(/[\-\.\+\*]/g, '\\$&') + '\\s*\\=')).test(document.cookie);
     };
 
-    var deleteCookie = function (tableName, cookieName, sPath, sDomain) {
+    let deleteCookie = function (tableName, cookieName, sPath, sDomain) {
         cookieName = tableName + '.' + cookieName;
         if (!hasCookie(cookieName)) {
             return false;
@@ -102,8 +102,8 @@
         return true;
     };
 
-    var calculateExpiration = function(cookieExpire) {
-        var time = cookieExpire.replace(/[0-9]*/, ''); //s,mi,h,d,m,y
+    let calculateExpiration = function(cookieExpire) {
+        let time = cookieExpire.replace(/[0-9]*/, ''); //s,mi,h,d,m,y
         cookieExpire = cookieExpire.replace(/[A-Za-z]/, ''); //number
 
         switch (time.toLowerCase()) {
@@ -148,7 +148,7 @@
 
     $.fn.bootstrapTable.methods.push('deleteCookie');
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init,
         _initTable = BootstrapTable.prototype.initTable,
         _onSort = BootstrapTable.prototype.onSort,
@@ -163,7 +163,7 @@
         _onSearch = BootstrapTable.prototype.onSearch;
 
     BootstrapTable.prototype.init = function () {
-        var timeoutId = 0;
+        let timeoutId = 0;
         this.options.filterControls = [];
         this.options.filterControlValuesLoaded = false;
 
@@ -172,11 +172,11 @@
             this.options.cookiesEnabled.replace('[', '').replace(']', '').replace(/ /g, '').toLowerCase().split(',') : this.options.cookiesEnabled;
 
         if (this.options.filterControl) {
-            var that = this;
+            let that = this;
             this.$el.on('column-search.bs.table', function (e, field, text) {
-                var isNewField = true;
+                let isNewField = true;
 
-                for (var i = 0; i < that.options.filterControls.length; i++) {
+                for (let i = 0; i < that.options.filterControls.length; i++) {
                     if (that.options.filterControls[i].field === field) {
                         that.options.filterControls[i].text = text;
                         isNewField = false;
@@ -195,9 +195,9 @@
                 setTimeout(function () {
                     if (!that.options.filterControlValuesLoaded) {
                         that.options.filterControlValuesLoaded = true;
-                        var filterControl = JSON.parse(getCookie(that, that.options.cookieIdTable, cookieIds.filterControl));
+                        let filterControl = JSON.parse(getCookie(that, that.options.cookieIdTable, cookieIds.filterControl));
                         if (filterControl) {
-                            var field = null,
+                            let field = null,
                                 result = [],
                                 header = getCurrentHeader(that),
                                 searchControls = getCurrentSearchControls(that);
@@ -236,7 +236,7 @@
             return;
         }
 
-        var sortOrderCookie = getCookie(this, this.options.cookieIdTable, cookieIds.sortOrder),
+        let sortOrderCookie = getCookie(this, this.options.cookieIdTable, cookieIds.sortOrder),
             sortOrderNameCookie = getCookie(this, this.options.cookieIdTable, cookieIds.sortName),
             pageNumberCookie = getCookie(this, this.options.cookieIdTable, cookieIds.pageNumber),
             pageListCookie = getCookie(this, this.options.cookieIdTable, cookieIds.pageList),
@@ -300,7 +300,7 @@
     BootstrapTable.prototype.toggleColumn = function () {
         _toggleColumn.apply(this, Array.prototype.slice.apply(arguments));
 
-        var visibleColumns = [];
+        let visibleColumns = [];
 
         $.each(this.columns, function (i, column) {
             if (column.visible) {

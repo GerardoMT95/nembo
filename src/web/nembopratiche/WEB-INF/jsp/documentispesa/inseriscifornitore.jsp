@@ -191,7 +191,7 @@
 			$('#elencoForm').attr('action', 'getDatiInserimento.do').submit();
 		}
 		function avanti() {
-			//var idSel = $("input[name=idFornitoreSelezionato]").val();
+			//let idSel = $("input[name=idFornitoreSelezionato]").val();
 			if ($("input:radio:checked").length > 0)
 				$('#elencoForm').attr('action', 'confermaInseriscifornitore.do').submit();
 			else
@@ -203,8 +203,8 @@
 
 			$('#nuovofornitoreform').hide();
 			$('.stdMessagePanel').remove();
-			var $val = $('#filtroPIVA').val();
-			var $listSportelli = $('#elencofornitori');
+			let $val = $('#filtroPIVA').val();
+			let $listSportelli = $('#elencofornitori');
 			if ($val == '') {
 				$listSportelli.empty();
 				//return;
@@ -214,7 +214,7 @@
 			$('#elencofornitorilabel').hide();
 			$('#loadingdiv').show();
 
-			var page = "ricerca_fornitori.json";
+			let page = "ricerca_fornitori.json";
 			$
 					.ajax({
 						url : page,
@@ -307,8 +307,8 @@
 
 			$('#nuovofornitoreform').hide();
 			$('.stdMessagePanel').remove();
-			var $val = $('#filtroPIVA').val();
-			var $listSportelli = $('#elencofornitori');
+			let $val = $('#filtroPIVA').val();
+			let $listSportelli = $('#elencofornitori');
 			if ($val == '') {
 				$listSportelli.empty();
 				//return;
@@ -318,7 +318,7 @@
 			$('#elencofornitorilabel').hide();
 			$('#loadingdiv').show();
 
-			var page = "ricerca_fornitori.json";
+			let page = "ricerca_fornitori.json";
 			$
 					.ajax({
 						url : page,

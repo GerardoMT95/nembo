@@ -28,7 +28,7 @@
 		<table class="table table-hover table-striped table-bordered tableBlueTh">
 			<thead>
 			<tr>
-				<th>Finalità del Prestito</th>
+				<th>Finalitï¿½ del Prestito</th>
 				<th>Istituto di credito erogante</th>
 				<th>Importo in scadenza (&euro;)</th>
 				<th>Data scadenza</th>
@@ -64,10 +64,10 @@
 		 });
 
 		function importoAdder(rows, field) {
-			var __sum = 0;
+			let __sum = 0;
 			$(rows).each(function(index, currentRow)
 			{
-				var value = currentRow[field];
+				let value = currentRow[field];
 				if (value != null && !isNaN(value) && value.length != 0)
 				{
 					__sum += parseFloat(value);

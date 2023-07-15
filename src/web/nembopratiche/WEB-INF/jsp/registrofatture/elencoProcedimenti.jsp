@@ -85,13 +85,13 @@ span.tab-space {
 		showPleaseWait('elencoProcedimentiDoc');
 
 		function linkFormatter(index, row) {
-			var idProcedimento = row['idProcedimento'];
+			let idProcedimento = row['idProcedimento'];
 			return "<a href=\"../cunembo129/indexFromRegistroFatture_"+idProcedimento+".do\" title=\"Visualizza oggetti\" class=\"glyphicon glyphicon-list\"></a>";
 		}
 
 		function detailFormatter(index, row) {
 
-			var html = [];
+			let html = [];
 
 			html
 					.push('<div style="padding-top:1em;padding-bottom:1em;padding-left:1em;padding-right:1em;"><table id="ordinamenti" class="bootstrap-table table table-hover table-striped table-bordered tableBlueTh">');
@@ -111,7 +111,7 @@ span.tab-space {
 			html.push('</thead>');
 			html.push('<tbody>');
 			for (i = 0; i < row['documentiSpesa'].length; i++) {
-				var pratica = row['documentiSpesa'][i];
+				let pratica = row['documentiSpesa'][i];
 				html.push('<tr>');
 				if (pratica.tipoDomanda != null && pratica.tipoDomanda.not.equals(""))
 					html.push('<td>' + pratica.tipoDomanda + '</td>');
@@ -166,7 +166,7 @@ span.tab-space {
 		$(document).ready(function() {
 
 			$('body').on("column-switch.bs.table", function(obj, field) {
-				var value = $('input[data-field="' + field + '"]').prop("checked");
+				let value = $('input[data-field="' + field + '"]').prop("checked");
 				$.ajax({
 					type : "POST",
 					url : '../session/salvaColonna.do',
@@ -220,9 +220,9 @@ span.tab-space {
 				} ],
 				connectTo : '#elencoProcedimentiDoc',
 				onSubmit : function() {
-					var data = $('#filter-bar').bootstrapTableFilter('getData');
+					let data = $('#filter-bar').bootstrapTableFilter('getData');
 
-					var elabFilter = JSON.stringify(data);
+					let elabFilter = JSON.stringify(data);
 					$.ajax({
 						type : "POST",
 						url : '../session/salvaFiltri.do',
@@ -234,7 +234,7 @@ span.tab-space {
 				}
 			});
 
-			var filterJSON = $('#filtroAziende').val();
+			let filterJSON = $('#filtroAziende').val();
 			if (filterJSON)
 				$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON", filterJSON);
 		});

@@ -118,8 +118,8 @@ $( document ).ready(function() {
       ],
       connectTo: '#estrazioniTable',
       onSubmit: function() {
-    	  var data = $('#filter-bar').bootstrapTableFilter('getData');
-          var elabFilter = JSON.stringify(data);
+    	  let data = $('#filter-bar').bootstrapTableFilter('getData');
+          let elabFilter = JSON.stringify(data);
           $.ajax({
         	  type: "POST",
         	  url: '../session/salvaFiltri.do',
@@ -129,7 +129,7 @@ $( document ).ready(function() {
         console.log(data);
       }
   });
-	var filterJSON = $('#filtroEstrazioni').val();
+	let filterJSON = $('#filtroEstrazioni').val();
 	if(filterJSON!==undefined && filterJSON!=null)
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 	
@@ -137,7 +137,7 @@ $( document ).ready(function() {
 
 
 function showDetails($value, row, index) {
-	  var iconDettagli = "<a href=\"../cunembo219/index_"+row['idNumeroLotto']+".do\" style=\"text-decoration: none;\"><i class=\"icon-list icon-large\" title=\"Dettaglio estrazione\" style=\"font-size:1.4em;\"></i></a>";
+	  let iconDettagli = "<a href=\"../cunembo219/index_"+row['idNumeroLotto']+".do\" style=\"text-decoration: none;\"><i class=\"icon-list icon-large\" title=\"Dettaglio estrazione\" style=\"font-size:1.4em;\"></i></a>";
 
 	   return iconDettagli;
 }

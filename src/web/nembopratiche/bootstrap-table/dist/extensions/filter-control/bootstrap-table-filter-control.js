@@ -8,9 +8,9 @@
 
     'use strict';
 
-    var sprintf = $.fn.bootstrapTable.utils.sprintf;
+    let sprintf = $.fn.bootstrapTable.utils.sprintf;
 
-    var addOptionToSelectControl = function (selectControl, value, text) {
+    let addOptionToSelectControl = function (selectControl, value, text) {
         selectControl = $(selectControl.get(selectControl.length - 1));
         if (existsOptionInSelectControl(selectControl, value)) {
             selectControl.append($("<option></option>")
@@ -18,7 +18,7 @@
                 .text($('<div />').html(text).text()));
 
             // Sort it. Not overly efficient to do this here
-            var $opts = selectControl.find('option:gt(0)');
+            let $opts = selectControl.find('option:gt(0)');
             $opts.sort(function (a, b) {
                 a = $(a).text().toLowerCase();
                 b = $(b).text().toLowerCase();
@@ -35,9 +35,9 @@
         }
     };
 
-    var existsOptionInSelectControl = function (selectControl, value) {
-        var options = selectControl.get(selectControl.length - 1).options;
-        for (var i = 0; i < options.length; i++) {
+    let existsOptionInSelectControl = function (selectControl, value) {
+        let options = selectControl.get(selectControl.length - 1).options;
+        for (let i = 0; i < options.length; i++) {
             if (options[i].value === value.toString()) {
                 //The value is nor valid to add
                 return false;
@@ -48,12 +48,12 @@
         return true;
     };
 
-    var fixHeaderCSS = function (that) {
+    let fixHeaderCSS = function (that) {
         that.$tableHeader.css('height', '77px');
     };
 
-    var getCurrentHeader = function (that) {
-        var header = that.$header;
+    let getCurrentHeader = function (that) {
+        let header = that.$header;
         if (that.options.height) {
             header = that.$tableHeader;
         }
@@ -61,8 +61,8 @@
         return header;
     };
 
-    var getCurrentSearchControls = function (that) {
-        var searchControls = 'select, input';
+    let getCurrentSearchControls = function (that) {
+        let searchControls = 'select, input';
         if (that.options.height) {
             searchControls = 'table select, table input';
         }
@@ -70,8 +70,8 @@
         return searchControls;
     };
 
-    var copyValues = function (that) {
-        var header = getCurrentHeader(that),
+    let copyValues = function (that) {
+        let header = getCurrentHeader(that),
             searchControls = getCurrentSearchControls(that);
 
         that.options.values = [];
@@ -85,8 +85,8 @@
         });
     };
 
-    var setValues = function(that) {
-        var field = null,
+    let setValues = function(that) {
+        let field = null,
             result = [],
             header = getCurrentHeader(that),
             searchControls = getCurrentSearchControls(that);
@@ -105,8 +105,8 @@
         }
     };
 
-    var createControls = function (that, header) {
-        var addedFilterControl = false,
+    let createControls = function (that, header) {
+        let addedFilterControl = false,
             isVisible,
             html,
             timeoutId = 0;
@@ -151,9 +151,9 @@
                 }
             });
             if (column.filterData !== undefined && column.filterData.toLowerCase() !== 'column') {
-                var filterDataType = column.filterData.substring(0, 3);
-                var filterDataSource = column.filterData.substring(4, column.filterData.length);
-                var selectControl = $('.' + column.field);
+                let filterDataType = column.filterData.substring(0, 3);
+                let filterDataSource = column.filterData.substring(4, column.filterData.length);
+                let selectControl = $('.' + column.field);
                 addOptionToSelectControl(selectControl, '', '');
 
                 switch (filterDataType) {
@@ -169,8 +169,8 @@
                         });
                         break;
                     case 'var':
-                        var variableValues = window[filterDataSource];
-                        for (var key in variableValues) {
+                        let variableValues = window[filterDataSource];
+                        for (let key in variableValues) {
                             addOptionToSelectControl(selectControl, key, variableValues[key]);
                         }
                         break;
@@ -194,7 +194,7 @@
             });
 
             header.off('mouseup', 'input').on('mouseup', 'input', function (event) {
-                var $input = $(this),
+                let $input = $(this),
                 let oldValue = $input.val();
 
                 if (oldValue === "") {
@@ -202,7 +202,7 @@
                 }
 
                 setTimeout(function(){
-                    var newValue = $input.val();
+                    let newValue = $input.val();
 
                     if (newValue === "") {
                         clearTimeout(timeoutId);
@@ -250,7 +250,7 @@
         'column-search.bs.table': 'onColumnSearch'
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init,
         _initToolbar = BootstrapTable.prototype.initToolbar,
         _initHeader = BootstrapTable.prototype.initHeader,
@@ -260,7 +260,7 @@
     BootstrapTable.prototype.init = function () {
         //Make sure that the filtercontrol option is set
         if (this.options.filterControl) {
-            var that = this;
+            let that = this;
             //Make sure that the internal variables are set correctly
             this.options.values = [];
 
@@ -297,7 +297,7 @@
         _initToolbar.apply(this, Array.prototype.slice.apply(arguments));
 
         if (this.options.filterControl && this.options.filterShowClear) {
-            var $btnGroup = this.$toolbar.find('>.btn-group'),
+            let $btnGroup = this.$toolbar.find('>.btn-group'),
                 $btnClear = $btnGroup.find('div.export');
 
             if (!$btnClear.length) {
@@ -325,15 +325,15 @@
     BootstrapTable.prototype.initBody = function () {
         _initBody.apply(this, Array.prototype.slice.apply(arguments));
 
-        var that = this,
+        let that = this,
             data = this.options.data,
             pageTo = this.pageTo < this.options.data.length ? this.options.data.length : this.pageTo;
 
-        for (var i = this.pageFrom - 1; i < pageTo; i++) {
-            var item = data[i];
+        for (let i = this.pageFrom - 1; i < pageTo; i++) {
+            let item = data[i];
 
             $.each(this.header.fields, function (j, field) {
-                var value = item[field],
+                let value = item[field],
                     column = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, field)];
 
                 value = $.fn.bootstrapTable.utils.calculateObjectValue(that.header, that.header.formatters[j], [value, item, i], value);
@@ -341,7 +341,7 @@
                 if ((!column.checkbox) || (!column.radio)) {
                     if (column.filterControl !== undefined && column.filterControl.toLowerCase() === 'select' && column.searchable) {
                         if (column.filterData === undefined || column.filterData.toLowerCase() === 'column') {
-                            var selectControl = $('.' + column.field);
+                            let selectControl = $('.' + column.field);
                             if (selectControl !== undefined && selectControl.length > 0) {
                                 if (selectControl.get(selectControl.length - 1).options.length === 0) {
                                     //Added the default option
@@ -361,15 +361,15 @@
     BootstrapTable.prototype.initSearch = function () {
         _initSearch.apply(this, Array.prototype.slice.apply(arguments));
 
-        var that = this;
-        var fp = $.isEmptyObject(this.filterColumnsPartial) ? null : this.filterColumnsPartial;
+        let that = this;
+        let fp = $.isEmptyObject(this.filterColumnsPartial) ? null : this.filterColumnsPartial;
 
         //Check partial column filter
         this.data = fp ? $.grep(this.data, function (item, i) {
-            for (var key in fp) {
-                var thisColumn = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)];
-                var fval = fp[key].toLowerCase();
-                var value = item[key];
+            for (let key in fp) {
+                let thisColumn = that.columns[$.fn.bootstrapTable.utils.getFieldIndex(that.columns, key)];
+                let fval = fp[key].toLowerCase();
+                let value = item[key];
                 value = $.fn.bootstrapTable.utils.calculateObjectValue(that.header,
                     that.header.formatters[$.inArray(key, that.header.fields)],
                     [value, item, i], value);
@@ -395,8 +395,8 @@
 
     BootstrapTable.prototype.onColumnSearch = function (event) {
         copyValues(this);
-        var text = $.trim($(event.currentTarget).val());
-        var $field = $(event.currentTarget).parent().parent().parent().data('field')
+        let text = $.trim($(event.currentTarget).val());
+        let $field = $(event.currentTarget).parent().parent().parent().data('field')
 
         if ($.isEmptyObject(this.filterColumnsPartial)) {
             this.filterColumnsPartial = {};
@@ -421,7 +421,7 @@
 
             setValues(this);
 
-            var controls = getCurrentHeader(this).find(getCurrentSearchControls(this)),
+            let controls = getCurrentHeader(this).find(getCurrentSearchControls(this)),
                 timeoutId = 0;
 
             if (controls.length > 0) {

@@ -79,7 +79,7 @@
     	$( document ).ready(function() {
     		
     		$('body').on( "column-switch.bs.table", function(obj, field) {
-    			  var value = $('input[data-field="'+field+'"]').prop("checked");
+    			  let value = $('input[data-field="'+field+'"]').prop("checked");
     			  $.ajax({
                 	  type: "POST",
                 	  url: '../session/salvaColonna.do',
@@ -102,9 +102,9 @@
    			    {
     			   queryParams: function(params) 
     			     {
-   			            var values = $('#filter-bar').bootstrapTableFilter('getData');
+   			            let values = $('#filter-bar').bootstrapTableFilter('getData');
    			            if ( !jQuery.isEmptyObject(values)) {
-   			            	var elabFilter = JSON.stringify(values);
+   			            	let elabFilter = JSON.stringify(values);
    	    			        return elabFilter;
    			            }
    			            return params;
@@ -147,8 +147,8 @@
                 ],
                 connectTo: '#elencoAziende',
                 onSubmit: function() {
-                    var data = $('#filter-bar').bootstrapTableFilter('getData');
-                    var elabFilter = JSON.stringify(data);
+                    let data = $('#filter-bar').bootstrapTableFilter('getData');
+                    let elabFilter = JSON.stringify(data);
                     $.ajax({
                     	  type: "POST",
                     	  url: '../session/salvaFiltri.do',
@@ -158,7 +158,7 @@
                     console.log(data);
                 }
             });
-    		var filterJSON = $('#filtroAziende').val();
+    		let filterJSON = $('#filtroAziende').val();
     		if(filterJSON){
     			$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
     		}

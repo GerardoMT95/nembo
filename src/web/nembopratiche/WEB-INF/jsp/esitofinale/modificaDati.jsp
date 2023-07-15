@@ -93,15 +93,15 @@
 	checkIfFlagAltreInfo();
 	
 		function checkConfirm() {
-			var selIdEsito = $('#idEsito').val();
-			var idEsito = $('#idEsito').val();
-			var tipoEsito = $('#esito_' + selIdEsito).val();
+			let selIdEsito = $('#idEsito').val();
+			let idEsito = $('#idEsito').val();
+			let tipoEsito = $('#esito_' + selIdEsito).val();
 
 			if (tipoEsito == 'N') {
-				var idEsitoIstrut = $('#idEsitoIstrut').val();
-				var idNumber = Number(idEsitoIstrut);
+				let idEsitoIstrut = $('#idEsitoIstrut').val();
+				let idNumber = Number(idEsitoIstrut);
 
-				var prescrizioni = $.trim($("#prescrizioni").val());
+				let prescrizioni = $.trim($("#prescrizioni").val());
 
 				if ((!isNaN(idNumber) && idNumber > 0) || prescrizioni.length > 0) {
 					openPageInPopup('confermaelimina.do', 'dlgElimina', 'Elimina Dati', 'modal-lg', false);
@@ -109,9 +109,9 @@
 				}
 			}
 
-			var numeroAtto = $('#numeroAtto').val();
-			var idTipoAtto = $('#idTipoAtto').val();
-			var dataAtto   = $('#dataAtto').val();
+			let numeroAtto = $('#numeroAtto').val();
+			let idTipoAtto = $('#idTipoAtto').val();
+			let dataAtto   = $('#dataAtto').val();
 			if(numeroAtto === undefined || numeroAtto==null)
 				$('#numeroAtto').val("");
 			if(dataAtto === undefined || dataAtto==null)
@@ -129,13 +129,13 @@
 		}
 
 		function checkConfirmNeg() {
-			var selIdEsito = $('#idEsito').val();
-			var idEsito = $('#idEsito').val();
-			var tipoEsito = $('#esito_' + selIdEsito).val();
+			let selIdEsito = $('#idEsito').val();
+			let idEsito = $('#idEsito').val();
+			let tipoEsito = $('#esito_' + selIdEsito).val();
 
-			var numeroAtto = $('#numeroAtto').val();
-			var idTipoAtto = $('#idTipoAtto').val();
-			var dataAtto   = $('#dataAtto').val();
+			let numeroAtto = $('#numeroAtto').val();
+			let idTipoAtto = $('#idTipoAtto').val();
+			let dataAtto   = $('#dataAtto').val();
 			if(numeroAtto === undefined || numeroAtto==null)
 				$('#numeroAtto').val("");
 			if(dataAtto === undefined || dataAtto==null)
@@ -155,9 +155,9 @@
 
 		function checkIfFlagAltreInfo() {
 			//se si seleziona il tipo esito "Altro", mostra la textfield nascosta
-			var idTipoAtto = $("#idTipoAtto").val();
+			let idTipoAtto = $("#idTipoAtto").val();
 
-			var flagAltro = false;
+			let flagAltro = false;
 
 			if(idTipoAtto!==undefined && idTipoAtto!=null && idTipoAtto!="")
 			$.ajax({

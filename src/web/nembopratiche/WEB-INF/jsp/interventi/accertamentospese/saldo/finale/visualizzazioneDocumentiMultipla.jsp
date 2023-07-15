@@ -82,10 +82,10 @@
   <script type="text/javascript">
   function importoAdder(rows, field)
     {
-      var __sum = 0;
+      let __sum = 0;
       $(rows).each(function(index, currentRow)
       {
-        var value = currentRow[field];
+        let value = currentRow[field];
         if (value!=null && !isNaN(value) && value.length != 0)
         {
           __sum += parseFloat(value);
@@ -100,7 +100,7 @@
     {
       $value = "";
     }
-    var html = ' <a';
+    let html = ' <a';
     if (row['warningDocumento'])
     {
       html+=' class="text-danger"';

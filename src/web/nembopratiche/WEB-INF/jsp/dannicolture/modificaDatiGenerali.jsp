@@ -134,7 +134,7 @@
 	function iconeFormatter($value, row, index)
     {
 		debugger;
-        var html = '';
+        let html = '';
         html += '<a style="cursor:pointer" href="#" onclick="elimina('+row.idSegnalazioneDanno+')"><i class="ico24 ico_trash"></i></a>';
         html += '  <a style="cursor:pointer" href=\"../cunembo310m/modifica_'+row.idSegnalazioneDanno+'.do\"><i class="ico24 ico_modify"></i></a>';
         html += '  <input type="checkbox" name="idSegnalazioneDanno" value="' + $value + '"></input>';

@@ -338,8 +338,8 @@
 			      ],
 			      connectTo: '#elencoEstrazioniTable',
 			      onSubmit: function() {
-			    	  var data = $('#filter-bar').bootstrapTableFilter('getData');
-			          var elabFilter = JSON.stringify(data);
+			    	  let data = $('#filter-bar').bootstrapTableFilter('getData');
+			          let elabFilter = JSON.stringify(data);
 			      }
 			  });
 		});

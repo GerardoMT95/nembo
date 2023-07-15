@@ -306,7 +306,7 @@ select{
 	<script src="/nembopratiche/bootstrap-table/src/bootstrap-table.js"></script>
 	<script src="/nembopratiche/js/nembotableformatter.js"></script>
 	<script type="text/javascript">
-		var maxVal = 0;
+		let maxVal = 0;
 		$(document)
 				.ready(
 						function() {
@@ -315,7 +315,7 @@ select{
 
 							document.getElementById("numRighe").value = maxVal + 1;
 
-							var i = 0;
+							let i = 0;
 							if (parseInt(document.getElementById("numRighe").value) >= "${numeroMassimoLivelli}")
 								$("#aggiungi").hide();
 
@@ -333,19 +333,19 @@ select{
 			$( "textarea" ).removeAttr('disabled');
 			$( "input[name^='motivazione']" ).attr('disabled','enabled');
 
-			var operazioni = $( "[name^='operazioni_']" );
-			var i =0;
+			let operazioni = $( "[name^='operazioni_']" );
+			let i =0;
 			for (i=0;i<operazioni.length;i++)
 					if(operazioni[i].value == 155){
-						var res = operazioni[i].name.split("_");
-						var j = res[1];
-						var s = "inadempVincolata_"+j;
+						let res = operazioni[i].name.split("_");
+						let j = res[1];
+						let s = "inadempVincolata_"+j;
 						$( "[name^="+s+"]" ).attr('disabled','disabled');
-						var s = "noteInadempVincolata_"+j;
+						let s = "noteInadempVincolata_"+j;
 						$( "[name^="+s+"]" ).attr('disabled','disabled');
-						var s = "inadempCondizionata_"+j;
+						let s = "inadempCondizionata_"+j;
 						$( "[name^="+s+"]" ).attr('disabled','disabled');
-						var s = "noteInadempCondizionata_"+j;
+						let s = "noteInadempCondizionata_"+j;
 						$( "[name^="+s+"]" ).attr('disabled','disabled');
 					}
 		}
@@ -357,7 +357,7 @@ select{
 			$(".datepicker").datepicker("destroy");
 
 			maxVal = parseInt(maxVal) + 1;
-			var newLine = $('#operazioneNew').html().replace(/\\$\\$index/g,
+			let newLine = $('#operazioneNew').html().replace(/\\$\\$index/g,
 					maxVal);
 			$("#tableOperazioni tbody").append(
 					'<tr class="riga_capo">' + newLine + '</tr>');
@@ -388,16 +388,16 @@ select{
 					$("#aggiungi").show();
 
 				//ogni volta che elimino una riga, riduco gli indici degli id e il name delle righe successive
-				var ops = [];
+				let ops = [];
 				ops = document.querySelectorAll('*[id^="operazioni_"]');
-				var i = 0;
+				let i = 0;
 				for (i = 0; i < ops.length; i++) {
-					var myvar = ops[i].id;
-					myvar = myvar.split('_');
+					let mylet = ops[i].id;
+					mylet = myvar.split('_');
 
 					if (myvar[1] >= idRiga) {
-						var x = myvar[1] - 1;
-						var c = document.getElementById('elimina_' + myvar[1]);
+						let x = myvar[1] - 1;
+						let c = document.getElementById('elimina_' + myvar[1]);
 						$('#elimina_' + myvar[1])
 								.replaceWith(
 										'<a href="javascript:void(0);" id="elimina_'
@@ -506,12 +506,12 @@ select{
 		}
 
 		function updateComboLivelliPossibili() {
-			var livelli = [];
+			let livelli = [];
 			livelli = $('[id^="operazioni_"]');
 
-			var options = $("option"); //get all "option" tag
+			let options = $("option"); //get all "option" tag
 
-			var i = 0;
+			let i = 0;
 			j = 0;
 			for (j = 0; j < options.length; j++)
 				if ( $(options[j]).parent().is( "span" ) )
@@ -523,8 +523,8 @@ select{
 					for (j = 0; j < options.length; j++)
 						if (options[j].text.indexOf("selezionare") == -1
 								&& options[j].id.indexOf("$$index") == -1) {
-							var l = livelli[i].value;
-							var o = options[j].value;
+							let l = livelli[i].value;
+							let o = options[j].value;
 							if (l == o && livelli[i].id != options[j].id)
 								if(!$(options[j]).is(':selected'))
 									$(options[j]).wrap('<span>').hide();

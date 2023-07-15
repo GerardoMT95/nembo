@@ -105,10 +105,10 @@ function numberFormatter4($value, row, index)
  * @returns {Number}
  */
 function dataAdderForNumberFormatter(rows, field) {
-	var __sum = 0;
+	let __sum = 0;
 	$(rows).each(function(index, currentRow)
 	{
-		var value = currentRow[field];
+		let value = currentRow[field];
 		if (value != null && !isNaN(value) && value.length != 0)
 		{
 			__sum += parseFloat(value);
@@ -299,10 +299,10 @@ function dataSorterNumeroUnitaMisura(a, b) {
 
 function totalFormattedAdder(rows, field)
 {
-  var __sum=null;
+  let __sum=null;
   $(rows).each(function(index, currentRow)
    {
-    var value = currentRow[field];
+    let value = currentRow[field];
     
     if(value != null)
     {
@@ -319,10 +319,10 @@ function totalFormattedAdder(rows, field)
 
 function totalNumeriUserInputAdder(rows, field)
 {
-  var __sum=null;
+  let __sum=null;
   $(rows).each(function(index, currentRow)
    {
-    var value = currentRow[field];
+    let value = currentRow[field];
     
     if(value != null)
     {
@@ -339,10 +339,10 @@ function totalNumeriUserInputAdder(rows, field)
 
 function plainNumberAdder(rows, field)
 {
-  var __sum=null;
+  let __sum=null;
   $(rows).each(function(index, currentRow)
       {
-    var value = Number(currentRow[field]);
+    let value = Number(currentRow[field]);
     
     if(value!=null && !isNaN(value)) 
     {

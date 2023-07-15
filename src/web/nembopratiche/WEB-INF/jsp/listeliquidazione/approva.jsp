@@ -103,14 +103,14 @@
 	<script type="text/javascript">
 	  function visualizzaFile()
 	  { 
-		  var $stampaFirmata=$('#stampaFirmata');
+		  let $stampaFirmata=$('#stampaFirmata');
 		  if ($stampaFirmata.get(0).files.length==0)
 			{
 		    showMessageBox("Error", "<strong>Per utilizzare questa funzionalit&agrave; bisogna aver selezionato un file per l'upload</strong>", "modal-large");
 		  }
 		  else
 		  {
-			  var action=$('#mainForm').attr('action');
+			  let action=$('#mainForm').attr('action');
 		    $('#mainForm').attr("action","visualizza_file.do");
 		    $('#mainForm').submit();
 	      $('#mainForm').attr("action",action);

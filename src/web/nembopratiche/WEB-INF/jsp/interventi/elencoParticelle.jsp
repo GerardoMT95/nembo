@@ -51,7 +51,7 @@
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblParticelle').bootstrapTable('getData');
+      let tableData = $('#tblParticelle').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)
@@ -64,7 +64,7 @@
           }).appendTo($hiddens);
         });
       }
-      var $form = $('#formFiltri');
+      let $form = $('#formFiltri');
       $.ajax(
       {
         type : "GET",
@@ -104,7 +104,7 @@
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblParticelle').bootstrapTable('getData');
+      let tableData = $('#tblParticelle').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)

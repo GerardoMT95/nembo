@@ -88,9 +88,9 @@
 			    {
 			   queryParams: function(params) 
 			     {
-			            var values = $('#filter-bar').bootstrapTableFilter('getData');
+			            let values = $('#filter-bar').bootstrapTableFilter('getData');
 			            if ( !jQuery.isEmptyObject(values)) {
-			            	var elabFilter = JSON.stringify(values);
+			            	let elabFilter = JSON.stringify(values);
 	    			        return elabFilter;
 			            }
 			            return params;
@@ -114,8 +114,8 @@
 	      ],
 	      connectTo: '#dettEstrazioneTable',
 	      onSubmit: function() {
-	        	var data = $('#filter-bar').bootstrapTableFilter('getData');
-	            var elabFilter = JSON.stringify(data);
+	        	let data = $('#filter-bar').bootstrapTableFilter('getData');
+	            let elabFilter = JSON.stringify(data);
 	            $.ajax({
 	            	  type: "POST",
 	            	  url: '../session/salvaFiltri.do',
@@ -126,14 +126,14 @@
 	      }
 	  });
 
-		var filterJSON = $('#filtroReport').val();
+		let filterJSON = $('#filtroReport').val();
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 		
 	});
 
     function idFormatter($value, row, index)
     {
-      var href = 'visualizza_report_' + row['id'] + '.do';
+      let href = 'visualizza_report_' + row['id'] + '.do';
       return '<a href=\"'+href+'\" style=\"text-decoration: none;\"><i class=\"icon-list icon-large\" title=\"Visualizza Report\"></i></a>';
     }
   </script>

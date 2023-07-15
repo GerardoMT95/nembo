@@ -95,7 +95,7 @@
 		
 		<script type="text/javascript">
 			function idAssicurazioniColtureFormatter($value, row, index){
-				var risultato='';
+				let risultato='';
 				/*
 					<p:abilitazione-azione codiceQuadro="ASSIC" codiceAzione="MODIFICA">
 				*/
@@ -107,7 +107,7 @@
 				/*
 					<p:abilitazione-azione codiceQuadro="ASSIC" codiceAzione="ELIMINA">
 				*/
-					var modifica = 'openPageInPopup(\'../cunembo${cuNumber}e/index_' + $value +'.do\',\'dlgEliminaAssicurazioni\',\'Elimina Assicurazioni\',\'modal-large\',false, null);';
+					let modifica = 'openPageInPopup(\'../cunembo${cuNumber}e/index_' + $value +'.do\',\'dlgEliminaAssicurazioni\',\'Elimina Assicurazioni\',\'modal-large\',false, null);';
 					risultato+='<a class="ico24 ico_trash" onclick="' + modifica +'"></a>'; 
 				/*
 					</p:abilitazione-azione>

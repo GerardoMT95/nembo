@@ -57,9 +57,9 @@
 	$(".fixed-table-loading").show();  
 
     $('#errorBox').html("");
-    var cuaa = $.trim($('#cuaaFiltro').val());
-    var denominazioneAzienda = $.trim($('#denominazioneAziendaFiltro').val());
-    var ok = true;
+    let cuaa = $.trim($('#cuaaFiltro').val());
+    let denominazioneAzienda = $.trim($('#denominazioneAziendaFiltro').val());
+    let ok = true;
     if (cuaa == "" && denominazioneAzienda == "")
     {
       $('#errorBox').html("<div class='alert alert-danger'>Inserire un filtro di ricerca</div>");
@@ -112,7 +112,7 @@
   
   function confermaModifica()
   {
-    var idAzienda = $('input[name=optradio]:checked').val();
+    let idAzienda = $('input[name=optradio]:checked').val();
 
     if (idAzienda == null || idAzienda === undefined || idAzienda == "")
     {
@@ -120,11 +120,11 @@
       return false;
     }
 
-    var data = $('#tblAziende').bootstrapTable("getData");
+    let data = $('#tblAziende').bootstrapTable("getData");
 
     $.each(data, function(index, row)
     {
-      var id = row['idAzienda'];
+      let id = row['idAzienda'];
       if (id == idAzienda)
       {
         $("#azienda").val(row['denominazione']);

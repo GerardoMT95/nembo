@@ -96,10 +96,10 @@
     $('input[data-toggle="bs-toggle"]').bootstrapToggle();
     function calcolaImportoNonRiconosciutoSanzionabile(id)
     {
-      var $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).data('value'));
-      var $speseAccertateAttuali = Number($('#speseAccertateAttuali_'+id).val().replace(',', '.'));
-      var $spesaAmmessa = Number($('#spesaAmmessa_'+id).data('value'));
-      var importoNonRiconosciutoSanzionabile="0,00";
+      let $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).data('value'));
+      let $speseAccertateAttuali = Number($('#speseAccertateAttuali_'+id).val().replace(',', '.'));
+      let $spesaAmmessa = Number($('#spesaAmmessa_'+id).data('value'));
+      let importoNonRiconosciutoSanzionabile="0,00";
       if (!isNaN($spesaRendicontataAttuale) && !isNaN($speseAccertateAttuali) && !isNaN($spesaAmmessa))
       {
         importoNonRiconosciutoSanzionabile = $spesaRendicontataAttuale - $speseAccertateAttuali;
@@ -112,16 +112,16 @@
     
     function calcolaImportoNonRiconosciutoRispendibile(id)
     {
-      var $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).data('value'));
-      var $speseRiconosciutaPerIlCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace(',', '.'));
-      var v=$('#importoNonRiconosciutoSanzionabile_'+id).val().replace(",",".");
-      var $importoNonRiconosciutoSanzionabile = Number($('#importoNonRiconosciutoSanzionabile_'+id).val().replace(',', '.'));
-      var importoNonRiconosciutoRispendibile="0,00";
+      let $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).data('value'));
+      let $speseRiconosciutaPerIlCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace(',', '.'));
+      let v=$('#importoNonRiconosciutoSanzionabile_'+id).val().replace(",",".");
+      let $importoNonRiconosciutoSanzionabile = Number($('#importoNonRiconosciutoSanzionabile_'+id).val().replace(',', '.'));
+      let importoNonRiconosciutoRispendibile="0,00";
       if (!isNaN($spesaRendicontataAttuale) && !isNaN($speseRiconosciutaPerIlCalcolo) && !isNaN($importoNonRiconosciutoSanzionabile))
       {
         importoNonRiconosciutoRispendibile = $spesaRendicontataAttuale - $speseRiconosciutaPerIlCalcolo - $importoNonRiconosciutoSanzionabile;
         importoNonRiconosciutoRispendibile = Math.round(importoNonRiconosciutoRispendibile*100) / 100;
-        var $spesaAmmessa = Number($('#spesaAmmessa_'+id).data('value'));
+        let $spesaAmmessa = Number($('#spesaAmmessa_'+id).data('value'));
         importoNonRiconosciutoRispendibile = importoNonRiconosciutoRispendibile.formatCurrency();
       }
       $('#importoNonRiconosciutoRispendibile_'+id).html(importoNonRiconosciutoRispendibile);
@@ -135,9 +135,9 @@
     
     function calcolaContributo(id, perc)
     {
-      var $spesaRiconosciutaPerCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace(',', '.'));
+      let $spesaRiconosciutaPerCalcolo = Number($('#spesaRiconosciutaPerCalcolo_'+id).val().replace(',', '.'));
       perc=Number(perc);
-      var contributo=0;
+      let contributo=0;
       if (!isNaN($spesaRiconosciutaPerCalcolo) && !isNaN(perc))
       {
         contributo=Math.round(Number($spesaRiconosciutaPerCalcolo*perc/100)*100)/100;
@@ -154,8 +154,8 @@
      {
       $('input[name="id"]').each(function(index, obj)
       {
-        var id=$(obj).val();
-        var $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).data('value'));
+        let id=$(obj).val();
+        let $spesaRendicontataAttuale = Number($('#spesa_rendicontata_attuale_'+id).data('value'));
         if ($spesaRendicontataAttuale>0)
         {
           calcolaImportoNonRiconosciutoRispendibile(id);

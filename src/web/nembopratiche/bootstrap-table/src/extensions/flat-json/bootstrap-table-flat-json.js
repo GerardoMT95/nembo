@@ -7,22 +7,22 @@
 (function ($) {
     'use strict';
 
-    var flat = function (element, that) {
-        var result = {};
+    let flat = function (element, that) {
+        let result = {};
 
         function recurse(cur, prop) {
             if (Object(cur) !== cur) {
                 result[prop] = cur;
             } else if ($.isArray(cur)) {
-                for (var i = 0, l = cur.length; i < l; i++) {
+                for (let i = 0, l = cur.length; i < l; i++) {
                     recurse(cur[i], prop ? prop + that.options.flatSeparator + i : "" + i);
                     if (l == 0) {
                         result[prop] = [];
                     }
                 }
             } else {
-                var isEmpty = true;
-                for (var p in cur) {
+                let isEmpty = true;
+                for (let p in cur) {
                     isEmpty = false;
                     recurse(cur[p], prop ? prop + that.options.flatSeparator + p : p);
                 }
@@ -36,8 +36,8 @@
         return result;
     };
 
-    var flatHelper = function (data, that) {
-        var flatArray = [];
+    let flatHelper = function (data, that) {
+        let flatArray = [];
 
         $.each(!$.isArray(data) ? [data] : data, function (i, element) {
             flatArray.push(flat(element, that));
@@ -50,7 +50,7 @@
         flatSeparator: '.'
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initData = BootstrapTable.prototype.initData;
 
     BootstrapTable.prototype.initData = function (data, type) {

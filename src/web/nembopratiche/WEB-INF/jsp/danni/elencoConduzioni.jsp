@@ -105,21 +105,21 @@
     
 	function visualizzaErroreNoConduzioni()
 	{
-	    var modifica = "${modifica}";
-    	var errorNoConduzioni = "${errorNoConduzioni}";
+	    let modifica = "${modifica}";
+    	let errorNoConduzioni = "${errorNoConduzioni}";
     	if(errorNoConduzioni != null && errorNoConduzioni=='true')
     	{
     		$('#errorBoxDiv').show();
     	}
 	}
     
-    var modificaDanni = false;
+    let modificaDanni = false;
     //funzione chiamata al click del bottone per la ricerca
     function openInsertPopup()
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblConduzioni').bootstrapTable('getData');
+      let tableData = $('#tblConduzioni').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)
@@ -132,7 +132,7 @@
           }).appendTo($hiddens);
         });
       }
-      var $form = $('#formFiltri');
+      let $form = $('#formFiltri');
       $.ajax(
       {
         type : "GET",
@@ -174,7 +174,7 @@
     {
 	     $hiddens = $('#hiddens');
 	     $hiddens.empty();
-	     var tableData = $('#tblConduzioni').bootstrapTable('getData');
+	     let tableData = $('#tblConduzioni').bootstrapTable('getData');
 	     if (tableData != null && tableData.length)
 	     {
 	       $.each(tableData, function(index, row)
@@ -195,8 +195,8 @@
 	   	  	<script type="text/javascript">
 	  	  	    $(document).ready(function() {
 					visualizzaErroreNoConduzioni();
-					var json = ${json};
-					var data = $('#tblConduzioni').bootstrapTable("append", json);
+					let json = ${json};
+					let data = $('#tblConduzioni').bootstrapTable("append", json);
 			    });
   	  	    </script>
 	  </c:when>

@@ -41,7 +41,7 @@
 	<br />
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	<script type="text/javascript">
-	  var chiusuraInCorso=false;
+	  let chiusuraInCorso=false;
     function chiudiOggetto()
     {
       if (chiusuraInCorso)
@@ -64,7 +64,7 @@
         error : function(xhr, status, text)
         {
           $('#dlgChiusura').modal('hide');
-          showMessageBox("Errore", "Si è verificato un problema grave nel richiamo dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica e comunicare il seguente messaggio:<br /> errore nella chiamata ajax<br/>codice di errore = "+xhr.status+"<br />messaggio = "+text, 'modal-large');
+          showMessageBox("Errore", "Si ï¿½ verificato un problema grave nel richiamo dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica e comunicare il seguente messaggio:<br /> errore nella chiamata ajax<br/>codice di errore = "+xhr.status+"<br />messaggio = "+text, 'modal-large');
           chiusuraInCorso=false;
         }
       });

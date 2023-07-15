@@ -168,8 +168,8 @@
 		</script>
 		
 		<script type="text/javascript">
-			var mapIdSuperficieColturaBloccante={};
-			var mapIdSuperficieColturaAnomalia={};
+			let mapIdSuperficieColturaBloccante={};
+			let mapIdSuperficieColturaAnomalia={};
 		</script>
 		
 		<c:forEach items="${mapIdSuperficieColturaBloccante}" var="elem">
@@ -198,7 +198,7 @@
 		
 			function idSuperficiColturaFunzioniFormatter($value, row, index)
 			{
-				var risultato = 
+				let risultato = 
 					'<p:abilitazione-azione codiceQuadro="SUPCO" codiceAzione="DETTAGLIO">' +
 					'<a class="ico24 ico_magnify" href="../cunembo299d/index_' + $value +'.do" title="Dettaglio"></a>'
 					;
@@ -215,7 +215,7 @@
 			
 			function idSuperficieColturaFormatter($value, row, index)
 			{
-				var commento = mapIdSuperficieColturaAnomalia[$value];
+				let commento = mapIdSuperficieColturaAnomalia[$value];
 				if(commento == null)
 				{
 					commento ='';
@@ -244,7 +244,7 @@
 			function rowStyleFormatter(row, index)
 		    {
 				if (row['recordModificato'] != null && row['recordModificato'] == 'S') {
-					var retValue = {
+					let retValue = {
 						classes : 'red-bold'
 					};
 					return retValue;

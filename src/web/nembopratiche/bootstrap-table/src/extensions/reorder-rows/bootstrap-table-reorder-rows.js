@@ -8,9 +8,9 @@
 
     'use strict';
 
-    var isSearch = false;
+    let isSearch = false;
 
-    var rowAttr = function (row, index) {
+    let rowAttr = function (row, index) {
         return {
             id: 'customId_' + index
         };
@@ -38,7 +38,7 @@
         'reorder-row.bs.table': 'onReorderRow'
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init,
         _initSearch = BootstrapTable.prototype.initSearch;
 
@@ -48,12 +48,12 @@
             return;
         }
 
-        var that = this;
+        let that = this;
         if (this.options.useRowAttrFunc) {
             this.options.rowAttributes = rowAttr;
         }
 
-        var onPostBody = this.options.onPostBody;
+        let onPostBody = this.options.onPostBody;
         this.options.onPostBody = function () {
             setTimeout(function () {
                 that.makeRowsReorderable();
@@ -80,7 +80,7 @@
             return;
         }
 
-        var that = this;
+        let that = this;
         this.$el.tableDnD({
             onDragStyle: that.options.onDragStyle,
             onDropStyle: that.options.onDropStyle,
@@ -92,13 +92,13 @@
     };
 
     BootstrapTable.prototype.onDrop = function (table, droppedRow) {
-        var tableBs = $(table),
+        let tableBs = $(table),
             tableBsData = tableBs.data('bootstrap.table'),
             tableBsOptions = tableBs.data('bootstrap.table').options,
             row = null,
             newData = [];
 
-        for (var i = 0; i < table.tBodies[0].rows.length; i++) {
+        for (let i = 0; i < table.tBodies[0].rows.length; i++) {
             row = $(table.tBodies[0].rows[i]);
             newData.push(tableBsOptions.data[row.data('index')]);
             row.data('index', i).attr('data-index', i);

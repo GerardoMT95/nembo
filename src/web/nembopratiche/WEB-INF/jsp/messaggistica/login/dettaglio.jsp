@@ -53,7 +53,7 @@
 <script type="text/javascript">
   function onConferma(html)
   {
-    var SUCCESS = "<success>"+"true"+"</success>";
+    let SUCCESS = "<success>"+"true"+"</success>";
     if (html.indexOf(SUCCESS)>=0)
     {
       closeModal();

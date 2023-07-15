@@ -3,7 +3,7 @@
   {
     if (istatProvincia=='')
     {
-      var $select=$('#'+idComboComuni);
+      let $select=$('#'+idComboComuni);
       $select.empty();
       $select.append($("<option>",{value:'',text:'-- selezionare--'}));
       if (disabledIfEmpty)
@@ -12,7 +12,7 @@
       }
       return;
     }
-    var page=estinti?"elenco_comuni_":"elenco_comuni_attivi_";
+    let page=estinti?"elenco_comuni_":"elenco_comuni_attivi_";
     page+=istatProvincia;
     page+=".json";
     $.ajax({
@@ -20,7 +20,7 @@
       async:false
       }).success(function(data) 
         {
-        var $select=$('#'+idComboComuni);
+        $select=$('#'+idComboComuni);
         $select.prop("disabled",false);
         if (disabledIfEmpty)
         {
@@ -37,7 +37,7 @@
   
   function caricaComuniPerProvinciaConConduzioniDanniSuperficiColture(istatProvincia, idComboComuni, disabledIfEmpty)
   {
-	  var url = "../cunembo298i/elenco_comuni_conduzioni_superfici_"  + istatProvincia + ".do";
+	  url = "../cunembo298i/elenco_comuni_conduzioni_superfici_"  + istatProvincia + ".do";
 	  return caricaComuniPerProvinciaConConduzioni(istatProvincia, idComboComuni, disabledIfEmpty, url)
   }
   
@@ -53,7 +53,7 @@
 	  }
 	  if (istatProvincia=='')
 	  {
-	      var $select=$('#'+idComboComuni);
+	      let $select=$('#'+idComboComuni);
 	      $select.empty();
 	      $select.append($("<option>",{value:'',text:'-- selezionare--'}));
 	      if (disabledIfEmpty)
@@ -67,7 +67,7 @@
         async:false
       }).success(function(data) 
       {
-	      var $select=$('#'+idComboComuni);
+	      let $select=$('#'+idComboComuni);
 	      $select.prop("disabled",false);
 	      if (disabledIfEmpty)
 	      {
@@ -86,7 +86,7 @@
   {
     if (istatComune=='')
     {
-      var $select=$('#'+idComboSezioni);
+      let $select=$('#'+idComboSezioni);
       $select.empty();
       $select.append($("<option>",{value:'',text:'-- selezionare--'}));
       if (disabledIfEmpty)
@@ -100,7 +100,7 @@
       async:false
     }).success(function(data) 
         {
-      var $select=$('#'+idComboSezioni);
+      let $select=$('#'+idComboSezioni);
       $select.prop("disabled",false);
       if (disabledIfEmpty)
       {

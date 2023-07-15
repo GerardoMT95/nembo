@@ -11,14 +11,14 @@
         showFilter: false
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _init = BootstrapTable.prototype.init,
         _initSearch = BootstrapTable.prototype.initSearch;
 
     BootstrapTable.prototype.init = function () {
         _init.apply(this, Array.prototype.slice.apply(arguments));
 
-        var that = this;
+        let that = this;
         this.$el.on('load-success.bs.table', function () {
             if (that.options.showFilter) {
                 $(that.options.toolbar).bootstrapTableFilter({

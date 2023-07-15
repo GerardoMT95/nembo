@@ -67,7 +67,7 @@
         $importo = Number($("#importo_unitario_" + id).val().replace(',', '.'));
         if (!isNaN($importo))
         {
-          var txt = Number($importo * $n).formatCurrency();
+          let txt = Number($importo * $n).formatCurrency();
           $('#lbl_importo_' + id).html(txt);
           return true;
         }
@@ -77,20 +77,20 @@
     }
     $('.importo_unitario').each(function(index, tag)
     {
-      var tagId = tag.id;
+      let tagId = tag.id;
       tagId = tagId.substring(tagId.lastIndexOf('_') + 1);
       calcolaImporto(tagId);
     });
 
     function ricalcolaIntervento(intervento)
     {
-      var txtImportoAmmesso = $('#importoAmmesso_' + intervento).val();
-      var txtPercentualeContributo = $('#percentualeContributo_' + intervento).val();
-      var importoAmmesso = Number(txtImportoAmmesso.replace(',', '.'));
-      var percentualeContributo = Number(txtPercentualeContributo.replace(',', '.'));
+      let txtImportoAmmesso = $('#importoAmmesso_' + intervento).val();
+      let txtPercentualeContributo = $('#percentualeContributo_' + intervento).val();
+      let importoAmmesso = Number(txtImportoAmmesso.replace(',', '.'));
+      let percentualeContributo = Number(txtPercentualeContributo.replace(',', '.'));
       if (!isNaN(importoAmmesso) && !isNaN(percentualeContributo))
       {
-        var importoContributo = Math.round(importoAmmesso * percentualeContributo) / 100.0;
+        let importoContributo = Math.round(importoAmmesso * percentualeContributo) / 100.0;
         $('#importoContributo_' + intervento).html(importoContributo.formatCurrency());
       }
       else

@@ -68,7 +68,7 @@
 	</div>
 	<r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	<script type="text/javascript">
-		var mappaTipologiaUnitaMisura={};		
+		let mappaTipologiaUnitaMisura={};		
 	</script>
 	<c:forEach items="${mappaTipologiaScorteUnitaDiMisura}" var="elem">
 		<script type="text/javascript">
@@ -77,14 +77,14 @@
 	</c:forEach>
 	<script>
 //TODO: FIXME:	eventuale futura modifica al DB	 
-		 var idScortaAltro="${idScortaAltro}";
+		 let idScortaAltro="${idScortaAltro}";
 		 function aggiornaUnitaDiMisura(idScortaMagazzino)
 		 {
-		 	var idScorta=$('#idScorta_'+idScortaMagazzino).val();
-		 	var idUnitaDiMisuraNuova = mappaTipologiaUnitaMisura[idScorta];
-		 	var unitaDiMisura = $('#unitaDiMisura_'+idScortaMagazzino);
-		 	var unitaDiMisuraHidden = $('#unitaDiMisuraHidden_' + idScortaMagazzino);
-		 	var descrizione = $('#descrizione_' + idScortaMagazzino);
+		 	let idScorta=$('#idScorta_'+idScortaMagazzino).val();
+		 	let idUnitaDiMisuraNuova = mappaTipologiaUnitaMisura[idScorta];
+		 	let unitaDiMisura = $('#unitaDiMisura_'+idScortaMagazzino);
+		 	let unitaDiMisuraHidden = $('#unitaDiMisuraHidden_' + idScortaMagazzino);
+		 	let descrizione = $('#descrizione_' + idScortaMagazzino);
 			if(idScorta =='')
 			{
 				descrizione.prop('disabled',true);
@@ -114,17 +114,17 @@
 		 
 		function setUnitaDiMisuraHidden(idScortaMagazzino)
 		{
-		 	var unitaDiMisura = $('#unitaDiMisura_'+idScortaMagazzino);
-		 	var unitaDiMisuraHidden = $('#unitaDiMisuraHidden_' + idScortaMagazzino);
+		 	let unitaDiMisura = $('#unitaDiMisura_'+idScortaMagazzino);
+		 	let unitaDiMisuraHidden = $('#unitaDiMisuraHidden_' + idScortaMagazzino);
 		 	unitaDiMisuraHidden.val(unitaDiMisura.val());
 		 	return true;
 		}		
 
 		function unitaDiMisuraToHidden()
 		{
-		 	var um = $('#unitaDiMisura').val();
+		 	let um = $('#unitaDiMisura').val();
 		 	$('#unitaDiMisuraHidden').val(um);
-		 	var um2 = $('#unitaDiMisuraHidden').val();
+		 	let um2 = $('#unitaDiMisuraHidden').val();
 		}
 	</script>
 	<script src="/nembopratiche/bootstrap-table/src/bootstrap-table.js"></script>

@@ -106,7 +106,7 @@
 	}
 	function refreshTecnici() {
 
-		var x = $('#ufficiozona').val();
+		let x = $('#ufficiozona').val();
 		if (x === undefined || x == null || x == "")
 			x = "-1";
 		$.ajax({

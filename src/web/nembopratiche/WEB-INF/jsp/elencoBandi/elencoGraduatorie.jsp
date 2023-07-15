@@ -81,9 +81,9 @@
 			    {
 			   queryParams: function(params) 
 			     {
-			            var values = $('#filter-bar').bootstrapTableFilter('getData');
+			            let values = $('#filter-bar').bootstrapTableFilter('getData');
 			            if ( !jQuery.isEmptyObject(values)) {
-			            	var elabFilter = JSON.stringify(values);
+			            	let elabFilter = JSON.stringify(values);
 	    			        return elabFilter;
 			            }
 			            return params;
@@ -101,8 +101,8 @@
 	      ],
 	      connectTo: '#graduatorieTable',
 	      onSubmit: function() {
-	    	  var data = $('#filter-bar').bootstrapTableFilter('getData');
-	            var elabFilter = JSON.stringify(data);
+	    	  let data = $('#filter-bar').bootstrapTableFilter('getData');
+	            let elabFilter = JSON.stringify(data);
 	            $.ajax({
 	            	  type: "POST",
 	            	  url: '../session/salvaFiltri.do',
@@ -112,17 +112,17 @@
 	            console.log(data);
 	      }
 	  });
-		var filterJSON = $('#filtroGraduatorie').val();
+		let filterJSON = $('#filtroGraduatorie').val();
 		$('#filter-bar').bootstrapTableFilter("setupFilterFromJSON",filterJSON);
 		
 	});
 
 	 function allegatiFormatter($value, row, index)
 	    {
-	      var allegati = row['elencoAllegati'];
+	      let allegati = row['elencoAllegati'];
 	      
-	      var ret='<ul style=\"padding-left: 2em;\">';
-	      var i =0;
+	      let ret='<ul style=\"padding-left: 2em;\">';
+	      let i =0;
 
 	      if(allegati!=null)
 	      {

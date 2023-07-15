@@ -899,7 +899,7 @@
 
 		//Ajax popup Filtro Bandi 
 		function reloadPopupBandi() {
-			var dati = $('input[name="chk_anno_campagna"]:checked').serialize();
+			let dati = $('input[name="chk_anno_campagna"]:checked').serialize();
 			$.ajax({
 				type : "POST",
 				url : 'ajaxFiltraPopupBandi.do',
@@ -910,7 +910,7 @@
 					//ritorna una mappa <id_bando, descrizione>
 					$('#all_bando').find('option').remove();
 					for (key in data) {
-						var value = data[key];
+						let value = data[key];
 						$('#all_bando').append(
 								"<option value=\""+key+"\" title=\""+value+"\" selected=\"selected\"\>" + value + "</option>");
 					}
@@ -920,7 +920,7 @@
 		
 		function reloadPopupEventi() {
 //TODO:		
-			var dati = $('input[name="chk_anno_evento"]:checked').serialize();
+			let dati = $('input[name="chk_anno_evento"]:checked').serialize();
 			$.ajax({
 				type : "POST",
 				url : 'ajaxFiltraPopupEventi.do',
@@ -931,7 +931,7 @@
 					//ritorna una mappa <id_bando, descrizione>
 					$('#all_evento').find('option').remove();
 					for (key in data) {
-						var value = data[key];
+						let value = data[key];
 						$('#all_evento').append(
 								"<option value=\""+key+"\" title=\""+value+"\" selected=\"selected\"\>" + value + "</option>");
 					}
@@ -988,7 +988,7 @@
 
 
 		function reloadAmministrazioniPopup(ischkTutteAmministrazioniClickEvnt) {
-			var dati = $('input[name="chkTutteAmministrazioni"]:checked').serialize() + "&"
+			let dati = $('input[name="chkTutteAmministrazioni"]:checked').serialize() + "&"
 					+ $('input[name="chkTipoAmministraz"]:checked').serialize();
 
 			if (ischkTutteAmministrazioniClickEvnt)
@@ -1005,23 +1005,23 @@
 						success : function(data) {
 							//ritorna una mappa <id_bando, descrizione>
 							$('#all_amministrazione').find('option').remove();
-							var keys = [];
-							var key = '';
-							var i = 0;
+							let keys = [];
+							let key = '';
+							let i = 0;
 							for (key in data) {
 								keys[keys.length] = key;
 							}
 							keys.sort();
 							for (i = 0; i < keys.length; i++) {
-								var key = keys[i];
+								let key = keys[i];
 								if (key.indexOf("DESCR&&") < 0) {
 									$('#all_amministrazione').append(
 											"<option title=\""+data[key]+"\" value=\""+key+"\" selected=\"selected\"\>" + data[key]
 													+ "</option>");
 								} else {
 									// In questo caso devo creare la check per "Tipologia amministrazione", se value è TRUE allora sarà checked di default
-									var descrEstesa = key.split('&&')[1];
-									var strChecked = " ";
+									let descrEstesa = key.split('&&')[1];
+									let strChecked = " ";
 									if (data[key] == 'TRUE') {
 										strChecked = " checked=\"checked\" ";
 									}
@@ -1117,7 +1117,7 @@
 		function filtraGruppi() {
 			$('#oggetti').find('option').remove();
 
-			var a = $('input[name="popupTipoFiltroOggetti"]:checked').val();
+			let a = $('input[name="popupTipoFiltroOggetti"]:checked').val();
 			$('#tipoFiltroOggetti').val(a);
 			$('#tipoFiltroOggetti').val().replace(/[^0-9a-z]/gi, '');
 
@@ -1126,22 +1126,22 @@
 			} else if (a == 'AND') {
 				$('#txtTipoFiltroOggetti').html('Procedimenti che contengono tutti gli oggetti selezionati:');
 			}
-			var returnfnt = true;
+			let returnfnt = true;
 
 			$('input[name="hGruppi"]').remove();
 			$('input[name="hOggetti"]').remove();
 			
-			var statiOgg = '';
-			var statiGruppo = '';
+			let statiOgg = '';
+			let statiGruppo = '';
 
-			var erroreOggetti = false;
+			let erroreOggetti = false;
 			$('input[name="popupGruppoChk"]').each(
 					function() {
 						statiGruppo = "";
 						//Per ogni chk selezionato devo cercare tutti i relativi stati selezionati e popolare la list principale e caricare i campi di ricerca hidden
-						var idGruppoOggetto = $(this).attr('id').replace('popupGruppoChk_', '');
+						let idGruppoOggetto = $(this).attr('id').replace('popupGruppoChk_', '');
 						statiGruppo = $('#descrGruppoChk_' + idGruppoOggetto).val();
-						var find = false;
+						let find = false;
 
 						//se seleziono un gruppo, devo almeno selezionare un suo stato
 						if ($('input[name="popupStatiGruppoChk_' + idGruppoOggetto + '"]:checked').length <= 0 
@@ -1183,11 +1183,11 @@
 								function() {
 									stati="";
 									//Per ogni chk selezionato devo cercare tutti i relativi stati selezionati e popolare la list principale e caricare i campi di ricerca hidden
-									var idS = $(this).attr('id').replace('popupOggChk_', '');
-									var idG = idS.split('_')[0];
-									var idO = idS.split('_')[1];
+									let idS = $(this).attr('id').replace('popupOggChk_', '');
+									let idG = idS.split('_')[0];
+									let idO = idS.split('_')[1];
 									stati = $('#descrChk_' + idO).val();
-									var find = false;
+									let find = false;
 									if ($('input[name="popupStatiChk_' + idO + '"]:checked').length <= 0) {
 										alert("Hai selezionato alcuni oggetti senza specificare nessun esito");
 										erroreOggetti = true;
@@ -1246,8 +1246,8 @@
 
 		function reloadLivelliPopup() {
 			//creo una variabile "data" che contiene gli idLivello selezionati separati da &
-			var data = "";
-			var radioSel = $("input[name=optRadio]:checked").val();
+			let data = "";
+			let radioSel = $("input[name=optRadio]:checked").val();
 			if (radioSel !== undefined && radioSel != null && radioSel.not.equals(""))
 				data += radioSel + "&";
 			else
@@ -1275,15 +1275,15 @@
 						success : function(data) {
 							//ritorna una mappa <id_livello, codice + " " + descrizione>
 
-							var keys = [];
-							var key = '';
-							var i = 0;
+							let keys = [];
+							let key = '';
+							let i = 0;
 							for (key in data) {
 								keys[keys.length] = key;
 							}
 
 							for (i = 0; i < keys.length; i++) {
-								var key = keys[i];
+								let key = keys[i];
 								$('#all_misura').append(
 										"<option value=\""+data[key].idLivello+"\" \>" + data[key].codiceDescrizione + "</option>");
 							}

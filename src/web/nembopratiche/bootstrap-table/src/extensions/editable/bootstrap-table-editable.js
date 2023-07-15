@@ -30,12 +30,12 @@
         'editable-hidden.bs.table': 'onEditableHidden'
     });
 
-    var BootstrapTable = $.fn.bootstrapTable.Constructor,
+    let BootstrapTable = $.fn.bootstrapTable.Constructor,
         _initTable = BootstrapTable.prototype.initTable,
         _initBody = BootstrapTable.prototype.initBody;
 
     BootstrapTable.prototype.initTable = function () {
-        var that = this;
+        let that = this;
         _initTable.apply(this, Array.prototype.slice.apply(arguments));
 
         if (!this.options.editable) {
@@ -47,9 +47,9 @@
                 return;
             }
 
-            var _formatter = column.formatter;
+            let _formatter = column.formatter;
             column.formatter = function (value, row, index) {
-                var result = _formatter ? _formatter(value, row, index) : value;
+                let result = _formatter ? _formatter(value, row, index) : value;
 
                 return ['<a href="javascript:void(0)"',
                     ' data-name="' + column.field + '"',
@@ -62,7 +62,7 @@
     };
 
     BootstrapTable.prototype.initBody = function () {
-        var that = this;
+        let that = this;
         _initBody.apply(this, Array.prototype.slice.apply(arguments));
 
         if (!this.options.editable) {
@@ -76,7 +76,7 @@
 
             that.$body.find('a[data-name="' + column.field + '"]').editable(column.editable)
                 .off('save').on('save', function (e, params) {
-                    var data = that.getData(),
+                    let data = that.getData(),
                         index = $(this).parents('tr[data-index]').data('index'),
                         row = data[index],
                         oldValue = row[column.field];
@@ -86,7 +86,7 @@
                 });
             that.$body.find('a[data-name="' + column.field + '"]').editable(column.editable)
                 .off('shown').on('shown', function (e, editable) {
-                    var data = that.getData(),
+                    let data = that.getData(),
                         index = $(this).parents('tr[data-index]').data('index'),
                         row = data[index];
                     
@@ -94,7 +94,7 @@
                 });
             that.$body.find('a[data-name="' + column.field + '"]').editable(column.editable)
                 .off('hidden').on('hidden', function (e, reason) {
-                    var data = that.getData(),
+                    let data = that.getData(),
                         index = $(this).parents('tr[data-index]').data('index'),
                         row = data[index];
                     

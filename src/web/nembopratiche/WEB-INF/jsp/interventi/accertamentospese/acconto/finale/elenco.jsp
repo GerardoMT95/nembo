@@ -100,10 +100,10 @@ title='Compensazione per arrotondamenti rispetto alla colonna "Contributo calcol
 	<script type="text/javascript">
     function importoAdder(rows, field)
     {
-      var __sum = 0;
+      let __sum = 0;
       $(rows).each(function(index, currentRow)
       {
-        var value = currentRow[field];
+        let value = currentRow[field];
         if (value!=null && !isNaN(value) && value.length != 0)
         {
           __sum += parseFloat(value);
@@ -115,7 +115,7 @@ title='Compensazione per arrotondamenti rispetto alla colonna "Contributo calcol
     {
       try
       {
-        var checked = "";
+        let checked = "";
         if ($value == 'S')
         {
           checked = ' checked="checked" ';
@@ -154,7 +154,7 @@ title='Compensazione per arrotondamenti rispetto alla colonna "Contributo calcol
     }
     function iconeFormatter($value, row, index)
     {
-      var html='';
+      let html='';
       
       /*
       <p:abilitazione-azione codiceQuadro="${cuCodQuadro}" codiceAzione="MODIFICA">
@@ -205,7 +205,7 @@ title='Compensazione per arrotondamenti rispetto alla colonna "Contributo calcol
       return '<input type="checkbox" name="idIntervento" value="'+$value+'" />';
     }
 
-    var tmpfoot;
+    let tmpfoot;
     function visualizzainterventi(idIntervento)
     {
     	$.ajax({

@@ -73,10 +73,10 @@
 	<script type="text/javascript">
     function importoAdder(rows, field)
     {
-      var __sum = 0;
+      let __sum = 0;
       $(rows).each(function(index, currentRow)
       {
-        var value = currentRow[field];
+        let value = currentRow[field];
         if (value!=null && !isNaN(value) && value.length != 0)
         {
           __sum += parseFloat(value);
@@ -88,7 +88,7 @@
     {
       try
       {
-        var checked = "";
+        let checked = "";
         if ($value == 'S')
         {
           checked = ' checked="checked" ';
@@ -127,7 +127,7 @@
     }
     function iconeFormatter($value, row, index)
     {
-      var html='';
+      let html='';
       /*
       <p:abilitazione-azione codiceQuadro="${cuCodQuadro}" codiceAzione="MODIFICA">
        */

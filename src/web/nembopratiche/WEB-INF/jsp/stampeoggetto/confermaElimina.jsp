@@ -18,7 +18,7 @@
             async:false,
             success: function(html) 
             {
-                var COMMENT = '<!--'+'LISTA_STAMPE'+'-->';
+                let COMMENT = '<!--'+'LISTA_STAMPE'+'-->';
                 if (html != null && html.indexOf(COMMENT) >= 0) 
                 {
                   $('#dlgStampeOggetto').modal('hide');

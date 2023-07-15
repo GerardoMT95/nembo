@@ -8,7 +8,7 @@
 <r:include resourceProvider="portal" url="/staticresources/assets/application/nembopratiche/include/head.html" />
 <script type="text/javascript">
 	function gestisciCampoInput(checkbox, idBando) {
-		var input = $('#'+"inputPerIdBando_"+idBando);
+		let input = $('#'+"inputPerIdBando_"+idBando);
 		if($(checkbox).attr('checked')) {
 			$(input).prop('disabled', false);
 		} else {

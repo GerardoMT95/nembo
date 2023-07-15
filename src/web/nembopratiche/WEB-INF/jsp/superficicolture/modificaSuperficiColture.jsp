@@ -158,7 +158,7 @@
 		calcolaValoriIniziali();
 	});
 	
-	var map = {};
+	let map = {};
 	map['sumSuperficieUtilizzata'] = convertStringToFloat("${superficiColtureDettaglioPsrDTO.sumSuperficieUtilizzata}");
 	map['produzioneHaMedia'] = convertStringToFloat("${superficiColtureDettaglioPsrDTO.produzioneHaMedia}");
 	map['produzioneHaMin'] = convertStringToFloat("${superficiColtureDettaglioPsrDTO.produzioneHaMin}");
@@ -186,32 +186,32 @@
     	{
     	  return NaN;
     	}
-    	var numReplaced = num.replace(',','.').replace(/[.](?=.*[.])/g, "");
-    	var returnValue =  parseFloat(numReplaced);
+    	let numReplaced = num.replace(',','.').replace(/[.](?=.*[.])/g, "");
+    	let returnValue =  parseFloat(numReplaced);
     	return returnValue;
     }
     
 	function calcolaValoriIniziali() {
 
 			sostituisciVirgolaConPunto();
-			var preferRequestValues = "${preferRequest}";
-			var produzioneDichiarata;
-			var giornateLavorativeDich;
-			var ufTotali;
+			let preferRequestValues = "${preferRequest}";
+			let produzioneDichiarata;
+			let giornateLavorativeDich;
+			let ufTotali;
 
 
-			var produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
-			var giornateLavorate = convertStringToFloat($('#txtGiornateLavorate').val());
-			var reimpieghiUnitaMisura = convertStringToFloat($('#slcUnitaMisura').val());
-			var reimpieghiQuantita = convertStringToFloat($('#txtReimpieghiQnt').val());
-			var prezzo = convertStringToFloat($('#txtPrezzo').val());
+			let produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
+			let giornateLavorate = convertStringToFloat($('#txtGiornateLavorate').val());
+			let reimpieghiUnitaMisura = convertStringToFloat($('#slcUnitaMisura').val());
+			let reimpieghiQuantita = convertStringToFloat($('#txtReimpieghiQnt').val());
+			let prezzo = convertStringToFloat($('#txtPrezzo').val());
 
-			var giornateLavorativeDich ='';
-			var produzioneDichiarat = '';
-			var ufTotali = '';
-			var plvTotQuintali = '';
-			var plvTotDich = '';
-			var totaleGiaValutato = false;
+			let giornateLavorativeDich ='';
+			let produzioneDichiarat = '';
+			let ufTotali = '';
+			let plvTotQuintali = '';
+			let plvTotDich = '';
+			let totaleGiaValutato = false;
 			
 			if(!isNaN(giornateLavorate))
 			{
@@ -266,10 +266,10 @@
 		}
 
 		function sostituisciVirgolaConPunto() {
-			var produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
-			var giornateLavorate = convertStringToFloat($('#txtGiornateLavorate').val())
-			var reimpieghiQnt = convertStringToFloat($('#txtReimpieghiQnt').val())
-			var prezzo = convertStringToFloat($('#txtPrezzo').val());
+			let produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
+			let giornateLavorate = convertStringToFloat($('#txtGiornateLavorate').val())
+			let reimpieghiQnt = convertStringToFloat($('#txtReimpieghiQnt').val())
+			let prezzo = convertStringToFloat($('#txtPrezzo').val());
 			if(!isNaN(produzioneHa))
 				$('#txtProduzioneHa').val(produzioneHa);
 			
@@ -284,10 +284,10 @@
 		}
 
 		function onUpdateProduzioneHa() {
-			var produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
+			let produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
 			if (!isNaN(produzioneHa)) {
-				var produzioneTotale = calcolaProduzioneTotale(produzioneHa);
-				var ufTotali = calcolaUnitaForaggereTotali(produzioneHa);
+				let produzioneTotale = calcolaProduzioneTotale(produzioneHa);
+				let ufTotali = calcolaUnitaForaggereTotali(produzioneHa);
 				$('#txtProduzioneTotale').val(produzioneTotale.toFixed(2));
 				$('#txtProduzioneTotaleHidden')
 						.val(produzioneTotale.toFixed(2));
@@ -303,22 +303,22 @@
 		}
 
 		function calcolaUnitaForaggereTotali(produzioneHa) {
-			var unitaForaggereTotali = map['ufProdotte'] * produzioneHa
+			let unitaForaggereTotali = map['ufProdotte'] * produzioneHa
 					* map['sumSuperficieUtilizzata'];
 			return unitaForaggereTotali;
 		}
 
 		function calcolaProduzioneTotale(produzioneHa) {
-			var produzioneTotale = produzioneHa
+			let produzioneTotale = produzioneHa
 					* map['sumSuperficieUtilizzata'];
 			return produzioneTotale;
 		}
 
 		function onUpdateGiornateLavorate() {
-			var giornateLavorate = convertStringToFloat($(
+			let giornateLavorate = convertStringToFloat($(
 					'#txtGiornateLavorate').val());
 			if (!isNaN(giornateLavorate)) {
-				var giornateLavorateTot = giornateLavorate
+				let giornateLavorateTot = giornateLavorate
 						* map['sumSuperficieUtilizzata'];
 				$('#txtGiornateLavorateTot')
 						.val(giornateLavorateTot.toFixed(2));
@@ -330,7 +330,7 @@
 		}
 
 		function updateUnitaMisura() {
-			var preferRequestValues = "${preferRequest}";
+			let preferRequestValues = "${preferRequest}";
 			if (preferRequestValues != null
 					&& (preferRequestValues == '' || preferRequestValues == 'false')) {
 				if (map['qliReimpiegati'] > 0) {
@@ -345,17 +345,17 @@
 		}
 
 		function updatePlvTotQ() {
-			var unitaMisura = $('#slcUnitaMisura').val();
-			var reimpieghiQnt = convertStringToFloat($('#txtReimpieghiQnt')
+			let unitaMisura = $('#slcUnitaMisura').val();
+			let reimpieghiQnt = convertStringToFloat($('#txtReimpieghiQnt')
 					.val());
-			var produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
-			var reimpieghiQnt = convertStringToFloat($('#txtReimpieghiQnt').val());
+			let produzioneHa = convertStringToFloat($('#txtProduzioneHa').val());
+			let reimpieghiQnt = convertStringToFloat($('#txtReimpieghiQnt').val());
 			if (!isNaN(reimpieghiQnt)
 					&& !isNaN(produzioneHa)
 					&& !(unitaMisura != 'qli' && unitaMisura != 'uf' && unitaMisura != '')
 					&& !isNaN(produzioneHa)) 
 			{
-				var plvTotQ = 0;
+				let plvTotQ = 0;
 				if (unitaMisura == 'qli') 
 				{
 					plvTotQ = produzioneHa * map['sumSuperficieUtilizzata']
@@ -363,8 +363,8 @@
 				} 
 				else if (unitaMisura == 'uf') 
 				{
-					var unitaForaggereTotali = calcolaUnitaForaggereTotali(produzioneHa);
-					var produzioneTotale = calcolaProduzioneTotale(produzioneHa);
+					let unitaForaggereTotali = calcolaUnitaForaggereTotali(produzioneHa);
+					let produzioneTotale = calcolaProduzioneTotale(produzioneHa);
 					plvTotQ = produzioneHa
 							* map['sumSuperficieUtilizzata']
 							- ((reimpieghiQnt / unitaForaggereTotali) * produzioneTotale);
@@ -396,12 +396,12 @@
 		function updatePlvTotDichiarato() 
 		{
 
-			var plvTotQ = convertStringToFloat($('#txtPlvTotQ').val());
-			var plvPrezzoQ = convertStringToFloat($('#txtPrezzo').val());
+			let plvTotQ = convertStringToFloat($('#txtPlvTotQ').val());
+			let plvPrezzoQ = convertStringToFloat($('#txtPrezzo').val());
 
 			if (!isNaN(plvTotQ) && !isNaN(plvPrezzoQ)) 
 			{
-				var totale = plvTotQ * plvPrezzoQ;
+				let totale = plvTotQ * plvPrezzoQ;
 				$('#txtPlvTotDich').val(totale.toFixed(2));
 				$('#txtPlvTotDichHidden').val(totale);
 			} 

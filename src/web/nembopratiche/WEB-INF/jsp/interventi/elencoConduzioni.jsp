@@ -52,7 +52,7 @@
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblConduzioni').bootstrapTable('getData');
+      let tableData = $('#tblConduzioni').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)
@@ -65,7 +65,7 @@
           }).appendTo($hiddens);
         });
       }
-      var $form = $('#formFiltri');
+      let $form = $('#formFiltri');
       $.ajax(
       {
         type : "GET",
@@ -105,7 +105,7 @@
     {
       $hiddens = $('#hiddens');
       $hiddens.empty();
-      var tableData = $('#tblConduzioni').bootstrapTable('getData');
+      let tableData = $('#tblConduzioni').bootstrapTable('getData');
       if (tableData != null && tableData.length)
       {
         $.each(tableData, function(index, row)

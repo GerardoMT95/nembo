@@ -4,12 +4,12 @@
     return;
   }
   angular.module('bsTable', []).directive('bsTableControl', function () {
-    var CONTAINER_SELECTOR = '.bootstrap-table';
-    var SCROLLABLE_SELECTOR = '.fixed-table-body';
-    var SEARCH_SELECTOR = '.search input';
-    var bsTables = {};
+    let CONTAINER_SELECTOR = '.bootstrap-table';
+    let SCROLLABLE_SELECTOR = '.fixed-table-body';
+    let SEARCH_SELECTOR = '.search input';
+    let bsTables = {};
     function getBsTable (el) {
-      var result;
+      let result;
       $.each(bsTables, function (id, bsTable) {
         if (!bsTable.$el.closest(CONTAINER_SELECTOR).has(el).length) return;
         result = bsTable;
@@ -24,15 +24,15 @@
       });
     });
     function onScroll () {
-      var bsTable = this;
-      var state = bsTable.$s.bsTableControl.state;
+      let bsTable = this;
+      let state = bsTable.$s.bsTableControl.state;
       bsTable.$s.$applyAsync(function () {
         state.scroll = bsTable.$el.bootstrapTable('getScrollPosition');
       });
     }
     $(document)
       .on('post-header.bs.table', CONTAINER_SELECTOR+' table', function (evt) { // bootstrap-table calls .off('scroll') in initHeader so reattach here
-        var bsTable = getBsTable(evt.target);
+        let bsTable = getBsTable(evt.target);
         if (!bsTable) return;
         bsTable.$el
           .closest(CONTAINER_SELECTOR)
@@ -40,35 +40,35 @@
           .on('scroll', onScroll.bind(bsTable));
       })
       .on('sort.bs.table', CONTAINER_SELECTOR+' table', function (evt, sortName, sortOrder) {
-        var bsTable = getBsTable(evt.target);
+        let bsTable = getBsTable(evt.target);
         if (!bsTable) return;
-        var state = bsTable.$s.bsTableControl.state;
+        let state = bsTable.$s.bsTableControl.state;
         bsTable.$s.$applyAsync(function () {
           state.sortName = sortName;
           state.sortOrder = sortOrder;
         });
       })
       .on('page-change.bs.table', CONTAINER_SELECTOR+' table', function (evt, pageNumber, pageSize) {
-        var bsTable = getBsTable(evt.target);
+        let bsTable = getBsTable(evt.target);
         if (!bsTable) return;
-        var state = bsTable.$s.bsTableControl.state;
+        let state = bsTable.$s.bsTableControl.state;
         bsTable.$s.$applyAsync(function () {
           state.pageNumber = pageNumber;
           state.pageSize = pageSize;
         });
       })
       .on('search.bs.table', CONTAINER_SELECTOR+' table', function (evt, searchText) {
-        var bsTable = getBsTable(evt.target);
+        let bsTable = getBsTable(evt.target);
         if (!bsTable) return;
-        var state = bsTable.$s.bsTableControl.state;
+        let state = bsTable.$s.bsTableControl.state;
         bsTable.$s.$applyAsync(function () {
           state.searchText = searchText;
         });
       })
       .on('focus blur', CONTAINER_SELECTOR+' '+SEARCH_SELECTOR, function (evt) {
-        var bsTable = getBsTable(evt.target);
+        let bsTable = getBsTable(evt.target);
         if (!bsTable) return;
-        var state = bsTable.$s.bsTableControl.state;
+        let state = bsTable.$s.bsTableControl.state;
         bsTable.$s.$applyAsync(function () {
           state.searchHasFocus = $(evt.target).is(':focus');
         });
@@ -78,11 +78,11 @@
       restrict: 'EA',
       scope: {bsTableControl: '='},
       link: function ($s, $el) {
-        var bsTable = bsTables[$s.$id] = {$s: $s, $el: $el};
+        let bsTable = bsTables[$s.$id] = {$s: $s, $el: $el};
         $s.instantiated = false;
         $s.$watch('bsTableControl.options', function (options) {
           if (!options) options = $s.bsTableControl.options = {};
-          var state = $s.bsTableControl.state || {};
+          let state = $s.bsTableControl.state || {};
 
           if ($s.instantiated) $el.bootstrapTable('destroy');
           $el.bootstrapTable(angular.extend(angular.copy(options), state));

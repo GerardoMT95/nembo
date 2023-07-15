@@ -35,12 +35,12 @@
 				<m:textfield id="descrizione" name="descrizione" label="Descrizione" preferRequestValues="${preferRequest}" ></m:textfield>
 			</div>
 			<div class="col-md-8">
-				<m:textfield id="quantita" name="quantita" label="Quantità" preferRequestValues="${preferRequest}"></m:textfield>
+				<m:textfield id="quantita" name="quantita" label="Quantitï¿½" preferRequestValues="${preferRequest}"></m:textfield>
 			</div>
 			<div class="col-md-4">
 				
 				<div class="col-md-12">
-				<m:select id="unitaDiMisura" list="${elencoUnitaMisura}" name="unitaDiMisura" label="Unità di Misura" disabled="true" preferRequestValues="${preferRequest}"></m:select>
+				<m:select id="unitaDiMisura" list="${elencoUnitaMisura}" name="unitaDiMisura" label="Unitï¿½ di Misura" disabled="true" preferRequestValues="${preferRequest}"></m:select>
 				<m:textfield name="unitaDiMisuraHidden" id="unitaDiMisuraHidden"  preferRequestValues="${preferRequest}" style="display:none;"></m:textfield> 
 				</div>
 			</div>
@@ -68,9 +68,9 @@
 	
 	<script>
 //TODO: FIXME:	eventuale futura modifica al DB	 
-		 var idScortaAltro="${idTipologiaAltro}";
+		 let idScortaAltro="${idTipologiaAltro}";
 		 $(document).ready( function(){
-		 	var idScortaVal = $('#idScorta').val();
+		 	let idScortaVal = $('#idScorta').val();
 		 	if(idScortaVal != '' && idScortaVal == idScortaAltro && "${preferRequest}"=='true')
 		 	{
 		 		$('#unitaDiMisura').prop('disabled', false);
@@ -78,18 +78,18 @@
 		 	}
 		 	else
 		 	{
-			 	var um = $('#unitaDiMisuraHidden').val();
+			 	let um = $('#unitaDiMisuraHidden').val();
 			 	$('#unitaDiMisura').val(um);
-			 	var um2 = $('#unitaDiMisura').val();
+			 	let um2 = $('#unitaDiMisura').val();
 		 	}
 		 	
 		 });
 		 
 		 function aggiornaUnitaMisura()
 		 {
-		    var idScortaVal = $('#idScorta').val();
+		    let idScortaVal = $('#idScorta').val();
 		    if(idScortaVal != null && idScortaVal != '' && idScortaVal!=""){
-			    var idUnitaMisuraVal = 0;
+			    let idUnitaMisuraVal = 0;
 	   		 	$.ajax(
 			         {
 			           type : "GET",
@@ -132,9 +132,9 @@
 		 
 		 function unitaDiMisuraToHidden()
 		 {
-		 	var um = $('#unitaDiMisura').val();
+		 	let um = $('#unitaDiMisura').val();
 		 	$('#unitaDiMisuraHidden').val(um);
-		 	var um2 = $('#unitaDiMisuraHidden').val();
+		 	let um2 = $('#unitaDiMisuraHidden').val();
 		 }
 	</script>
 	<script src="/nembopratiche/bootstrap-table/src/bootstrap-table.js"></script>
