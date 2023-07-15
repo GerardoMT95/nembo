@@ -13,10 +13,6 @@ public class FocusAreaDTO implements Serializable
   private boolean           isPrimaria       = false;
   private boolean           isSecondaria     = false;
 
-  public FocusAreaDTO()
-  {
-
-  }
 
   public long getIdLivello()
   {

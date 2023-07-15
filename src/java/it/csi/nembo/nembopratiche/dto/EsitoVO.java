@@ -13,9 +13,6 @@ public class EsitoVO implements ILoggable
   private long              idEsito;
   private String            esito;
 
-  public EsitoVO()
-  {
-  }
 
   public String getEsito()
   {

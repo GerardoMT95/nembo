@@ -13,9 +13,6 @@ public class EsitoDTO implements ILoggable
   private long              idEsito;
   private String            descrizione;
 
-  public EsitoDTO()
-  {
-  }
 
   public long getIdEsito()
   {
