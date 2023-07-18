@@ -259,7 +259,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 			long n;
 			for(DanniDTO danno : listDanniDTO)
 			{
-				n=dao.inserisciDanno(danno, idDanno);
+				dao.inserisciDanno(danno, idDanno);
 			}
 			logOperationOggettoQuadro(logOperationOggettoQuadroDTO);
 			return listDanniDTO.size();

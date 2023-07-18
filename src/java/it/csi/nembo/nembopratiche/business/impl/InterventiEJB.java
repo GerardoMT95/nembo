@@ -1711,7 +1711,6 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 {
 	  BigDecimal centocinquanta = new BigDecimal("150.00");
 	  Map<Long,Boolean> mappaIdBandoLivelloCriterio = new HashMap<Long,Boolean>(); 
-	  Map<String, Boolean> mappaCodiciPunteggioPerInterventiPrevenzione = BaseController.getCodiciPunteggioPerInterventiPrevenzione();
 	  
 	  List<RigaElencoInterventi> listaInterventiPrevenzioneConsolidati = dao.getListInterventiPrevenzioneConsolidati(idProcedimentoOggetto);
 	  List<RigaElencoInterventi> listaInterventiPrevenzioneTemporanei = dao.getListInterventiPrevenzioneTemporanei(idProcedimentoOggetto);

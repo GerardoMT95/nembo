@@ -535,9 +535,11 @@ public class ImportoLiquidatoDTO implements ILoggable
   {
 
     String s = "";
-    if (flagAmmCompetenza != null)
-      if (flagAmmCompetenza.compareTo("S") == 0)
-        return s;
+    if (flagAmmCompetenza != null && flagAmmCompetenza.compareTo("S") == 0){
+      return s;
+    }
+   
+        
     if (ammCompetenza != null)
       for (String ss : ammCompetenza)
         s += ss + "<br/>";

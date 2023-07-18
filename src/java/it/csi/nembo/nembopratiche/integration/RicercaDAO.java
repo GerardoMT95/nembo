@@ -5512,7 +5512,6 @@ public class RicercaDAO extends BaseDAO
     }
   }
   
-  //TODO: FIXME: rimuovere, probabilmente in disuso
   public List<GruppoOggettoDTO> getStatiAmmProcedimentiAttivi(
       ArrayList<Long> lIdLivelli, ArrayList<Long> lIdBando,
       ArrayList<Long> lIdAmministrazioni,

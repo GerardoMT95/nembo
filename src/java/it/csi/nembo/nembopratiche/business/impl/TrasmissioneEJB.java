@@ -58,7 +58,7 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
     }
     catch (Exception e)
     {
-
+      logger.debug("ecezione!");
     }
     try
     {
@@ -66,6 +66,7 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
     }
     catch (NamingException e)
     {
+      logger.debug("ecezione!");
     }
   }
 
@@ -152,19 +153,19 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
         // Non trovo il procedimento oggetto associato al documento... ==>
         // Errore grave
         throw new ApplicationException(
-            "Non è stata trovata alcuna pratica collegata a questo documento. Impossibile procedere con la trasmissione.");
+            "Non ï¿½ stata trovata alcuna pratica collegata a questo documento. Impossibile procedere con la trasmissione.");
       }
       final long idProcedimentoOggetto = idProcedimentoOggettoLock.longValue();
       ProcedimOggettoStampaDTO procedimOggettoStampaDTO = dao
           .findIdProcedimOggettoStampaByIdDocumentoIndex(oldIdDocumentoIndex);
       /*
-       * L'oggetto è sicuramente valorizzato altrimenti se l'idDocumentoIndex
-       * non fosse presente su db mi avrebbe già fermato il controllo del lock.
+       * L'oggetto ï¿½ sicuramente valorizzato altrimenti se l'idDocumentoIndex
+       * non fosse presente su db mi avrebbe giï¿½ fermato il controllo del lock.
        * Procedo con i controlli formali
        */
       if (procedimOggettoStampaDTO.getDataFine() != null)
       {
-        // Non dovrebbe mai capitare, comunque è sempre meglio eseguire i test
+        // Non dovrebbe mai capitare, comunque ï¿½ sempre meglio eseguire i test
         // del caso
         throw new ApplicationException(
             "Il documento non risulta essere la versione finale della stampa della pratica, esiste una stampa posteriore ad esso. Impossibile procedere con la trasmissione.");
@@ -173,7 +174,7 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
       if (procedimOggettoStampaDTO
           .getIdStatoStampa() != NemboConstants.STATO.STAMPA.ID.IN_ATTESA_FIRMA_GRAFOMETRICA)
       {
-        // Non dovrebbe mai capitare, comunque è sempre meglio eseguire i test
+        // Non dovrebbe mai capitare, comunque ï¿½ sempre meglio eseguire i test
         // del caso
         throw new ApplicationException(
             "Il documento non risulta essere in attesa di firma grafometrica. Impossibile procedere con la trasmissione.");
@@ -186,7 +187,7 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
       /*
        * Il procedimento oggetto deve essere in attesa di trasmissione ossia con
        * idEsito == 1 (POSITIVO). Anche questo caso non dovrebbe mai capitare,
-       * comunque è sempre meglio eseguire il test
+       * comunque ï¿½ sempre meglio eseguire il test
        */
 
       if (idEsito == null || idEsito.intValue() != ESITO_POSITIVO)
@@ -195,7 +196,7 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
             "Il documento risulta essere associato ad una domanda NON in attesa di trasmissione. Impossibile procedere con la trasmissione.");
       }
 
-      // Potrei avere più stampe da firmare, devono essere tutte firmate per
+      // Potrei avere piï¿½ stampe da firmare, devono essere tutte firmate per
       // trasmettere
       long countStampeInCorso = dao.countStampeInCorso(idProcedimentoOggetto);
 
@@ -208,7 +209,7 @@ public class TrasmissioneEJB implements ITrasmissioneEJB
 
       if (countStampeInCorso > 0)
       {
-        // Non è un errore applicativo ==> semplicemente non posso trasmettere
+        // Non ï¿½ un errore applicativo ==> semplicemente non posso trasmettere
         return "La pratica collegata al documento ha ancora "
             + countStampeInCorso
             + " stampe in corso o fallite. Impossibile procedere con la trasmissione.";

@@ -190,7 +190,7 @@ public class AsyncEJB extends NemboAbstractEJB<QuadroNewDAO>
 	        }
 	        
 	        dao.updateProcedimOggettoStampaByIdOggetoIcona(idProcedimentoOggetto, idOggettoIcona, pdf,
-	            getIdStatoStampa(utenteAbilitazioni, stampaOggetto.getFlagFirmaGrafometrica()), null, idUtenteLogin);
+	            getIdStatoStampa( stampaOggetto.getFlagFirmaGrafometrica()), null, idUtenteLogin);
 	      }
 	    }
 	    catch (Exception e)
@@ -262,8 +262,7 @@ public class AsyncEJB extends NemboAbstractEJB<QuadroNewDAO>
         identificativo, metadatiAggiuntivi);
   }
 
-  private String getFlagFirmaGrafometrica(StampaOggettoDTO stampaOggetto,
-      UtenteAbilitazioni utenteAbilitazioni)
+  private String getFlagFirmaGrafometrica(StampaOggettoDTO stampaOggetto)
   {
     String flagFirmaGrafometrica = NemboConstants.FLAGS.FIRMA_GRAFOMETRICA.DA_NON_FIRMARE;
     if (NemboConstants.FLAGS.SI

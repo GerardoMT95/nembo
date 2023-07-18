@@ -140,19 +140,19 @@ public class AmmCompetenzaDTO implements ILoggable
 
   public String getDescrizioneUfficioZona()
   {
-    if (this.uffDenom != null)
-    {
-      if (this.uffIndirizzo != null)
-        if (uffComune != null && uffComune.trim().length() > 0)
+    if (this.uffDenom != null){
+      if (this.uffIndirizzo != null){
+        if (uffComune != null && uffComune.trim().length() > 0){
           return this.uffDenom + ", " + this.uffIndirizzo + " "
               + this.uffComune;
-        else
+        }else{
           return this.uffDenom + ", " + this.uffIndirizzo;
-      else
+        }
+      }else{
         return this.uffDenom;
+      }
     }
-    else
-    {
+    else{
       return "";
     }
   }

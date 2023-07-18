@@ -496,7 +496,6 @@ public class RicercaEJB extends NemboAbstractEJB<RicercaDAO>
     return dao.getIterGruppoOggetto(idProcedimento, codRaggruppamento);
   }
 
-  //TODO: FIXME: rimuovere, probabilmente in disuso
   @Override
   @TransactionAttribute(value = TransactionAttributeType.SUPPORTS)
   public List<GruppoOggettoDTO> getStatiAmmProcedimentiAttivi(
