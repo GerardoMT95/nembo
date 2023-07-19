@@ -38,7 +38,7 @@ public class ElencoInterventiExcelBuilder extends AbstractExcelView
   {
 
     // CELL STYLE GENERICO, DI DEFAULT
-    HSSFCellStyle styleValDef = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValDef = (  workbook).createCellStyle();
     Font font = workbook.createFont();
     font = workbook.createFont();
     font.setFontName("Arial");
@@ -55,8 +55,8 @@ public class ElencoInterventiExcelBuilder extends AbstractExcelView
         .setDataFormat(workbook.createDataFormat().getFormat("#,##0.00"));
     styleCurrency.setFont(font);
 
-    HSSFCellStyle styleHeaderTab = ((HSSFWorkbook) workbook).createCellStyle();
-    HSSFPalette palette = ((HSSFWorkbook) workbook).getCustomPalette();
+    HSSFCellStyle styleHeaderTab = (  workbook).createCellStyle();
+    HSSFPalette palette = (  workbook).getCustomPalette();
     palette.setColorAtIndex((short) 57, (byte) 66, (byte) 139, (byte) 202); // color
                                                                             // #428BCA
     palette.setColorAtIndex((short) 58, (byte) 211, (byte) 211, (byte) 211); // color
@@ -79,7 +79,7 @@ public class ElencoInterventiExcelBuilder extends AbstractExcelView
     styleHeaderTab.setFont(font);
     
     
-    HSSFCellStyle styleHeaderTabPreHeader = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleHeaderTabPreHeader = (  workbook).createCellStyle();
     palette.setColorAtIndex((short) 57, (byte) 66, (byte) 139, (byte) 202); // color                                                                      // #428BCA
     palette.setColorAtIndex((short) 58, (byte) 211, (byte) 211, (byte) 211); // color// #F9F9F9
     styleHeaderTabPreHeader.setFillForegroundColor(palette.getColor(57).getIndex());
@@ -98,7 +98,7 @@ public class ElencoInterventiExcelBuilder extends AbstractExcelView
     font.setColor(HSSFColor.WHITE.index);
     styleHeaderTabPreHeader.setFont(font);
     
-    HSSFCellStyle styleHeaderTabPreHeaderL = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleHeaderTabPreHeaderL = (  workbook).createCellStyle();
     palette.setColorAtIndex((short) 57, (byte) 66, (byte) 139, (byte) 202); // color                                                                      // #428BCA
     palette.setColorAtIndex((short) 58, (byte) 211, (byte) 211, (byte) 211); // color// #F9F9F9
     styleHeaderTabPreHeaderL.setFillForegroundColor(palette.getColor(57).getIndex());
@@ -392,7 +392,7 @@ public class ElencoInterventiExcelBuilder extends AbstractExcelView
     rowCount++;
     aRow = sheet.createRow(rowCount++);
 
-    //+3 perchè aggiunte opere danneggiate
+    //+3 perchï¿½ aggiunte opere danneggiate
     
     countCol = 7+3+optional;
     aRow.createCell(countCol).setCellValue(totImportoUnitario.doubleValue());

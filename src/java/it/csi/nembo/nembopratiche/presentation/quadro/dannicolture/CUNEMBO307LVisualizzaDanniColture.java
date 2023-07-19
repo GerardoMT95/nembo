@@ -132,7 +132,7 @@ public class CUNEMBO307LVisualizzaDanniColture extends BaseController
 	  public List<DanniColtureDTO> getListDanniColture(HttpSession session, Model model) throws InternalUnexpectedException
 	  {
 		  long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
-		  List<DanniColtureDTO> danniColture = quadroNemboEJB.getListDanniColture(idProcedimentoOggetto,getIdProcedimento(session));
-		  return danniColture;
+		
+		  return quadroNemboEJB.getListDanniColture(idProcedimentoOggetto,getIdProcedimento(session));
 	  }
 }

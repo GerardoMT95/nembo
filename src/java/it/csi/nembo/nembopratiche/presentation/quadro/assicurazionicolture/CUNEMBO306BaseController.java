@@ -152,8 +152,8 @@ public abstract class CUNEMBO306BaseController extends BaseController
 			  Model model,
 			  @PathVariable("idProvincia") String idProvincia) throws InternalUnexpectedException
 	  {
-		  List<DecodificaDTO<Integer>> listConsorzi = quadroNemboEJB.getListConsorzi(idProvincia);
-		  return listConsorzi;
+		  return = quadroNemboEJB.getListConsorzi(idProvincia);
+	
 	  }
 	  
 	  @RequestMapping(value="/get_list_assicurazioni_colture", method = RequestMethod.GET, produces = "application/json")

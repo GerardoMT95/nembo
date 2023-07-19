@@ -66,8 +66,8 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     CellRangeAddress cellRangeAddressProgressivo = null;
 
     // create style for header cells
-    HSSFCellStyle style = ((HSSFWorkbook) workbook).createCellStyle();
-    HSSFPalette palette = ((HSSFWorkbook) workbook).getCustomPalette();
+    HSSFCellStyle style = (  workbook).createCellStyle();
+    HSSFPalette palette = (  workbook).getCustomPalette();
     // palette.setColorAtIndex((short)57, (byte)224, (byte)233, (byte)242); //
     // color #E0E9F2
 
@@ -81,14 +81,14 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 
     // create style for header cells
-    HSSFCellStyle styleCenter = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleCenter = (  workbook).createCellStyle();
     styleCenter.setFillForegroundColor(palette.getColor(57).getIndex());
     styleCenter.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
     styleCenter.setAlignment(HSSFCellStyle.ALIGN_CENTER);
     styleCenter.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
     // font riga totali arancio
-    HSSFCellStyle styleValTotaleParziale = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValTotaleParziale = (  workbook)
         .createCellStyle();
     Font font34 = workbook.createFont();
     font34.setFontName("Century Gothic");
@@ -106,7 +106,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleValTotaleParziale.setBorderRight(CellStyle.BORDER_THIN);
 
     // create style for header cells
-    HSSFCellStyle styleCenterProgr = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleCenterProgr = (  workbook)
         .createCellStyle();
     styleCenterProgr.setFillForegroundColor(HSSFColor.AQUA.index);
     styleCenterProgr.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
@@ -114,19 +114,19 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleCenterProgr.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 
     // create style for header cells
-    HSSFCellStyle styleLeft = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleLeft = (  workbook).createCellStyle();
     styleLeft.setFillForegroundColor(palette.getColor(57).getIndex());
     styleLeft.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
     styleLeft.setAlignment(HSSFCellStyle.ALIGN_LEFT);
 
     // create style for header cells
-    HSSFCellStyle styleLeftInterv = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleLeftInterv = (  workbook).createCellStyle();
     styleLeftInterv.setFillForegroundColor(HSSFColor.AQUA.index);
     styleLeftInterv.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
     styleLeftInterv.setAlignment(HSSFCellStyle.ALIGN_LEFT);
 
     // font riga totali
-    HSSFCellStyle styleValTotale = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValTotale = (  workbook).createCellStyle();
     Font font33 = workbook.createFont();
     font33.setFontName("Century Gothic");
     font33.setFontHeight((short) (9 * 20));
@@ -142,7 +142,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleValTotale.setBorderLeft(CellStyle.BORDER_THIN);
     styleValTotale.setBorderRight(CellStyle.BORDER_THIN);
     // font intestazione
-    HSSFCellStyle styleValDefIntestazione = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValDefIntestazione = (  workbook)
         .createCellStyle();
     Font font31 = workbook.createFont();
     font31.setFontName("Century Gothic");
@@ -152,7 +152,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleValDefIntestazione.setFont(font31);
 
     // font intestazione rosso italico
-    HSSFCellStyle styleValDefIntestazioneRed = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValDefIntestazioneRed = (  workbook)
         .createCellStyle();
     Font font32 = workbook.createFont();
 
@@ -182,7 +182,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleCenter.setFont(font);
 
     // CELL STYLE PER I VALORI
-    HSSFCellStyle styleVal = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleVal = (  workbook).createCellStyle();
     Font font2 = workbook.createFont();
     font2.setFontName("Century Gothic");
     styleVal.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
@@ -195,7 +195,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleVal.setFont(font2);
 
     // CELL STYLE GENERICO, DI DEFAULT
-    HSSFCellStyle styleValDef = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValDef = (  workbook).createCellStyle();
     Font font3 = workbook.createFont();
     font3.setFontName("Century Gothic");
     styleValDef.setWrapText(true);
@@ -208,7 +208,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     font3.setColor(HSSFColor.BLACK.index);
     styleValDef.setFont(font3);
 
-    HSSFCellStyle styleValDefCenter = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValDefCenter = (  workbook)
         .createCellStyle();
     font3 = workbook.createFont();
     font3.setFontName("Century Gothic");
@@ -219,13 +219,13 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     font3.setColor(HSSFColor.BLACK.index);
     styleValDefCenter.setFont(font3);
 
-    HSSFCellStyle styleValDefNoBorder = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValDefNoBorder = (  workbook)
         .createCellStyle();
     styleValDefNoBorder.setWrapText(true);
     styleValDefNoBorder.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
     styleValDefNoBorder.setFont(font3);
 
-    HSSFCellStyle styleValRedNoBorder = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValRedNoBorder = (  workbook)
         .createCellStyle();
     Font font4 = workbook.createFont();
     font4.setFontName("Century Gothic");
@@ -235,7 +235,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
     styleValRedNoBorder.setFont(font4);
 
     // CELL STYLE NUMERI
-    HSSFCellStyle styleValNumber = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValNumber = (  workbook).createCellStyle();
     Font font5 = workbook.createFont();
     font5.setFontName("Century Gothic");
     styleValNumber.setWrapText(true);
@@ -252,7 +252,7 @@ public class RicercaDocumentiExcelBuilder extends AbstractExcelView
         workbook.createDataFormat().getFormat("#,###,###,###,#0.00"));
 
     // CELL STYLE NUMERI
-    HSSFCellStyle styleValNumberCenter = ((HSSFWorkbook) workbook)
+    HSSFCellStyle styleValNumberCenter = (  workbook)
         .createCellStyle();
     font5 = workbook.createFont();
     font5.setFontName("Century Gothic");

@@ -55,8 +55,8 @@ public class CUNEMBO305DDettaglioColtureAziendali extends CUNEMBO305BaseControll
 			  @PathVariable("idSuperficieColtura") long idSuperficieColtura) throws InternalUnexpectedException
 	  {
 		  long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
-		  List<ColtureAziendaliDettaglioDTO> listSuperficiColtureDettaglio = quadroNemboEJB.getListColtureAziendali(idProcedimentoOggetto);
-		  return listSuperficiColtureDettaglio;
+		  return = quadroNemboEJB.getListColtureAziendali(idProcedimentoOggetto);
+
 	  }
 	  
 	  @RequestMapping(value = "/get_list_dettaglio_particellare_superfici_colture_{idSuperficieColtura}.json", method = RequestMethod.GET, produces = "application/json")

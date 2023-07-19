@@ -45,8 +45,8 @@ public class ExcelBuilderReport extends AbstractExcelView
     sheet.setDefaultColumnWidth(30);
 
     // create style for header cells
-    HSSFCellStyle style = ((HSSFWorkbook) workbook).createCellStyle();
-    HSSFPalette palette = ((HSSFWorkbook) workbook).getCustomPalette();
+    HSSFCellStyle style = (  workbook).createCellStyle();
+    HSSFPalette palette = (  workbook).getCustomPalette();
     // palette.setColorAtIndex((short)57, (byte)224, (byte)233, (byte)242); //
     // color #E0E9F2
 
@@ -77,7 +77,7 @@ public class ExcelBuilderReport extends AbstractExcelView
     style.setFont(font);
 
     // CELL STYLE PER I VALORI
-    HSSFCellStyle styleVal = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleVal = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     // style.setFillForegroundColor(HSSFColor.LIGHT_BLUE.index);
@@ -91,7 +91,7 @@ public class ExcelBuilderReport extends AbstractExcelView
     styleVal.setFont(font);
 
     // CELL STYLE PER I VALORI
-    HSSFCellStyle styleValNumber = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValNumber = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     styleValNumber.setVerticalAlignment(HSSFCellStyle.VERTICAL_TOP);
@@ -106,7 +106,7 @@ public class ExcelBuilderReport extends AbstractExcelView
         workbook.createDataFormat().getFormat("#,###,###,###,#.####"));
 
     // CELL STYLE GENERICO, DI DEFAULT
-    HSSFCellStyle styleValDef = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValDef = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     styleValDef.setBorderBottom(CellStyle.BORDER_THIN);
@@ -119,7 +119,7 @@ public class ExcelBuilderReport extends AbstractExcelView
     int col = -1;
     int rowCount = 0;
 
-    HSSFCellStyle styleTitle = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleTitle = (  workbook).createCellStyle();
     styleTitle.setWrapText(true);
     styleTitle.setBorderBottom(CellStyle.BORDER_THIN);
     styleTitle.setBorderTop(CellStyle.BORDER_THIN);
@@ -150,7 +150,7 @@ public class ExcelBuilderReport extends AbstractExcelView
     }
     // create values
     HSSFRow aRow;
-    HSSFCellStyle styleWrap = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleWrap = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     styleWrap.setBorderBottom(CellStyle.BORDER_THIN);

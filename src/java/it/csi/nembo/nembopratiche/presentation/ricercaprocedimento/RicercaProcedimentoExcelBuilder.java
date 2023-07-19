@@ -43,8 +43,8 @@ public class RicercaProcedimentoExcelBuilder extends AbstractExcelView
     sheet.setDefaultColumnWidth(30);
 
     // create style for header cells
-    HSSFCellStyle style = ((HSSFWorkbook) workbook).createCellStyle();
-    HSSFPalette palette = ((HSSFWorkbook) workbook).getCustomPalette();
+    HSSFCellStyle style = (  workbook).createCellStyle();
+    HSSFPalette palette = (  workbook).getCustomPalette();
     // palette.setColorAtIndex((short)57, (byte)224, (byte)233, (byte)242); //
     // color #E0E9F2
 
@@ -73,7 +73,7 @@ public class RicercaProcedimentoExcelBuilder extends AbstractExcelView
     style.setFont(font);
 
     // CELL STYLE PER I VALORI
-    HSSFCellStyle styleVal = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleVal = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     // style.setFillForegroundColor(HSSFColor.LIGHT_BLUE.index);
@@ -88,7 +88,7 @@ public class RicercaProcedimentoExcelBuilder extends AbstractExcelView
     styleVal.setFont(font);
 
     // CELL STYLE GENERICO, DI DEFAULT
-    HSSFCellStyle styleValDef = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValDef = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     styleValDef.setWrapText(true);
@@ -101,7 +101,7 @@ public class RicercaProcedimentoExcelBuilder extends AbstractExcelView
     styleValDef.setFont(font);
 
     // CELL STYLE NUMERI
-    HSSFCellStyle styleValNumber = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValNumber = (  workbook).createCellStyle();
     font = workbook.createFont();
     font.setFontName("Arial");
     styleValNumber.setWrapText(true);

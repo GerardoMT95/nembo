@@ -46,8 +46,8 @@ public class CUNEMBO310SegnalazioneDanniColture extends BaseController
 	  public List<RigaSegnalazioneDannoDTO> getListDanniColture(HttpSession session, Model model) throws InternalUnexpectedException
 	  {
 		  long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
-		  List<RigaSegnalazioneDannoDTO> danniColture = quadroEJB.getSegnalazioneDanno(idProcedimentoOggetto,null).getElencoDanni();
-		  return danniColture;
+		  return quadroEJB.getSegnalazioneDanno(idProcedimentoOggetto,null).getElencoDanni();
+	
 	  }
 	 
 	  

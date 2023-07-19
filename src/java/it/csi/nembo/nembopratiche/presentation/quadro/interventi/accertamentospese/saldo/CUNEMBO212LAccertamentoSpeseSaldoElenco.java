@@ -77,8 +77,7 @@ public class CUNEMBO212LAccertamentoSpeseSaldoElenco
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<RigaAccertamentoSpese> elenco = rendicontazioneEAccertamentoSpeseEJB
-        .getElencoAccertamentoSpese(getIdProcedimentoOggetto(session), null);
-    return elenco;
+   
+    return rendicontazioneEAccertamentoSpeseEJB.getElencoAccertamentoSpese(getIdProcedimentoOggetto(session), null);
   }
 }

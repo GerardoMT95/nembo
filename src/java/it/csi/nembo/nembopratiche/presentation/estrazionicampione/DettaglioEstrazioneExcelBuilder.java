@@ -31,7 +31,7 @@ public class DettaglioEstrazioneExcelBuilder extends AbstractExcelView
   {
 
     // CELL STYLE GENERICO, DI DEFAULT
-    HSSFCellStyle styleValDef = ((HSSFWorkbook) workbook).createCellStyle();
+    HSSFCellStyle styleValDef = (  workbook).createCellStyle();
     Font font = workbook.createFont();
     font = workbook.createFont();
     font.setFontName("Arial");
@@ -47,8 +47,8 @@ public class DettaglioEstrazioneExcelBuilder extends AbstractExcelView
         .setDataFormat(workbook.createDataFormat().getFormat("#,##0.00"));
     styleCurrency.setFont(font);
 
-    HSSFCellStyle styleHeaderTab = ((HSSFWorkbook) workbook).createCellStyle();
-    HSSFPalette palette = ((HSSFWorkbook) workbook).getCustomPalette();
+    HSSFCellStyle styleHeaderTab = (  workbook).createCellStyle();
+    HSSFPalette palette = (  workbook).getCustomPalette();
     palette.setColorAtIndex((short) 57, (byte) 66, (byte) 139, (byte) 202); // color
                                                                             // #428BCA
     palette.setColorAtIndex((short) 58, (byte) 211, (byte) 211, (byte) 211); // color
