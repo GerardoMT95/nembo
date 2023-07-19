@@ -122,7 +122,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
           riga);
       if (numRecord == 0)
       {
-        // Se non ho aggiornato nessun record vuol dire che il record non c'è
+        // Se non ho aggiornato nessun record vuol dire che il record non c'ï¿½
         // ==> lo inserisco
         dao.insertRendicontazioneSpese(idProcedimentoOggetto, riga);
       }
@@ -145,7 +145,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
       int numRecord = dao.updateAccertamentoSpese(idProcedimentoOggetto, riga);
       if (numRecord == 0)
       {
-        // Se non ho aggiornato nessun record vuol dire che il record non c'è
+        // Se non ho aggiornato nessun record vuol dire che il record non c'ï¿½
         // ==> lo inserisco
         dao.insertAccertamentoSpese(idProcedimentoOggetto, riga);
       }
@@ -161,7 +161,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
     /*
      * Prima di fare i conteggi del contributo erogabile e del non erogabile
      * verifico se devono essere assegnate delle sanzioni e/o riduzioni che ne
-     * influenzerebbero i valori Cioè se il
+     * influenzerebbero i valori Cioï¿½ se il
      * "Contributo non riconosciuto sanzionabile" (totale) supera del 10% il
      * "Contributo calcolato" (totale) allora devo inserire una sanzione su ogni
      * livello con valore pari all'aggregato (ovviamente per livello) del
@@ -178,7 +178,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
     unsplitSanzioni(idProcedimentoOggetto);
 
     /*
-     * 1) elimino le eventuali sanzioni già inserite
+     * 1) elimino le eventuali sanzioni giï¿½ inserite
      */
     dao.deleteSanzioniAccertamentoAutomatiche(idProcedimentoOggetto);
     /*
@@ -187,7 +187,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
     dao.insertSanzioniAutomaticheAccertamento(idProcedimentoOggetto);
     /*
      * 3) Aggiorno NEMBO_R_PROCEDIMENTO_OGG_LIVEL.SANZIONI con la sommatoria
-     * NEMBO_T_PROC_OGGETTO_SANZIONE.IMPORTO per l’ID_LIVELLO
+     * NEMBO_T_PROC_OGGETTO_SANZIONE.IMPORTO per lï¿½ID_LIVELLO
      */
     dao.updateRProcedimentoOggettoSanzione(idProcedimentoOggetto);
 
@@ -211,7 +211,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
       int numRecord = dao.updateAccertamentoSpese(idProcedimentoOggetto, riga);
       if (numRecord == 0)
       {
-        // Se non ho aggiornato nessun record vuol dire che il record non c'è
+        // Se non ho aggiornato nessun record vuol dire che il record non c'ï¿½
         // ==> lo inserisco
         dao.insertAccertamentoSpese(idProcedimentoOggetto, riga);
       }
@@ -227,7 +227,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
     /*
      * Prima di fare i conteggi del contributo erogabile e del non erogabile
      * verifico se devono essere assegnate delle sanzioni e/o riduzioni che ne
-     * influenzerebbero i valori Cioè se il
+     * influenzerebbero i valori Cioï¿½ se il
      * "Contributo non riconosciuto sanzionabile" (totale) supera del 10% il
      * "Contributo calcolato" (totale) allora devo inserire una sanzione su ogni
      * livello con valore pari all'aggregato (ovviamente per livello) del
@@ -244,7 +244,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
     unsplitSanzioni(idProcedimentoOggetto);
 
     /*
-     * 1) elimino le eventuali sanzioni già inserite
+     * 1) elimino le eventuali sanzioni giï¿½ inserite
      */
     dao.deleteSanzioniAccertamentoAutomatiche(idProcedimentoOggetto);
     /*
@@ -253,7 +253,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
     dao.insertSanzioniAutomaticheAccertamento(idProcedimentoOggetto);
     /*
      * 3) Aggiorno NEMBO_R_PROCEDIMENTO_OGG_LIVEL.SANZIONI con la sommatoria
-     * NEMBO_T_PROC_OGGETTO_SANZIONE.IMPORTO per l’ID_LIVELLO
+     * NEMBO_T_PROC_OGGETTO_SANZIONE.IMPORTO per lï¿½ID_LIVELLO
      */
     dao.updateRProcedimentoOggettoSanzione(idProcedimentoOggetto);
 
@@ -305,7 +305,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
   }
 
   /**
-   * Metodo di utilità da richiamare da altri ejb per aggiornare i totali per
+   * Metodo di utilitï¿½ da richiamare da altri ejb per aggiornare i totali per
    * livello su NEMBO_R_PROCEDIMENTO_OGG_LIVEL
    * 
    * @param idProcedimentoOggetto
@@ -440,28 +440,28 @@ public class RendicontazioneEAccertamentoSpeseEJB
       if (percentuale == null)
       {
         throw new ApplicationException(
-            "Errore bloccante grave, si prega di contattare l'assistenza tecnica e comunicare il seguente messaggio: Formato VALORE PARAMETRO per controllo REN01 non corretto, la prima percentuale non è un numero valido");
+            "Errore bloccante grave, si prega di contattare l'assistenza tecnica e comunicare il seguente messaggio: Formato VALORE PARAMETRO per controllo REN01 non corretto, la prima percentuale non ï¿½ un numero valido");
       }
       return percentuale;
     }
     else
     {
       // Ci sono 2 percentuali ==> la seconda vale solo per le aziende il cui
-      // tipo è indicato nel parametro
+      // tipo ï¿½ indicato nel parametro
       // ID_TP_ENTE_PUBBLICO
       BigDecimal percentuale1 = NemboUtils.NUMBERS
           .getBigDecimal(percentuali[0]);
       if (percentuale1 == null)
       {
         throw new ApplicationException(
-            "Errore bloccante grave, si prega di contattare l'assistenza tecnica e comunicare il seguente messaggio: Formato VALORE PARAMETRO per controllo REN01 non corretto, la prima percentuale non è un numero valido");
+            "Errore bloccante grave, si prega di contattare l'assistenza tecnica e comunicare il seguente messaggio: Formato VALORE PARAMETRO per controllo REN01 non corretto, la prima percentuale non ï¿½ un numero valido");
       }
       BigDecimal percentuale2 = NemboUtils.NUMBERS
           .getBigDecimal(percentuali[1]);
       if (percentuale2 == null)
       {
         throw new ApplicationException(
-            "Errore bloccante grave, si prega di contattare l'assistenza tecnica e comunicare il seguente messaggio: Formato VALORE PARAMETRO per controllo REN01 non corretto, la seconda percentuale non è un numero valido");
+            "Errore bloccante grave, si prega di contattare l'assistenza tecnica e comunicare il seguente messaggio: Formato VALORE PARAMETRO per controllo REN01 non corretto, la seconda percentuale non ï¿½ un numero valido");
       }
       return dao.isAziendaAttualmenteTipoEntePubblico(idProcedimento)
           ? percentuale2 : percentuale1;
@@ -568,7 +568,7 @@ public class RendicontazioneEAccertamentoSpeseEJB
         .findIdWDettIntervProcOgg(idProcedimentoOggetto, idIntervento);
     if (idDettIntervProcOgg == null)
     {
-      // Peccato, non è sulla temporanea, devo duplicarlo dal consolidato sulla
+      // Peccato, non ï¿½ sulla temporanea, devo duplicarlo dal consolidato sulla
       // temporanea.
       Long idDettaglioIntervento = dao.findIdDettaglioMisurazioneIntervento(
           idProcedimentoOggetto, idIntervento);
@@ -692,8 +692,8 @@ public class RendicontazioneEAccertamentoSpeseEJB
             // Per qualche motivo la somma di
             // NEMBO_R_DOC_SPESA_INT_PROC_OGG.IMPORTO_RENDICONTATO per lo stesso
             // ID_DOCUMENTO_SPESA_INTERVEN supera l'importo di
-            // NEMBO_R_DOCUMENTO_SPESA_INTERV ==> Può essere un problema
-            // di concorrenza o di altra natura ma non è una situazione
+            // NEMBO_R_DOCUMENTO_SPESA_INTERV ==> Puï¿½ essere un problema
+            // di concorrenza o di altra natura ma non ï¿½ una situazione
             // ammissibile! ==> ROLLBACK e segnalazione
             // all'utente
             throw new ApplicationException(
@@ -720,12 +720,12 @@ public class RendicontazioneEAccertamentoSpeseEJB
       final ArrayList<Long> idsAggiornamento = new ArrayList<>(
           mapIdDocumentiSpesaDaAggiornare.keySet());
       idsEliminazione.addAll(idsAggiornamento);
-      if (idsEliminazione != null && idsEliminazione.size() > 0)
+      if (idsEliminazione != null && idsEliminazione.isNotEmpty())
       {
         dao.deleteDocSpesaProcOggPerProcedimentoOggettoByIdDocumentoSpesaList(
             idProcedimentoOggetto, idsEliminazione);
       }
-      if (idsAggiornamento.size() > 0)
+      if (idsAggiornamento.isNotEmpty())
       {
         dao.insertDocSpesaProcOgg(idProcedimentoOggetto, idsAggiornamento);
       }

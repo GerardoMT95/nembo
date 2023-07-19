@@ -9,7 +9,7 @@ import it.csi.nembo.nembopratiche.util.validator.Errors;
 
 public abstract class MultipleValuesValidator
 {
-  public static final Map<String, MultipleValuesValidator> MAP_VALIDATORS = new HashMap<String, MultipleValuesValidator>();
+  public static final Map<String, MultipleValuesValidator> MAP_VALIDATORS = new HashMap<>();
 
   public abstract String[] validate(ElementoQuadroDTO elemento, String[] valori,
       String nomeParametro, Errors errors);

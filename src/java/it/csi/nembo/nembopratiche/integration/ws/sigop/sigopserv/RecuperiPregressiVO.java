@@ -49,7 +49,7 @@ public class RecuperiPregressiVO
   protected List<RecuperoPregressoVO> listaRecuperi;
 
   /**
-   * Recupera il valore della proprietà cuaa.
+   * Recupera il valore della proprietï¿½ cuaa.
    * 
    * @return possible object is {@link String }
    * 
@@ -60,7 +60,7 @@ public class RecuperiPregressiVO
   }
 
   /**
-   * Imposta il valore della proprietà cuaa.
+   * Imposta il valore della proprietï¿½ cuaa.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -72,7 +72,7 @@ public class RecuperiPregressiVO
   }
 
   /**
-   * Recupera il valore della proprietà esitoServizio.
+   * Recupera il valore della proprietï¿½ esitoServizio.
    * 
    * @return possible object is {@link EsitoServizioVO }
    * 
@@ -83,7 +83,7 @@ public class RecuperiPregressiVO
   }
 
   /**
-   * Imposta il valore della proprietà esitoServizio.
+   * Imposta il valore della proprietï¿½ esitoServizio.
    * 
    * @param value
    *          allowed object is {@link EsitoServizioVO }
@@ -121,7 +121,7 @@ public class RecuperiPregressiVO
   {
     if (listaRecuperi == null)
     {
-      listaRecuperi = new ArrayList<RecuperoPregressoVO>();
+      listaRecuperi = new ArrayList<>();
     }
     return this.listaRecuperi;
   }

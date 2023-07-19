@@ -101,7 +101,7 @@ public class InsertProtocolloRequestVO {
      */
     public List<DocumentoVO> getAllegato() {
         if (allegato == null) {
-            allegato = new ArrayList<DocumentoVO>();
+            allegato = new ArrayList<>();
         }
         return this.allegato;
     }
@@ -178,7 +178,7 @@ public class InsertProtocolloRequestVO {
      */
     public List<DestinatarioVO> getDestinatari() {
         if (destinatari == null) {
-            destinatari = new ArrayList<DestinatarioVO>();
+            destinatari = new ArrayList<>();
         }
         return this.destinatari;
     }

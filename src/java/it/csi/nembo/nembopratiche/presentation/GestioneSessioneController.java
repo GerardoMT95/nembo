@@ -43,7 +43,7 @@ public class GestioneSessioneController extends BaseController
         .getAttribute(NemboConstants.GENERIC.SESSION_VAR_FILTER_AZIENDA);
     if (mapFilters == null)
     {
-      mapFilters = new HashMap<String, String>();
+      mapFilters = new HashMap<>();
     }
 
     if (mapFilters.containsKey(key))
@@ -83,7 +83,7 @@ public class GestioneSessioneController extends BaseController
       }
       else
       {
-        HashMap<String, Boolean> vCols = new HashMap<String, Boolean>();
+        HashMap<String, Boolean> vCols = new HashMap<>();
         vCols.put(field, true);
         hColumns.put(key, vCols);
       }
@@ -97,7 +97,7 @@ public class GestioneSessioneController extends BaseController
         }
         else
         {
-          HashMap<String, Boolean> vCols = new HashMap<String, Boolean>();
+          HashMap<String, Boolean> vCols = new HashMap<>();
           vCols.put(field, false);
           hColumns.put(key, vCols);
         }
@@ -121,7 +121,7 @@ public class GestioneSessioneController extends BaseController
 		/*IMPOSTO INFO LEGATE ALLA COLONNA PER CUI SI SALVA L'ORDINAMENTO*/
 		HashMap<String, String> mapFilters = (HashMap<String, String>)session.getAttribute(NemboConstants.GENERIC.SESSION_VAR_COLONNA_ORDINAMENTO);
 		if(mapFilters==null){
-			mapFilters = new HashMap<String, String>();
+			mapFilters = new HashMap<>();
 		}
 		
 		if(mapFilters.containsKey(key))
@@ -138,7 +138,7 @@ public class GestioneSessioneController extends BaseController
 		/*IMPOSTO INFO LEGATE AL TIPO DI ORDINAMENTO */
 		HashMap<String, String> mapFiltersOrd = (HashMap<String, String>)session.getAttribute(NemboConstants.GENERIC.SESSION_VAR_TIPO_ORDINAMENTO);
 		if(mapFiltersOrd==null){
-			mapFiltersOrd = new HashMap<String, String>();
+			mapFiltersOrd = new HashMap<>();
 		}
 		
 		if(mapFiltersOrd.containsKey(key))
@@ -168,7 +168,7 @@ public class GestioneSessioneController extends BaseController
         .getAttribute(NemboConstants.GENERIC.SESSION_VAR_NUMERO_PAGINA);
     if (mapFilters == null)
     {
-      mapFilters = new HashMap<String, String>();
+      mapFilters = new HashMap<>();
     }
 
     if (mapFilters.containsKey(key))
@@ -213,7 +213,7 @@ public class GestioneSessioneController extends BaseController
       }
       else
       {
-        HashMap<String, Boolean> vCols = new HashMap<String, Boolean>();
+        HashMap<String, Boolean> vCols = new HashMap<>();
         vCols.put(field, true);
         hColumns.put(key, vCols);
       }
@@ -227,7 +227,7 @@ public class GestioneSessioneController extends BaseController
         }
         else
         {
-          HashMap<String, Boolean> vCols = new HashMap<String, Boolean>();
+          HashMap<String, Boolean> vCols = new HashMap<>();
           vCols.put(field, false);
           hColumns.put(key, vCols);
         }

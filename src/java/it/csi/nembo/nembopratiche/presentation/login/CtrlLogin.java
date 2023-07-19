@@ -168,7 +168,7 @@ public class CtrlLogin
           NemboConstants.GENERIC.SESSION_VAR_COLONNE_NASCOSTE,
           new MapColonneNascosteVO());
       session.setAttribute(NemboConstants.GENERIC.SESSION_VAR_FILTER_AZIENDA,
-          new HashMap<String, String>());
+          new HashMap<>());
 
       Map<String, String> mapParametri = NemboUtils.APPLICATION
           .getEjbQuadro().getParametri(new String[]

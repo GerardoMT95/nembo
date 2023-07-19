@@ -159,7 +159,7 @@
 			let allUnchecked = true;
 			$("input[name="+checkboxesName+"]").each(function() 
 			{
-				if ($(this).prop("checked") == true) 
+				if ($(this).prop("checked")) 
 				{
 					allUnchecked = false;
 				}

@@ -890,9 +890,9 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
             {
               if (rs.next())
               {
-                Boolean result = Boolean.valueOf(
+                return Boolean.valueOf(
                     BigDecimal.ZERO.compareTo(rs.getBigDecimal(1)) <= 0);
-                return result;
+              
               }
               else
               {
@@ -1011,9 +1011,9 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
             {
               if (rs.next())
               {
-                Boolean result = Boolean.valueOf(
+                return Boolean.valueOf(
                     BigDecimal.ZERO.compareTo(rs.getBigDecimal(1)) <= 0);
-                return result;
+       
               }
               else
               {
@@ -2091,9 +2091,9 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
             {
               ArrayList<RiduzioniSanzioniDTO> list = new ArrayList<>();
               RiduzioniSanzioniDTO riduzione = null;
-              long idTipologia = 0l;
+              long idTipologia;
               long idTipologiaOld = -1l;
-              long idOperazione = 0l;
+              long idOperazione;
               long idOperazioneOld = -1l;
               while (rs.next())
               {
@@ -2103,8 +2103,7 @@ public class RendicontazioneEAccertamentoSpeseDAO extends InterventiBaseDAO
                 if (idOperazione != idOperazioneOld
                     || idTipologiaOld != idTipologia)
                 {
-                  riduzione = new RiduzioniSanzioniDTO();
-
+                 
                   riduzione = new RiduzioniSanzioniDTO();
                   riduzione
                       .setIdProcOggSanzione(rs.getLong("ID_PROC_OGG_SANZIONE"));

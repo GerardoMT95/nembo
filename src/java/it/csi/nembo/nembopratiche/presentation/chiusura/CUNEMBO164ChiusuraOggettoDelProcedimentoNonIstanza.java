@@ -116,11 +116,11 @@ public class CUNEMBO164ChiusuraOggettoDelProcedimentoNonIstanza
           }
         case NemboConstants.SQL.RESULT_CODE.ERRORE_CRITICO:
           return error(model,
-              "<br />Si è verificato un errore di sistema nell'esecuzione dei controlli. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
+              "<br />Si ï¿½ verificato un errore di sistema nell'esecuzione dei controlli. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
                   + result.getMessaggio());
         default:
           return error(model,
-              "<br />Si è verificato un problema grave nell'esecuzione dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica.");
+              "<br />Si ï¿½ verificato un problema grave nell'esecuzione dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica.");
       }
     }
     catch (ApplicationException e)
@@ -139,7 +139,7 @@ public class CUNEMBO164ChiusuraOggettoDelProcedimentoNonIstanza
         ((procedimentoOggetto.getDataFine() != null)
             ? procedimentoOggetto.getDataFine() : new Date()),
         true, true);
-    if (fonteControlloDTOList.size() > 0)
+    if (fonteControlloDTOList.isNotEmpty())
     {
       for (FonteControlloDTO fonte : fonteControlloDTOList)
       {
@@ -203,14 +203,14 @@ public class CUNEMBO164ChiusuraOggettoDelProcedimentoNonIstanza
         idEsito = quadroEJB.getIdEsitoEquivalente(idEsito, tipoEsito);
         if (idEsito == null)
         {
-          // Questo è un errore di configurazione, se esiste un idEsito finale e
-          // quindi è stato previsto il quadro esito finale DEVE ESSERE STATO
+          // Questo ï¿½ un errore di configurazione, se esiste un idEsito finale e
+          // quindi ï¿½ stato previsto il quadro esito finale DEVE ESSERE STATO
           // CONFIGURATO su db l'esito equivalente ==> Segnalo l'errore
           throw new ApplicationException(
               NemboConstants.GENERIC_ERRORS.ERRORE_DI_SISTEMA
-                  + ". Per procedere con la chiusura è necessario contattare"
+                  + ". Per procedere con la chiusura ï¿½ necessario contattare"
                   + " l'assistenza tecnica comunicando il seguente messaggio: "
-                  + "Errata configurazione delle decodifiche degli esiti finali, non è stato trovato un esito equivalente di tipo \""
+                  + "Errata configurazione delle decodifiche degli esiti finali, non ï¿½ stato trovato un esito equivalente di tipo \""
                   + tipoEsito +
                   "\" per l'id esito " + esito.getIdEsito());
         }
@@ -232,14 +232,14 @@ public class CUNEMBO164ChiusuraOggettoDelProcedimentoNonIstanza
             tipoEsito);
         if (idEsito == null)
         {
-          // Questo è un errore di configurazione, se esiste un idEsito finale e
-          // quindi è stato previsto il quadro esito finale DEVE ESSERE STATO
+          // Questo ï¿½ un errore di configurazione, se esiste un idEsito finale e
+          // quindi ï¿½ stato previsto il quadro esito finale DEVE ESSERE STATO
           // CONFIGURATO su db l'esito equivalente ==> Segnalo l'errore
           throw new ApplicationException(
               NemboConstants.GENERIC_ERRORS.ERRORE_DI_SISTEMA
-                  + ". Per procedere con la chiusura è necessario contattare"
+                  + ". Per procedere con la chiusura ï¿½ necessario contattare"
                   + " l'assistenza tecnica comunicando il seguente messaggio: "
-                  + "Errata configurazione delle decodifiche degli esiti finali, non è stato trovato un esito equivalente di tipo \""
+                  + "Errata configurazione delle decodifiche degli esiti finali, non ï¿½ stato trovato un esito equivalente di tipo \""
                   + tipoEsito +
                   "\" per l'id esito " + esito.getIdEsito());
         }
@@ -287,7 +287,7 @@ public class CUNEMBO164ChiusuraOggettoDelProcedimentoNonIstanza
       case NemboConstants.SQL.RESULT_CODE.ERRORE_CRITICO:
         return error(
             model,
-            "<br />Si è verificato un errore di sistema. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
+            "<br />Si ï¿½ verificato un errore di sistema. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
                 + result.getDescrizione());
       case NemboConstants.SQL.RESULT_CODE.ERRORE_GRAVE:
         return error(
@@ -297,7 +297,7 @@ public class CUNEMBO164ChiusuraOggettoDelProcedimentoNonIstanza
       default:
         return error(
             model,
-            "<br />Si è verificato un problema grave nel richiamo dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica comunicando il seguente messaggio: codice di errore non previsto "
+            "<br />Si ï¿½ verificato un problema grave nel richiamo dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica comunicando il seguente messaggio: codice di errore non previsto "
                 + result.getId());
     }
   }

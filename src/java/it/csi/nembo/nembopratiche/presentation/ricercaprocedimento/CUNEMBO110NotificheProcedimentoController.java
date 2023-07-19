@@ -44,7 +44,7 @@ public class CUNEMBO110NotificheProcedimentoController extends BaseController
     {
       for (NotificaDTO n : notifiche)
       {
-        List<Long> l = new LinkedList<Long>();
+        List<Long> l = new LinkedList<>();
         l.add(new Long(n.getIdUtente()));
         List<it.csi.papua.papuaserv.dto.gestioneutenti.UtenteLogin> utente = super.loadRuoloDescr(
             l);

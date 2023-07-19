@@ -163,7 +163,7 @@ public class RecordRubricaVO {
      */
     public List<String> getEmail() {
         if (email == null) {
-            email = new ArrayList<String>();
+            email = new ArrayList<>();
         }
         return this.email;
     }
@@ -192,7 +192,7 @@ public class RecordRubricaVO {
      */
     public List<String> getFax() {
         if (fax == null) {
-            fax = new ArrayList<String>();
+            fax = new ArrayList<>();
         }
         return this.fax;
     }
@@ -261,7 +261,7 @@ public class RecordRubricaVO {
      */
     public List<String> getTelefono() {
         if (telefono == null) {
-            telefono = new ArrayList<String>();
+            telefono = new ArrayList<>();
         }
         return this.telefono;
     }

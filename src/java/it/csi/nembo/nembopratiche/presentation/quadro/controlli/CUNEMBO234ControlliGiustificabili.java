@@ -141,7 +141,7 @@ public class CUNEMBO234ControlliGiustificabili extends BaseController
     model.addAttribute("controllo", controllo);
 
     long idUtenteLogin = giustificazione.getExtIdUtenteAggiornamento();
-    List<Long> l = new LinkedList<Long>();
+    List<Long> l = new LinkedList<>();
     l.add(idUtenteLogin);
     List<UtenteLogin> utenti = super.loadRuoloDescr(l);
     model.addAttribute("ultimaModifica",
@@ -213,7 +213,7 @@ public class CUNEMBO234ControlliGiustificabili extends BaseController
       if (flagFileObbligatorio.equals("S"))
       {
         errors.validateMandatory(nomeAllegato, "nomeAllegato");
-        // se non è modifica, ma inserimento, faccio il controllo che ci sia il
+        // se non ï¿½ modifica, ma inserimento, faccio il controllo che ci sia il
         // file
         if (!isModifica)
         {
@@ -224,7 +224,7 @@ public class CUNEMBO234ControlliGiustificabili extends BaseController
         }
         else
         {
-          // se è in modifica, non in inserimento, se il file esisteva già, ok,
+          // se ï¿½ in modifica, non in inserimento, se il file esisteva giï¿½, ok,
           // tengo quello e va bene cosi
           if (!hasFile && (fileAllegato == null || fileAllegato.isEmpty()))
           {
@@ -256,7 +256,7 @@ public class CUNEMBO234ControlliGiustificabili extends BaseController
 
       if (!isModifica)
       {
-        // se sono in inserimento, se c'è il nome deve esserci anche il file e
+        // se sono in inserimento, se c'ï¿½ il nome deve esserci anche il file e
         // viceversa
         if (nomeAllegato != null && nomeAllegato.compareTo("") != 0)
           if (fileAllegato == null || fileAllegato.getSize() == 0)
@@ -270,20 +270,20 @@ public class CUNEMBO234ControlliGiustificabili extends BaseController
       }
       else
       {
-        // se sono in modifica, se c'è il nome, o c'è il file o questo esisteva
-        // già
+        // se sono in modifica, se c'ï¿½ il nome, o c'ï¿½ il file o questo esisteva
+        // giï¿½
         if (nomeAllegato != null && nomeAllegato.compareTo("") != 0)
           if (!hasFile && (fileAllegato == null || fileAllegato.getSize() == 0))
             errors.addError("fileDaAllegare",
                 "E' stato inserito il nome del file. Inserire anche il file o rimuovere il nome.");
 
-        // se non c'è il file ma non il nome, errore
+        // se non c'ï¿½ il file ma non il nome, errore
         if (fileAllegato != null && fileAllegato.getSize() != 0
             && (nomeAllegato == null || nomeAllegato.compareTo("") == 0))
           errors.addError("nomeAllegato",
               "E' stato inserito il file. Inserire anche il nome.");
 
-        // se non c'è il nome ma c'è il file vero o preesistente
+        // se non c'ï¿½ il nome ma c'ï¿½ il file vero o preesistente
         String nomeFisicoHidden = request.getParameter("nomeFisicoHidden");
         if ((nomeAllegato == null || nomeAllegato.compareTo("") == 0)
             && nomeFisicoHidden != null && nomeFisicoHidden.compareTo("") != 0)

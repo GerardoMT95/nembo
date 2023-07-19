@@ -149,7 +149,7 @@
         if (!func && typeof name === 'string' && sprintf.apply(this, [name].concat(args))) {
             return sprintf.apply(this, [name].concat(args));
         }
-        if(self.escapeField !== undefined && self.escapeField == true)
+        if(self.escapeField !== undefined && self.escapeField)
         	return escapeHTML(defaultValue);
         else
         	return defaultValue;

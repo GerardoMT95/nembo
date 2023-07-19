@@ -376,7 +376,7 @@ public class CUNEMBO193RAccertamentoMedianteDocumentiSpesa
      * value.setNote(item.getNote()); } } }
      */
 
-    if (interventi != null && interventi.size() > 0)
+    if (interventi != null && interventi.isNotEmpty())
     {
       for (RigaAccertamentoSpese item : elenco)
       {

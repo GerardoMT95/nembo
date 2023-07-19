@@ -14,7 +14,7 @@ public class ReportVO implements Serializable
 
   public HashMap<String, Object> getJSON()
   {
-    HashMap<String, Object> json = new HashMap<String, Object>();
+    HashMap<String, Object> json = new HashMap<>();
     json.put("cols", colsDefinitions);
     json.put("rows", rowValues);
     return json;

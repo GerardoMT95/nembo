@@ -76,8 +76,8 @@
 		</script>
 	</c:forEach>
 	<script>
-//TODO: FIXME:	eventuale futura modifica al DB	 
-		 let idScortaAltro="${idScortaAltro}";
+
+	let idScortaAltro="${idScortaAltro}";
 		 function aggiornaUnitaDiMisura(idScortaMagazzino)
 		 {
 		 	let idScorta=$('#idScorta_'+idScortaMagazzino).val();

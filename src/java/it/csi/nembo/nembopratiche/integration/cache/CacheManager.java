@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CacheManager
 {
-  protected static final Map<String, TableMappingForUpdateByAnnotation> TABLES_FOR_UPDATE = new HashMap<String, TableMappingForUpdateByAnnotation>();
+  protected static final Map<String, TableMappingForUpdateByAnnotation> TABLES_FOR_UPDATE = new HashMap<>();
 
   public static TableMappingForUpdateByAnnotation getTableDefinitionForUpdate(
       Class<?> objClass)
@@ -30,7 +30,7 @@ public class CacheManager
       }
       else
       {
-        // Mapping già esistente
+        // Mapping giï¿½ esistente
       }
     }
     return mapping;

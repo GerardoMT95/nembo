@@ -128,7 +128,7 @@ public class CUNEMBO202MessaggiUtenteElencoGenerico
     }
     catch (Exception e)
     {
-
+      Logger.debug("eccezione!");
     }
     return "messaggistica/elenco/dettaglio";
   }

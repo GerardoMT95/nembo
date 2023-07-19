@@ -36,8 +36,8 @@ import it.csi.papua.papuaserv.dto.gestioneutenti.ws.UtenteAbilitazioni;
 @NemboSecurity(value = "N/A", controllo = NemboSecurity.Controllo.NESSUNO)
 public class ProcedimentoOggettoController extends BaseController
 {
-  private static final String ERRORE_PROCEDIMENTO_OGGETTO = "Il procedimento oggetto scelto non è valido";
-  private static final String ERRORE_PROCEDIMENTO_AGRICOLO = "Il procedimento selezionato si può gestire esclusivamente con l'applicativo "; 
+  private static final String ERRORE_PROCEDIMENTO_OGGETTO = "Il procedimento oggetto scelto non ï¿½ valido";
+  private static final String ERRORE_PROCEDIMENTO_AGRICOLO = "Il procedimento selezionato si puï¿½ gestire esclusivamente con l'applicativo "; 
 
   @Autowired
   IQuadroEJB                  quadroEJB                   = null;
@@ -111,7 +111,7 @@ public class ProcedimentoOggettoController extends BaseController
         }
       }
 
-      if (quadri.size() > 0)
+      if (quadri.isNotEmpty())
       {
         NemboFactory.setIdProcedimentoOggettoInSession(session,
             procedimentoOggetto.getIdProcedimentoOggetto(),
@@ -140,7 +140,7 @@ public class ProcedimentoOggettoController extends BaseController
       {
         NemboFactory.removeIdProcedimentoOggettoFromSession(session);
         throw new ApplicationException(
-            "L'utente corrente non è abilitato ad accedere ai dati dell'oggetto \""
+            "L'utente corrente non ï¿½ abilitato ad accedere ai dati dell'oggetto \""
                 + procedimentoOggetto.getDescrizione() + "\"");
       }
     }
@@ -177,7 +177,7 @@ public class ProcedimentoOggettoController extends BaseController
 
     model.addAttribute("titolo", "Errore");
     model.addAttribute("messaggio",
-        "Si è verificato un errore interno. Contattare l'assistenza comunicando il seguente messaggio: mapping di pagina non trovato per il quadro:"
+        "Si ï¿½ verificato un errore interno. Contattare l'assistenza comunicando il seguente messaggio: mapping di pagina non trovato per il quadro:"
             + procedimentoOggetto.getQuadri().get(0).getCodQuadro());
     return "errore/messaggio";
   }
@@ -220,7 +220,7 @@ public class ProcedimentoOggettoController extends BaseController
     if (azione2 == null)
     {
       throw new ApplicationException(
-          "L'utente corrente non è abilitato ad accedere ai dati dell'oggetto \""
+          "L'utente corrente non ï¿½ abilitato ad accedere ai dati dell'oggetto \""
               + procedimentoOggetto.getDescrizione() + "\"");
     }
     else
@@ -236,7 +236,7 @@ public class ProcedimentoOggettoController extends BaseController
       else
       {
         throw new ApplicationException(
-            "L'utente corrente non è abilitato ad accedere ai dati dell'oggetto \""
+            "L'utente corrente non ï¿½ abilitato ad accedere ai dati dell'oggetto \""
                 + procedimentoOggetto.getDescrizione() + "\"");
       }
     }

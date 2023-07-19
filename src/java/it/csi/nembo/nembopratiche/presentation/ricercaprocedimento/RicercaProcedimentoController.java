@@ -407,7 +407,7 @@ public class RicercaProcedimentoController extends BaseController
   {
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
-    HashMap<String, Object> values = new HashMap<String, Object>();
+    HashMap<String, Object> values = new HashMap<>();
     String[] idLivelli = request.getParameterValues("misura");
     String[] idEventi = request.getParameterValues("evento");
     String[] idBandi = request.getParameterValues("bando");
@@ -516,13 +516,13 @@ public class RicercaProcedimentoController extends BaseController
     List<ProcedimentoOggettoVO> elenco = ricercaEJB
         .searchProcedimenti(ricercaVO, utenteAbilitazioni);
 
-    if (elenco != null && elenco.size() > 0)
+    if (elenco != null && elenco.isNotEmpty())
     {
       String portal = (String) session
           .getAttribute(NemboConstants.PORTAL.NEMBOPRATICHE_LOGIN_PORTAL);
       for (ProcedimentoOggettoVO item : elenco)
       {
-        procedimento = new HashMap<String, Object>();
+        procedimento = new HashMap<>();
         procedimento.put("identificativo", item.getIdentificativo());
         procedimento.put("descrAmmCompetenza", item.getDescrAmmCompetenza());
         procedimento.put("annoCampagna", item.getAnnoCampagna());
@@ -634,7 +634,7 @@ public class RicercaProcedimentoController extends BaseController
     List<ProcedimentoOggettoVO> elenco2 = ricercaEJB
         .searchProcedimenti(ricercaVO, utenteAbilitazioni);
 
-    if (elenco2 != null && elenco2.size() > 0)
+    if (elenco2 != null && elenco2.isNotEmpty())
     {
       for (ProcedimentoOggettoVO item : elenco2)
       {
@@ -642,7 +642,7 @@ public class RicercaProcedimentoController extends BaseController
             && !vId.contains(item.getDescrizione()))
         {
           vId.add(item.getDescrizione());
-          stato = new HashMap<String, Object>();
+          stato = new HashMap<>();
           stato.put("label", item.getDescrizione());
           stato.put("id", item.getDescrizione());
           procedimenti.add(stato);
@@ -691,7 +691,7 @@ public class RicercaProcedimentoController extends BaseController
 		  HttpSession session,
 		  HttpServletRequest request) throws InternalUnexpectedException
   {
-    HashMap<String, String> values = new HashMap<String, String>();
+    HashMap<String, String> values = new HashMap<>();
     String[] anniEventi = request.getParameterValues("chk_anno_evento");
     if (anniEventi == null)
     {
@@ -726,7 +726,7 @@ public class RicercaProcedimentoController extends BaseController
   public Map<String, String> ajaxFiltraPopupBandi(HttpSession session,
       HttpServletRequest request) throws InternalUnexpectedException
   {
-    HashMap<String, String> values = new HashMap<String, String>();
+    HashMap<String, String> values = new HashMap<>();
     String[] anniCampagna = request.getParameterValues("chk_anno_campagna");
     if (anniCampagna == null)
       return values;
@@ -847,7 +847,7 @@ public class RicercaProcedimentoController extends BaseController
   public Map<String, Object> searchComuni(HttpSession session,
       HttpServletRequest request) throws InternalUnexpectedException
   {
-    HashMap<String, Object> values = new HashMap<String, Object>();
+    HashMap<String, Object> values = new HashMap<>();
     String prov = request.getParameter("provSceltaComune");
     String comune = request.getParameter("comuneSceltaComune");
     List<ComuneDTO> comuni = ricercaEJB.searchComuni(prov, comune);
@@ -1534,7 +1534,7 @@ public class RicercaProcedimentoController extends BaseController
 		RicercaProcedimentiVO procedimentiVO = (RicercaProcedimentiVO) session.getAttribute("RicercaProcedimentiVO");
 		if (procedimentiVO != null)
 		{
-			if (procedimentiVO.getVctIdLivelli() != null && procedimentiVO.getVctIdLivelli().size() > 0)
+			if (procedimentiVO.getVctIdLivelli() != null && procedimentiVO.getVctIdLivelli().isNotEmpty())
 			{
 				List<LivelloDTO> livelliFiltrati = new ArrayList<>();
 				for (LivelloDTO livello : livelli)
@@ -1548,7 +1548,7 @@ public class RicercaProcedimentoController extends BaseController
 			}
 			
 			//eventi
-			if (procedimentiVO.getVctIdEventi() != null && procedimentiVO.getVctIdEventi().size() > 0)
+			if (procedimentiVO.getVctIdEventi() != null && procedimentiVO.getVctIdEventi().isNotEmpty())
 			{
 				List<EventiDTO> eventiFiltrati = new ArrayList<>();
 				for (EventiDTO evento : eventi)
@@ -1561,7 +1561,7 @@ public class RicercaProcedimentoController extends BaseController
 				model.addAttribute("eventi", eventiFiltrati);
 			}
 
-			if (procedimentiVO.getVctIdBando() != null && procedimentiVO.getVctIdBando().size() > 0)
+			if (procedimentiVO.getVctIdBando() != null && procedimentiVO.getVctIdBando().isNotEmpty())
 			{
 				List<BandoDTO> bandiFiltrati = new ArrayList<>();
 				for (BandoDTO bando : bandi)
@@ -1574,7 +1574,7 @@ public class RicercaProcedimentoController extends BaseController
 				model.addAttribute("bandi", bandiFiltrati);
 			}
 
-			if (procedimentiVO.getVctIdAmministrazione() != null && procedimentiVO.getVctIdAmministrazione().size() > 0)
+			if (procedimentiVO.getVctIdAmministrazione() != null && procedimentiVO.getVctIdAmministrazione().isNotEmpty())
 			{
 				List<AmmCompetenzaDTO> ammFiltrati = new ArrayList<>();
 				for (AmmCompetenzaDTO amm : amministrazioni)
@@ -1588,7 +1588,7 @@ public class RicercaProcedimentoController extends BaseController
 				model.addAttribute("tutteAmministrazioniChecked", procedimentiVO.isFlagShowAllAmministrazioni());
 			}
 
-			if (procedimentiVO.getVctFlagEstrazione() != null && procedimentiVO.getVctFlagEstrazione().size() > 0)
+			if (procedimentiVO.getVctFlagEstrazione() != null && procedimentiVO.getVctFlagEstrazione().isNotEmpty())
 			{
 				List<FlagEstrazioneDTO> flagFiltrati = new ArrayList<>();
 				for (FlagEstrazioneDTO flag : flagEstrazione)
@@ -1602,7 +1602,7 @@ public class RicercaProcedimentoController extends BaseController
 			}
 
 			if (procedimentiVO.getVctFlagEstrazioneExPost() != null
-					&& procedimentiVO.getVctFlagEstrazioneExPost().size() > 0)
+					&& procedimentiVO.getVctFlagEstrazioneExPost().isNotEmpty())
 			{
 				List<FlagEstrazioneDTO> flagFiltratiExPost = new ArrayList<>();
 				for (FlagEstrazioneDTO flag : flagEstrazioneExPost)
@@ -1616,7 +1616,7 @@ public class RicercaProcedimentoController extends BaseController
 			}
 
 			if (procedimentiVO.getVctIdStatoProcedimento() != null
-					&& procedimentiVO.getVctIdStatoProcedimento().size() > 0)
+					&& procedimentiVO.getVctIdStatoProcedimento().isNotEmpty())
 			{
 				List<ProcedimentoDTO> statiFiltrati = new ArrayList<>();
 				for (ProcedimentoDTO stato : statiProcedimento)
@@ -1629,7 +1629,7 @@ public class RicercaProcedimentoController extends BaseController
 				model.addAttribute("statiProcedimento", statiFiltrati);
 			}
 
-			if (procedimentiVO.getVctNotifiche() != null && procedimentiVO.getVctNotifiche().size() > 0)
+			if (procedimentiVO.getVctNotifiche() != null && procedimentiVO.getVctNotifiche().isNotEmpty())
 			{
 				List<GravitaNotificaVO> notificheProcedimento = new ArrayList<>();
 				for (GravitaNotificaVO notifica : all_notifica)
@@ -1642,8 +1642,8 @@ public class RicercaProcedimentoController extends BaseController
 				model.addAttribute("notificheProcedimento", notificheProcedimento);
 			}
 
-			if ((procedimentiVO.getMapGruppi() != null && procedimentiVO.getMapGruppi().size() > 0)
-					|| (procedimentiVO.getMapOggetti() != null && procedimentiVO.getMapOggetti().size() > 0))
+			if ((procedimentiVO.getMapGruppi() != null && procedimentiVO.getMapGruppi().isNotEmpty())
+					|| (procedimentiVO.getMapOggetti() != null && procedimentiVO.getMapOggetti().isNotEmpty()))
 			{
 				selectOggettiPopup(session, model);
 			}
@@ -1802,7 +1802,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (hOggetti != null)
     {
-      mapOggetti = new HashMap<Long, ArrayList<Long>>();
+      mapOggetti = new HashMap<>();
       for (String oggetto : hOggetti)
       {
         if (oggetto.split("&&") != null && oggetto.split("&&")[0] != null)
@@ -1858,7 +1858,7 @@ public class RicercaProcedimentoController extends BaseController
     LinkedHashMap<Long, LivelloDTO> results = new LinkedHashMap<Long, LivelloDTO>();
     if (ids == null || ids.equals(""))
       return null;
-    ids = ids.replaceAll("=", "");
+    ids = ids.replace("=", "");
     String[] idMisureSelezionate = ids.split("&");
     session.setAttribute("checkboxMisureSelezionate", idMisureSelezionate);
 
@@ -1915,13 +1915,13 @@ public class RicercaProcedimentoController extends BaseController
     Map<String, Object> stato;
     List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!valList.contains(item.getCodiceMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceMisura());
         stato.put("label", item.getCodiceMisura());
         ret.add(stato);
@@ -1942,14 +1942,14 @@ public class RicercaProcedimentoController extends BaseController
     Map<String, Object> stato;
     List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!GenericValidator.isBlankOrNull(item.getCodiceSottoMisura())
           && !valList.contains(item.getCodiceSottoMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceSottoMisura());
         stato.put("label", item.getCodiceSottoMisura());
         ret.add(stato);
@@ -1968,11 +1968,11 @@ public class RicercaProcedimentoController extends BaseController
   {
     List<SettoriDiProduzioneDTO> livelli = ricercaEJB.getElencoSettoriBandi();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (SettoriDiProduzioneDTO item : livelli)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getDescrizione());
       stato.put("label", item.getDescrizione());
       ret.add(stato);
@@ -1990,11 +1990,11 @@ public class RicercaProcedimentoController extends BaseController
 	UtenteAbilitazioni utenteAbilitazioni = getUtenteAbilitazioni(session);
     List<FocusAreaDTO> livelli = ricercaEJB.getElencoFocusAreaBandi(utenteAbilitazioni.getIdProcedimento());
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (FocusAreaDTO item : livelli)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodice());
       stato.put("label", item.getCodice());
       ret.add(stato);
@@ -2010,7 +2010,7 @@ public class RicercaProcedimentoController extends BaseController
       throws InternalUnexpectedException
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
-    List<LivelloDTO> liv = new LinkedList<LivelloDTO>();
+    List<LivelloDTO> liv = new LinkedList<>();
     boolean aggiungi = true;
 
     for (LivelloDTO item : livelli)
@@ -2030,11 +2030,11 @@ public class RicercaProcedimentoController extends BaseController
 
     Map<String, Object> stato;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : liv)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodiceLivello());
       stato.put("label", item.getCodiceLivello());
       ret.add(stato);
@@ -2051,24 +2051,24 @@ public class RicercaProcedimentoController extends BaseController
   {
     Map<String, Object> notifica;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
 
-    notifica = new HashMap<String, Object>();
+    notifica = new HashMap<>();
     notifica.put("id", "1");
     notifica.put("label",
         "<img title=\"Warning\" src=\"../img/24/warning.png\">");
     ret.add(notifica);
-    notifica = new HashMap<String, Object>();
+    notifica = new HashMap<>();
     notifica.put("id", "3");
     notifica.put("label",
         "<img title=\"Bloccante\" src=\"../img/24/errorB.png\">");
     ret.add(notifica);
-    notifica = new HashMap<String, Object>();
+    notifica = new HashMap<>();
     notifica.put("id", "2");
     notifica.put("label", "<img title=\"Grave\" src=\"../img/24/errorG.png\">");
     ret.add(notifica);
-    notifica = new HashMap<String, Object>();
+    notifica = new HashMap<>();
     notifica.put("id", "4");
     notifica.put("label", "Nessuna notifica");
     ret.add(notifica);
@@ -2084,11 +2084,11 @@ public class RicercaProcedimentoController extends BaseController
     List<DecodificaDTO<String>> gruppi = ricercaEJB
         .getElencoDescrizioniGruppi();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (DecodificaDTO<String> item : gruppi)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodice());
       stato.put("label", item.getCodice());
       ret.add(stato);
@@ -2106,11 +2106,11 @@ public class RicercaProcedimentoController extends BaseController
     List<DecodificaDTO<String>> stati = ricercaEJB
         .getElencoDescrizioneStatiOggetti();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (DecodificaDTO<String> item : stati)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodice());
       stato.put("label", item.getCodice());
       ret.add(stato);

@@ -3005,7 +3005,7 @@ public class QuadroDAO extends BaseDAO
             public Map<Long, List<FileAllegatiDTO>> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<Long, List<FileAllegatiDTO>> map = new HashMap<Long, List<FileAllegatiDTO>>();
+              Map<Long, List<FileAllegatiDTO>> map = new HashMap<>();
               while (rs.next())
               {
                 long idDettaglioInfo = rs.getLong("ID_DETTAGLIO_INFO");
@@ -4583,7 +4583,7 @@ public class QuadroDAO extends BaseDAO
       {
         return null;
       }
-      Map<String, OggettoIconaDTO> map = new HashMap<String, OggettoIconaDTO>();
+      Map<String, OggettoIconaDTO> map = new HashMap<>();
       for (OggettoIconaDTO o : list)
       {
         map.put(o.getCdu().getCodiceCdu(), o);
@@ -6972,7 +6972,7 @@ public class QuadroDAO extends BaseDAO
           idDatiProcedimentoPunti, Types.NUMERIC);
       mapParameterSource.addValue("ID_BANDO", idBando, Types.NUMERIC);
 
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource,
           new ResultSetExtractor<List<RaggruppamentoLivelloCriterio>>()
           {
@@ -7077,7 +7077,7 @@ public class QuadroDAO extends BaseDAO
           { new LogParameter("idDatiProcedimentoPunti",
               idDatiProcedimentoPunti), new LogParameter("idBando", idBando) },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -11132,7 +11132,7 @@ public class QuadroDAO extends BaseDAO
             public Map<String, List<String>> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<String, List<String>> result = new HashMap<String, List<String>>();
+              Map<String, List<String>> result = new HashMap<>();
               while (rs.next())
               {
                 final String tipoCollocazioneTesto = rs
@@ -11748,9 +11748,9 @@ public class QuadroDAO extends BaseDAO
             {
               ArrayList<RiduzioniSanzioniDTO> list = new ArrayList<>();
               RiduzioniSanzioniDTO riduzione = null;
-              long idTipologia = 0l;
+              long idTipologia;
               long idTipologiaOld = -1l;
-              long idOperazione = 0l;
+              long idOperazione;
               long idOperazioneOld = -1l;
               while (rs.next())
               {
@@ -11760,7 +11760,7 @@ public class QuadroDAO extends BaseDAO
                 if (idOperazione != idOperazioneOld
                     || idTipologiaOld != idTipologia)
                 {
-                  riduzione = new RiduzioniSanzioniDTO();
+                  
 
                   riduzione = new RiduzioniSanzioniDTO();
                   riduzione
@@ -12286,7 +12286,7 @@ public class QuadroDAO extends BaseDAO
           ids.add(elemento.longValue());
         }
       }
-      if (ids.size() > 0)
+      if (ids.isNotEmpty())
       {
         return ids.toArray(new Long[ids.size()]);
       }
@@ -14227,7 +14227,7 @@ public class QuadroDAO extends BaseDAO
 
       mapParameterSource.addValue("ID_PROCEDIMENTO_OGGETTO",
           idProcedimentoOggetto, Types.NUMERIC);
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<EsitoFinaleDTO>()
           {
             @Override
@@ -14257,7 +14257,7 @@ public class QuadroDAO extends BaseDAO
           new LogParameter[]
           { new LogParameter("idProcedimentoOggetto", idProcedimentoOggetto) },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -17759,10 +17759,7 @@ public class QuadroDAO extends BaseDAO
         + "   || T.NOME) AS DESCRIZIONE                                                                                 \n"
         + " FROM                                                                                                        \n"
         + "   SMRCOMUNE_V_TECNICO T                                                                                     \n"
-        + " WHERE                                                                                                       \n"
-        //TODO
-        //FIXME
-//        + "    T.EXT_ID_PROCEDIMENTO    = "+idProcedimentoAgricolo+"	                                                                         	\n";
+        + " WHERE                                                                                                       \n"                                                                      	\n";
         + "    T.EXT_ID_PROCEDIMENTO    = "+46+"	                                                                         	\n";
     if (idUfficioZona != null)
       QUERY += "   AND T.ID_UFFICIO_ZONA   = :ID_UFFICIO	                                                    	\n";
@@ -19593,7 +19590,7 @@ public class QuadroDAO extends BaseDAO
             Types.VARCHAR);
       }
 
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<Long>>()
           {
 
@@ -19620,7 +19617,7 @@ public class QuadroDAO extends BaseDAO
               new LogParameter("documentoVO", documentoVO)
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -21918,7 +21915,7 @@ public class QuadroDAO extends BaseDAO
           }
           else
           {
-            return null;
+            return new ResultSet[0];
           }
         }
       });
@@ -21979,7 +21976,7 @@ public class QuadroDAO extends BaseDAO
           }
           else
           {
-            return null;
+            return new ResultSet[0];
           }
         }
       });

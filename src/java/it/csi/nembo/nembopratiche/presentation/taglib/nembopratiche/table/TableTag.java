@@ -166,7 +166,7 @@ public class TableTag extends BaseTag
 
   protected void writeTableBody(StringBuilder sb)
   {
-    if (list != null && list.size() > 0)
+    if (list != null && list.isNotEmpty())
     {
       Map<String, Method> methods = null;
       for (Object rowData : list)
@@ -306,7 +306,7 @@ public class TableTag extends BaseTag
 
   protected Map<String, Method> getMethods(Object elemento)
   {
-    HashMap<String, Method> metodi = new HashMap<String, Method>();
+    HashMap<String, Method> metodi = new HashMap<>();
     for (TableColumn column : columns)
     {
       aggiungiMetodoAllaMappa(metodi, elemento, column.getProperty());

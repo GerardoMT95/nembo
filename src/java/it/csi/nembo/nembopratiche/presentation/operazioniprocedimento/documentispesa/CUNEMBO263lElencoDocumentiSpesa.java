@@ -157,7 +157,7 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
 
     List<DocumentoSpesaVO> elenco = quadroEJB
         .getElencoDocumentiSpesa(getIdProcedimento(session), null, null);
-    if (elenco != null && elenco.size() > 0)
+    if (elenco != null && elenco.isNotEmpty())
     {
       model.addAttribute("showMsgWarning", Boolean.TRUE);
     }
@@ -180,7 +180,7 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
   public HashMap<String, FiltroVO> parseFilters(String json)
       throws JsonProcessingException, IOException
   {
-    HashMap<String, FiltroVO> filtersMap = new HashMap<String, FiltroVO>();
+    HashMap<String, FiltroVO> filtersMap = new HashMap<>();
     JsonFactory factory = new JsonFactory();
     ObjectMapper mapper = new ObjectMapper(factory);
     JsonNode rootNode = mapper.readTree(json);
@@ -340,11 +340,11 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
     List<DecodificaDTO<Long>> elencoTipiDocumenti = quadroEJB
         .geElencoTipiDocumenti();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (DecodificaDTO<Long> item : elencoTipiDocumenti)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getId());
       stato.put("label", item.getDescrizione());
       ret.add(stato);
@@ -362,11 +362,11 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
     List<DecodificaDTO<Long>> elencoTipiDocumenti = quadroEJB
         .geElencoModalitaPagamento();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (DecodificaDTO<Long> item : elencoTipiDocumenti)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getId());
       stato.put("label", item.getDescrizione());
       ret.add(stato);
@@ -650,18 +650,18 @@ public class CUNEMBO263lElencoDocumentiSpesa extends BaseController
     Map<String, String> map = new TreeMap<String, String>(myMap);
 
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     Iterator<Entry<String, String>> it = map.entrySet().iterator();
     while (it.hasNext())
     {
       Entry<String, String> pair = it.next();
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", pair.getKey());
       stato.put("label", pair.getValue());
       ret.add(stato);
       it.remove();
     }
-    stato = new HashMap<String, Object>();
+    stato = new HashMap<>();
     stato.put("id", "000");
     stato.put("label", "Da rendicontare");
     ret.add(stato);

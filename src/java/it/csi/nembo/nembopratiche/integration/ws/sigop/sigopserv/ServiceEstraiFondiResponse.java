@@ -66,7 +66,7 @@ public class ServiceEstraiFondiResponse
   {
     if (fondi == null)
     {
-      fondi = new ArrayList<FondoVO>();
+      fondi = new ArrayList<>();
     }
     return this.fondi;
   }

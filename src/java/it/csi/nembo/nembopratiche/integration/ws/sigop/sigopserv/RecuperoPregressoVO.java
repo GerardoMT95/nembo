@@ -81,7 +81,7 @@ public class RecuperoPregressoVO
   protected String               numeroScheda;
 
   /**
-   * Recupera il valore della proprietà annoCampagna.
+   * Recupera il valore della proprietï¿½ annoCampagna.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -92,7 +92,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà annoCampagna.
+   * Imposta il valore della proprietï¿½ annoCampagna.
    * 
    * @param value
    *          allowed object is {@link Integer }
@@ -104,7 +104,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà annoDisposizionePagamento.
+   * Recupera il valore della proprietï¿½ annoDisposizionePagamento.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -115,7 +115,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà annoDisposizionePagamento.
+   * Imposta il valore della proprietï¿½ annoDisposizionePagamento.
    * 
    * @param value
    *          allowed object is {@link Integer }
@@ -127,7 +127,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà dataDecreto.
+   * Recupera il valore della proprietï¿½ dataDecreto.
    * 
    * @return possible object is {@link XMLGregorianCalendar }
    * 
@@ -138,7 +138,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà dataDecreto.
+   * Imposta il valore della proprietï¿½ dataDecreto.
    * 
    * @param value
    *          allowed object is {@link XMLGregorianCalendar }
@@ -150,7 +150,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà descSettore.
+   * Recupera il valore della proprietï¿½ descSettore.
    * 
    * @return possible object is {@link String }
    * 
@@ -161,7 +161,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà descSettore.
+   * Imposta il valore della proprietï¿½ descSettore.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -173,7 +173,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà enteCreditore.
+   * Recupera il valore della proprietï¿½ enteCreditore.
    * 
    * @return possible object is {@link String }
    * 
@@ -184,7 +184,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà enteCreditore.
+   * Imposta il valore della proprietï¿½ enteCreditore.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -196,7 +196,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà idDecreto.
+   * Recupera il valore della proprietï¿½ idDecreto.
    * 
    * @return possible object is {@link String }
    * 
@@ -207,7 +207,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà idDecreto.
+   * Imposta il valore della proprietï¿½ idDecreto.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -219,7 +219,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà idSchedaCredito.
+   * Recupera il valore della proprietï¿½ idSchedaCredito.
    * 
    * @return possible object is {@link String }
    * 
@@ -230,7 +230,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà idSchedaCredito.
+   * Imposta il valore della proprietï¿½ idSchedaCredito.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -242,7 +242,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà importoRecupero.
+   * Recupera il valore della proprietï¿½ importoRecupero.
    * 
    * @return possible object is {@link BigDecimal }
    * 
@@ -253,7 +253,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà importoRecupero.
+   * Imposta il valore della proprietï¿½ importoRecupero.
    * 
    * @param value
    *          allowed object is {@link BigDecimal }
@@ -290,7 +290,7 @@ public class RecuperoPregressoVO
   {
     if (normeTrasgredite == null)
     {
-      normeTrasgredite = new ArrayList<String>();
+      normeTrasgredite = new ArrayList<>();
     }
     return this.normeTrasgredite;
   }
@@ -321,13 +321,13 @@ public class RecuperoPregressoVO
   {
     if (numeriDomanda == null)
     {
-      numeriDomanda = new ArrayList<String>();
+      numeriDomanda = new ArrayList<>();
     }
     return this.numeriDomanda;
   }
 
   /**
-   * Recupera il valore della proprietà numeroDecreto.
+   * Recupera il valore della proprietï¿½ numeroDecreto.
    * 
    * @return possible object is {@link String }
    * 
@@ -338,7 +338,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà numeroDecreto.
+   * Imposta il valore della proprietï¿½ numeroDecreto.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -350,7 +350,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Recupera il valore della proprietà numeroScheda.
+   * Recupera il valore della proprietï¿½ numeroScheda.
    * 
    * @return possible object is {@link String }
    * 
@@ -361,7 +361,7 @@ public class RecuperoPregressoVO
   }
 
   /**
-   * Imposta il valore della proprietà numeroScheda.
+   * Imposta il valore della proprietï¿½ numeroScheda.
    * 
    * @param value
    *          allowed object is {@link String }

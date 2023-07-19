@@ -36,7 +36,7 @@ public abstract class MessaggisticaBaseController extends BaseController
               getUtenteAbilitazioni(session).getCodiceFiscale());
       List<Allegato> allegati = dm.getAllegati();
       Allegato infoAllegato = null;
-      if (allegati.size() > 0)
+      if (allegati.isNotEmpty())
       {
         for (Allegato allegato : allegati)
         {

@@ -38,7 +38,7 @@ public class CUNEMBO113EliminaNotificaController extends BaseController
   {
 
     NotificaDTO notifica = ricercaEJB.getNotificaById(idNotifica);
-    List<Long> l = new LinkedList<Long>();
+    List<Long> l = new LinkedList<>();
     l.add(new Long(notifica.getIdUtente()));
     List<it.csi.papua.papuaserv.dto.gestioneutenti.UtenteLogin> utente = super.loadRuoloDescr(
         l);
@@ -51,7 +51,7 @@ public class CUNEMBO113EliminaNotificaController extends BaseController
       if (ruoloUtenteCorrente.compareTo("SERVIZI_ASSISTENZA@AGRICOLTURA") != 0)
       {
         session.setAttribute("msgErrore",
-            "La notifica può essere modificata solo da utenti con ruolo uguale a quello dell'utente connesso");
+            "La notifica puï¿½ essere modificata solo da utenti con ruolo uguale a quello dell'utente connesso");
         model.addAttribute("url", "../cunembo110/index_"
             + getProcedimentoFromSession(session).getIdProcedimento() + ".do");
         return "redirect";
@@ -82,7 +82,7 @@ public class CUNEMBO113EliminaNotificaController extends BaseController
       throws InternalUnexpectedException
   {
     NotificaDTO notifica = ricercaEJB.getNotificaById(idNotifica);
-    List<Long> l = new LinkedList<Long>();
+    List<Long> l = new LinkedList<>();
     l.add(new Long(notifica.getIdUtente()));
     List<it.csi.papua.papuaserv.dto.gestioneutenti.UtenteLogin> utente = super.loadRuoloDescr(
         l);
@@ -95,7 +95,7 @@ public class CUNEMBO113EliminaNotificaController extends BaseController
       if (ruoloUtenteCorrente.compareTo("SERVIZI_ASSISTENZA@AGRICOLTURA") != 0)
       {
         session.setAttribute("msgErrore",
-            "La notifica può essere modificata solo da utenti con ruolo uguale a quello dell'utente connesso");
+            "La notifica puï¿½ essere modificata solo da utenti con ruolo uguale a quello dell'utente connesso");
         return "redirect:../cunembo110/index_"
             + getProcedimentoFromSession(session).getIdProcedimento() + ".do";
       }

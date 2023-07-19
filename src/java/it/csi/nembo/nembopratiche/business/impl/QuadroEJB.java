@@ -1977,10 +1977,10 @@ public class QuadroEJB extends NemboAbstractEJB<QuadroNewDAO>
         .entrySet().iterator();
     while (it.hasNext())
     {
-      Map.Entry pair = (Map.Entry) it.next();
+      Map.Entry pair = it.next();
       if (pair.getValue() != null)
       {
-        dao.insertPunteggioIstruttoria((Long) pair.getKey(), idDatiProcPunti,
+        dao.insertPunteggioIstruttoria(pair.getKey(), idDatiProcPunti,
             (BigDecimal) pair.getValue());
       }
     }

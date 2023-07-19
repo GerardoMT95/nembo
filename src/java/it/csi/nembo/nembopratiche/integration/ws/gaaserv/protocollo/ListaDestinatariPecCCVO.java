@@ -61,7 +61,7 @@ public class ListaDestinatariPecCCVO {
      */
     public List<String> getDestinatarioPecCC() {
         if (destinatarioPecCC == null) {
-            destinatarioPecCC = new ArrayList<String>();
+            destinatarioPecCC = new ArrayList<>();
         }
         return this.destinatarioPecCC;
     }

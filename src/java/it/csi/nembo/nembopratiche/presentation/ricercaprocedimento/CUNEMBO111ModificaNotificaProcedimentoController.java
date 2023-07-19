@@ -130,7 +130,7 @@ public class CUNEMBO111ModificaNotificaProcedimentoController
 
     NotificaDTO notifica = ricercaEJB.getNotificaById(idNotifica);
 
-    List<Long> l = new LinkedList<Long>();
+    List<Long> l = new LinkedList<>();
     l.add(new Long(notifica.getIdUtente()));
     List<it.csi.papua.papuaserv.dto.gestioneutenti.UtenteLogin> utente = super.loadRuoloDescr(
         l);
@@ -143,7 +143,7 @@ public class CUNEMBO111ModificaNotificaProcedimentoController
       if (ruoloUtenteCorrente.compareTo("SERVIZI_ASSISTENZA@AGRICOLTURA") != 0)
       {
         session.setAttribute("msgErrore",
-            "La notifica può essere modificata solo da utenti con ruolo uguale a quello dell'utente connesso");
+            "La notifica puï¿½ essere modificata solo da utenti con ruolo uguale a quello dell'utente connesso");
         return "redirect:../cunembo110/index_"
             + getProcedimentoFromSession(session).getIdProcedimento() + ".do";
       }
@@ -164,7 +164,7 @@ public class CUNEMBO111ModificaNotificaProcedimentoController
     model.addAttribute("elencoGravita", elencoGravita);
     model.addAttribute("idGravitaSelezionato", notifica.getIdGravitaNotifica());
 
-    List<StatoNotificaVO> elencoStati = new LinkedList<StatoNotificaVO>();
+    List<StatoNotificaVO> elencoStati = new LinkedList<>();
     StatoNotificaVO s = null;
     s = new StatoNotificaVO();
     s.setId(APERTA);
@@ -181,7 +181,7 @@ public class CUNEMBO111ModificaNotificaProcedimentoController
     else
       model.addAttribute("idStatoSelezionato", CHIUSA);
 
-    List<VisibilitaDTO> elencoVisibilita = new LinkedList<VisibilitaDTO>();
+    List<VisibilitaDTO> elencoVisibilita = new LinkedList<>();
     UtenteAbilitazioni uAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
     elencoVisibilita = ricercaEJB.getElencoVisibilitaNotifiche(

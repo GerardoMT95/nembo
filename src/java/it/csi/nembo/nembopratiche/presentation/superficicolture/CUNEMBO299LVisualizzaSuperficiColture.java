@@ -41,8 +41,8 @@ public class CUNEMBO299LVisualizzaSuperficiColture extends BaseController
 		  long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 		  SuperficiColtureRiepilogoDTO elencoSuperficiColtureRiepilogo = quadroNemboEJB.getSuperficiColtureRiepilogo(idProcedimentoOggetto);
 
-		  Map<Long,StringBuilder> mapIdSuperficieColturaAnomalia = new HashMap<Long,StringBuilder>();
-		  Map<Long,Map<String,Boolean>> mapIdSuperficieColturaBloccante = new HashMap<Long,Map<String,Boolean>>();
+		  Map<Long,StringBuilder> mapIdSuperficieColturaAnomalia = new HashMap<>();
+		  Map<Long,Map<String,Boolean>> mapIdSuperficieColturaBloccante = new HashMap<>();
 		  List<ControlloColturaDTO> elencoControlloColtura = quadroNemboEJB.getListControlloColtura(idProcedimentoOggetto,null);
 		  for(ControlloColturaDTO cc : elencoControlloColtura)
 		  {
@@ -62,7 +62,7 @@ public class CUNEMBO299LVisualizzaSuperficiColture extends BaseController
 			  {
 				  StringBuilder sb = new StringBuilder(cc.getDescrizioneAnomalia());
 				  mapIdSuperficieColturaAnomalia.put(cc.getIdSuperficieColtura(), sb);
-				  Map<String,Boolean> map = new HashMap<String,Boolean>();
+				  Map<String,Boolean> map = new HashMap<>();
 				  if(cc.getBloccante() != null && !cc.getBloccante().equals(""))
 				  {
 					  map.put(cc.getBloccante(),Boolean.TRUE);

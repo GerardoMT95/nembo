@@ -145,9 +145,9 @@ public class MySelectChoice extends MySelect
 		boolean selectedItem = false;
 		if(defaultChoice !=null)
 		{
-			selectedItem = (defaultChoice.equals(currentValue) == true);
+			selectedItem = (defaultChoice.equals(currentValue));
 		}
-		else if(defaultChoice == null && (currentValue == null || currentValue.equals(""))) //se non vi è nulla di default (null) oppure ho inserito una entry non esistente seleziona l'elemento che permette di visualizzare tutta la lista
+		else if(defaultChoice == null && (currentValue == null || currentValue.equals(""))) //se non vi ï¿½ nulla di default (null) oppure ho inserito una entry non esistente seleziona l'elemento che permette di visualizzare tutta la lista
 		{
 			selectedItem = true;
 		}

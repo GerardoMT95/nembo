@@ -83,7 +83,7 @@ public class ElencoBandiController
 
       List<GraduatoriaDTO> graduatorie = ricercaEJB
           .getGraduatorieBando(idBando);
-      if (graduatorie != null && graduatorie.size() > 0)
+      if (graduatorie != null && graduatorie.isNotEmpty())
       {
         b.setHaveGraduatorie(true);
       }
@@ -129,7 +129,7 @@ public class ElencoBandiController
     ;
     for (LivelloDTO item : liv)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodiceLivello());
       stato.put("label", item.getCodiceLivello());
       ret.add(stato);
@@ -145,7 +145,7 @@ public class ElencoBandiController
       throws InternalUnexpectedException
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
-    List<LivelloDTO> liv = new LinkedList<LivelloDTO>();
+    List<LivelloDTO> liv = new LinkedList<>();
     boolean aggiungi = true;
 
     for (LivelloDTO item : livelli)
@@ -165,12 +165,12 @@ public class ElencoBandiController
 
     Map<String, Object> stato;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : liv)
     {
-      stato = new HashMap<String, Object>();
-      stato.put("id", item.getCodice());// ci andrebbe l'id, ma ci sono più
+      stato = new HashMap<>();
+      stato.put("id", item.getCodice());// ci andrebbe l'id, ma ci sono piï¿½
                                         // codici uguali ma con id diverso,
                                         // quindi il confronto non lo faccio per
                                         // id ma lo faccio direttamente per
@@ -191,15 +191,15 @@ public class ElencoBandiController
 	UtenteAbilitazioni utenteAbilitazioni =  (UtenteAbilitazioni) session.getAttribute("utenteAbilitazioni");
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelliByProcedimentoAgricolo(utenteAbilitazioni.getIdProcedimento());
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!valList.contains(item.getCodiceMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceMisura());
         stato.put("label", item.getCodiceMisura());
         ret.add(stato);
@@ -219,15 +219,15 @@ public class ElencoBandiController
 	UtenteAbilitazioni utenteAbilitazioni =  (UtenteAbilitazioni) session.getAttribute("utenteAbilitazioni");
 	List<LivelloDTO> livelli = ricercaEJB.getElencoLivelliByProcedimentoAgricolo(utenteAbilitazioni.getIdProcedimento());
 	Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!valList.contains(item.getCodiceSottoMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceSottoMisura());
         stato.put("label", item.getCodiceSottoMisura());
         ret.add(stato);
@@ -246,11 +246,11 @@ public class ElencoBandiController
   {
     List<SettoriDiProduzioneDTO> livelli = ricercaEJB.getElencoSettoriBandi();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (SettoriDiProduzioneDTO item : livelli)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getDescrizione());
       stato.put("label", item.getDescrizione());
       ret.add(stato);
@@ -269,15 +269,15 @@ public class ElencoBandiController
 	UtenteAbilitazioni utenteAbilitazioni =  (UtenteAbilitazioni) session.getAttribute("utenteAbilitazioni");
     List<BandoDTO> tipiBando = ricercaEJB.getElencoBandi(NemboUtils.PAPUASERV.getFirstCodiceAttore(utenteAbilitazioni), utenteAbilitazioni.getIdProcedimento());
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     
     for (BandoDTO item : tipiBando)
     {
       if (!valList.contains(item.getDescrTipoBando()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getDescrTipoBando());
         stato.put("label", item.getDescrTipoBando());
         ret.add(stato);
@@ -298,7 +298,7 @@ public class ElencoBandiController
     List<DecodificaDTO<String>> elencoQueryBando = reportisticaEJB
         .elencoQueryBando(idBando, Boolean.FALSE,
             NemboUtils.PAPUASERV.getFirstCodiceAttore(utenteAbilitazioni));
-    if (elencoQueryBando != null && elencoQueryBando.size() > 0)
+    if (elencoQueryBando != null && elencoQueryBando.isNotEmpty())
     {
       bando.setHaveChart(true);
       // session.setAttribute("elencoQueryBando_"+idBando, elencoQueryBando);
@@ -310,7 +310,7 @@ public class ElencoBandiController
     }
 
     List<GraduatoriaDTO> graduatorie = ricercaEJB.getGraduatorieBando(idBando);
-    if (graduatorie != null && graduatorie.size() > 0)
+    if (graduatorie != null && graduatorie.isNotEmpty())
     {
       bando.setHaveGraduatorie(true);
     }
@@ -356,9 +356,9 @@ public class ElencoBandiController
         NemboUtils.PAPUASERV.getFirstCodiceAttore(utenteAbilitazioni), idProcedimentoAgricolo);
 
     Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (BandoDTO item : elencoBandi)
     {
@@ -369,7 +369,7 @@ public class ElencoBandiController
       {
         if (!valList.contains(a.getDescrizione()))
         {
-          stato = new HashMap<String, Object>();
+          stato = new HashMap<>();
           stato.put("id", a.getIdAmmCompetenza());
           stato.put("label", a.getDescrizione());
           ret.add(stato);
@@ -390,15 +390,15 @@ public class ElencoBandiController
 	UtenteAbilitazioni utenteAbilitazioni =  (UtenteAbilitazioni) session.getAttribute("utenteAbilitazioni");
 	List<BandoDTO> elencoBandi = ricercaEJB.getElencoBandi(NemboUtils.PAPUASERV.getFirstCodiceAttore(utenteAbilitazioni), utenteAbilitazioni.getIdProcedimento());
 	Map<String, Object> stato;
-    List<String> valList = new ArrayList<String>();
+    List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (BandoDTO bando : elencoBandi)
     {
       if (!valList.contains(bando.getReferenteBando()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", bando.getReferenteBando());
         stato.put("label", bando.getReferenteBando());
         ret.add(stato);

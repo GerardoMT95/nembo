@@ -51,85 +51,85 @@ public final class ServiceProtocolloInformaticoserv_ServiceProtocolloInformatico
         ServiceProtocolloInformaticoserv port = ss.getServiceProtocolloInformaticoservImplPort();  
         
         {
-        System.out.println("Invoking isAlive...");
+        Logger.debug("Invoking isAlive...");
         try {
             boolean _isAlive__return = port.isAlive();
-            System.out.println("isAlive.result=" + _isAlive__return);
+            Logger.debug("isAlive.result=" + _isAlive__return);
 
         } catch (Exception_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
         {
-        System.out.println("Invoking getDocument...");
+        Logger.debug("Invoking getDocument...");
         it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.GetDocumentRequestVO _getDocument_arg0 = null;
         try {
             it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.GetDocumentResponseVO _getDocument__return = port.getDocument(_getDocument_arg0);
-            System.out.println("getDocument.result=" + _getDocument__return);
+            Logger.debug("getDocument.result=" + _getDocument__return);
 
         } catch (Exception_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
         {
-        System.out.println("Invoking getByNumeroProtocollo...");
+        Logger.debug("Invoking getByNumeroProtocollo...");
         it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.NumeroProtocolloRequestVO _getByNumeroProtocollo_arg0 = null;
         try {
             it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.ProtocolloResponseVO _getByNumeroProtocollo__return = port.getByNumeroProtocollo(_getByNumeroProtocollo_arg0);
-            System.out.println("getByNumeroProtocollo.result=" + _getByNumeroProtocollo__return);
+            Logger.debug("getByNumeroProtocollo.result=" + _getByNumeroProtocollo__return);
 
         } catch (Exception_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
         {
-        System.out.println("Invoking testResources...");
+        Logger.debug("Invoking testResources...");
         try {
             boolean _testResources__return = port.testResources();
-            System.out.println("testResources.result=" + _testResources__return);
+            Logger.debug("testResources.result=" + _testResources__return);
 
         } catch (Exception_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
         {
-        System.out.println("Invoking insertProtocollo...");
+        Logger.debug("Invoking insertProtocollo...");
         it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.InsertProtocolloRequestVO _insertProtocollo_arg0 = null;
         try {
             it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.ProtocolloResponseVO _insertProtocollo__return = port.insertProtocollo(_insertProtocollo_arg0);
-            System.out.println("insertProtocollo.result=" + _insertProtocollo__return);
+            Logger.debug("insertProtocollo.result=" + _insertProtocollo__return);
 
         } catch (ProtocolloInformaticoException_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
         {
-        System.out.println("Invoking addAllegati...");
+        Logger.debug("Invoking addAllegati...");
         it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.AddAllegatiRequestVO _addAllegati_arg0 = null;
         try {
             int _addAllegati__return = port.addAllegati(_addAllegati_arg0);
-            System.out.println("addAllegati.result=" + _addAllegati__return);
+            Logger.debug("addAllegati.result=" + _addAllegati__return);
 
         } catch (Exception_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
         {
-        System.out.println("Invoking notificaByPec...");
+        Logger.debug("Invoking notificaByPec...");
         it.csi.nembo.nembopratiche.integration.ws.gaaserv.protocollo.NotificaByPecRequestVO _notificaByPec_arg0 = null;
         try {
             boolean _notificaByPec__return = port.notificaByPec(_notificaByPec_arg0);
-            System.out.println("notificaByPec.result=" + _notificaByPec__return);
+            Logger.debug("notificaByPec.result=" + _notificaByPec__return);
 
         } catch (Exception_Exception e) { 
-            System.out.println("Expected exception: Exception has occurred.");
-            System.out.println(e.toString());
+            Logger.debug("Expected exception: Exception has occurred.");
+            Logger.debug(e.toString());
         }
             }
 

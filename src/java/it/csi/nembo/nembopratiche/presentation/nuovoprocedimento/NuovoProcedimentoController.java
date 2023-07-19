@@ -483,14 +483,14 @@ public class NuovoProcedimentoController extends BaseController
             NemboConstants.GENERIC.SESSION_NO_ELENCO_AZIENDA, Boolean.TRUE);
         // ho solo un azienda quindi non mostro l'elenco e vado diretto alla
         // pagina successiva
-        ArrayList<Long> vLong = new ArrayList<Long>();
+        ArrayList<Long> vLong = new ArrayList<>();
         vLong.add(new Long(vIdAziende.get(0))));
         List<AziendaDTO> vAziende = nuovoProcedimento
             .getDettaglioAziendeById(vLong, idBando);
         boolean almenoUnaDomandaInBozza = false;
         BandoDTO bandoDto = nuovoProcedimento.getInformazioniBando(idBando);
 
-        if (vIdAziende != null && vIdAziende.size() > 0)
+        if (vIdAziende != null && vIdAziende.isNotEmpty())
         {
           List<Long> vIdAziendeL = new ArrayList<>();
           for (AziendaDTO az : vAziende)
@@ -578,10 +578,10 @@ public class NuovoProcedimentoController extends BaseController
     else
     {
       elencoAziende = nuovoProcedimento.getDettaglioAziendeById(
-          new ArrayList<Long>(vIdAziende), bandoSelezionato.getIdBando());
+          new ArrayList<>(vIdAziende), bandoSelezionato.getIdBando());
     }
 
-    if (elencoAziende != null && elencoAziende.size() > 0)
+    if (elencoAziende != null && elencoAziende.isNotEmpty())
     {
       long idAziendaLast = 0;
       long idAzienda = elencoAziende.get(0).getIdAzienda();
@@ -627,7 +627,7 @@ public class NuovoProcedimentoController extends BaseController
       throws InternalUnexpectedException
   {
     String eliminaOggetto = "";
-    HashMap<String, Object> azienda = new HashMap<String, Object>();
+    HashMap<String, Object> azienda = new HashMap<>();
     azienda.put("cuaa", item.getCuaa());
     azienda.put("partitaIva", item.getPartitaIva());
     azienda.put("denominazione", item.getDenominazione());
@@ -672,7 +672,7 @@ public class NuovoProcedimentoController extends BaseController
             item.getIdProcediemnto(),
             Arrays.asList(utenteAbilitazioni.getMacroCU()),
            utenteAbilitazioni.getIdProcedimento());
-        if (listGruppiOggetto != null && listGruppiOggetto.size() > 0)
+        if (listGruppiOggetto != null && listGruppiOggetto.isNotEmpty())
         {
           for (GruppoOggettoDTO gruppo : listGruppiOggetto)
           {
@@ -1068,7 +1068,7 @@ public class NuovoProcedimentoController extends BaseController
     Map<String, Object> stato;
     List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (BandoDTO item : elencoBandi)
     {
@@ -1079,7 +1079,7 @@ public class NuovoProcedimentoController extends BaseController
       {
         if (!valList.contains(a.getDescrizione()))
         {
-          stato = new HashMap<String, Object>();
+          stato = new HashMap<>();
           stato.put("id", a.getIdAmmCompetenza());
           stato.put("label", a.getDescrizione());
           ret.add(stato);
@@ -1109,7 +1109,7 @@ public class NuovoProcedimentoController extends BaseController
         .getDettaglioAziendeByIdBando(bandoSelezionato.getIdBando(),
             utenteAbilitazioni);
 
-    if (elencoAziende != null && elencoAziende.size() > 0)
+    if (elencoAziende != null && elencoAziende.isNotEmpty())
     {
       for (AziendaDTO item : elencoAziende)
       {
@@ -1119,7 +1119,7 @@ public class NuovoProcedimentoController extends BaseController
               && !vId.contains(item.getDescrStatoOggetto()))
           {
             vId.add(item.getDescrStatoOggetto());
-            stato = new HashMap<String, Object>();
+            stato = new HashMap<>();
             stato.put("label", item.getDescrStatoOggetto());
             stato.put("id", item.getDescrStatoOggetto());
             procedimenti.add(stato);
@@ -1134,7 +1134,7 @@ public class NuovoProcedimentoController extends BaseController
   public HashMap<String, FiltroVO> parseFilters(String json)
       throws JsonProcessingException, IOException
   {
-    HashMap<String, FiltroVO> filtersMap = new HashMap<String, FiltroVO>();
+    HashMap<String, FiltroVO> filtersMap = new HashMap<>();
     JsonFactory factory = new JsonFactory();
     ObjectMapper mapper = new ObjectMapper(factory);
     JsonNode rootNode = mapper.readTree(json);
@@ -1252,13 +1252,13 @@ public class NuovoProcedimentoController extends BaseController
     Map<String, Object> stato;
     List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!valList.contains(item.getCodiceMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceMisura());
         stato.put("label", item.getCodiceMisura());
         ret.add(stato);
@@ -1279,13 +1279,13 @@ public class NuovoProcedimentoController extends BaseController
     Map<String, Object> stato;
     List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!valList.contains(item.getCodiceSottoMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceSottoMisura());
         stato.put("label", item.getCodiceSottoMisura());
         ret.add(stato);
@@ -1303,7 +1303,7 @@ public class NuovoProcedimentoController extends BaseController
       throws InternalUnexpectedException
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
-    List<LivelloDTO> liv = new LinkedList<LivelloDTO>();
+    List<LivelloDTO> liv = new LinkedList<>();
     boolean aggiungi = true;
 
     for (LivelloDTO item : livelli)
@@ -1323,11 +1323,11 @@ public class NuovoProcedimentoController extends BaseController
 
     Map<String, Object> stato;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : liv)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodiceLivello());
       stato.put("label", item.getCodiceLivello());
       ret.add(stato);
@@ -1344,11 +1344,11 @@ public class NuovoProcedimentoController extends BaseController
   {
     List<SettoriDiProduzioneDTO> livelli = ricercaEJB.getElencoSettoriBandi();
     Map<String, Object> stato;
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (SettoriDiProduzioneDTO item : livelli)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getDescrizione());
       stato.put("label", item.getDescrizione());
       ret.add(stato);

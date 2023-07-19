@@ -91,11 +91,11 @@ public class CUNEMBO125ChiusuraOggetto extends BaseController
         }
       case NemboConstants.SQL.RESULT_CODE.ERRORE_CRITICO:
         return error(model,
-            "<br />Si è verificato un errore di sistema nell'esecuzione dei controlli. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
+            "<br />Si ï¿½ verificato un errore di sistema nell'esecuzione dei controlli. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
                 + result.getMessaggio());
       default:
         return error(model,
-            "<br />Si è verificato un problema grave nell'esecuzione dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica.");
+            "<br />Si ï¿½ verificato un problema grave nell'esecuzione dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica.");
     }
   }
 
@@ -109,7 +109,7 @@ public class CUNEMBO125ChiusuraOggetto extends BaseController
         ((procedimentoOggetto.getDataFine() != null)
             ? procedimentoOggetto.getDataFine() : new Date()),
         true, true);
-    if (fonteControlloDTOList.size() > 0)
+    if (fonteControlloDTOList.isNotEmpty())
     {
       for (FonteControlloDTO fonte : fonteControlloDTOList)
       {
@@ -168,7 +168,7 @@ public class CUNEMBO125ChiusuraOggetto extends BaseController
       case NemboConstants.SQL.RESULT_CODE.ERRORE_CRITICO:
         return error(
             model,
-            "<br />Si è verificato un errore di sistema. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
+            "<br />Si ï¿½ verificato un errore di sistema. Contattare l'assistenza tecnica comunicando il seguente messaggio: "
                 + result.getDescrizione());
       case NemboConstants.SQL.RESULT_CODE.ERRORE_GRAVE:
         return error(
@@ -178,7 +178,7 @@ public class CUNEMBO125ChiusuraOggetto extends BaseController
       default:
         return error(
             model,
-            "<br />Si è verificato un problema grave nel richiamo dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica comunicando il seguente messaggio: codice di errore non previsto "
+            "<br />Si ï¿½ verificato un problema grave nel richiamo dei controlli dell'oggetto, se il problema persistesse contattare l'assistenza tecnica comunicando il seguente messaggio: codice di errore non previsto "
                 + result.getId());
     }
   }

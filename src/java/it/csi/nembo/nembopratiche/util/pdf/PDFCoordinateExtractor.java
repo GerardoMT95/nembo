@@ -185,7 +185,7 @@ public class PDFCoordinateExtractor
       throws IOException
   {
 
-    Map<String, List<PDFRectangle>> mapCoordinate = new HashMap<String, List<PDFRectangle>>();
+    Map<String, List<PDFRectangle>> mapCoordinate = new HashMap<>();
 
     PDDocument doc = PDDocument.load(inputStream);
 
@@ -207,7 +207,7 @@ public class PDFCoordinateExtractor
       InputStream inputStream, String testoProtocollo) throws IOException
   {
 
-    Map<String, List<PDFCurvedRectangle>> mapCoordinate = new HashMap<String, List<PDFCurvedRectangle>>();
+    Map<String, List<PDFCurvedRectangle>> mapCoordinate = new HashMap<>();
 
     PDDocument doc = PDDocument.load(inputStream);
 
@@ -305,10 +305,8 @@ public class PDFCoordinateExtractor
                * ERRORE GRAVE!
                */
             }
-            continue;
           }
-        }
-        if (testoFirma != null && text != null)
+        }else if (testoFirma != null && text != null)
         {
           if (text.startsWith(testoFirma))
           {
@@ -329,12 +327,10 @@ public class PDFCoordinateExtractor
                * ERRORE GRAVE!
                */
             }
-            continue;
           }
         }
       }
-      else
-        if (element.getType() == ValuableElementType.RECTANGLE)
+      else if (element.getType() == ValuableElementType.RECTANGLE)
         {
           // Al momento non ci sono altri tipi di IValuableElements, quindi se
           // non � un testo � un rettangolo... Se si aggiungessero nuovi tipi si

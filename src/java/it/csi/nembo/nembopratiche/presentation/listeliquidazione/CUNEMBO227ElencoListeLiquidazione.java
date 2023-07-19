@@ -183,7 +183,7 @@ public class CUNEMBO227ElencoListeLiquidazione extends BaseController
       throws InternalUnexpectedException
   {
     List<LivelloDTO> livelli = listeLiquidazioneEJB.getElencoLivelli();
-    List<LivelloDTO> liv = new LinkedList<LivelloDTO>();
+    List<LivelloDTO> liv = new LinkedList<>();
     boolean aggiungi = true;
 
     for (LivelloDTO item : livelli)
@@ -203,11 +203,11 @@ public class CUNEMBO227ElencoListeLiquidazione extends BaseController
 
     Map<String, Object> stato;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : liv)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodiceLivello());
       stato.put("label", item.getCodiceLivello());
       ret.add(stato);
@@ -226,13 +226,13 @@ public class CUNEMBO227ElencoListeLiquidazione extends BaseController
     Map<String, Object> stato;
     List<String> valList = new ArrayList<>();
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : livelli)
     {
       if (!valList.contains(item.getCodiceMisura()))
       {
-        stato = new HashMap<String, Object>();
+        stato = new HashMap<>();
         stato.put("id", item.getCodiceMisura());
         stato.put("label", item.getCodiceMisura());
         ret.add(stato);

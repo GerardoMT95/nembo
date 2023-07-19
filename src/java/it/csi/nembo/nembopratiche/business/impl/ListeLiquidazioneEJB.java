@@ -209,7 +209,7 @@ public class ListeLiquidazioneEJB extends
       throw new ApplicationException(
           "Attenzione! Si � verificato un errore grave nella creazione lista: un altro utente nel frattempo ha modificato le risorse finanziarie assegnate al Bando. Impossibile proseguire con la creazione");
     }
-    Map<Long, RisorseImportiOperazioneDTO> mapRisorse = new HashMap<Long, RisorseImportiOperazioneDTO>();
+    Map<Long, RisorseImportiOperazioneDTO> mapRisorse = new HashMap<>();
     // Le risorse attuali e quelle visualizzate dall'utente sono uguali in
     // numero, quindi a questo punto mi basta
     // verificare che ogni risorsa visualizzata all'utente esista ancora con
@@ -518,7 +518,7 @@ public class ListeLiquidazioneEJB extends
       List<RigaJSONElencoListaLiquidazioneDTO> liste = dao
           .getListeLiquidazione(idListaLiquidazione);
       RigaJSONElencoListaLiquidazioneDTO listaLiquidazioneDTO = null;
-      if (liste != null && liste.size() > 0)
+      if (liste != null && liste.isNotEmpty())
       {
         listaLiquidazioneDTO = liste.get(0);
       }
@@ -573,7 +573,7 @@ public class ListeLiquidazioneEJB extends
       List<RigaJSONElencoListaLiquidazioneDTO> liste = dao
           .getListeLiquidazione(idListaLiquidazione);
       RigaJSONElencoListaLiquidazioneDTO listaLiquidazioneDTO = null;
-      if (liste != null && liste.size() > 0)
+      if (liste != null && liste.isNotEmpty())
       {
         listaLiquidazioneDTO = liste.get(0);
       }

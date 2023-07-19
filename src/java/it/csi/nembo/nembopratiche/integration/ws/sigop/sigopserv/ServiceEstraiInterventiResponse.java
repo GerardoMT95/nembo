@@ -67,7 +67,7 @@ public class ServiceEstraiInterventiResponse
   {
     if (interventi == null)
     {
-      interventi = new ArrayList<InterventoVO>();
+      interventi = new ArrayList<>();
     }
     return this.interventi;
   }

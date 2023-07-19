@@ -74,7 +74,7 @@ public class CUNEMBO192RRendicontazioneMedianteDocumentiSpesa
         getIdProcedimentoOggetto(session), ids);
     common.put("mapModificaRendicontazioneDocumenti", interventi);
     BigDecimal totaleImportoRendicontato = BigDecimal.ZERO;
-    if (interventi.size() > 0)
+    if (interventi.isNotEmpty())
     {
       InterventoRendicontazioneDocumentiSpesaDTO intervento = interventi
           .values().iterator().next(); // Prendo il primo
@@ -105,7 +105,7 @@ public class CUNEMBO192RRendicontazioneMedianteDocumentiSpesa
             + idDocumentoSpesaInterven;
 
         /*
-         * Il massimo importo rendicontabile è dato da: min (importo del
+         * Il massimo importo rendicontabile ï¿½ dato da: min (importo del
          * documento di spesa ripartito sull'intervento, importo delle ricevute
          * di pagamento) meno le rendicontazioni precedenti. Se non ci sono
          * ricevute di pagamento il calcolo allora si fa solo sull'importo
@@ -158,7 +158,7 @@ public class CUNEMBO192RRendicontazioneMedianteDocumentiSpesa
             mapTotaliContributoRichiestoPerOperazione, ids);
 
         /*
-         * "Non è consentito richiedere un contributo superiore all'" +
+         * "Non ï¿½ consentito richiedere un contributo superiore all'" +
          * NemboUtils.FORMAT.formatDecimal2(percentualeMassima) +
          * "% del contributo ammesso in fase di istruttoria della domanda di sostegno"
          * );
@@ -224,7 +224,7 @@ public class CUNEMBO192RRendicontazioneMedianteDocumentiSpesa
         else
         {
           throw new ApplicationException(
-              "Errore interno grave: sono stati trovati più dati di rendicontazione a fronte di un solo intervento");
+              "Errore interno grave: sono stati trovati piï¿½ dati di rendicontazione a fronte di un solo intervento");
         }
       }
     }
@@ -259,7 +259,7 @@ public class CUNEMBO192RRendicontazioneMedianteDocumentiSpesa
       throws InternalUnexpectedException, ApplicationException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     Map<String, Object> common = getCommonFromSession("CU-NEMBO-192-R", session,
         true);
@@ -340,7 +340,7 @@ public class CUNEMBO192RRendicontazioneMedianteDocumentiSpesa
       }
     }
     // se tutti gli importi sono a 0 allora vuol dire che non ho mai modificato
-    // questi dati (o quanto meno è stato
+    // questi dati (o quanto meno ï¿½ stato
     // concordato con Arpea che sia accettabile questa assunzione) e quindi
     // precarico i valori
     for (InterventoRendicontazioneDocumentiSpesaDTO intervento : interventi

@@ -875,7 +875,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
         session, false);
     String[] idsInterventi = request.getParameterValues("id");
     String importo;
-    List<ImportoInterventoVO> importi = new ArrayList<>();
+    List<ImportoInterventoVO> importi;
     BigDecimal importoBd;
     ImportoInterventoVO impIntervento;
     Errors errors = new Errors();

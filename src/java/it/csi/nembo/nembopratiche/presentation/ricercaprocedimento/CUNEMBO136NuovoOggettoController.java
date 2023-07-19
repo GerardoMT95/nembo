@@ -68,11 +68,11 @@ public class CUNEMBO136NuovoOggettoController extends BaseController
     {
       model.addAttribute("noConfirm", Boolean.TRUE);
       model.addAttribute("msgErrore",
-          "Il procedimento selezionato si trova in uno stato per cui non è possibile creare alcun Oggetto.");
+          "Il procedimento selezionato si trova in uno stato per cui non ï¿½ possibile creare alcun Oggetto.");
 
     }
     else
-      if (elenco != null && elenco.size() > 0)
+      if (elenco != null && elenco.isNotEmpty())
       {
         model.addAttribute("elenco", elenco);
       }
@@ -80,7 +80,7 @@ public class CUNEMBO136NuovoOggettoController extends BaseController
       {
         model.addAttribute("noConfirm", Boolean.TRUE);
         model.addAttribute("msgErrore",
-            "Non è possibile creare alcun Oggetto sul procedimento selezionato.");
+            "Non ï¿½ possibile creare alcun Oggetto sul procedimento selezionato.");
       }
 
     model.addAttribute("descrizioneTipo", "Oggetto");

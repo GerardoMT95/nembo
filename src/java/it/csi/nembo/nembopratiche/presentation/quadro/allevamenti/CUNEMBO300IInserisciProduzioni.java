@@ -81,7 +81,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 		  long idUtenteLogin = getUtenteAbilitazioni(session).getIdUtenteLogin();
 		  LogOperationOggettoQuadroDTO logOperationOggettoQuadroDTO = getLogOperationOggettoQuadroDTO(session);
 		  String paginaDaCaricare;
-		  Map<String,Boolean> mapIdProduzioniInserite = new HashMap<String,Boolean>();
+		  Map<String,Boolean> mapIdProduzioniInserite = new HashMap<>();
 		  Errors errors = new Errors();
 		  Long numeroCapiTotale = 0L;
 		  String[] arrayIdProduzione =  getArrayIdProduzione(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
@@ -239,7 +239,7 @@ public class CUNEMBO300IInserisciProduzioni extends BaseController
 	  private Map<Integer,ProduzioneCategoriaAnimaleDTO> getMapIdProduzioneProduzione (long idProcedimentoOggetto, long idCategoriaAnimale, String istatComune)
 	  	throws InternalUnexpectedException
 	  {
-		  Map<Integer,ProduzioneCategoriaAnimaleDTO> mappa = new HashMap<Integer,ProduzioneCategoriaAnimaleDTO>();
+		  Map<Integer,ProduzioneCategoriaAnimaleDTO> mappa = new HashMap<>();
 		  List<ProduzioneCategoriaAnimaleDTO> listaProduzioni = 
 				  quadroNemboEJB.getListProduzioni(idProcedimentoOggetto, idCategoriaAnimale, istatComune);
 		  

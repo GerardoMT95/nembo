@@ -13,7 +13,7 @@ public class DatiComuniElemQuadroDTO implements ILoggable
   private static final long                        serialVersionUID = -6573367363710431749L;
   protected long                                   idDatiComuniElemQuadro;
   protected long                                   numProgressivoRecord;
-  protected Map<Long, List<DatoElementoQuadroDTO>> mapValori        = new HashMap<Long, List<DatoElementoQuadroDTO>>();
+  protected Map<Long, List<DatoElementoQuadroDTO>> mapValori        = new HashMap<>();
 
   public long getIdDatiComuniElemQuadro()
   {

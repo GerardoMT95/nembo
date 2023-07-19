@@ -178,7 +178,7 @@ public class DichiarazioniTag extends BaseTag
       String link = "";
       ArrayList<Integer> vTemp = new ArrayList<>();
       HashMap<String, Integer> tmpMap = null;
-      HashMap<String, HashMap<String, Integer>> results = new HashMap<String, HashMap<String, Integer>>();
+      HashMap<String, HashMap<String, Integer>> results = new HashMap<>();
 
       String urlRegex = "\\b(((ht|f)tp(s?)\\:\\/\\/|~\\/|\\/)|www.)" +
           "|mil|biz|info|mobi|name|aero|jobs|museum" +
@@ -193,7 +193,7 @@ public class DichiarazioniTag extends BaseTag
         {
           link = testo.substring(urlMatcher.start(0), urlMatcher.end(0));
           vTemp.add(urlMatcher.start(0));
-          tmpMap = new HashMap<String, Integer>();
+          tmpMap = new HashMap<>();
           tmpMap.put("INIZIO", urlMatcher.start(0));
           tmpMap.put("FINE", urlMatcher.end(0));
           results.put(link, tmpMap);

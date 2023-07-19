@@ -51,7 +51,7 @@ public class DichiarazioniController extends BaseController
         procedimentoOggetto.getIdProcedimentoOggetto(),
         quadro.getIdQuadroOggetto(), procedimentoOggetto.getIdBandoOggetto());
 
-    if (dichiarazioni != null && dichiarazioni.size() > 0)
+    if (dichiarazioni != null && dichiarazioni.isNotEmpty())
     {
       model.addAttribute("ultimaModifica",
           getUltimaModifica(quadroEJB,
@@ -123,11 +123,11 @@ public class DichiarazioniController extends BaseController
 
     Map<String, String[]> mapParam = request.getParameterMap();
 
-    HashMap<String, String> chkMap = new HashMap<String, String>();
-    HashMap<String, String> inStringMap = new HashMap<String, String>();
-    HashMap<String, String> inIntegerMap = new HashMap<String, String>();
-    HashMap<String, String> inNumberMap = new HashMap<String, String>();
-    HashMap<String, String> inDateMap = new HashMap<String, String>();
+    HashMap<String, String> chkMap = new HashMap<>();
+    HashMap<String, String> inStringMap = new HashMap<>();
+    HashMap<String, String> inIntegerMap = new HashMap<>();
+    HashMap<String, String> inNumberMap = new HashMap<>();
+    HashMap<String, String> inDateMap = new HashMap<>();
     String idDettaglioInfo = "";
 
     for (Map.Entry<String, String[]> entry : mapParam.entrySet())

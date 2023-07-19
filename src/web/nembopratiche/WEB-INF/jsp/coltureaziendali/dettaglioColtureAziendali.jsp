@@ -92,7 +92,7 @@
 					</tbody>
 				</table>
 				
-				<c:if test="${listControlloColtura.size() > 0 }">
+				<c:if test="${listControlloColtura.isNotEmpty() }">
 					<br/>
 					<table summary="controllo culture aziendali" id="tableControlloColtureAziendali"
 						class="table table-hover table-striped table-bordered tableBlueTh"

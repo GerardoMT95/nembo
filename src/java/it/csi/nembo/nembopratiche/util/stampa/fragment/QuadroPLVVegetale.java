@@ -35,7 +35,7 @@ public class QuadroPLVVegetale extends Fragment
 		writeVisibility(writer, true);
 		writeTag(writer, "TitoloSezionePLVVegetale", "Quadro - P.L.V. Vegetale");
 
-		if (listSuperficiColturePlv != null && listSuperficiColturePlv.size() > 0)
+		if (listSuperficiColturePlv != null && listSuperficiColturePlv.isNotEmpty())
 		{
 			writer.writeStartElement(TAG_NAME_PLV_VEGETALE);
 			writeTag(writer, TAG_VISIBILITY_PLV_VEGETALE, "true");

@@ -83,7 +83,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   protected Integer       limiteNumRecord;
 
   /**
-   * Recupera il valore della proprietà anno.
+   * Recupera il valore della proprietï¿½ anno.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -94,7 +94,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà anno.
+   * Imposta il valore della proprietï¿½ anno.
    * 
    * @param value
    *          allowed object is {@link Integer }
@@ -106,7 +106,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà settore.
+   * Recupera il valore della proprietï¿½ settore.
    * 
    * @return possible object is {@link String }
    * 
@@ -117,7 +117,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà settore.
+   * Imposta il valore della proprietï¿½ settore.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -154,13 +154,13 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   {
     if (interventi == null)
     {
-      interventi = new ArrayList<Integer>();
+      interventi = new ArrayList<>();
     }
     return this.interventi;
   }
 
   /**
-   * Recupera il valore della proprietà provincia.
+   * Recupera il valore della proprietï¿½ provincia.
    * 
    * @return possible object is {@link String }
    * 
@@ -171,7 +171,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà provincia.
+   * Imposta il valore della proprietï¿½ provincia.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -183,7 +183,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà comune.
+   * Recupera il valore della proprietï¿½ comune.
    * 
    * @return possible object is {@link String }
    * 
@@ -194,7 +194,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà comune.
+   * Imposta il valore della proprietï¿½ comune.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -206,7 +206,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà denominazione.
+   * Recupera il valore della proprietï¿½ denominazione.
    * 
    * @return possible object is {@link String }
    * 
@@ -217,7 +217,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà denominazione.
+   * Imposta il valore della proprietï¿½ denominazione.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -229,7 +229,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà cuaa.
+   * Recupera il valore della proprietï¿½ cuaa.
    * 
    * @return possible object is {@link String }
    * 
@@ -240,7 +240,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà cuaa.
+   * Imposta il valore della proprietï¿½ cuaa.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -252,7 +252,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà numDomanda.
+   * Recupera il valore della proprietï¿½ numDomanda.
    * 
    * @return possible object is {@link String }
    * 
@@ -263,7 +263,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà numDomanda.
+   * Imposta il valore della proprietï¿½ numDomanda.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -300,13 +300,13 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   {
     if (gestoriFascicolo == null)
     {
-      gestoriFascicolo = new ArrayList<String>();
+      gestoriFascicolo = new ArrayList<>();
     }
     return this.gestoriFascicolo;
   }
 
   /**
-   * Recupera il valore della proprietà extIdProcedimento.
+   * Recupera il valore della proprietï¿½ extIdProcedimento.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -317,7 +317,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà extIdProcedimento.
+   * Imposta il valore della proprietï¿½ extIdProcedimento.
    * 
    * @param value
    *          allowed object is {@link Integer }
@@ -329,7 +329,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà sottoProcedimento.
+   * Recupera il valore della proprietï¿½ sottoProcedimento.
    * 
    * @return possible object is {@link String }
    * 
@@ -340,7 +340,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà sottoProcedimento.
+   * Imposta il valore della proprietï¿½ sottoProcedimento.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -377,13 +377,13 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   {
     if (organismiDelegati == null)
     {
-      organismiDelegati = new ArrayList<Integer>();
+      organismiDelegati = new ArrayList<>();
     }
     return this.organismiDelegati;
   }
 
   /**
-   * Recupera il valore della proprietà decreto.
+   * Recupera il valore della proprietï¿½ decreto.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -394,7 +394,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà decreto.
+   * Imposta il valore della proprietï¿½ decreto.
    * 
    * @param value
    *          allowed object is {@link Integer }
@@ -406,7 +406,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Recupera il valore della proprietà limiteNumRecord.
+   * Recupera il valore della proprietï¿½ limiteNumRecord.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -417,7 +417,7 @@ public class ServiceEstraiPagamentiBeneficiariLimite
   }
 
   /**
-   * Imposta il valore della proprietà limiteNumRecord.
+   * Imposta il valore della proprietï¿½ limiteNumRecord.
    * 
    * @param value
    *          allowed object is {@link Integer }

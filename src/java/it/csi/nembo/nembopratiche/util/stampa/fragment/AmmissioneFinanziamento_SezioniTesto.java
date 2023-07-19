@@ -20,7 +20,7 @@ public class AmmissioneFinanziamento_SezioniTesto extends Fragment
   public void writeFragment(XMLStreamWriter writer, ProcedimentoOggetto procedimentoOggetto, IQuadroEJB quadroEJB, String cuName) throws Exception
   {
     Map<String, List<String>> mapTesti = quadroEJB.getTestiStampeIstruttoria(cuName, procedimentoOggetto.getIdBandoOggetto());
-    Map<String, Object> cache = new HashMap<String, Object>();
+    Map<String, Object> cache = new HashMap<>();
     cache.put(ProcedimentoOggetto.REQUEST_NAME, procedimentoOggetto);
     if (mapTesti!=null && !mapTesti.isEmpty())
     {

@@ -75,19 +75,17 @@ public class ValidationUtils
         caratt = stringa.charAt(0);
         stringa = stringa.substring(1);
 
-        for (row = 1; row <= 36; row++)
+        for (row = 1; row <= 36 && sum_pari==0 && sum_dispari == 0; row++)
         {
           if (carattere[row - 1] == caratt)
           {
             if ((i / 2) * 2 == i)
             {
               sum_pari = sum_pari + valore_pari[row - 1];
-              break;
             }
             else
             {
               sum_dispari = sum_dispari + valore_dispari[row - 1];
-              break;
             }
           }
         }

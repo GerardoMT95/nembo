@@ -260,7 +260,7 @@
 				let allUnchecked = true;
 				$("input[name='idDannoAtm']").each(function() 
 				{
-					if ($(this).prop("checked") == true) 
+					if ($(this).prop("checked")) 
 					{
 						allUnchecked = false;
 					}

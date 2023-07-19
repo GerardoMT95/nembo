@@ -367,7 +367,7 @@ public class CUNEMBO298IDanniInserisciController extends CUNEMBO298DanniBaseCont
 			  case NemboConstants.DANNI.ALLEVAMENTO:
 				  long[] arrayIdAllevamento = NemboUtils.ARRAY.toLong(request.getParameterValues("hiddenIdAllevamento"));
 				  List<AllevamentiDTO> listaAllevamenti = quadroNemboEJB.getListAllevamentiSingoliNonDanneggiati(idProcedimentoOggetto, arrayIdAllevamento);
-				  Map<Long,Long> mappaIdAllevamentoQuantita = new HashMap<Long,Long>();
+				  Map<Long,Long> mappaIdAllevamentoQuantita = new HashMap<>();
 				  listDanniDTO = new ArrayList<>();
 				  for(AllevamentiDTO allevamento : listaAllevamenti)
 				  {

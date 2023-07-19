@@ -68,7 +68,7 @@ public class ServiceEstraiPagamentiBeneficiariCompletoResponse
   {
     if (pagamenti == null)
     {
-      pagamenti = new ArrayList<PagamentoBeneficiarioExtVO>();
+      pagamenti = new ArrayList<>();
     }
     return this.pagamenti;
   }

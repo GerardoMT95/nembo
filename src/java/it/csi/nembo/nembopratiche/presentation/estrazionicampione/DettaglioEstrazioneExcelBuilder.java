@@ -332,7 +332,7 @@ public class DettaglioEstrazioneExcelBuilder extends AbstractExcelView
     header.createCell(countCol).setCellValue("Estr.");
     header.getCell(countCol).setCellStyle(styleHeaderTab);
 
-    if (dettaglio.getElenco() != null && dettaglio.getElenco().size() > 0)
+    if (dettaglio.getElenco() != null && dettaglio.getElenco().isNotEmpty())
     {
       for (RigaSimulazioneEstrazioneDTO item : dettaglio.getElenco())
       {

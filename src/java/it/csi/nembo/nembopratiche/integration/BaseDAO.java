@@ -740,7 +740,7 @@ public class BaseDAO
         params.addValue(name, paramNames[i], Types.VARCHAR);
       }
       query.append(")");
-      return namedParameterJdbcTemplate.query(query.toString(), params,
+      return namedParameterJdbcTemplate.query(query, params,
           new ResultSetExtractor<Map<String, String>>()
           {
 
@@ -748,7 +748,7 @@ public class BaseDAO
             public Map<String, String> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<String, String> map = new HashMap<String, String>();
+              Map<String, String> map = new HashMap<>();
               while (rs.next())
               {
                 map.put(rs.getString("CODICE"), rs.getString("VALORE"));
@@ -762,7 +762,7 @@ public class BaseDAO
       InternalUnexpectedException e = new InternalUnexpectedException(t,
           (LogParameter[]) null,
           new LogVariable[]
-          {}, query.toString(), (MapSqlParameterSource) null);
+          {}, query, (MapSqlParameterSource) null);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -1246,14 +1246,14 @@ public class BaseDAO
     mapSqlParameterSource.addValue("ID_REGIONE", idRegione, Types.VARCHAR);
     try
     {
-      return queryForDecodificaString(QUERY.toString(), mapSqlParameterSource);
+      return queryForDecodificaString(query, mapSqlParameterSource);
     }
     catch (Throwable t)
     {
       InternalUnexpectedException e = new InternalUnexpectedException(t,
           (LogParameter[]) null,
           new LogVariable[]
-          {}, QUERY.toString(), (MapSqlParameterSource) null);
+          {}, query, (MapSqlParameterSource) null);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -1713,7 +1713,7 @@ public class BaseDAO
             public Map<String, String> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<String, String> map = new HashMap<String, String>();
+              Map<String, String> map = new HashMap<>();
               while (rs.next())
               {
                 map.put(rs.getString("ID_PARAMETRO"), rs.getString("VALORE"));
@@ -1782,7 +1782,7 @@ public class BaseDAO
             public Map<String, String> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<String, String> map = new HashMap<String, String>();
+              Map<String, String> map = new HashMap<>();
               while (rs.next())
               {
                 map.put(rs.getString("CODICE_CDU"), rs.getString("HELP_CDU"));
@@ -3045,13 +3045,13 @@ public class BaseDAO
       
       params.addValue("ID_BANDO_OGGETTO", idBandoOggetto, Types.NUMERIC);
       
-      return namedParameterJdbcTemplate.query(query.toString(), params, new ResultSetExtractor<Map<String, String>>()
+      return namedParameterJdbcTemplate.query(query, params, new ResultSetExtractor<Map<String, String>>()
       {
 
         @Override
         public Map<String, String> extractData(ResultSet rs) throws SQLException, DataAccessException
         {
-          Map<String, String> map = new HashMap<String, String>();
+          Map<String, String> map = new HashMap<>();
           while (rs.next())
           {
             map.put(rs.getString("CODICE"), rs.getString("VALORE"));
@@ -3065,7 +3065,7 @@ public class BaseDAO
       InternalUnexpectedException e = new InternalUnexpectedException(t,
           (LogParameter[]) null,
           new LogVariable[]
-          {}, query.toString(), (MapSqlParameterSource) null);
+          {}, query, (MapSqlParameterSource) null);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }

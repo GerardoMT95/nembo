@@ -408,7 +408,7 @@ public class QuadroNewDAO extends QuadroDAO
           new LogParameter[]
           { new LogParameter("idsDocumentoSpesa", idsDocumentoSpesa) },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -702,7 +702,7 @@ public class QuadroNewDAO extends QuadroDAO
           { new LogParameter("idDettRicevutaPagamento",
               idDettRicevutaPagamento) },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -3401,7 +3401,7 @@ public class QuadroNewDAO extends QuadroDAO
       mapParameterSource.addValue("ID_RICEVUTA_PAGAMENTO", idRicevutaPagamento,
           Types.NUMERIC);
 
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<Long>>()
           {
 
@@ -3427,7 +3427,7 @@ public class QuadroNewDAO extends QuadroDAO
               new LogParameter("idRicevutaPagamento", idRicevutaPagamento)
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -3534,7 +3534,7 @@ public class QuadroNewDAO extends QuadroDAO
           new LogParameter[]
           { new LogParameter("idDocumentoSpesa", idDocumentoSpesa) },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }
@@ -3885,7 +3885,7 @@ public class QuadroNewDAO extends QuadroDAO
               idDichConsistenza),
               new LogParameter("EXT_ID_PARTICELLA", extIdParticella) },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }

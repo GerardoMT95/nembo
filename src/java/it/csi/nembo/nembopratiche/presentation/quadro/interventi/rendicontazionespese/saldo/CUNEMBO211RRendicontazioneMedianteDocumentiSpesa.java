@@ -100,7 +100,7 @@ public class CUNEMBO211RRendicontazioneMedianteDocumentiSpesa
             + idDocumentoSpesaInterven;
 
         /*
-         * Il massimo importo rendicontabile è dato da: min (importo del
+         * Il massimo importo rendicontabile ï¿½ dato da: min (importo del
          * documento di spesa ripartito sull'intervento, importo delle ricevute
          * di pagamento) meno le rendicontazioni precedenti. Se non ci sono
          * ricevute di pagamento il calcolo allora si fa solo sull'importo
@@ -185,7 +185,7 @@ public class CUNEMBO211RRendicontazioneMedianteDocumentiSpesa
       throws InternalUnexpectedException, ApplicationException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     Map<String, Object> common = getCommonFromSession("CU-NEMBO-211-R", session,
         true);
@@ -237,7 +237,7 @@ public class CUNEMBO211RRendicontazioneMedianteDocumentiSpesa
         else
         {
           throw new ApplicationException(
-              "Errore interno grave: sono stati trovati più dati di rendicontazione a fronte di un solo intervento");
+              "Errore interno grave: sono stati trovati piï¿½ dati di rendicontazione a fronte di un solo intervento");
         }
       }
     }
@@ -266,7 +266,7 @@ public class CUNEMBO211RRendicontazioneMedianteDocumentiSpesa
       }
     }
     // se tutti gli importi sono a 0 allora vuol dire che non ho mai modificato
-    // questi dati (o quanto meno è stato
+    // questi dati (o quanto meno ï¿½ stato
     // concordato con Arpea che sia accettabile questa assunzione) e quindi
     // precarico i valori
     for (InterventoRendicontazioneDocumentiSpesaDTO intervento : interventi

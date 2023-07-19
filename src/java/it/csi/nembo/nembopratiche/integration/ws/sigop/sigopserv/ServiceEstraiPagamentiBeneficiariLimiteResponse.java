@@ -67,7 +67,7 @@ public class ServiceEstraiPagamentiBeneficiariLimiteResponse
   {
     if (pagamenti == null)
     {
-      pagamenti = new ArrayList<PagamentoBeneficiarioVO>();
+      pagamenti = new ArrayList<>();
     }
     return this.pagamenti;
   }

@@ -137,7 +137,7 @@ public class CUNEMBO192MRendicontazioneSpeseModifica
     }
     if (errors.isEmpty())
     {
-      List<Long> ids = new ArrayList<Long>();
+      List<Long> ids = new ArrayList<>();
       for (RigaRendicontazioneSpese riga : list)
       {
         ids.add(riga.getIdIntervento());
@@ -180,7 +180,7 @@ public class CUNEMBO192MRendicontazioneSpeseModifica
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
     List<RigaRendicontazioneSpese> list = rendicontazioneEAccertamentoSpeseEJB

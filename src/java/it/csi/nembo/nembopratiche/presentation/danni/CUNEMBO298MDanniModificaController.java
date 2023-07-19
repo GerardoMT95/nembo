@@ -244,7 +244,7 @@ public class CUNEMBO298MDanniModificaController extends CUNEMBO298DanniBaseContr
 			if (arrayIdDannoAtm != null && arrayIdDannoAtm.length > 0)
 			{
 				List<DanniDTO> danni = quadroNemboEJB.getListDanniByIdsProcedimentoOggetto(idProcedimentoOggetto,arrayIdDannoAtm, getUtenteAbilitazioni(session).getIdProcedimento());
-				Map<Long, DanniDTO> mappaDanniOriginali = new HashMap<Long, DanniDTO>();
+				Map<Long, DanniDTO> mappaDanniOriginali = new HashMap<>();
 				int counterDanniSuperficiColture=0;
 				List<Integer> listaDanniEquivalentiConduzioni = QuadroNemboDAO.getListDanniEquivalenti(DANNI.TERRENI_RIPRISTINABILI);
 				for (DanniDTO danno : danni)

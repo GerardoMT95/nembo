@@ -44,7 +44,7 @@ import it.csi.nembo.nembopratiche.util.stampa.fragment.TitoliListaLiquidazione;
 
 public abstract class Stampa
 {
-  public static final Map<String, Fragment> MAP_FRAGMENTS = new HashMap<String, Fragment>();
+  public static final Map<String, Fragment> MAP_FRAGMENTS = new HashMap<>();
   static
   {
     MAP_FRAGMENTS.put(NemboConstants.QUADRO.CODICE.DATI_IDENTIFICATIVI, new QuadroDatiIdentificativi());

@@ -56,7 +56,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
 	List<DecodificaDTO<String>> ufficiZona = getListUfficiZonaFunzionari();
 
 
-    List<Radio> radio = new LinkedList<Radio>();
+    List<Radio> radio = new LinkedList<>();
     radio.add(new Radio("S", "S�"));
     radio.add(new Radio("N", "No"));
 
@@ -87,7 +87,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
 
     String numeroRighe = request.getParameter("numeroRighe");
     int numeroOperazioniInserite = Integer.parseInt(numeroRighe) + 1;
-    LinkedList<LivelloDTO> livelli = new LinkedList<LivelloDTO>();
+    LinkedList<LivelloDTO> livelli = new LinkedList<>();
     List<LivelloDTO> livelliPossibili = quadroEjb
         .getLivelliProcOggetto(procedimentoOggetto.getIdProcedimento());
     model.addAttribute("numeroMassimoLivelli", livelliPossibili.size());
@@ -260,7 +260,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
 
       model.addAttribute("errors", errors);
 
-      List<Radio> radio = new LinkedList<Radio>();
+      List<Radio> radio = new LinkedList<>();
       radio.add(new Radio("S", "S�"));
       radio.add(new Radio("N", "No"));
 

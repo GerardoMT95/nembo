@@ -1710,7 +1710,7 @@ public ZonaAltimetricaDTO getZonaAltimetricaProcedimento(long idProcedimentoOgge
 			LogOperationOggettoQuadroDTO logOperationOggettoQuadro) throws InternalUnexpectedException, ApplicationException
 {
 	  BigDecimal centocinquanta = new BigDecimal("150.00");
-	  Map<Long,Boolean> mappaIdBandoLivelloCriterio = new HashMap<Long,Boolean>(); 
+	  Map<Long,Boolean> mappaIdBandoLivelloCriterio = new HashMap<>(); 
 	  
 	  List<RigaElencoInterventi> listaInterventiPrevenzioneConsolidati = dao.getListInterventiPrevenzioneConsolidati(idProcedimentoOggetto);
 	  List<RigaElencoInterventi> listaInterventiPrevenzioneTemporanei = dao.getListInterventiPrevenzioneTemporanei(idProcedimentoOggetto);

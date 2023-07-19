@@ -140,7 +140,7 @@ public class CUNEMBO211MRendicontazioneSpeseSaldoModifica
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     final long idProcedimentoOggetto = getIdProcedimentoOggetto(session);
     List<RigaRendicontazioneSpese> list = rendicontazioneEAccertamentoSpeseEJB

@@ -21,7 +21,7 @@ class GenericDatabaseObjectReader<T>
 
   protected Class<T>                                      objClass;
   protected Map<String, Method>                           mapSetters;
-  protected static final Map<String, Map<String, Method>> OBJECTS_CACHEMAP = new HashMap<String, Map<String, Method>>();
+  protected static final Map<String, Map<String, Method>> OBJECTS_CACHEMAP = new HashMap<>();
 
   public GenericDatabaseObjectReader(Class<T> objClass)
   {
@@ -36,7 +36,7 @@ class GenericDatabaseObjectReader<T>
   protected synchronized void loadSetters()
   {
     Method methods[] = objClass.getMethods();
-    mapSetters = new HashMap<String, Method>();
+    mapSetters = new HashMap<>();
     for (Method method : methods)
     {
       String name = method.getName();

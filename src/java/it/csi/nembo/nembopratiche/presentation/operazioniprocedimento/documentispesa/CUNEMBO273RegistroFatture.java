@@ -106,8 +106,7 @@ public class CUNEMBO273RegistroFatture extends BaseController
       @RequestParam(value = "den") String denominazione)
       throws InternalUnexpectedException
   {
-    List<DecodificaDTO<Long>> list = null;
-    list = new ArrayList<>();
+    List<DecodificaDTO<Long>> list;
     list = (ArrayList<DecodificaDTO<Long>>) quadroEJB
         .geElencoFornitoriRicercaFatture(CUAA, denominazione);
 
@@ -243,7 +242,7 @@ public class CUNEMBO273RegistroFatture extends BaseController
       throws InternalUnexpectedException
   {
     List<LivelloDTO> livelli = ricercaEJB.getElencoLivelli();
-    List<LivelloDTO> liv = new LinkedList<LivelloDTO>();
+    List<LivelloDTO> liv = new LinkedList<>();
     boolean aggiungi = true;
 
     for (LivelloDTO item : livelli)
@@ -263,11 +262,11 @@ public class CUNEMBO273RegistroFatture extends BaseController
 
     Map<String, Object> stato;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     ;
     for (LivelloDTO item : liv)
     {
-      stato = new HashMap<String, Object>();
+      stato = new HashMap<>();
       stato.put("id", item.getCodice());
       stato.put("label", item.getCodice());
       ret.add(stato);

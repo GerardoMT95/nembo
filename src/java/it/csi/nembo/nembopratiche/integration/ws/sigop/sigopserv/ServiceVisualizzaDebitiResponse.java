@@ -67,7 +67,7 @@ public class ServiceVisualizzaDebitiResponse
   {
     if (debiti == null)
     {
-      debiti = new ArrayList<SchedaCreditoVO>();
+      debiti = new ArrayList<>();
     }
     return this.debiti;
   }

@@ -42,11 +42,11 @@ public class ExcelTemplateReport
       }
     }
     /*
-    if (rowValues.size() > 0)
+    if (rowValues.isNotEmpty())
     {
       XSSFSheet xssfSheet = (XSSFSheet) sheet;
       List<XSSFTable> tables = xssfSheet.getTables();
-      if (tables != null && tables.size() > 0)
+      if (tables != null && tables.isNotEmpty())
       {
         XSSFTable table = tables.get(0);
         String ref = getTableCellRange(rowValues);

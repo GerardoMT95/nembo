@@ -57,7 +57,7 @@ public class CUNEMBO220CaricamentoEstrazioneCampione extends BaseController
     else
     {
       long idUtenteLogin = new Long(getIdUtenteLogin(session));
-      List<Long> l = new LinkedList<Long>();
+      List<Long> l = new LinkedList<>();
       l.add(idUtenteLogin);
       List<UtenteLogin> utenti = super.loadRuoloDescr(l);
       long idNumeroLotto = estrazioniEJB.caricamentoEstrazioni(

@@ -141,16 +141,11 @@ public class ArrayUtils
     {
       for (Object obj : array)
       {
-        if (value == obj) // Principalmente null == null
+        if (value == obj || obj != null && obj.equals(value)) // Principalmente null == null
         {
           found = true;
-          break;
         }
-        if (obj != null && obj.equals(value))
-        {
-          found = true;
-          break;
-        }
+
       }
     }
     return found;

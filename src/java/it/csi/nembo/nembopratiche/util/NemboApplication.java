@@ -57,7 +57,7 @@ public final class NemboApplication
 
   protected Map<String, ElencoCduDTO> loadCDU()
   {
-    Map<String, ElencoCduDTO> map = new HashMap<String, ElencoCduDTO>();
+    Map<String, ElencoCduDTO> map = new HashMap<>();
     try
     {
       InitialContext ic = new InitialContext();
@@ -79,7 +79,7 @@ public final class NemboApplication
 
   public synchronized Map<String, SegnapostoDTO> loadSyncSegnapostiStampe()
   {
-    Map<String, SegnapostoDTO> map = new HashMap<String, SegnapostoDTO>();
+    Map<String, SegnapostoDTO> map = new HashMap<>();
     try
     {
       InitialContext ic = new InitialContext();

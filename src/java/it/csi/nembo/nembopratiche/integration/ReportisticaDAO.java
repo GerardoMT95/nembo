@@ -837,7 +837,7 @@ public class ReportisticaDAO extends BaseDAO
               }
               else
               {
-                return null;
+                 return new ResultSet[0];
               }
             }
           });

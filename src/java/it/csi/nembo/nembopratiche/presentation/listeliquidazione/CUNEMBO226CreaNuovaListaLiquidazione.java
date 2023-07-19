@@ -223,7 +223,7 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
         }
       }
     }
-    Map<String, Boolean> result = new HashMap<String, Boolean>();
+    Map<String, Boolean> result = new HashMap<>();
     result.put("finished", finished);
     return result;
   }
@@ -423,13 +423,13 @@ public class CUNEMBO226CreaNuovaListaLiquidazione extends BaseController
       DatiCreazioneListaDTO datiCreazioneListaDTO)
       throws JsonGenerationException, JsonMappingException, IOException
   {
-    Map<String, Object> mapFiltro = new HashMap<String, Object>();
+    Map<String, Object> mapFiltro = new HashMap<>();
 
-    Map<String, String> mapNumeroLista = new HashMap<String, String>();
+    Map<String, String> mapNumeroLista = new HashMap<>();
     mapNumeroLista.put("eq", "" + datiCreazioneListaDTO.getNumeroLista() + "");
     mapFiltro.put("numListaStr", mapNumeroLista);
 
-    Map<String, String> mapDenominazioneBando = new HashMap<String, String>();
+    Map<String, String> mapDenominazioneBando = new HashMap<>();
     mapDenominazioneBando.put("cnt",
         datiCreazioneListaDTO.getDenominazioneBando());
     mapFiltro.put("denominazioneBando", mapDenominazioneBando);

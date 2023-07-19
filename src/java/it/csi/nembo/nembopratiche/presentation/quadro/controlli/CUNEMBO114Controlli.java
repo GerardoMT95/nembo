@@ -55,7 +55,7 @@ public class CUNEMBO114Controlli extends BaseController
             ? procedimentoOggetto.getDataFine() : new Date()),
         false);
 
-    if (fonteControlloDTOList.size() > 0)
+    if (fonteControlloDTOList.isNotEmpty())
     {
       // Assegno descrizione utente
       List<Long> idUtenti = new ArrayList<>();
@@ -83,7 +83,7 @@ public class CUNEMBO114Controlli extends BaseController
           }
         }
       }
-      if (idUtenti != null && idUtenti.size() > 0)
+      if (idUtenti != null && idUtenti.isNotEmpty())
       {
         List<UtenteLogin> utentiList = loadRuoloDescr(idUtenti);
         for (FonteControlloDTO fonte : fonteControlloDTOList)
@@ -290,7 +290,7 @@ public class CUNEMBO114Controlli extends BaseController
   public HashMap<String, FiltroVO> parseFilters(String json)
       throws JsonProcessingException, IOException
   {
-    HashMap<String, FiltroVO> filtersMap = new HashMap<String, FiltroVO>();
+    HashMap<String, FiltroVO> filtersMap = new HashMap<>();
     JsonFactory factory = new JsonFactory();
     ObjectMapper mapper = new ObjectMapper(factory);
     JsonNode rootNode = mapper.readTree(json);

@@ -9,7 +9,7 @@ import org.apache.commons.validator.GenericValidator;
 
 public abstract class FileUtils
 {
-  public static final Map<String, String>  MAP_EXTENSIONS_TO_CSS = new HashMap<String, String>();
+  public static final Map<String, String>  MAP_EXTENSIONS_TO_CSS = new HashMap<>();
   public static final MimetypesFileTypeMap MIMETYPESFILETYPE     = new MimetypesFileTypeMap();
   static
   {

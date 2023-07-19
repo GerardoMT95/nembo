@@ -7,7 +7,7 @@ import org.apache.commons.validator.GenericValidator;
 
 public abstract class CSSUtils
 {
-  public static final Map<String, String> MAP_EXTENSIONS = new HashMap<String, String>();
+  public static final Map<String, String> MAP_EXTENSIONS = new HashMap<>();
   static
   {
     MAP_EXTENSIONS.put(".jpg", "ico_image");

@@ -344,7 +344,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 	{
 		
 		 List<ScorteDecodificaDTO> listDecodificaScorte = dao.getListDecodicaScorta();
-		 Map<Long,Long> mappa = new HashMap<Long,Long>();
+		 Map<Long,Long> mappa = new HashMap<>();
 		 for(ScorteDecodificaDTO sdd : listDecodificaScorte)
 		 {
 			 mappa.put(sdd.getIdScorta(),sdd.getIdUnitaMisura());
@@ -713,7 +713,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		if(listDanniEquivalentiConduzioni.contains(danno.getIdDanno()))
 		{
 			List<ParticelleDanniDTO> listConduzioni = dao.getListConduzioniDannoSelezionate(idProcedimentoOggetto, arrayIdUtilizzoDichiarato, piantagioniArboree);
-			if(listConduzioni != null && listConduzioni.size() > 0)
+			if(listConduzioni != null && listConduzioni.isNotEmpty())
 			{
 				long[] arrayIdUtilizzoDichiaratoDaInserire;
 				if(listConduzioni.size() == arrayIdUtilizzoDichiarato.length)
@@ -839,7 +839,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 	{
 		dao.lockProcedimentoOggetto(idProcedimentoOggetto);
 		List<AllevamentiDTO> listAllevamenti = dao.getListRiepilogoAllevamenti(idProcedimentoOggetto, produzioneZootecnica.getIdCategoriaAnimale(),produzioneZootecnica.getIstatComune(),true);
-		if(listAllevamenti != null && listAllevamenti.size() > 0)
+		if(listAllevamenti != null && listAllevamenti.isNotEmpty())
 		{
 			AllevamentiDTO allevamento = listAllevamenti.get(0);
 			long idProduzioneZootecnica;

@@ -167,7 +167,7 @@ public abstract class StringUtils
     {
       return null;
     }
-    // System.out.println((int)motivazione.charAt(0)); per sapere il numero
+    // Logger.debug((int)motivazione.charAt(0)); per sapere il numero
     return text.replace("&#61656;", "-")
         .replace((char) 149).charValue(), (char) 0xb7) // rimpiazzo
                                                                      // elenco

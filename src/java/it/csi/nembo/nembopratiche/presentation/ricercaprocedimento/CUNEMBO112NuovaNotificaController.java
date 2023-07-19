@@ -103,7 +103,7 @@ public class CUNEMBO112NuovaNotificaController extends BaseController
     model.addAttribute("elencoGravita", elencoGravita);
     // model.addAttribute("idGravitaSelezionato", elencoGravita.get(0));
 
-    List<VisibilitaDTO> elencoVisibilita = new LinkedList<VisibilitaDTO>();
+    List<VisibilitaDTO> elencoVisibilita = new LinkedList<>();
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) session
         .getAttribute("utenteAbilitazioni");
     elencoVisibilita = ricercaEJB.getElencoVisibilitaNotifiche(

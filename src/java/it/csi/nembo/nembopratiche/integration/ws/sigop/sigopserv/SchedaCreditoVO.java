@@ -71,7 +71,7 @@ public class SchedaCreditoVO
   protected String                          tipoDebito;
 
   /**
-   * Recupera il valore della proprietà codiceFondo.
+   * Recupera il valore della proprietï¿½ codiceFondo.
    * 
    * @return possible object is {@link String }
    * 
@@ -82,7 +82,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà codiceFondo.
+   * Imposta il valore della proprietï¿½ codiceFondo.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -94,7 +94,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Recupera il valore della proprietà dataInizioDebito.
+   * Recupera il valore della proprietï¿½ dataInizioDebito.
    * 
    * @return possible object is {@link XMLGregorianCalendar }
    * 
@@ -105,7 +105,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà dataInizioDebito.
+   * Imposta il valore della proprietï¿½ dataInizioDebito.
    * 
    * @param value
    *          allowed object is {@link XMLGregorianCalendar }
@@ -143,13 +143,13 @@ public class SchedaCreditoVO
   {
     if (elencoDisposizioniTrasgredite == null)
     {
-      elencoDisposizioniTrasgredite = new ArrayList<DisposizioniTrasgrediteVO>();
+      elencoDisposizioniTrasgredite = new ArrayList<>();
     }
     return this.elencoDisposizioniTrasgredite;
   }
 
   /**
-   * Recupera il valore della proprietà importoDebito.
+   * Recupera il valore della proprietï¿½ importoDebito.
    * 
    * @return possible object is {@link BigDecimal }
    * 
@@ -160,7 +160,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà importoDebito.
+   * Imposta il valore della proprietï¿½ importoDebito.
    * 
    * @param value
    *          allowed object is {@link BigDecimal }
@@ -172,7 +172,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Recupera il valore della proprietà importoRecupero.
+   * Recupera il valore della proprietï¿½ importoRecupero.
    * 
    * @return possible object is {@link BigDecimal }
    * 
@@ -183,7 +183,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà importoRecupero.
+   * Imposta il valore della proprietï¿½ importoRecupero.
    * 
    * @param value
    *          allowed object is {@link BigDecimal }
@@ -195,7 +195,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Recupera il valore della proprietà numeroScheda.
+   * Recupera il valore della proprietï¿½ numeroScheda.
    * 
    * @return possible object is {@link Integer }
    * 
@@ -206,7 +206,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà numeroScheda.
+   * Imposta il valore della proprietï¿½ numeroScheda.
    * 
    * @param value
    *          allowed object is {@link Integer }
@@ -218,7 +218,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Recupera il valore della proprietà presenzaGaranzia.
+   * Recupera il valore della proprietï¿½ presenzaGaranzia.
    * 
    * @return possible object is {@link String }
    * 
@@ -229,7 +229,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà presenzaGaranzia.
+   * Imposta il valore della proprietï¿½ presenzaGaranzia.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -241,7 +241,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Recupera il valore della proprietà statoScheda.
+   * Recupera il valore della proprietï¿½ statoScheda.
    * 
    * @return possible object is {@link String }
    * 
@@ -252,7 +252,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà statoScheda.
+   * Imposta il valore della proprietï¿½ statoScheda.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -264,7 +264,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Recupera il valore della proprietà tipoDebito.
+   * Recupera il valore della proprietï¿½ tipoDebito.
    * 
    * @return possible object is {@link String }
    * 
@@ -275,7 +275,7 @@ public class SchedaCreditoVO
   }
 
   /**
-   * Imposta il valore della proprietà tipoDebito.
+   * Imposta il valore della proprietï¿½ tipoDebito.
    * 
    * @param value
    *          allowed object is {@link String }

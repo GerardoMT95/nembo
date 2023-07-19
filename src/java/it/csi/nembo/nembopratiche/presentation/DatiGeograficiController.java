@@ -43,7 +43,7 @@ public class DatiGeograficiController extends BaseController
         istatProvincia, NemboConstants.FLAGS.NO);
     if (list == null)
     {
-      list = new ArrayList<DecodificaDTO<String>>();
+      list = new ArrayList<>();
     }
     return list;
   }
@@ -60,7 +60,7 @@ public class DatiGeograficiController extends BaseController
         istatProvincia, NemboConstants.FLAGS.NO);
     if (list == null)
     {
-      list = new ArrayList<ComuneDTO>();
+      list = new ArrayList<>();
     }
     return list;
   }
@@ -77,7 +77,7 @@ public class DatiGeograficiController extends BaseController
         descComune, NemboConstants.FLAGS.NO);
     if (list == null)
     {
-      list = new ArrayList<ComuneDTO>();
+      list = new ArrayList<>();
     }
     return list;
   }

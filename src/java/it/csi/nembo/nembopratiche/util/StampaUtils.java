@@ -47,8 +47,8 @@ import it.csi.nembo.nembopratiche.util.stampa.saldo.VerbaleIstruttoriaSaldoParzi
 import it.csi.nembo.nembopratiche.util.stampa.saldo.VerbaleIstruttoriaSaldoPositivo;
 
 /**
- * Classe astratta per le funzioni di utilità sulle stringhe. La classe è
- * abstract perchè non deve essere usata direttamente ma solo dalla sua
+ * Classe astratta per le funzioni di utilitï¿½ sulle stringhe. La classe ï¿½
+ * abstract perchï¿½ non deve essere usata direttamente ma solo dalla sua
  * implementazione nella costante Utils.STRING
  * 
  * @author Stefano Einaudi (Matr. 70399)
@@ -56,7 +56,7 @@ import it.csi.nembo.nembopratiche.util.stampa.saldo.VerbaleIstruttoriaSaldoPosit
  */
 public abstract class StampaUtils
 {
-  public static Map<String, Stampa> MAP_STAMPE = new HashMap<String, Stampa>();
+  public static Map<String, Stampa> MAP_STAMPE = new HashMap<>();
   static
   {
     MAP_STAMPE.put(

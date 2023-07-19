@@ -268,7 +268,7 @@ public class CUNEMBO163MQuadroEconomicoModifica extends BaseController
     List<RangePercentuale> rangePercentuali = interventiEJB
         .getRangePercentuali(idIntervento);
     model.addAttribute("rangePercentuali", rangePercentuali);
-    Map<Long, BigDecimal> mapInterventiPercentuali = new HashMap<Long, BigDecimal>();
+    Map<Long, BigDecimal> mapInterventiPercentuali = new HashMap<>();
     for (RangePercentuale range : rangePercentuali)
     {
       String key = range.getKey();

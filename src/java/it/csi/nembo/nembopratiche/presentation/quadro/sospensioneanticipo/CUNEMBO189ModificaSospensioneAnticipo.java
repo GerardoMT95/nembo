@@ -33,8 +33,8 @@ public class CUNEMBO189ModificaSospensioneAnticipo extends BaseController
   public final String index(Model model, HttpSession session)
       throws InternalUnexpectedException
   {
-    List<Radio> r = new LinkedList<Radio>();
-    r.add(new Radio("S", "Sì"));
+    List<Radio> r = new LinkedList<>();
+    r.add(new Radio("S", "Sï¿½"));
     r.add(new Radio("N", "No"));
     model.addAttribute("radio", r);
     List<SospensioneAnticipoDTO> elenco = quadroEjb

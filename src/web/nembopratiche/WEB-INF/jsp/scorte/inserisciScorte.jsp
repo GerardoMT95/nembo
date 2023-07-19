@@ -67,8 +67,8 @@
 		url="/staticresources/assets/application/nembopratiche/include/footer.html" />
 	
 	<script>
-//TODO: FIXME:	eventuale futura modifica al DB	 
-		 let idScortaAltro="${idTipologiaAltro}";
+
+let idScortaAltro="${idTipologiaAltro}";
 		 $(document).ready( function(){
 		 	let idScortaVal = $('#idScorta').val();
 		 	if(idScortaVal != '' && idScortaVal == idScortaAltro && "${preferRequest}"=='true')
@@ -112,8 +112,8 @@
 			         			$('#divDescrizione').show();
 			         		}
 			         		
-							//TODO: FIXME: da modificare con eventuale modifica al DB
-			         		if(idScortaVal != '' && idScortaVal == idScortaAltro){
+							
+							if(idScortaVal != '' && idScortaVal == idScortaAltro){
 			         			$('#unitaDiMisura').val('');
 			         			$('#unitaDiMisura').prop('disabled', false);
 			         			$('#divDescrizione').show();		

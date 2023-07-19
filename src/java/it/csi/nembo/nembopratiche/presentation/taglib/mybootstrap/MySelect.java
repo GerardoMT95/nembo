@@ -57,7 +57,7 @@ public class MySelect extends MyInputGroup
   protected void writeCustomTag(StringBuilder sb, String errorMessage,
       boolean wrappedInAGroup) throws Exception
   {
-    insertedValuesMap = new HashMap<String, String>();
+    insertedValuesMap = new HashMap<>();
     sb.append("<select");
     addBaseAttributes(sb, errorMessage != null);
     if (multiple)

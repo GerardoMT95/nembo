@@ -24,7 +24,6 @@ import it.csi.nembo.nembopratiche.util.validator.Errors;
 @Controller
 @RequestMapping("/cunembo308m")
 @NemboSecurity(value = "CU-NEMBO-308-M", controllo = NemboSecurity.Controllo.PROCEDIMENTO_OGGETTO) 
-//TODO: FIXME! Operazione non permessa: il procedimento selezionato è chiuso
 public class CUNEMBO308MModificaDocumentiRichiestiController extends BaseController {
 
 	 public static final String CU_NAME = "CU-NEMBO-308-M";

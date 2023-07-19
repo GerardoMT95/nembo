@@ -320,7 +320,7 @@ public class QuadroDinamicoDAO extends BaseDAO
             public Map<Long, List<VoceElementoDTO>> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<Long, List<VoceElementoDTO>> mapVoci = new HashMap<Long, List<VoceElementoDTO>>();
+              Map<Long, List<VoceElementoDTO>> mapVoci = new HashMap<>();
               long lastId = Long.MIN_VALUE;
               List<VoceElementoDTO> list = null;
               while (rs.next())

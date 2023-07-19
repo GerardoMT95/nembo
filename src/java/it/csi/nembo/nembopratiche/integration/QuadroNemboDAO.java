@@ -1397,7 +1397,6 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 	}
 	
 	
-	//TODO: FIXME: devon considerare che quando vado in modifica e cancellazione non basta filtrare per EXT_ID_ENTITA_DANNEGGIATA ma anche per tipo danno, altrimenti rischio di cancellare delle cose buone!
 	public List<DanniDTO> getListDanniByProcedimentoOggettoAndArrayIdDannoAtm(long[] arrayIdDannoAtm, long idProcedimentoOggetto, int idProcedimentoAgricoltura) throws InternalUnexpectedException
 	{
 		String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
@@ -3632,7 +3631,7 @@ private static final String THIS_CLASS = QuadroNemboDAO.class.getSimpleName();
 				sb.append(getNotInCondition("CU.ID_UTILIZZO_DICHIARATO", NemboUtils.ARRAY.toListOfLong(filtroRicercaConduzioni.getChiaviConduzioniInserite())));
 			}
 		}
-		if(piantagioniArboree == true)
+		if(piantagioniArboree)
 		{
 			sb.append("		AND CU.FLAG_ARBOREO = 'S' \r\n");
 		}

@@ -123,7 +123,7 @@ public class ProtocolloResponseVO {
      */
     public List<DocumentoVO> getAllegati() {
         if (allegati == null) {
-            allegati = new ArrayList<DocumentoVO>();
+            allegati = new ArrayList<>();
         }
         return this.allegati;
     }
@@ -272,7 +272,7 @@ public class ProtocolloResponseVO {
      */
     public List<DestinatarioVO> getDestinatari() {
         if (destinatari == null) {
-            destinatari = new ArrayList<DestinatarioVO>();
+            destinatari = new ArrayList<>();
         }
         return this.destinatari;
     }
@@ -301,7 +301,7 @@ public class ProtocolloResponseVO {
      */
     public List<FascicoloVO> getFascicoli() {
         if (fascicoli == null) {
-            fascicoli = new ArrayList<FascicoloVO>();
+            fascicoli = new ArrayList<>();
         }
         return this.fascicoli;
     }
@@ -450,7 +450,7 @@ public class ProtocolloResponseVO {
      */
     public List<NumeroProtocolloVO> getProtocolliCollegati() {
         if (protocolliCollegati == null) {
-            protocolliCollegati = new ArrayList<NumeroProtocolloVO>();
+            protocolliCollegati = new ArrayList<>();
         }
         return this.protocolliCollegati;
     }
@@ -479,7 +479,7 @@ public class ProtocolloResponseVO {
      */
     public List<DocumentoRefVO> getRefAllegati() {
         if (refAllegati == null) {
-            refAllegati = new ArrayList<DocumentoRefVO>();
+            refAllegati = new ArrayList<>();
         }
         return this.refAllegati;
     }

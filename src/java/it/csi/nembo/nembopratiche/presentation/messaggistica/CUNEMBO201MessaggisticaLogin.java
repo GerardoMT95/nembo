@@ -72,7 +72,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
          * logout manager richiami immediatamente i servizi di papua per avere i
          * dati di messaggi di testata.
          */
-        Map<String, Object> mapMessaggistica = new HashMap<String, Object>();
+        Map<String, Object> mapMessaggistica = new HashMap<>();
         mapMessaggistica.put(MessaggisticaManager.KEY_STATUS_CODE,
             MessaggisticaManager.STATUS_OK);
         mapMessaggistica.put(MessaggisticaManager.KEY_STATUS_DESC, null);
@@ -141,7 +141,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
     }
     catch (Exception e)
     {
-
+      Logger.debug("eccezione!");
     }
     return "messaggistica/login/dettaglio";
   }
@@ -182,7 +182,7 @@ public class CUNEMBO201MessaggisticaLogin extends MessaggisticaBaseController
     }
     catch (Exception e)
     {
-
+      Logger.debug("eccezione!");
     }
     return "messaggistica/login/dettaglio";
   }

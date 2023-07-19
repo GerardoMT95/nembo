@@ -1114,7 +1114,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
           controlli.add(controllo);
         }
       }
-      if (controlli.size() > 0)
+      if (controlli.isNotEmpty())
       {
         return controlli.toArray(new ControlloDTO[controlli.size()]);
       }
@@ -1654,7 +1654,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       mapParameterSource.addValue("ID_BANDO", idBando, Types.NUMERIC);
       mapParameterSource.addValue("ID_AZIENDA", idAzienda, Types.NUMERIC);
 
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<Procedimento>>()
           {
             @Override
@@ -1696,7 +1696,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
               new LogParameter("idAzienda", idAzienda)
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD);
       throw e;
     }

@@ -66,7 +66,7 @@ public class ServiceEstraiDecretiResponse
   {
     if (decreti == null)
     {
-      decreti = new ArrayList<DecretoVO>();
+      decreti = new ArrayList<>();
     }
     return this.decreti;
   }

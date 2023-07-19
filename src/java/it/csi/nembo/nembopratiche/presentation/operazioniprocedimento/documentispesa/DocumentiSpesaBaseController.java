@@ -421,7 +421,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
       @RequestParam(value = "piva") String piva)
       throws InternalUnexpectedException
   {
-    List<DecodificaDTO<Long>> list = null;
+    List<DecodificaDTO<Long>> list;
 
     if (piva != null)
     {
@@ -430,7 +430,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
 
     if (piva == null || piva.equals(""))
     {
-      list = new ArrayList<>();
+     
 
       Map<String, Object> common = getCommonFromSession(COMMON_SESSION_NAME,
           session, false);

@@ -43,7 +43,7 @@ public class QuadroDanni extends Fragment
 		writer.writeStartElement(TAG_NAME_DANNI);
 		writer.writeStartElement(TAG_NAME_TAB_DANNI);
 		BigDecimal somma = new BigDecimal("0.0");
-		if (listDanni != null && listDanni.size() > 0)
+		if (listDanni != null && listDanni.isNotEmpty())
 		{
 			for (DanniDTO item : listDanni)
 			{
@@ -59,7 +59,7 @@ public class QuadroDanni extends Fragment
 				somma = somma.add(item.getImporto());
 			}
 		}
-		String sommaFormatted = NemboUtils.FORMAT.formatDecimal2(somma) + " €";
+		String sommaFormatted = NemboUtils.FORMAT.formatDecimal2(somma) + " ï¿½";
 		writer.writeStartElement(TAG_NAME_RIGA_TOTALE);		//TAG_NAME_RIGA_TOTALE
 		writeTag(writer,TAG_NAME_TOTALE_IMPORTO,sommaFormatted);
 		writer.writeEndElement(); 							// TAG_NAME_RIGA_TOTALE

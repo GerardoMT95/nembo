@@ -46,7 +46,7 @@ public class CUNEMBO161ModificaPunti extends BaseController
     List<RaggruppamentoLivelloCriterio> listaRaggruppamento = null;
     listaRaggruppamento = this.quadroEjb.getCriteriPunteggioManuali(
         idProcedimento, getProcedimentoFromSession(session).getIdBando());
-    if (listaRaggruppamento != null && listaRaggruppamento.size() > 0)
+    if (listaRaggruppamento != null && listaRaggruppamento.isNotEmpty())
     {
       model.addAttribute("listaRaggruppamento", listaRaggruppamento);
     }
@@ -65,7 +65,7 @@ public class CUNEMBO161ModificaPunti extends BaseController
     final List<Long> listaIdBando = NemboUtils.LIST
         .toListOfLong(request.getParameterValues("idBandoLivelloCriterio"));
     final Map<String, String[]> mappa = request.getParameterMap();
-    Map<Long, BigDecimal> mappaValoriInput = new HashMap<Long, BigDecimal>();
+    Map<Long, BigDecimal> mappaValoriInput = new HashMap<>();
 
     // precompilo la mia mappa inserendo NULL come punteggio da aggiornare per
     // ogni idBandoLivello che trovo nella request
@@ -102,7 +102,7 @@ public class CUNEMBO161ModificaPunti extends BaseController
           idProcedimento, getProcedimentoFromSession(session).getIdBando());
       
       //verifico se almeno uno dei criteri relativi alla prevenzione sia stato selezionato
-      if (listaRaggruppamento != null && listaRaggruppamento.size() > 0)
+      if (listaRaggruppamento != null && listaRaggruppamento.isNotEmpty())
       {
     	  for(int i = 0 ; i<listaRaggruppamento.size() ; i++)
     	  {

@@ -80,13 +80,13 @@ public class ListaMessaggi
   {
     if (messaggi == null)
     {
-      messaggi = new ArrayList<Messaggio>();
+      messaggi = new ArrayList<>();
     }
     return this.messaggi;
   }
 
   /**
-   * Recupera il valore della proprietà numeroMessaggiGenerici.
+   * Recupera il valore della proprietï¿½ numeroMessaggiGenerici.
    * 
    */
   public long getNumeroMessaggiGenerici()
@@ -95,7 +95,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Imposta il valore della proprietà numeroMessaggiGenerici.
+   * Imposta il valore della proprietï¿½ numeroMessaggiGenerici.
    * 
    */
   public void setNumeroMessaggiGenerici(long value)
@@ -104,7 +104,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Recupera il valore della proprietà numeroMessaggiLogout.
+   * Recupera il valore della proprietï¿½ numeroMessaggiLogout.
    * 
    */
   public long getNumeroMessaggiLogout()
@@ -113,7 +113,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Imposta il valore della proprietà numeroMessaggiLogout.
+   * Imposta il valore della proprietï¿½ numeroMessaggiLogout.
    * 
    */
   public void setNumeroMessaggiLogout(long value)
@@ -122,7 +122,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Recupera il valore della proprietà numeroMessaggiTestata.
+   * Recupera il valore della proprietï¿½ numeroMessaggiTestata.
    * 
    */
   public long getNumeroMessaggiTestata()
@@ -131,7 +131,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Imposta il valore della proprietà numeroMessaggiTestata.
+   * Imposta il valore della proprietï¿½ numeroMessaggiTestata.
    * 
    */
   public void setNumeroMessaggiTestata(long value)
@@ -140,7 +140,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Recupera il valore della proprietà numeroTotaleMessaggi.
+   * Recupera il valore della proprietï¿½ numeroTotaleMessaggi.
    * 
    */
   public long getNumeroTotaleMessaggi()
@@ -149,7 +149,7 @@ public class ListaMessaggi
   }
 
   /**
-   * Imposta il valore della proprietà numeroTotaleMessaggi.
+   * Imposta il valore della proprietï¿½ numeroTotaleMessaggi.
    * 
    */
   public void setNumeroTotaleMessaggi(long value)

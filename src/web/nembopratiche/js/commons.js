@@ -391,7 +391,7 @@ function filtra(idAllSelect)
 	}
 }
 
-//TODO: FIXME: 
+
 function filtraSelezionati(idAllSelect)
 {
 	//pulisco select principale
@@ -414,8 +414,8 @@ function filtraSelezionati(idAllSelect)
 		 }
 	}
     
-//TODO: FIXME:    
-    let listRef = '';
+
+	let listRef = '';
 	if(idSelect == 'misura')
 	{
 		listRef = 'misura';
@@ -1407,7 +1407,7 @@ Number.prototype.formatCurrency = function(c){
 		let allUnchecked = true;
 		$("input[name="+checkboxesName+"]").each(function() 
 		{
-			if ($(this).prop("checked") == true) 
+			if ($(this).prop("checked")) 
 			{
 				allUnchecked = false;
 			}

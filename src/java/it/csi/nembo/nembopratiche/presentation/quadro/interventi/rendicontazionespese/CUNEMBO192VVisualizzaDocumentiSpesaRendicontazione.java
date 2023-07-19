@@ -38,7 +38,7 @@ public class CUNEMBO192VVisualizzaDocumentiSpesaRendicontazione
       throws InternalUnexpectedException
   {
     HttpSession session = request.getSession();
-    List<Long> ids = new ArrayList<Long>();
+    List<Long> ids = new ArrayList<>();
     ids.add(idIntervento);
     Map<String, Object> common = getCommonFromSession("CU-NEMBO-192", session,
         true);

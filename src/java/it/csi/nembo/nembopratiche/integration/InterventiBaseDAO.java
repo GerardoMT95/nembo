@@ -2120,7 +2120,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
             public Map<Long, StringBuilder> extractData(ResultSet rs)
                 throws SQLException, DataAccessException
             {
-              Map<Long, StringBuilder> map = new HashMap<Long, StringBuilder>();
+              Map<Long, StringBuilder> map = new HashMap<>();
               while (rs.next())
               {
                 final long idIntervento = rs.getLong("ID_INTERVENTO");
@@ -2650,10 +2650,10 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                 public Map<String, Map<String, String>> extractData(
                     ResultSet rs) throws SQLException, DataAccessException
                 {
-                  Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
+                  Map<String, Map<String, String>> map = new HashMap<>();
                   while (rs.next())
                   {
-                    Map<String, String> element = new HashMap<String, String>();
+                    Map<String, String> element = new HashMap<>();
                     String istatComune = rs.getString("ISTAT_COMUNE");
                     element.put("istatComune", istatComune);
                     element.put("descrizioneComune",
@@ -2788,10 +2788,10 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                 public Map<String, Map<String, String>> extractData(
                     ResultSet rs) throws SQLException, DataAccessException
                 {
-                  Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
+                  Map<String, Map<String, String>> map = new HashMap<>();
                   while (rs.next())
                   {
-                    Map<String, String> element = new HashMap<String, String>();
+                    Map<String, String> element = new HashMap<>();
                     String istatComune = rs.getString("ISTAT_COMUNE");
                     element.put("istatComune", istatComune);
                     element.put("descrizioneComune",
@@ -2914,10 +2914,10 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                 public Map<String, Map<String, String>> extractData(
                     ResultSet rs) throws SQLException, DataAccessException
                 {
-                  Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
+                  Map<String, Map<String, String>> map = new HashMap<>();
                   while (rs.next())
                   {
-                    Map<String, String> element = new HashMap<String, String>();
+                    Map<String, String> element = new HashMap<>();
                     String istatComune = rs.getString("ISTAT_COMUNE");
                     element.put("istatComune", istatComune);
                     element.put("descrizioneComune",
@@ -3023,10 +3023,10 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
                 public Map<String, Map<String, String>> extractData(
                     ResultSet rs) throws SQLException, DataAccessException
                 {
-                  Map<String, Map<String, String>> map = new HashMap<String, Map<String, String>>();
+                  Map<String, Map<String, String>> map = new HashMap<>();
                   while (rs.next())
                   {
-                    Map<String, String> element = new HashMap<String, String>();
+                    Map<String, String> element = new HashMap<>();
                     String istatComune = rs.getString("ISTAT_COMUNE");
                     element.put("istatComune", istatComune);
                     element.put("descrizioneComune",
@@ -3626,7 +3626,7 @@ private List<DecodificaInterventoDTO> getListInterventiPossibiliByIdProcedimento
          * che sia l'output sia ordinato in modo congruente con l'input. Uso una
          * mappa con chiave l'id (tripletta di valori separati da _) della riga
          */
-        Map<String, RigaJSONConduzioneInteventoDTO> map = new HashMap<String, RigaJSONConduzioneInteventoDTO>();
+        Map<String, RigaJSONConduzioneInteventoDTO> map = new HashMap<>();
         for (RigaJSONConduzioneInteventoDTO riga : list)
         {
           map.put(riga.getId(), riga);

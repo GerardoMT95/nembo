@@ -15,7 +15,7 @@ import it.csi.nembo.nembopratiche.util.validator.Errors;
 
 public abstract class SingleValueValidator
 {
-  public static final Map<String, SingleValueValidator> MAP_VALIDATORS = new HashMap<String, SingleValueValidator>();
+  public static final Map<String, SingleValueValidator> MAP_VALIDATORS = new HashMap<>();
 
   public String validate(ElementoQuadroDTO elemento, String valore,
       String nomeParametro, Errors errors, IQuadroDinamicoEJB quadroDinamicoEJB)
@@ -29,8 +29,8 @@ public abstract class SingleValueValidator
       {
         /*
          * Non ci sono errori su questo campo ==> posso richiamare la query di
-         * validazione registrata su db. Richiamo solo se il campo è valorizzato
-         * o se è null ma l'elemento non è obbligatorio
+         * validazione registrata su db. Richiamo solo se il campo ï¿½ valorizzato
+         * o se ï¿½ null ma l'elemento non ï¿½ obbligatorio
          */
         if (value != null || (value == null && !elemento.isObbligatorio()))
         {
@@ -95,7 +95,7 @@ public abstract class SingleValueValidator
         }
         else
         {
-          // Non è un numero valido ==> quindi non serve tenerlo in memoria
+          // Non ï¿½ un numero valido ==> quindi non serve tenerlo in memoria
           return null;
         }
       }
@@ -131,7 +131,7 @@ public abstract class SingleValueValidator
         }
         else
         {
-          // Non è un numero valido ==> quindi non serve tenerlo in memoria
+          // Non ï¿½ un numero valido ==> quindi non serve tenerlo in memoria
           return null;
         }
       }
@@ -168,7 +168,7 @@ public abstract class SingleValueValidator
         }
         else
         {
-          // Non è un numero valido ==> quindi non serve tenerlo in memoria
+          // Non ï¿½ un numero valido ==> quindi non serve tenerlo in memoria
           return null;
         }
       }
@@ -205,7 +205,7 @@ public abstract class SingleValueValidator
         }
         else
         {
-          // Non è un numero valido ==> quindi non serve tenerlo in memoria
+          // Non ï¿½ un numero valido ==> quindi non serve tenerlo in memoria
           return null;
         }
       }
@@ -246,7 +246,7 @@ public abstract class SingleValueValidator
         }
         else
         {
-          // Non è un numero valido ==> quindi non serve tenerlo in memoria
+          // Non ï¿½ un numero valido ==> quindi non serve tenerlo in memoria
           return null;
         }
       }
@@ -429,14 +429,14 @@ public abstract class SingleValueValidator
     if (lunghezza == null)
     {
       throw new ApplicationException(
-          "Si è verificato un errore grave nella configurazione del quadro dinamico. Contattare l'assistenza tecnica comunicando il seguente messaggio: Campo lunghezza dell'elemento #"
+          "Si ï¿½ verificato un errore grave nella configurazione del quadro dinamico. Contattare l'assistenza tecnica comunicando il seguente messaggio: Campo lunghezza dell'elemento #"
               + elemento.getIdElementoQuadro() + " non valorizzato!");
     }
     if (lunghezza <= 0)
     {
       throw new ApplicationException(
-          "Si è verificato un errore grave nella configurazione del quadro dinamico. Contattare l'assistenza tecnica comunicando il seguente messaggio: Campo lunghezza dell'elemento #"
-              + elemento.getIdElementoQuadro() + " è zero o negativo!");
+          "Si ï¿½ verificato un errore grave nella configurazione del quadro dinamico. Contattare l'assistenza tecnica comunicando il seguente messaggio: Campo lunghezza dell'elemento #"
+              + elemento.getIdElementoQuadro() + " ï¿½ zero o negativo!");
     }
     return lunghezza;
   }

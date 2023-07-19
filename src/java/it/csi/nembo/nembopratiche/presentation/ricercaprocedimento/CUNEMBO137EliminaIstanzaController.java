@@ -73,7 +73,7 @@ public class CUNEMBO137EliminaIstanzaController extends BaseController
     {
       model.addAttribute("messaggio",
           NemboConstants.SQL.MESSAGE.PLSQL_ERRORE_CRITICO.replace("&egrave;",
-              "è") + " " + controlliGravi.getMessaggio());
+              "ï¿½") + " " + controlliGravi.getMessaggio());
       model.addAttribute("titolo", "Errore");
       return "errore/erroreInterno";
     }
@@ -83,7 +83,7 @@ public class CUNEMBO137EliminaIstanzaController extends BaseController
       {
         model.addAttribute("messaggio",
             NemboConstants.SQL.MESSAGE.PLSQL_ERRORE_GRAVE.replace("&egrave;",
-                "è") + " " + controlliGravi.getMessaggio());
+                "ï¿½") + " " + controlliGravi.getMessaggio());
         model.addAttribute("titolo", "Errore");
         return "errore/erroreInterno";
       }
@@ -98,7 +98,7 @@ public class CUNEMBO137EliminaIstanzaController extends BaseController
               .getElencoOggetti(idProcedimento,
                   Arrays.asList(utenteAbilitazioni.getMacroCU()),
                   utenteAbilitazioni.getIdProcedimento());
-          if (listGruppiOggetto != null && listGruppiOggetto.size() > 0)
+          if (listGruppiOggetto != null && listGruppiOggetto.isNotEmpty())
           {
             return "redirect:../cunembo129/index_" + idProcedimento + ".do";
           }

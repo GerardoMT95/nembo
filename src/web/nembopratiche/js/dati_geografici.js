@@ -20,7 +20,7 @@
       async:false
       }).success(function(data) 
         {
-        var $select=$('#'+idComboComuni);
+        let $select=$('#'+idComboComuni);
         $select.prop("disabled",false);
         if (disabledIfEmpty)
         {

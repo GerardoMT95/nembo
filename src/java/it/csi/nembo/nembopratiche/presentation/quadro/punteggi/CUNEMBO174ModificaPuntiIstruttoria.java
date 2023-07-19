@@ -72,7 +72,7 @@ public class CUNEMBO174ModificaPuntiIstruttoria extends BaseController
 		final ProcedimentoOggetto po = getProcedimentoOggettoFromSession(session);
 		final QuadroOggettoDTO quadroOgg = po.findQuadroByCodiceQuadro("PUNTI");
 		final Long idDatiProcedimentoPunti = this.quadroEjb.getIdDatiProcedimentoPunti(po.getIdProcedimentoOggetto());
-		Map<Long, BigDecimal> mappaValoriInput = new HashMap<Long, BigDecimal>();
+		Map<Long, BigDecimal> mappaValoriInput = new HashMap<>();
 		if (idDatiProcedimentoPunti != null)
 		{
 			listaRaggruppamento = this.quadroEjb.getCriteriPunteggio(quadroOgg.getIdOggetto(), idDatiProcedimentoPunti,

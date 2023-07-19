@@ -64,7 +64,7 @@ public class QuadroColtureAziendali extends Fragment
 		
 		writer.writeStartElement(TAG_NAME_SEZ_DATI_COLTURE);						//TAG_NAME_SEZ_DATI_COLTURE
 
-		if (listColtureAziendaliDettaglio != null && listColtureAziendaliDettaglio.size() > 0)
+		if (listColtureAziendaliDettaglio != null && listColtureAziendaliDettaglio.isNotEmpty())
 		{
 			writeTag(writer, TAG_NAME_VISIBILITY_DATI,"true");
 			

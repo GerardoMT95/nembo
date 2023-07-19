@@ -65,11 +65,11 @@ public class CUNEMBO135NuovaIstanzaController extends BaseController
     {
       model.addAttribute("noConfirm", Boolean.TRUE);
       model.addAttribute("msgErrore",
-          "Il procedimento selezionato si trova in uno stato per cui non è possibile creare alcuna Istanza.");
+          "Il procedimento selezionato si trova in uno stato per cui non ï¿½ possibile creare alcuna Istanza.");
 
     }
     else
-      if (elenco != null && elenco.size() > 0)
+      if (elenco != null && elenco.isNotEmpty())
       {
         model.addAttribute("elenco", elenco);
       }
@@ -77,7 +77,7 @@ public class CUNEMBO135NuovaIstanzaController extends BaseController
       {
         model.addAttribute("noConfirm", Boolean.TRUE);
         model.addAttribute("msgErrore",
-            "Non è possibile creare alcuna Istanza sul procedimento selezionato.");
+            "Non ï¿½ possibile creare alcuna Istanza sul procedimento selezionato.");
       }
 
     model.addAttribute("descrizioneTipo", "Istanza");

@@ -121,8 +121,8 @@ public class BaseController
   protected Map<Long, UtenteLogin> getMapUtenti(List<Long> lIdUtente)
       throws InternalUnexpectedException
   {
-    Map<Long, UtenteLogin> map = new HashMap<Long, UtenteLogin>();
-    if (lIdUtente != null && lIdUtente.size() > 0)
+    Map<Long, UtenteLogin> map = new HashMap<>();
+    if (lIdUtente != null && lIdUtente.isNotEmpty())
     {
       List<UtenteLogin> list = loadRuoloDescr(lIdUtente);
       if (list != null)
@@ -344,14 +344,14 @@ public class BaseController
       String ownerID = (String) common.get("ID");
       if (ownerID == null)
       {
-        common = new HashMap<String, Object>();
+        common = new HashMap<>();
         common.put("ID", id);
       }
       else
       {
         if (!ownerID.equals(id))
         {
-          common = new HashMap<String, Object>();
+          common = new HashMap<>();
           common.put("ID", id);
           if (removeIfDifferentOwner)
           {
@@ -362,7 +362,7 @@ public class BaseController
     }
     else
     {
-      common = new HashMap<String, Object>();
+      common = new HashMap<>();
       common.put("ID", id);
     }
     return common;
@@ -414,7 +414,7 @@ public class BaseController
         idProcedimentoOggetto, idQuadroOggetto, idBandoOggetto);
     if (logObj != null)
     {
-      List<Long> idUtenti = new ArrayList<Long>();
+      List<Long> idUtenti = new ArrayList<>();
       idUtenti.add(logObj.getExtIdUtenteAggiornamento());
       List<UtenteLogin> utentiList = loadRuoloDescr(idUtenti);
       return NemboUtils.DATE
@@ -447,7 +447,7 @@ public class BaseController
   {
     UtenteAbilitazioni utenteAbilitazioni = getUtenteAbilitazioni(session);
     EnteLogin[] entiAbilitati = utenteAbilitazioni.getEntiAbilitati();
-    List<Long> lIdAmmCompetenza = new ArrayList<Long>();
+    List<Long> lIdAmmCompetenza = new ArrayList<>();
     for (EnteLogin ente : entiAbilitati)
     {
       AmmCompetenza ammCompetenza = ente.getAmmCompetenza();
@@ -520,7 +520,7 @@ public class BaseController
 	
 	public List<DecodificaDTO<String>> getListUfficiZonaFunzionari()
 	{
-		List<DecodificaDTO<String>> ufficiZona = new ArrayList<DecodificaDTO<String>>();
+		List<DecodificaDTO<String>> ufficiZona = new ArrayList<>();
 		final String STESSO_UFFICIO = "STESSO_UFFICIO";
 		ufficiZona.add(new DecodificaDTO<String>(STESSO_UFFICIO,"Singolo ufficio zona"));
 		ufficiZona.add(new DecodificaDTO<String>(null,"Tutti gli uffici zona"));
@@ -536,7 +536,7 @@ public class BaseController
 
   public static Map<String,Boolean> getCodiciPunteggioPerInterventiPrevenzione()
   {
-	  Map<String,Boolean> mappa = new HashMap<String,Boolean>();
+	  Map<String,Boolean> mappa = new HashMap<>();
 	  mappa.put(NemboConstants.PUNTEGGI.CODICE_LUPI01, Boolean.TRUE);
 	  mappa.put(NemboConstants.PUNTEGGI.CODICE_LUPI02, Boolean.TRUE);
 	  mappa.put(NemboConstants.PUNTEGGI.CODICE_LUPI03, Boolean.TRUE);

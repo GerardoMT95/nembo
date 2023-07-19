@@ -70,7 +70,7 @@ public class QuadroInterventiDanni extends Fragment
 		writer.writeStartElement(TAG_NAME_INTERVENTI);
 		writer.writeStartElement(TAG_NAME_TAB_INTERVENTI);
 		BigDecimal somma = new BigDecimal("0.0");
-		if (elenco != null && elenco.size() > 0)
+		if (elenco != null && elenco.isNotEmpty())
 		{
 			for (RigaElencoInterventi item : elenco)
 			{
@@ -81,7 +81,7 @@ public class QuadroInterventiDanni extends Fragment
 				writeTag(writer, TAG_NAME_PROGRESSIVO_INTERVENTO, NemboUtils.STRING.nvl(item.getProgressivo()));
 				writeTag(writer, TAG_NAME_INTERVENTO, item.getDescIntervento());
 				writeTag(writer, TAG_NAME_DESC_INTERVENTO, item.getUlterioriInformazioni());
-				writeTag(writer, TAG_NAME_IMPORTO_INTERVENTO, NemboUtils.FORMAT.formatDecimal2(item.getImportoInvestimento()) + " €");
+				writeTag(writer, TAG_NAME_IMPORTO_INTERVENTO, NemboUtils.FORMAT.formatDecimal2(item.getImportoInvestimento()) + " ï¿½");
 				writer.writeEndElement(); // TAG_NAME_RIGA_PLV
 				somma = somma.add(item.getImportoInvestimento());
 			}
@@ -98,7 +98,7 @@ public class QuadroInterventiDanni extends Fragment
 			writeTag(writer, TAG_NAME_IMPORTO_INTERVENTO, "");
 			writer.writeEndElement(); // TAG_NAME_RIGA_PLV
 		}
-		String sommaFormatted = NemboUtils.FORMAT.formatDecimal2(somma) + " €";
+		String sommaFormatted = NemboUtils.FORMAT.formatDecimal2(somma) + " ï¿½";
 		writer.writeStartElement(TAG_NAME_RIGA_TOTALE);		//TAG_NAME_RIGA_TOTALE
 		writeTag(writer,TAG_NAME_TOTALE_IMPORTO,sommaFormatted);
 		writer.writeEndElement(); 							// TAG_NAME_RIGA_TOTALE

@@ -172,7 +172,6 @@ public class CUNEMBO284Reportistica extends BaseController
     ByteArrayInputStream is = new ByteArrayInputStream(bytes);
     Workbook workbook = null; //WorkbookFactory.create(is);
     is.close();
-    bytes = null;
     ExcelTemplateReport.buildExcelDocument(workbook, graficoVO);
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     workbook.write(baos);

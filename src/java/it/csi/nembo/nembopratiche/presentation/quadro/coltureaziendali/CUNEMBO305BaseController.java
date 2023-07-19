@@ -24,7 +24,7 @@ public abstract class CUNEMBO305BaseController extends BaseController
 	
 	  protected Map<Long,StringBuilder> getMapIdSuperficieColturaAnomalia(long idProcedimentoOggetto, HttpServletRequest request) throws InternalUnexpectedException
 	  {
-		  Map<Long,StringBuilder> mapIdSuperficieColturaAnomalia = new HashMap<Long,StringBuilder>();
+		  Map<Long,StringBuilder> mapIdSuperficieColturaAnomalia = new HashMap<>();
 		  List<ControlloColturaDTO> elencoControlloColtura = quadroNemboEJB.getListControlloColtura(idProcedimentoOggetto, getArrayIdSuperficieColtura(request));
 		  for(ControlloColturaDTO cc : elencoControlloColtura)
 		  {
@@ -39,7 +39,7 @@ public abstract class CUNEMBO305BaseController extends BaseController
 			  {
 				  StringBuilder sb = new StringBuilder(cc.getDescrizioneAnomalia());
 				  mapIdSuperficieColturaAnomalia.put(cc.getIdSuperficieColtura(), sb);
-				  Map<String,Boolean> map = new HashMap<String,Boolean>();
+				  Map<String,Boolean> map = new HashMap<>();
 				  if(cc.getBloccante() != null && !cc.getBloccante().equals(""))
 				  {
 					  map.put(cc.getBloccante(),Boolean.TRUE);

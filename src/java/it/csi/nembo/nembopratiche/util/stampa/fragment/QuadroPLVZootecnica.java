@@ -37,7 +37,7 @@ public class QuadroPLVZootecnica extends Fragment
 		writeVisibility(writer, true);
 		writeTag(writer, TAG_NAME_TITOLO_SEZIONE_PLV_ZOOTECNICA, "Quadro - P.L.V. Zootecnica");
 		writer.writeStartElement(TAG_NAME_PLV_ZOOTECNICA);
-		if (listPlvZootecnica != null && listPlvZootecnica.size() > 0)
+		if (listPlvZootecnica != null && listPlvZootecnica.isNotEmpty())
 		{
 			writeTag(writer,TAG_NAME_VISIBILITY_PLV_ZOOTECNICA,"true");
 			writer.writeStartElement(TAG_NAME_TAB_PLV_ZOOTECNICA);

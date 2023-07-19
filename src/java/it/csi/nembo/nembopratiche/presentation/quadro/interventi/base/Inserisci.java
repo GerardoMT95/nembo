@@ -111,10 +111,10 @@ protected Map<String, Map<String, String>> loadElencoInterventiGenerico(HttpSess
 	List<DecodificaInterventoDTO> interventi = null;
 	
 	interventi = getListInterventiForInsert(idProcedimentoOggetto,request);
-    Map<String, Map<String, String>> mapElenco = new HashMap<String, Map<String, String>>();
+    Map<String, Map<String, String>> mapElenco = new HashMap<>();
     for (DecodificaInterventoDTO intervento : interventi)
     {
-      Map<String, String> element = new HashMap<String, String>();
+      Map<String, String> element = new HashMap<>();
       String id = String.valueOf(intervento.getId());
       element.put("idDescrizioneIntervento", id);
       element.put("descrizioneIntervento", intervento.getDescrizione());

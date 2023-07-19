@@ -390,7 +390,7 @@ public class CUNEMBO212RAccertamentoMedianteDocumentiSpesa
     Map<Long, InterventoAccertamentoDocumentiSpesaDTO> interventi = rendicontazioneEAccertamentoSpeseEJB
         .getAccertamentoDocumentiSpesaPerIntervento(idProcedimentoOggetto, ids);
 
-    if (interventi != null && interventi.size() > 0)
+    if (interventi != null && interventi.isNotEmpty())
     {
       for (RigaAccertamentoSpese item : elenco)
       {

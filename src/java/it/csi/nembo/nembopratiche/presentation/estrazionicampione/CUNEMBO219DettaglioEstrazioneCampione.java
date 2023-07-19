@@ -139,13 +139,13 @@ public class CUNEMBO219DettaglioEstrazioneCampione extends BaseController
 
     Map<String, Object> oggetto;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
-    oggetto = new HashMap<String, Object>();
+    List<Map<String, Object>> ret = new LinkedList<>();
+    oggetto = new HashMap<>();
     oggetto.put("id", -1);
     oggetto.put("label", "Tutti");
     ret.add(oggetto);
 
-    oggetto = new HashMap<String, Object>();
+    oggetto = new HashMap<>();
     oggetto.put("id", 1);
     oggetto.put("label", "Estratti a campione");
     ret.add(oggetto);

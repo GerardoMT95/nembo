@@ -122,7 +122,7 @@ public class CUNEMBO117InserisciModificaDatiQuadroDinamico
         && numProgressivoRecord.longValue() == Long.MIN_VALUE)
     {
       /*
-       * Long.MIN_VALUE è utilizzato in fase di caricamento dati per indicare
+       * Long.MIN_VALUE ï¿½ utilizzato in fase di caricamento dati per indicare
        * alla business di non caricare i dati da db (non posso usare null in
        * quanto null ==> tutti i record). In questo caso invece sto inserento
        * fisicamente i dati su db e non conosco il numProgressivoRecord, quindi
@@ -133,7 +133,7 @@ public class CUNEMBO117InserisciModificaDatiQuadroDinamico
 
     List<ElementoQuadroDTO> elementi = quadroDinamico.getElementiQuadro();
     Errors errors = new Errors();
-    Map<Long, String[]> mapValues = new HashMap<Long, String[]>();
+    Map<Long, String[]> mapValues = new HashMap<>();
     for (ElementoQuadroDTO elemento : elementi)
     {
       if (!elemento.isProtetto())

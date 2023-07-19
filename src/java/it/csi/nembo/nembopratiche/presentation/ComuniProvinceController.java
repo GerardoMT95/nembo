@@ -37,7 +37,7 @@ public class ComuniProvinceController extends BaseController
   {
     List<DecodificaDTO<String>> list = quadroEJB.getDecodificheComuni(null,
         istatProvincia, NemboConstants.FLAGS.NO);
-    Map<String, List<DecodificaDTO<String>>> result = new HashMap<String, List<DecodificaDTO<String>>>();
+    Map<String, List<DecodificaDTO<String>>> result = new HashMap<>();
     result.put("comuni", list);
     return result;
   }

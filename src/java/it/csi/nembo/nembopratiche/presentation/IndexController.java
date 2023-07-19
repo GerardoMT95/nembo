@@ -57,7 +57,7 @@ public class IndexController extends BaseController
     {
       return "redirect:cunembo206/index.do";
     }
-    List<Link> links = new ArrayList<Link>();
+    List<Link> links = new ArrayList<>();
     Map<String, String> mapCdU = quadroEJB.getMapHelpCdu(
         NemboConstants.USECASE.NUOVO_PROCEDIMENTO,
         NemboConstants.USECASE.RICERCA_PROCEDIMENTO,

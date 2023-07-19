@@ -74,7 +74,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
     UtenteAbilitazioni utenteAbilitazioni = getUtenteAbilitazioni(session);
     List<EstrazioneACampioneDTO> elenco = quadroEJB
         .getElencoEstrazioniACampione(utenteAbilitazioni.isUtenteGAL());
-    if (elenco != null && elenco.size() > 0)
+    if (elenco != null && elenco.isNotEmpty())
     {
       return elenco;
     }
@@ -98,13 +98,13 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
 
     Map<String, Object> oggetto;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
+    List<Map<String, Object>> ret = new LinkedList<>();
     List<Long> ids = new ArrayList<>();
     for (EstrazioneACampioneDTO e : estrazioni)
     {
       if (!ids.contains(e.getIdTipoEstrazione()))
       {
-        oggetto = new HashMap<String, Object>();
+        oggetto = new HashMap<>();
         oggetto.put("id", e.getIdTipoEstrazione());
         oggetto.put("label", e.getDescrizioneTipologia());
         ret.add(oggetto);
@@ -124,13 +124,13 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
 
     Map<String, Object> oggetto;
     // al bootstrap-table-filter devo passare una map di questo tipo
-    List<Map<String, Object>> ret = new LinkedList<Map<String, Object>>();
-    oggetto = new HashMap<String, Object>();
+    List<Map<String, Object>> ret = new LinkedList<>();
+    oggetto = new HashMap<>();
     oggetto.put("id", -1);
     oggetto.put("label", "Tutti");
     ret.add(oggetto);
 
-    oggetto = new HashMap<String, Object>();
+    oggetto = new HashMap<>();
     oggetto.put("id", 1);
     oggetto.put("label", "Estratti a campione");
     ret.add(oggetto);
@@ -197,7 +197,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
     String offset = request.getParameter("offset");
     String filter = request.getParameter("filter");
     HashMap<String, FiltroVO> mapFilters = null;
-    HashMap<String, Object> elenco = new HashMap<String, Object>();
+    HashMap<String, Object> elenco = new HashMap<>();
 
     if (filter != null)
     {
@@ -229,7 +229,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
     if (el != null)
       for (ProcedimentoOggettoVO item : el)
       {
-        risultati = new HashMap<String, Object>();
+        risultati = new HashMap<>();
         risultati.put("identificativo", item.getIdentificativo());
         risultati.put("descrAmmCompetenza", item.getDescrAmmCompetenza());
         risultati.put("annoCampagna", item.getAnnoCampagna());
@@ -288,7 +288,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
             && !vId.contains(p.getFlagEstrattaStr()))
         {
           vId.add(p.getFlagEstrattaStr());
-          tipo = new HashMap<String, Object>();
+          tipo = new HashMap<>();
           tipo.put("label", p.getFlagEstrattaStr());
           tipo.put("id", p.getIdFlagEstratta());
           ret.add(tipo);
@@ -302,7 +302,7 @@ public class CUNEMBO215VisualizzaEstrazioniController extends BaseController
   public HashMap<String, FiltroVO> parseFilters(String json)
       throws JsonProcessingException, IOException
   {
-    HashMap<String, FiltroVO> filtersMap = new HashMap<String, FiltroVO>();
+    HashMap<String, FiltroVO> filtersMap = new HashMap<>();
     JsonFactory factory = new JsonFactory();
     ObjectMapper mapper = new ObjectMapper(factory);
     JsonNode rootNode = mapper.readTree(json);

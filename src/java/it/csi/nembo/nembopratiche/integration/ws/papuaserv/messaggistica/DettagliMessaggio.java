@@ -75,13 +75,13 @@ public class DettagliMessaggio
   {
     if (allegati == null)
     {
-      allegati = new ArrayList<Allegato>();
+      allegati = new ArrayList<>();
     }
     return this.allegati;
   }
 
   /**
-   * Recupera il valore della proprietà testoMessaggio.
+   * Recupera il valore della proprietï¿½ testoMessaggio.
    * 
    * @return possible object is {@link String }
    * 
@@ -92,7 +92,7 @@ public class DettagliMessaggio
   }
 
   /**
-   * Imposta il valore della proprietà testoMessaggio.
+   * Imposta il valore della proprietï¿½ testoMessaggio.
    * 
    * @param value
    *          allowed object is {@link String }
@@ -104,7 +104,7 @@ public class DettagliMessaggio
   }
 
   /**
-   * Recupera il valore della proprietà utenteAggiornamento.
+   * Recupera il valore della proprietï¿½ utenteAggiornamento.
    * 
    * @return possible object is {@link UtenteAggiornamento }
    * 
@@ -115,7 +115,7 @@ public class DettagliMessaggio
   }
 
   /**
-   * Imposta il valore della proprietà utenteAggiornamento.
+   * Imposta il valore della proprietï¿½ utenteAggiornamento.
    * 
    * @param value
    *          allowed object is {@link UtenteAggiornamento }

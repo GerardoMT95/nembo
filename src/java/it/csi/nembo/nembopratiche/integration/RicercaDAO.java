@@ -194,7 +194,7 @@ public class RicercaDAO extends BaseDAO
     mapParameterSource.addValue("ID_PROCEDIMENTO_AGRICOLO", idProcedimentoAgricolo);
     try
     {
-      return queryForList(QUERY.toString(), mapParameterSource, BandoDTO.class);
+      return queryForList(query, mapParameterSource, BandoDTO.class);
     }
     catch (Throwable t)
     {
@@ -203,7 +203,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -242,12 +242,12 @@ public class RicercaDAO extends BaseDAO
 		mapParameterSource.addValue("ID_PROCEDIMENTO_AGRICOLO", idProcedimentoAgricolo);
 		try
 		{
-			return queryForList(QUERY.toString(), mapParameterSource, EventiDTO.class);
+			return queryForList(query, mapParameterSource, EventiDTO.class);
 		} 
 		catch (Throwable t)
 		{
 			InternalUnexpectedException e = new InternalUnexpectedException(t, new LogParameter[] {},
-					new LogVariable[] {}, QUERY.toString(), mapParameterSource);
+					new LogVariable[] {}, query, mapParameterSource);
 			logInternalUnexpectedException(e, THIS_METHOD + "");
 			throw e;
 		} 
@@ -288,7 +288,7 @@ public class RicercaDAO extends BaseDAO
     MapSqlParameterSource mapParameterSource = new MapSqlParameterSource();
     try
     {
-      return queryForList(QUERY.toString(), mapParameterSource,
+      return queryForList(query, mapParameterSource,
           AmmCompetenzaDTO.class);
     }
     catch (Throwable t)
@@ -298,7 +298,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -362,7 +362,7 @@ public class RicercaDAO extends BaseDAO
     MapSqlParameterSource mapParameterSource = new MapSqlParameterSource();
     try
     {
-      return queryForList(QUERY.toString(), mapParameterSource,
+      return queryForList(query, mapParameterSource,
           ProcedimentoDTO.class);
     }
     catch (Throwable t)
@@ -372,7 +372,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -488,7 +488,7 @@ public class RicercaDAO extends BaseDAO
     MapSqlParameterSource mapParameterSource = new MapSqlParameterSource();
     try
     {
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<GruppoOggettoDTO>>()
           {
             @Override
@@ -645,7 +645,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -754,7 +754,7 @@ public class RicercaDAO extends BaseDAO
           SELECT.append(" SMRGAA_V_SOGGETTI_COLLEGATI C, 							\n");
         }
 
-      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().size() > 0)
+      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().isNotEmpty())
       {
         SELECT.append(" NEMBO_R_LIVELLO_BANDO LIV,  								\n");
       }
@@ -808,7 +808,7 @@ public class RicercaDAO extends BaseDAO
               + " AND C.CODICE_FISCALE = :CODICE_FISCALE  				\n");
         }
 
-      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().size() > 0)
+      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().isNotEmpty())
       {
         SELECT.append("    AND EXISTS  											\n"
             + "		(	SELECT  										\n"
@@ -824,30 +824,30 @@ public class RicercaDAO extends BaseDAO
             .append(" " + getInCondition("LIV.ID_LIVELLO", vo.getVctIdLivelli())
                 + " 						\n");
       }
-      if (vo.getVctIdEventi()!= null && vo.getVctIdEventi().size() > 0)
+      if (vo.getVctIdEventi()!= null && vo.getVctIdEventi().isNotEmpty())
       {
           SELECT.append(" " + getInCondition("EC.ID_EVENTO_CALAMITOSO", vo.getVctIdEventi())
           + " 							\n");    	  
       }
-      if (vo.getVctIdBando() != null && vo.getVctIdBando().size() > 0)
+      if (vo.getVctIdBando() != null && vo.getVctIdBando().isNotEmpty())
       {
         SELECT.append(" " + getInCondition("P.ID_BANDO", vo.getVctIdBando())
             + " 							\n");
       }
       if (vo.getVctIdAmministrazione() != null
-          && vo.getVctIdAmministrazione().size() > 0)
+          && vo.getVctIdAmministrazione().isNotEmpty())
       {
         SELECT.append(" " + getInCondition("AM.EXT_ID_AMM_COMPETENZA",
             vo.getVctIdAmministrazione()) + " 	\n");
       }
       if (vo.getVctIdStatoProcedimento() != null
-          && vo.getVctIdStatoProcedimento().size() > 0)
+          && vo.getVctIdStatoProcedimento().isNotEmpty())
       {
         SELECT.append(" " + getInCondition("P.ID_STATO_OGGETTO",
             vo.getVctIdStatoProcedimento()) + "		\n");
       }
       /* AGGIUNTA NOTIFICHE */
-      if (vo.getVctNotifiche() != null && vo.getVctNotifiche().size() > 0)
+      if (vo.getVctNotifiche() != null && vo.getVctNotifiche().isNotEmpty())
       {
         SELECT.append(" AND ( P.ID_PROCEDIMENTO IN ( "
             + queryNotifiche(vo.getVctNotifiche()) + ")   		\n");
@@ -912,7 +912,7 @@ public class RicercaDAO extends BaseDAO
         {
           tmp = " ";
           @SuppressWarnings("rawtypes")
-          Map.Entry pair = (Map.Entry) it.next();
+          Map.Entry pair = it.next();
           if (count > 0)
           {
             sep = "OR";
@@ -934,7 +934,7 @@ public class RicercaDAO extends BaseDAO
                 + "		PO2.ID_LEGAME_GRUPPO_OGGETTO = LGO.ID_LEGAME_GRUPPO_OGGETTO "
                 + "		AND P.ID_PROCEDIMENTO = P2.ID_PROCEDIMENTO "
                 + "		AND P2.ID_PROCEDIMENTO = PO2.ID_PROCEDIMENTO "
-                + "		AND LGO.ID_GRUPPO_OGGETTO = " + (Long) pair.getKey()
+                + "		AND LGO.ID_GRUPPO_OGGETTO = " + pair.getKey()
                 + "  ) \n");
           }
           else
@@ -952,7 +952,7 @@ public class RicercaDAO extends BaseDAO
                 + "		AND IPG2.CODICE_RAGGRUPPAMENTO = PO2.CODICE_RAGGRUPPAMENTO  "
                 + "		AND IPG2.DATA_FINE  IS NULL "
                 + "		AND IPG2.ID_PROCEDIMENTO=PO2.ID_PROCEDIMENTO "
-                + "		AND LGO2.ID_GRUPPO_OGGETTO = " + (Long) pair.getKey()
+                + "		AND LGO2.ID_GRUPPO_OGGETTO = " + pair.getKey()
                 + " "
                 + "		AND "
                 + getInCondition("IPG2.ID_STATO_OGGETTO", vct, false) + " "
@@ -981,7 +981,7 @@ public class RicercaDAO extends BaseDAO
         {
           tmp2 = " ";
           @SuppressWarnings("rawtypes")
-          Map.Entry pair = (Map.Entry) it2.next();
+          Map.Entry pair = it2.next();
           if (count2 > 0)
           {
             sep2 = "OR";
@@ -1005,7 +1005,7 @@ public class RicercaDAO extends BaseDAO
                 + "		PO2.ID_LEGAME_GRUPPO_OGGETTO = LGO.ID_LEGAME_GRUPPO_OGGETTO "
                 + "	 	and P.ID_PROCEDIMENTO = PO2.ID_PROCEDIMENTO "
                 + "		AND LGO.ID_LEGAME_GRUPPO_OGGETTO = "
-                + (Long) pair.getKey() + "  ) 				\n");
+                + pair.getKey() + "  ) 				\n");
           }
           else
           {
@@ -1019,7 +1019,7 @@ public class RicercaDAO extends BaseDAO
                 + "		PO2.ID_LEGAME_GRUPPO_OGGETTO = LGO.ID_LEGAME_GRUPPO_OGGETTO "
                 + "		AND P.ID_PROCEDIMENTO = PO2.ID_PROCEDIMENTO "
                 + "		AND LGO.ID_LEGAME_GRUPPO_OGGETTO = "
-                + (Long) pair.getKey()
+                + pair.getKey()
                 + " 	AND (" + getInCondition("PO2.ID_ESITO", vct2, false) + " "
                 + tmp2 + " ) )		 \n");
           }
@@ -1029,7 +1029,7 @@ public class RicercaDAO extends BaseDAO
       }
 
       if (vo.getVctFlagEstrazione() != null
-          && vo.getVctFlagEstrazione().size() > 0)
+          && vo.getVctFlagEstrazione().isNotEmpty())
       {
       	if(!NemboUtils.VALIDATION.isValidVectorOfFlags(vo.getVctFlagEstrazione()))
       	{
@@ -1055,7 +1055,7 @@ public class RicercaDAO extends BaseDAO
       }
 
       if (vo.getVctFlagEstrazioneExPost() != null
-          && vo.getVctFlagEstrazioneExPost().size() > 0)
+          && vo.getVctFlagEstrazioneExPost().isNotEmpty())
       {
       	if(!NemboUtils.VALIDATION.isValidVectorOfFlags(vo.getVctFlagEstrazioneExPost()))
       	{
@@ -1422,7 +1422,7 @@ public class RicercaDAO extends BaseDAO
 
     try
     {
-      return queryForList(QUERY.toString(), mapParameterSource,
+      return queryForList(query, mapParameterSource,
           ComuneDTO.class);
     }
     catch (Throwable t)
@@ -1432,7 +1432,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -1526,7 +1526,7 @@ public class RicercaDAO extends BaseDAO
 	    mapParameterSource.addValue("ID_PROCEDIMENTO_AGRICOLO", idProcedimentoAgricolo, Types.NUMERIC);
 	    try
 	    {
-	    	return namedParameterJdbcTemplate.query(QUERY.toString(), mapParameterSource, new ResultSetExtractor<List<GruppoOggettoDTO>>()
+	    	return namedParameterJdbcTemplate.query(query, mapParameterSource, new ResultSetExtractor<List<GruppoOggettoDTO>>()
 	    			{
 	    			  @Override
 	    			  public List<GruppoOggettoDTO> extractData(ResultSet rs) throws SQLException, DataAccessException
@@ -1598,7 +1598,7 @@ public class RicercaDAO extends BaseDAO
 	          {
 	          },
 	          new LogVariable[]
-	          {}, QUERY.toString(), mapParameterSource);
+	          {}, query, mapParameterSource);
 	      logInternalUnexpectedException(e, THIS_METHOD + "");
 	      throw e;
 	    }
@@ -2041,7 +2041,7 @@ public class RicercaDAO extends BaseDAO
           SELECT.append(" SMRGAA_V_SOGGETTI_COLLEGATI C, ");
         }
 
-      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().size() > 0)
+      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().isNotEmpty())
       {
         SELECT.append(" NEMBO_R_LIVELLO_BANDO LIV,  \n");
       }
@@ -2101,7 +2101,7 @@ public class RicercaDAO extends BaseDAO
                   + " AND C.CODICE_FISCALE = :CODICE_FISCALE  											\n");
         }
 
-      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().size() > 0)
+      if (vo.getVctIdLivelli() != null && vo.getVctIdLivelli().isNotEmpty())
       {
 
         SELECT.append(" AND EXISTS 																			\n"
@@ -2117,24 +2117,24 @@ public class RicercaDAO extends BaseDAO
             .append(" " + getInCondition("LIV.ID_LIVELLO", vo.getVctIdLivelli())
                 + " 							\n");
       }
-      if (vo.getVctIdBando() != null && vo.getVctIdBando().size() > 0)
+      if (vo.getVctIdBando() != null && vo.getVctIdBando().isNotEmpty())
       {
         SELECT.append(" " + getInCondition("P.ID_BANDO", vo.getVctIdBando())
             + " 								\n");
       }
       if (vo.getVctIdAmministrazione() != null
-          && vo.getVctIdAmministrazione().size() > 0)
+          && vo.getVctIdAmministrazione().isNotEmpty())
       {
         SELECT.append(" " + getInCondition("AM.EXT_ID_AMM_COMPETENZA",
             vo.getVctIdAmministrazione()) + " 		\n");
       }
       if (vo.getVctIdStatoProcedimento() != null
-          && vo.getVctIdStatoProcedimento().size() > 0)
+          && vo.getVctIdStatoProcedimento().isNotEmpty())
       {
         SELECT.append(" " + getInCondition("P.ID_STATO_OGGETTO",
             vo.getVctIdStatoProcedimento()) + "			\n");
       }
-      if (vo.getVctNotifiche() != null && vo.getVctNotifiche().size() > 0)
+      if (vo.getVctNotifiche() != null && vo.getVctNotifiche().isNotEmpty())
       {
 
         SELECT.append(" AND ( P.ID_PROCEDIMENTO IN ( "
@@ -2202,7 +2202,7 @@ public class RicercaDAO extends BaseDAO
         {
           tmp = " ";
           @SuppressWarnings("rawtypes")
-          Map.Entry pair = (Map.Entry) it.next();
+          Map.Entry pair = it.next();
           if (count > 0)
           {
             sep = "OR";
@@ -2224,7 +2224,7 @@ public class RicercaDAO extends BaseDAO
                 + "		PO2.ID_LEGAME_GRUPPO_OGGETTO = LGO.ID_LEGAME_GRUPPO_OGGETTO "
                 + "		AND P.ID_PROCEDIMENTO = P2.ID_PROCEDIMENTO "
                 + "		AND P2.ID_PROCEDIMENTO = PO2.ID_PROCEDIMENTO "
-                + "		AND LGO.ID_GRUPPO_OGGETTO = " + (Long) pair.getKey()
+                + "		AND LGO.ID_GRUPPO_OGGETTO = " + pair.getKey()
                 + "  ) \n");
           }
           else
@@ -2242,7 +2242,7 @@ public class RicercaDAO extends BaseDAO
                 + "		AND IPG2.CODICE_RAGGRUPPAMENTO = PO2.CODICE_RAGGRUPPAMENTO  "
                 + "		AND IPG2.DATA_FINE  IS NULL "
                 + "		AND IPG2.ID_PROCEDIMENTO=PO2.ID_PROCEDIMENTO "
-                + "		AND LGO2.ID_GRUPPO_OGGETTO = " + (Long) pair.getKey()
+                + "		AND LGO2.ID_GRUPPO_OGGETTO = " + pair.getKey()
                 + " "
                 + "		AND "
                 + getInCondition("IPG2.ID_STATO_OGGETTO", vct, false) + " "
@@ -2273,7 +2273,7 @@ public class RicercaDAO extends BaseDAO
         {
           tmp2 = " ";
           @SuppressWarnings("rawtypes")
-          Map.Entry pair = (Map.Entry) it2.next();
+          Map.Entry pair = it2.next();
           if (count2 > 0)
           {
             sep2 = "OR";
@@ -2297,7 +2297,7 @@ public class RicercaDAO extends BaseDAO
                 + "		PO2.ID_LEGAME_GRUPPO_OGGETTO = LGO.ID_LEGAME_GRUPPO_OGGETTO "
                 + "		AND P.ID_PROCEDIMENTO = PO2.ID_PROCEDIMENTO "
                 + "		AND LGO.ID_LEGAME_GRUPPO_OGGETTO = "
-                + (Long) pair.getKey() + "  ) 				\n");
+                + pair.getKey() + "  ) 				\n");
           }
           else
           {
@@ -2311,7 +2311,7 @@ public class RicercaDAO extends BaseDAO
                 + "		PO2.ID_LEGAME_GRUPPO_OGGETTO = LGO.ID_LEGAME_GRUPPO_OGGETTO "
                 + "		AND P.ID_PROCEDIMENTO = PO2.ID_PROCEDIMENTO "
                 + "		AND LGO.ID_LEGAME_GRUPPO_OGGETTO = "
-                + (Long) pair.getKey()
+                + pair.getKey()
                 + " 	AND (" + getInCondition("PO2.ID_ESITO", vct2, false) + " "
                 + tmp2 + " ) )		 \n");
           }
@@ -2321,7 +2321,7 @@ public class RicercaDAO extends BaseDAO
       }
 
       if (vo.getVctFlagEstrazione() != null
-          && vo.getVctFlagEstrazione().size() > 0)
+          && vo.getVctFlagEstrazione().isNotEmpty())
       {
         
     	if(!NemboUtils.VALIDATION.isValidVectorOfFlags(vo.getVctFlagEstrazione()))
@@ -2348,7 +2348,7 @@ public class RicercaDAO extends BaseDAO
       }
 
       if (vo.getVctFlagEstrazioneExPost() != null
-          && vo.getVctFlagEstrazioneExPost().size() > 0)
+          && vo.getVctFlagEstrazioneExPost().isNotEmpty())
       {
       	if(!NemboUtils.VALIDATION.isValidVectorOfFlags(vo.getVctFlagEstrazioneExPost()))
       	{
@@ -2735,7 +2735,7 @@ public class RicercaDAO extends BaseDAO
 
     try
     {
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<GruppoOggettoDTO>>()
           {
             @Override
@@ -2783,7 +2783,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -2869,7 +2869,7 @@ public class RicercaDAO extends BaseDAO
     mapParameterSource.addValue("ID_PROCEDIMENTO_AGRICOLO", idProcedimentoAgricolo, Types.VARCHAR);
     try
     {
-      return queryForList(QUERY.toString(), mapParameterSource, BandoDTO.class);
+      return queryForList(query, mapParameterSource, BandoDTO.class);
     }
     catch (Throwable t)
     {
@@ -2878,7 +2878,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -4474,7 +4474,7 @@ public class RicercaDAO extends BaseDAO
                 s += ProcedimentoOggettoVO.getFlagEstrattaFromId(id) + ",";
             }
 
-            s = s.toString().substring(0, s.length() - 1); // RIMUOVO ULTIMA
+            s = s.substring(0, s.length() - 1); // RIMUOVO ULTIMA
                                                            // VIRGOLA
             SELECT.append(s + " ) ");
           }
@@ -4575,7 +4575,7 @@ public class RicercaDAO extends BaseDAO
                 s += ProcedimentoOggettoVO.getFlagEstrattaFromId(id) + ",";
             }
 
-            s = s.toString().substring(0, s.length() - 1); // RIMUOVO ULTIMA
+            s = s.substring(0, s.length() - 1); // RIMUOVO ULTIMA
                                                            // VIRGOLA
             SELECT.append(s + " ) ");
           }
@@ -5192,7 +5192,7 @@ public class RicercaDAO extends BaseDAO
                     .formatDate(rs.getDate("DATA_PROTOCOLLO")));
                 return d;
               }
-              return new DecodificaDTO<String>();
+              return new DecodificaDTO<>();
             }
           });
     }
@@ -5259,7 +5259,7 @@ public class RicercaDAO extends BaseDAO
                     .formatDate(rs.getDate("DATA_PROTOCOLLO")));
                 return d;
               }
-              return new DecodificaDTO<String>();
+              return new DecodificaDTO<>();
             }
           });
     }
@@ -5403,7 +5403,7 @@ public class RicercaDAO extends BaseDAO
       mapParameterSource.addValue("DATA_A", dataA, Types.DATE);
       mapParameterSource.addValue("DATA_DA", dataDa, Types.DATE);
 
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<ProcedimentoDTO>>()
           {
             @Override
@@ -5438,7 +5438,6 @@ public class RicercaDAO extends BaseDAO
                   dto.setDenominazioneDelega(
                       rs.getString("DENOMINAZIONE_DELEGA"));
                   docs = new ArrayList<>();
-                  doc = new DocumentoSpesaVO();
                   dto.setDocumentiSpesa(docs);
                   livelli = new ArrayList<>();
                   dto.setLivelli(livelli);
@@ -5551,15 +5550,15 @@ public class RicercaDAO extends BaseDAO
             + "   AND LB.ID_BANDO = B.ID_BANDO                                          	\n"
             + "   AND PA.ID_PROCEDIMENTO = B.ID_PROCEDIMENTO                            	\n"
             + "   AND PA.DATA_FINE IS NULL				                              	\n");
-    if (lIdLivelli != null && lIdLivelli.size() > 0)
+    if (lIdLivelli != null && lIdLivelli.isNotEmpty())
       QUERY.append(" " + getInCondition("LB.ID_LIVELLO", lIdLivelli) + " ");
-    if (lIdBando != null && lIdBando.size() > 0)
+    if (lIdBando != null && lIdBando.isNotEmpty())
       QUERY.append(" " + getInCondition("B.ID_BANDO", lIdBando) + " ");
-    if (lIdAmministrazioni != null && lIdAmministrazioni.size() > 0)
+    if (lIdAmministrazioni != null && lIdAmministrazioni.isNotEmpty())
       QUERY.append(
           " " + getInCondition("PA.EXT_ID_AMM_COMPETENZA", lIdAmministrazioni)
               + " ");
-    if (lIdStatiProc != null && lIdStatiProc.size() > 0)
+    if (lIdStatiProc != null && lIdStatiProc.isNotEmpty())
       QUERY.append(
           " " + getInCondition("B.ID_STATO_OGGETTO", lIdStatiProc) + " ");
 
@@ -5568,7 +5567,7 @@ public class RicercaDAO extends BaseDAO
     MapSqlParameterSource mapParameterSource = new MapSqlParameterSource();
     try
     {
-      return namedParameterJdbcTemplate.query(QUERY.toString(),
+      return namedParameterJdbcTemplate.query(query,
           mapParameterSource, new ResultSetExtractor<List<GruppoOggettoDTO>>()
           {
             @Override
@@ -5620,7 +5619,7 @@ public class RicercaDAO extends BaseDAO
           {
           },
           new LogVariable[]
-          {}, QUERY.toString(), mapParameterSource);
+          {}, query, mapParameterSource);
       logInternalUnexpectedException(e, THIS_METHOD + "");
       throw e;
     }
@@ -5752,7 +5751,7 @@ public class RicercaDAO extends BaseDAO
                     .formatDate(rs.getTimestamp("DATA_PROTOCOLLO")));
                 return d;
               }
-              return new DecodificaDTO<String>();
+              return new DecodificaDTO<>();
             }
           });
     }
@@ -6291,7 +6290,7 @@ public class RicercaDAO extends BaseDAO
                 s += ProcedimentoOggettoVO.getFlagEstrattaFromId(id) + ",";
             }
 
-            s = s.toString().substring(0, s.length() - 1); // RIMUOVO ULTIMA
+            s = s.substring(0, s.length() - 1); // RIMUOVO ULTIMA
                                                            // VIRGOLA
             SELECT.append(s + " ) ");
           }
@@ -6392,7 +6391,7 @@ public class RicercaDAO extends BaseDAO
                 s += ProcedimentoOggettoVO.getFlagEstrattaFromId(id) + ",";
             }
 
-            s = s.toString().substring(0, s.length() - 1); // RIMUOVO ULTIMA
+            s = s.substring(0, s.length() - 1); // RIMUOVO ULTIMA
                                                            // VIRGOLA
             SELECT.append(s + " ) ");
           }
@@ -6490,7 +6489,7 @@ public class RicercaDAO extends BaseDAO
 	            return d;
             }	            
           }
-          return new DecodificaDTO<String>();
+          return new DecodificaDTO<>();
         }
       });
     }

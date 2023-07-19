@@ -53,7 +53,7 @@ public class CUNEMBO297MScorteModificaController extends BaseController
 		long idProcedimentoOggetto = getProcedimentoOggettoFromSession(session).getIdProcedimentoOggetto();
 		long idScortaAltro = quadroNemboEJB.getIdScorteAltro();
 		List<ScorteDTO> scorte = new ArrayList<>();
-		Map<Long,Boolean> mappaDisabledDescrizione = new HashMap<Long,Boolean>();
+		Map<Long,Boolean> mappaDisabledDescrizione = new HashMap<>();
 		scorte = quadroNemboEJB.getScorteByIds(NemboUtils.ARRAY.toLong(arrayIdScortaMagazzino), idProcedimentoOggetto);
 		List<DecodificaDTO<Long>> elencoTipologieScorte = quadroNemboEJB.getElencoTipologieScorte();
 		List<DecodificaDTO<Long>> elencoUnitaMisura = quadroNemboEJB.getListUnitaDiMisura();
@@ -90,7 +90,7 @@ public class CUNEMBO297MScorteModificaController extends BaseController
 		List<DecodificaDTO<Long>> elencoUnitaMisura = quadroNemboEJB.getListUnitaDiMisura();
 		Map<Long,Long> mappaTipologiaScorteUnitaDiMisura = quadroNemboEJB.getMapTipologiaScorteUnitaDiMisura();
 		List<ScorteDTO> listScorte = new ArrayList<>();
-		Map<Long,Boolean> mappaDisabledDescrizione = new HashMap<Long,Boolean>();
+		Map<Long,Boolean> mappaDisabledDescrizione = new HashMap<>();
 		
 		
 		List<String> listIdUnitaMisura = new ArrayList<>();
