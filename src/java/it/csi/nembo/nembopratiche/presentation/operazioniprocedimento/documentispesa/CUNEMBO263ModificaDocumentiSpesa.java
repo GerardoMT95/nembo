@@ -255,7 +255,7 @@ public class CUNEMBO263ModificaDocumentiSpesa
     Map<String, Object> common = getCommonFromSession(COMMON_SESSION_NAME,
         session, false);
     model.addAttribute("interventiRimossi",
-        (String) common.get("interventiRimossi"));
+          common.get("interventiRimossi"));
     return "documentispesa/confermaRimuoviInterventi";
   }
 

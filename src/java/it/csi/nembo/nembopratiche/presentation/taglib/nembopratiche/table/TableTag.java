@@ -437,9 +437,9 @@ public class TableTag extends BaseTag
             escapeHtml(NemboUtils.STRING.nvl(valoreProprieta)),
             colonna.getProperty());
       case DATETIME:
-        return NemboUtils.DATE.formatDateTime((Date) valoreProprieta);
+        return NemboUtils.DATE.formatDateTime(  valoreProprieta);
       case DATE:
-        return NemboUtils.DATE.formatDate((Date) valoreProprieta);
+        return NemboUtils.DATE.formatDate(  valoreProprieta);
       case INTEGER:
         return NemboUtils.FORMAT.formatGenericNumber(
             new BigDecimal(valoreProprieta.toString()), 0, false);

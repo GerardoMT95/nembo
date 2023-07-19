@@ -399,7 +399,7 @@ public class TestataTag extends BaseTag
         .getAttribute("notificheGravi");
     if (notificheGravi != null && notificheGravi.booleanValue())
       sb.append(
-          "<div class=\"container-fluid\"><div id=\"error-box\" class=\"alert alert-danger alert-error\"><a href=\"#\" onclick=\"return false\" class=\"close\" data-dismiss=\"alert\">×</a><strong>Sono presenti delle notifiche gravi. Non &egrave; permessa nessuna operazione di modifica. Selezionare il pulsante in alto a destra Operazioni / Notifiche per visualizzare il dettaglio.</strong></div></div>");
+          "<div class=\"container-fluid\"><div id=\"error-box\" class=\"alert alert-danger alert-error\"><a href=\"#\" onclick=\"return false\" class=\"close\" data-dismiss=\"alert\">ï¿½</a><strong>Sono presenti delle notifiche gravi. Non &egrave; permessa nessuna operazione di modifica. Selezionare il pulsante in alto a destra Operazioni / Notifiche per visualizzare il dettaglio.</strong></div></div>");
   }
 
   private void checkNotificheBloccanti(StringBuilder sb,
@@ -414,7 +414,7 @@ public class TestataTag extends BaseTag
         if (procedimentoOggetto.getFlagIstanza() != null
             && procedimentoOggetto.getFlagIstanza().compareTo("N") == 0)
           sb.append(
-              "<div class=\"container-fluid\"><div id=\"error-box\" class=\"alert alert-danger alert-error\"><a href=\"#\" onclick=\"return false\" class=\"close\" data-dismiss=\"alert\">×</a><strong>Sono presenti delle notifiche bloccanti. Non &egrave; permessa nessuna operazione di modifica sulle istruttorie. Selezionare il pulsante in alto a destra Operazioni / Notifiche per visualizzare il dettaglio.</strong></div></div>");
+              "<div class=\"container-fluid\"><div id=\"error-box\" class=\"alert alert-danger alert-error\"><a href=\"#\" onclick=\"return false\" class=\"close\" data-dismiss=\"alert\">ï¿½</a><strong>Sono presenti delle notifiche bloccanti. Non &egrave; permessa nessuna operazione di modifica sulle istruttorie. Selezionare il pulsante in alto a destra Operazioni / Notifiche per visualizzare il dettaglio.</strong></div></div>");
     }
   }
 
@@ -426,7 +426,7 @@ public class TestataTag extends BaseTag
         .getAttribute("notificheWarning");
     if (notificheBloccanti != null && notificheBloccanti.booleanValue())
       sb.append(
-          "<div class=\"container-fluid\"><div class=\"alert alert-warning\"><a href=\"#\" onclick=\"return false\" class=\"close\" data-dismiss=\"alert\">×</a><strong>Sono presenti delle notifiche warning. Selezionare il pulsante in alto a destra Operazioni / Notifiche per visualizzare il dettaglio.</strong></div></div>");
+          "<div class=\"container-fluid\"><div class=\"alert alert-warning\"><a href=\"#\" onclick=\"return false\" class=\"close\" data-dismiss=\"alert\">ï¿½</a><strong>Sono presenti delle notifiche warning. Selezionare il pulsante in alto a destra Operazioni / Notifiche per visualizzare il dettaglio.</strong></div></div>");
   }
 
   private void appendDropDownOperazioni(StringBuilder sb,
@@ -467,7 +467,7 @@ public class TestataTag extends BaseTag
   {
     UtenteAbilitazioni utenteAbilitazioni = (UtenteAbilitazioni) this.pageContext
         .getSession().getAttribute("utenteAbilitazioni");
-    String portal = (String) pageContext.getSession()
+    String portal =   pageContext.getSession()
         .getAttribute(NemboConstants.PORTAL.NEMBOPRATICHE_LOGIN_PORTAL);
     sb.append(NemboUtils.AGRIWELL.getHtmlIconaAgriwellWeb(utenteAbilitazioni,
         testataProcedimento.getIdAzienda(),
@@ -534,10 +534,10 @@ public class TestataTag extends BaseTag
         {
           oggettoIconaDTO = iconeTestata
               .get(NemboConstants.USECASE.CHIUSURA_OGGETTO_DEFINITIVA.ISTANZA);
-          String errorMessage = "l'istanza non è più apribile perchè già trasmessa";
+          String errorMessage = "l'istanza non ï¿½ piï¿½ apribile perchï¿½ giï¿½ trasmessa";
           if (oggettoIconaDTO == null)
           {
-            errorMessage = "l'oggetto non è più apribile perchè già approvato ";
+            errorMessage = "l'oggetto non ï¿½ piï¿½ apribile perchï¿½ giï¿½ approvato ";
             oggettoIconaDTO = iconeTestata.get(
                 NemboConstants.USECASE.CHIUSURA_OGGETTO_DEFINITIVA.ISTRUTTORIA);
           }
@@ -775,9 +775,9 @@ public class TestataTag extends BaseTag
         {
           sb.append(
         		  BaseTag.HELP_CONTAINER);
-          String helpSession = (String) session.getAttribute(
+          String helpSession =   session.getAttribute(
               NemboConstants.GENERIC.SESSION_VAR_HELP_IS_ACTIVE);
-          String helpDefault = (String) session
+          String helpDefault =   session
               .getAttribute(NemboConstants.PARAMETRO.HELP_DEFAULT_OPEN);
 
           if (helpSession != null

@@ -26,7 +26,7 @@ public class SetCUInfoTag extends SimpleTagSupport
       final PageContext context = (PageContext) this.getJspContext();
       final HttpServletRequest request = (HttpServletRequest) context
           .getRequest();
-      final String useCaseController = (String) request
+      final String useCaseController =   request
           .getAttribute("useCaseController");
       request.setAttribute("cuNumber",
           NemboUtils.APPLICATION.getCUNumber(useCaseController));

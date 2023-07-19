@@ -84,7 +84,7 @@ public class MySelectChoice extends MySelect
     	}
     	else //se non arriva da una request fallita usa il dato originale del filtro (quello corrispondente al funzionario selezionato)
     	{
-    		tmpSelectedChoice = (String)this.pageContext.getRequest().getAttribute(MY_SELECT_CHOICE_SELECTED_VALUE);
+    		tmpSelectedChoice =  this.pageContext.getRequest().getAttribute(MY_SELECT_CHOICE_SELECTED_VALUE);
     		if(tmpSelectedChoice == null)
     		{
     			tmpSelectedChoice = selectedChoice;
@@ -154,7 +154,7 @@ public class MySelectChoice extends MySelect
 		
 		if (selectedItem)
 		{
-			defaultSelected = (String) defaultChoice;
+			defaultSelected =   defaultChoice;
 		}
 		sb.append("<li><a onclick=\"showOptionSelectChoice(" + currentId + "," + currentValueFormatted + ", htmlSelect" + getId() +")\""
 				+ " id=\"" + getId() + "_a_choice_" + currentValue + "\""

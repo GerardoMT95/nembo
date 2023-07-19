@@ -35,7 +35,7 @@ public class PlaceHolderManager
       while (matcher.find())
       {
         String placeHolder = matcher.group(1);
-        String value = (String) mapCache.get(placeHolder);
+        String value =   mapCache.get(placeHolder);
         if (value == null)
         {
           SegnapostoDTO segnapostoDTO = NemboUtils.APPLICATION.getSegnaposto(placeHolder);

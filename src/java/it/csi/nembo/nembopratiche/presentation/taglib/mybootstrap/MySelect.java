@@ -99,7 +99,7 @@ public class MySelect extends MyInputGroup
     	writeOption(sb, NemboUtils.STRING.checkNull(headerKey), headerValue,CODE_DEFAULT, null, null);
     }
     String[] finalSelectedValues = selectedValues;
-    String finalChoiceValue = (String)getSelectedChoice();//choice impostata dall'utente
+    String finalChoiceValue =  getSelectedChoice();//choice impostata dall'utente
     if (preferRequestValues != null && preferRequestValues.booleanValue())
     {
       finalSelectedValues = this.pageContext.getRequest()
@@ -239,7 +239,7 @@ public class MySelect extends MyInputGroup
         if (selectedValue instanceof String)
         {
           this.selectedValues = new String[]
-          { (String) selectedValue };
+          {   selectedValue };
         }
         else
         {

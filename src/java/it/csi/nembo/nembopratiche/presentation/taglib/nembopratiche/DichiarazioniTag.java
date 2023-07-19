@@ -119,7 +119,7 @@ public class DichiarazioniTag extends BaseTag
         String checked = "";
         if (((dettaglio.getIdSelezioneInfo() == null
             || dettaglio.getIdSelezioneInfo().longValue() <= 0)
-            && ((String) getELVariableValue(id) == null))
+            && (  getELVariableValue(id) == null))
             || !dettaglio.isChecked())
         {
           checked = " ";
@@ -359,7 +359,7 @@ public class DichiarazioniTag extends BaseTag
   protected String getValoreInput(String id,
       List<ValoriInseritiDTO> valoriInseriti, int position)
   {
-    String ret = checkNull((String) getELVariableValue(id));
+    String ret = checkNull(  getELVariableValue(id));
     if (ret == null || ret.trim().length() <= 0)
     {
       ret = "";

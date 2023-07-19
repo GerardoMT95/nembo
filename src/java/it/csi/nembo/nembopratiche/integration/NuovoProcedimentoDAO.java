@@ -1108,9 +1108,9 @@ public class NuovoProcedimentoDAO extends BaseDAO
           Object[] fields;
           fields = ((Struct) elemento).getAttributes();
           ControlloDTO controllo = new ControlloDTO();
-          controllo.setCodice((String) fields[0]);
-          controllo.setDescrizione((String) fields[1]);
-          controllo.setMessaggioErrore((String) fields[2]);
+          controllo.setCodice(  fields[0]);
+          controllo.setDescrizione(  fields[1]);
+          controllo.setMessaggioErrore(  fields[2]);
           controlli.add(controllo);
         }
       }
@@ -1177,7 +1177,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       dto.setControlli((ControlloDTO[]) results.get("RESULT"));
       return dto;
 
@@ -1265,7 +1265,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
       dto.setMessaggio(
-          escapeHtml4(safeMessaggioPLSQL((String) results.get("PMESSAGGIO"))));
+          escapeHtml4(safeMessaggioPLSQL(  results.get("PMESSAGGIO"))));
       dto.setIdProcedimento((BigDecimal) results.get("RESULT"));
       return dto;
 
@@ -1348,7 +1348,7 @@ public class NuovoProcedimentoDAO extends BaseDAO
 	      MainControlloDTO dto = new MainControlloDTO();
 	      dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
 	      dto.setMessaggio(
-	          escapeHtml4(safeMessaggioPLSQL((String) results.get("PMESSAGGIO"))));
+	          escapeHtml4(safeMessaggioPLSQL(  results.get("PMESSAGGIO"))));
 	      dto.setIdProcedimento((BigDecimal) results.get("RESULT"));
 	      return dto;
 

@@ -81,7 +81,7 @@ public class MyDropdown extends MyInputGroup
         .append(id)
         .append(
             "_filter\" onclick=\"event.preventDefault();event.stopPropagation()\" onkeyup=\"applyFiltroDropdown(this)\" onchange=\"event.preventDefault();event.stopPropagation()\"/></div></li>");
-    writeOption(sb, (String) headerKey, headerValue, (String) null, false);
+    writeOption(sb,   headerKey, headerValue,   null, false);
     writeOptions(sb, finalSelectedValue);
     sb.append("</ul></div>");
   }
@@ -89,7 +89,7 @@ public class MyDropdown extends MyInputGroup
   @Override
   protected void addIdAttribute(StringBuilder sb, boolean error)
   {
-    // Non deve fare nulla perchè l'id che viene passato NON deve finire sul
+    // Non deve fare nulla perchï¿½ l'id che viene passato NON deve finire sul
     // <div> della dropdown ma sull'input type="hidden" al suo interno, quindi
     // lo gestisco
     // a mano
@@ -98,7 +98,7 @@ public class MyDropdown extends MyInputGroup
   @Override
   protected void addNameAttribute(StringBuilder sb, boolean error)
   {
-    // Non deve fare nulla perchè ilname che viene passato NON deve finire sul
+    // Non deve fare nulla perchï¿½ ilname che viene passato NON deve finire sul
     // <div> della dropdown ma sull'input type="hidden" al suo interno, quindi
     // lo gestisco
     // a mano

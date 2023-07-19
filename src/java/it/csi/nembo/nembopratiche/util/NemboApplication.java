@@ -166,7 +166,7 @@ public final class NemboApplication
 
   public String getCUNumber(HttpServletRequest request)
   {
-    String useCaseController = (String) request
+    String useCaseController =   request
         .getAttribute("useCaseController");
     return getCUNumber(useCaseController);
   }

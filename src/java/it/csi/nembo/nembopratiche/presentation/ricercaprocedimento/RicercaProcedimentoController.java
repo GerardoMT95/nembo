@@ -518,7 +518,7 @@ public class RicercaProcedimentoController extends BaseController
 
     if (elenco != null && elenco.isNotEmpty())
     {
-      String portal = (String) session
+      String portal =   session
           .getAttribute(NemboConstants.PORTAL.NEMBOPRATICHE_LOGIN_PORTAL);
       for (ProcedimentoOggettoVO item : elenco)
       {

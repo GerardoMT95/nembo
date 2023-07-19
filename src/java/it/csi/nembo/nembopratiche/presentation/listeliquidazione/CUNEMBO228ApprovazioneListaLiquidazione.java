@@ -60,11 +60,11 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
   {
     Map<String, Object> common = getCommonFromSession("APPROVA_LISTA", session,
         true);
-    final String error = (String) common.get("error");
+    final String error =   common.get("error");
     if (error != null)
     {
       /**
-       * Se c'è un attributo "common" in sessione per questa controller è dovuto
+       * Se c'ï¿½ un attributo "common" in sessione per questa controller ï¿½ dovuto
        * ad un errore di MaxUploadSizeExceededException durante l'upload del
        * file della stampa firmata. Segnalo l'errore
        */
@@ -135,7 +135,7 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
     }
     if (validateAndUpdate(model, idListaLiquidazione, stampaFirmata, session))
     {
-      // Se è andato tutto bene nella validazione la lista ha cambiato stato ==>
+      // Se ï¿½ andato tutto bene nella validazione la lista ha cambiato stato ==>
       // redirigo sull'elenco liste
       return "redirect:../cunembo227/index.do";
     }
@@ -167,11 +167,11 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
       {
         if (nomeFile.length() > 255)
         {
-          // Teoricamente nei più usati filesystem la lunghezza di un nome di
-          // file è già limitata a valori inferiori a
+          // Teoricamente nei piï¿½ usati filesystem la lunghezza di un nome di
+          // file ï¿½ giï¿½ limitata a valori inferiori a
           // uguali a 255 caratteri...
           errors.addError("stampaFirmata",
-              "Il mome del file è troppo lungo, la lunghezza massima ammessa è di 255 caratteri");
+              "Il mome del file ï¿½ troppo lungo, la lunghezza massima ammessa ï¿½ di 255 caratteri");
         }
       }
     }
@@ -222,13 +222,13 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
         utenteAbilitazioni, lista.getExtIdAmmCompetenza()))
     {
       throw new ApplicationException(
-          "La lista è di un'amministrazione (organismo delegato) su cui non si ha competenza");
+          "La lista ï¿½ di un'amministrazione (organismo delegato) su cui non si ha competenza");
     }
     if (lista
         .getIdStatoStampa() == NemboConstants.STATO.STAMPA.ID.GENERAZIONE_STAMPA_IN_CORSO)
     {
       throw new ApplicationException(
-          "La stampa di questa lista di liquidazione è ancora in corso, impossibile procedere con l'approvazione");
+          "La stampa di questa lista di liquidazione ï¿½ ancora in corso, impossibile procedere con l'approvazione");
     }
     else
     {
@@ -242,14 +242,14 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
               .getIdStatoStampa() == NemboConstants.STATO.STAMPA.ID.ANNULLATO)
       {
         throw new ApplicationException(
-            "La stampa di questa lista di liquidazione è andata in errore, si prega di rigenerarla dall'elenco delle liste di liquidazione, impossibile procedere con l'approvazione");
+            "La stampa di questa lista di liquidazione ï¿½ andata in errore, si prega di rigenerarla dall'elenco delle liste di liquidazione, impossibile procedere con l'approvazione");
       }
     }
     if (NemboConstants.STATO.LISTE_LIQUIDAZIONE.FLAG.APPROVATA
         .equals(lista.getFlagStatoLista()))
     {
       throw new ApplicationException(
-          "Questa lista di liquidazione è già approvata, impossibile procedere");
+          "Questa lista di liquidazione ï¿½ giï¿½ approvata, impossibile procedere");
     }
     else
     {
@@ -257,8 +257,8 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
       if (listeLiquidazioneEJB.isListaLiquidazioneCorrotta(idListaLiquidazione))
       {
         throw new ApplicationException(
-            "La lista di liquidazione indicata è corrotta (a causa di un precedente tentativo non riuscito di approvazione), impossibile procedere. Si prega di contattare l'assistenza tecnica comunicando il seguente messaggio: La lista di liquidazione con ID="
-                + idListaLiquidazione + " è corrotta");
+            "La lista di liquidazione indicata ï¿½ corrotta (a causa di un precedente tentativo non riuscito di approvazione), impossibile procedere. Si prega di contattare l'assistenza tecnica comunicando il seguente messaggio: La lista di liquidazione con ID="
+                + idListaLiquidazione + " ï¿½ corrotta");
 
       }
     }
@@ -273,7 +273,7 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
     if (referer == null || !referer
         .contains("cunembo228/approva_" + idListaLiquidazione + ".do"))
     {
-      // Questa stampa può essere solo richiamata dall'approvazione, in tutti
+      // Questa stampa puï¿½ essere solo richiamata dall'approvazione, in tutti
       // gli altri casi si ha un 404
       return new ResponseEntity<byte[]>(
           null, new HttpHeaders(), HttpStatus.NOT_FOUND);
@@ -355,7 +355,7 @@ public class CUNEMBO228ApprovazioneListaLiquidazione extends BaseController
           }
         }
         common.put("error",
-            "File di dimensione troppo grande. La dimensione massima accettata è di "
+            "File di dimensione troppo grande. La dimensione massima accettata ï¿½ di "
                 + sMaxSize);
         saveCommonInSession(common, session);
         return new ModelAndView("redirect:" + request.getRequestURL(), null);

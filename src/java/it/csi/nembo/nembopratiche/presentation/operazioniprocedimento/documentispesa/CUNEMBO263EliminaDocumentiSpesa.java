@@ -41,7 +41,7 @@ public class CUNEMBO263EliminaDocumentiSpesa extends BaseController
     model.addAttribute("idDocumentoSpesa", idDocumentoSpesa);
     Map<String, Object> common = getCommonFromSession(COMMON_SESSION_NAME,
         request.getSession(), false);
-    String msgElimina = (String) common.get("msgElimina");
+    String msgElimina =   common.get("msgElimina");
     model.addAttribute("msgElimina", msgElimina);
     common.remove("msgElimina");
     saveCommonInSession(common, request.getSession());
@@ -56,7 +56,7 @@ public class CUNEMBO263EliminaDocumentiSpesa extends BaseController
   {
 
     if (!quadroEJB.canDeleteDocSpesa(idDocumentoSpesa))
-      return "Impossibile eliminare. Documento già associato ad una domanda.";
+      return "Impossibile eliminare. Documento giï¿½ associato ad una domanda.";
 
     quadroEJB.eliminaDocumentoSpesaById(idDocumentoSpesa);
 
@@ -75,7 +75,7 @@ public class CUNEMBO263EliminaDocumentiSpesa extends BaseController
     if (quadroEJB.docHasInterventi(idDocSpesa))
     {
       common.put("msgElimina",
-          "Il documento è già stato associato almeno in parte ad uno o più interventi. Se si conferma l'operazione saranno eliminate anche queste associazioni. Si desidera proseguire?");
+          "Il documento ï¿½ giï¿½ stato associato almeno in parte ad uno o piï¿½ interventi. Se si conferma l'operazione saranno eliminate anche queste associazioni. Si desidera proseguire?");
       saveCommonInSession(common, request.getSession());
       return "dialog/success";
     }
@@ -88,7 +88,7 @@ public class CUNEMBO263EliminaDocumentiSpesa extends BaseController
     if (ricevute != null && !ricevute.isEmpty())
     {
       common.put("msgElimina",
-          "Il documento è già stato associato ad una o più ricevute di pagamento. Se si conferma l'operazione saranno eliminate anche queste associazioni. Si desidera proseguire?");
+          "Il documento ï¿½ giï¿½ stato associato ad una o piï¿½ ricevute di pagamento. Se si conferma l'operazione saranno eliminate anche queste associazioni. Si desidera proseguire?");
       saveCommonInSession(common, request.getSession());
       return "dialog/success";
     }
@@ -124,7 +124,7 @@ public class CUNEMBO263EliminaDocumentiSpesa extends BaseController
 
     if (common.containsKey("msgElimina"))
     {
-      String msgElimina = (String) common.get("msgElimina");
+      String msgElimina =   common.get("msgElimina");
       model.addAttribute("msgElimina", msgElimina);
       common.remove("msgElimina");
     }
@@ -182,13 +182,13 @@ public class CUNEMBO263EliminaDocumentiSpesa extends BaseController
         .getIdRicevutaPagamento(idDettRicevutaPagamento);
     if (quadroEJB.ricEsisteInDocSpesRicPag(idRicevutaPagamento))
     {
-      return "La ricevuta di pagamento è già stata utilizzata per la rendicontazione spese, per cui non è più possibile eliminarla.";
+      return "La ricevuta di pagamento ï¿½ giï¿½ stata utilizzata per la rendicontazione spese, per cui non ï¿½ piï¿½ possibile eliminarla.";
     }
 
     if (quadroEJB.ricEsisteInDocSpesIntRicPag(idRicevutaPagamento))
     {
       common.put("msgElimina",
-          "La ricevuta di pagamento è già stata associata almeno in parte ad uno o più interventi. Se si conferma l'operazione saranno eliminate anche queste associazioni. Si desidera proseguire?");
+          "La ricevuta di pagamento ï¿½ giï¿½ stata associata almeno in parte ad uno o piï¿½ interventi. Se si conferma l'operazione saranno eliminate anche queste associazioni. Si desidera proseguire?");
       return "<success>";
     }
 

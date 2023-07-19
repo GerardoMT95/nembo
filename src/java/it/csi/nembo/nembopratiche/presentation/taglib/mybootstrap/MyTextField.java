@@ -82,7 +82,7 @@ public class MyTextField extends MyInputGroup
     {
       if (value instanceof String)
       {
-        this.value = (String) value;
+        this.value =   value;
       }
       else
       {
@@ -98,7 +98,7 @@ public class MyTextField extends MyInputGroup
           if (value instanceof java.util.Date)
           {
 
-            final Date date = (Date) value;
+            final Date date =   value;
             this.value = NemboUtils.DATE.formatDate(date);
           }
           else

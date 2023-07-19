@@ -191,7 +191,7 @@ public class SelectTag extends SimpleTagSupport
   {
     if (selectedValue == null || selectedValue instanceof String)
     {
-      this.selectedValue = (String) selectedValue;
+      this.selectedValue =   selectedValue;
     }
     else
     {

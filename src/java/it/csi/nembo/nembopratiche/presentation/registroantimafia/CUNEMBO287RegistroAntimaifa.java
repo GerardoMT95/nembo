@@ -60,8 +60,8 @@ public class CUNEMBO287RegistroAntimaifa extends BaseController
   {
     Map<String, Object> common = getCommonFromSession("REGISTRO_ANTIMAFIA",
         session, false);
-    String cuaa = (String) common.get("cuaa");
-    String denominazione = (String) common.get("denominazione");
+    String cuaa =   common.get("cuaa");
+    String denominazione =   common.get("denominazione");
 
     if (cuaa == null && denominazione == null)
       return new ArrayList<>();
@@ -79,8 +79,8 @@ public class CUNEMBO287RegistroAntimaifa extends BaseController
   {
     Map<String, Object> common = getCommonFromSession("REGISTRO_ANTIMAFIA",
         session, false);
-    String cuaa = (String) common.get("cuaa");
-    String denominazione = (String) common.get("denominazione");
+    String cuaa =   common.get("cuaa");
+    String denominazione =   common.get("denominazione");
 
     if (cuaa == null && denominazione == null)
       return new ArrayList<>();
@@ -98,8 +98,8 @@ public class CUNEMBO287RegistroAntimaifa extends BaseController
   {
     Map<String, Object> common = getCommonFromSession("REGISTRO_ANTIMAFIA",
         session, false);
-    String cuaa = (String) common.get("cuaa");
-    String denominazione = (String) common.get("denominazione");
+    String cuaa =   common.get("cuaa");
+    String denominazione =   common.get("denominazione");
 
     if (cuaa == null && denominazione == null)
       return new ArrayList<>();

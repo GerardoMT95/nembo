@@ -220,7 +220,7 @@ public abstract class AgriwellUtils
       HttpSession session = ((ServletRequestAttributes) RequestContextHolder
           .getRequestAttributes()).getRequest().getSession();
 
-      String codiceRuolo = (String) session.getAttribute("codiceRuoloLogin");
+      String codiceRuolo =   session.getAttribute("codiceRuoloLogin");
       StringBuilder sb = new StringBuilder(baseUrl)
           .append("?CF=").append(utenteAbilitazioni.getCodiceFiscale())
           .append("&ruolo=")

@@ -128,7 +128,7 @@ public class PortaDelegataUtils
     try
     {
       Properties propFirstPD = pdInfo.getPlugins()[0].getProperties();
-      return (String) propFirstPD.get(Context.PROVIDER_URL);
+      return   propFirstPD.get(Context.PROVIDER_URL);
     }
     catch (Exception e)
     {

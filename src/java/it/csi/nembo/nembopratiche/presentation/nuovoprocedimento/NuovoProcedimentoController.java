@@ -308,7 +308,7 @@ public class NuovoProcedimentoController extends BaseController
     }
     BandoDTO bandoSelezionato = (BandoDTO) session
         .getAttribute(SESSION_BANDO_SELEZIONATO);
-    String sessionCuaa = (String) session
+    String sessionCuaa =   session
         .getAttribute(SESSION_CUAA_RICERCA_SINGOLA);
     if (sessionCuaa != null)
     {

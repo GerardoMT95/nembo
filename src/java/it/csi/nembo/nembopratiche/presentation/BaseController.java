@@ -341,7 +341,7 @@ public class BaseController
         .getAttribute("common");
     if (common != null)
     {
-      String ownerID = (String) common.get("ID");
+      String ownerID =   common.get("ID");
       if (ownerID == null)
       {
         common = new HashMap<>();

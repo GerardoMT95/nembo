@@ -35,7 +35,7 @@ public class BreadcrumbsTag extends BaseTag
     {
       throw new JspException(e);
     }
-    String comeFromRicerca = (String) this.pageContext.getSession()
+    String comeFromRicerca =   this.pageContext.getSession()
         .getAttribute("comeFromRicerca");
     JspWriter writer = this.pageContext.getOut();
     StringBuilder buffer = new StringBuilder();

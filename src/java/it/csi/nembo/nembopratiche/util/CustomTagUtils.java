@@ -12,7 +12,7 @@ public abstract class CustomTagUtils
     {
       if (value instanceof String)
       {
-        value = ((String) value).replace("\"", "&quot;");
+        value = (  value).replace("\"", "&quot;");
       }
     }
     sb.append(" ").append(name).append(" = \"").append(value).append("\"");

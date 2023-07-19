@@ -48,7 +48,7 @@ public class ValidationUtils
   public boolean isNotEmpty(Object field)
   {
     if (field instanceof String)
-      return isNotEmpty((String) field);
+      return isNotEmpty(  field);
     return (field != null);
   }
 

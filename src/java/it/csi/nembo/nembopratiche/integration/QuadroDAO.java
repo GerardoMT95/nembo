@@ -2945,7 +2945,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -4657,7 +4657,7 @@ public class QuadroDAO extends BaseDAO
       DecodificaDTO<Integer> dto = new DecodificaDTO<Integer>();
       dto.setId(((BigDecimal) results.get("PRISULTATO")).intValue());
       dto.setDescrizione(
-          safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+          safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -4967,7 +4967,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       dto.setIdProcedimento((BigDecimal) results.get("RESULT"));
       return dto;
 
@@ -5027,7 +5027,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       dto.setIdProcedimento((BigDecimal) results.get("RESULT"));
       return dto;
 
@@ -7439,7 +7439,7 @@ public class QuadroDAO extends BaseDAO
 
       MainPunteggioDTO dto = new MainPunteggioDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -20815,7 +20815,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -20880,7 +20880,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -20945,7 +20945,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -21013,7 +21013,7 @@ public class QuadroDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }

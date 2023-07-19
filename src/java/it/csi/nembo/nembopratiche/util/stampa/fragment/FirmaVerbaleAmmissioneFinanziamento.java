@@ -25,7 +25,7 @@ public class FirmaVerbaleAmmissioneFinanziamento extends Fragment
     Long idOggetto = quadroControlliTecAmm.getIdOggetto();
 
     /*
-     * controllo se nel VALORE di PSR_D_PARAMETRO con codice 'FUNZ_SUP_ESITO_VERB' è contenuta la coppia
+     * controllo se nel VALORE di PSR_D_PARAMETRO con codice 'FUNZ_SUP_ESITO_VERB' ï¿½ contenuta la coppia
      * idBando/idOggetto (separatore #) relativo al bando interessato e al quadro con CU-NEMBO-165-D (Controlli tecnico
      * Amministrativi). Nel caso sia contenuta, come funzionario di grado superiore stampo il funzionario contenuto
      * nell'esito ottenuto passando l'idQuadroOggetto del quadero "Controlli tecnico Amministrativi"
@@ -36,7 +36,7 @@ public class FirmaVerbaleAmmissioneFinanziamento extends Fragment
       StringTokenizer st = new StringTokenizer(parametroFunzSupEsitoVerbale, "#");
       while (st.hasMoreElements())
       {
-        String s = (String) st.nextElement();
+        String s =   st.nextElement();
         if (s.compareTo(idBando.toString() + "/" + idOggetto.toString()) == 0)
           esiste = true;
       }

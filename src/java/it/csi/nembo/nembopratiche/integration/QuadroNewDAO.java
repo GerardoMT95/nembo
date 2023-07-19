@@ -3818,7 +3818,7 @@ public class QuadroNewDAO extends QuadroDAO
       int result = ((Number) results.get("PRISULTATO")).intValue();
       if (result == 1)
       {
-        return safeMessaggioPLSQL((String) results.get("PMESSAGGIO"));
+        return safeMessaggioPLSQL(  results.get("PMESSAGGIO"));
       }
       else
       {

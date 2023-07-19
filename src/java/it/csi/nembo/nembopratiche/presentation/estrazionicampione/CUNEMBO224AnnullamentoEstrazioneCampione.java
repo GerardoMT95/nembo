@@ -43,7 +43,7 @@ public class CUNEMBO224AnnullamentoEstrazioneCampione extends BaseController
     if (!estrazioniEjb.isEstrazioneAnnullabile(idNumeroLotto, idTipoEstrazione))
     {
       model.addAttribute("messaggio",
-          "Operazione non consentita: l'estrazione a campione non è l'ultima registrata per il dato tipo estrazione");
+          "Operazione non consentita: l'estrazione a campione non ï¿½ l'ultima registrata per il dato tipo estrazione");
       return "errore/messaggio";
     }
 
@@ -62,7 +62,7 @@ public class CUNEMBO224AnnullamentoEstrazioneCampione extends BaseController
       throws InternalUnexpectedException
   {
     model.addAttribute("prfRequestValues", Boolean.TRUE);
-    String motivo = (String) request.getParameter("motivo");
+    String motivo =   request.getParameter("motivo");
     Errors errors = new Errors();
     errors.validateMandatoryFieldMaxLength(motivo, "motivo", 2000);
     if (!errors.isEmpty())

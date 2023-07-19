@@ -374,7 +374,7 @@ public class EstrazioniDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -798,7 +798,7 @@ public class EstrazioniDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }
@@ -861,7 +861,7 @@ public class EstrazioniDAO extends BaseDAO
 
       MainControlloDTO dto = new MainControlloDTO();
       dto.setRisultato(((BigDecimal) results.get("PRISULTATO")).intValue());
-      dto.setMessaggio(safeMessaggioPLSQL((String) results.get("PMESSAGGIO")));
+      dto.setMessaggio(safeMessaggioPLSQL(  results.get("PMESSAGGIO")));
       return dto;
 
     }

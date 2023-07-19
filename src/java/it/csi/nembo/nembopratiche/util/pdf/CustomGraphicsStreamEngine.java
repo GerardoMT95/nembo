@@ -90,8 +90,8 @@ public class CustomGraphicsStreamEngine extends PDFGraphicsStreamEngine
   @Override
   public void showTextString(byte[] string) throws IOException
   {
-    valuableElements.add(new PDFText(new String(string)));
-    super.showTextString(string);
+    valuableElements.add(new PDFText(new String ));
+    super.showTextString ;
   }
 
   public void drawImage(PDImage pdImage) throws IOException

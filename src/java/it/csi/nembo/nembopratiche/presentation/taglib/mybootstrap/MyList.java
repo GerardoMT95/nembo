@@ -177,7 +177,7 @@ public class MyList extends MyInputGroup
         if (selectedValue instanceof String)
         {
           this.selectedValues = new String[]
-          { (String) selectedValue };
+          {   selectedValue };
         }
         else
         {

@@ -85,7 +85,7 @@ public class ContiCorrentiController extends BaseController
     if (conticorrenti == null)
     {
       model.addAttribute("msgErrore",
-          "Non è presente nessun Conto Corrente associabile ");
+          "Non ï¿½ presente nessun Conto Corrente associabile ");
     }
 
     model.addAttribute("conticorrenti", conticorrenti);
@@ -98,7 +98,7 @@ public class ContiCorrentiController extends BaseController
       HttpServletRequest request) throws InternalUnexpectedException,
       NemboPermissionException, ApplicationException
   {
-    String idContoCorrenteSel = (String) request
+    String idContoCorrenteSel =   request
         .getParameter("contoSelezionato");
 
     if (GenericValidator.isBlankOrNull(idContoCorrenteSel))

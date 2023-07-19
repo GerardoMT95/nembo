@@ -35,7 +35,7 @@ public class ExcelBuilderReport extends AbstractExcelView
 
     GraficoVO graficoVO = (GraficoVO) model.get("graficoVO");
 
-    String bando = (String) request.getSession()
+    String bando =   request.getSession()
         .getAttribute("denominazioneBando");
     String descrBreve = graficoVO.getDescrBreve();
     String descrEstesa = graficoVO.getDescrEstesa();

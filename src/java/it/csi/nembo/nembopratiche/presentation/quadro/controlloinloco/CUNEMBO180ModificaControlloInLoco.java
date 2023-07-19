@@ -135,7 +135,7 @@ public class CUNEMBO180ModificaControlloInLoco extends BaseController
             true);
         if (dataInizioControllo != null)
           errors.validateDateInRange(dataInizioControllo, "dataInizio_" + i,
-              (Date) null, Calendar.getInstance().getTime(), true, true);
+                null, Calendar.getInstance().getTime(), true, true);
         liv.setDataInizioControllo(NemboUtils.DATE.parseDate(dataInizio));
       }
 

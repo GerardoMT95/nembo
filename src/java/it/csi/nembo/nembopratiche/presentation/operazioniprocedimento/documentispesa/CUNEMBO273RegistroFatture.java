@@ -66,14 +66,14 @@ public class CUNEMBO273RegistroFatture extends BaseController
     {
       if (common.containsKey("idsTipoDocumentoStr"))
         model.addAttribute("idsTipoDocumentoStr",
-            (String) common.get("idsTipoDocumentoStr"));
+              common.get("idsTipoDocumentoStr"));
       if (common.containsKey("idsModalitaPagamentoStr"))
         model.addAttribute("idsModalitaPagamentoStr",
-            (String) common.get("idsModalitaPagamentoStr"));
+              common.get("idsModalitaPagamentoStr"));
       if (common.containsKey("dateFrom"))
-        model.addAttribute("dataDa", (Date) common.get("dateFrom"));
+        model.addAttribute("dataDa",   common.get("dateFrom"));
       if (common.containsKey("dateTo"))
-        model.addAttribute("dataA", (Date) common.get("dateTo"));
+        model.addAttribute("dataA",   common.get("dateTo"));
       Long idFornitore = null;
       if (common.containsKey("idFornitore"))
         idFornitore = (Long) common.get("idFornitore");
@@ -82,7 +82,7 @@ public class CUNEMBO273RegistroFatture extends BaseController
       {
         if (common.containsKey("codiceFornitore"))
           model.addAttribute("codiceFornitore",
-              (String) common.get("codiceFornitore"));
+                common.get("codiceFornitore"));
       }
 
     }
@@ -231,8 +231,8 @@ public class CUNEMBO273RegistroFatture extends BaseController
     return ricercaEJB.getElencoProcedimentiRegistroFatture(
         (long[]) common.get("idsTipoPagamento"),
         (long[]) common.get("idsModalitaPagamento"),
-        (Long) common.get("idFornitore"), (Date) common.get("dateFrom"),
-        (Date) common.get("dateTo"));
+        (Long) common.get("idFornitore"),   common.get("dateFrom"),
+          common.get("dateTo"));
   }
 
   @RequestMapping(value = "getElencoCodiciOperazioneJson", produces = "application/json")
