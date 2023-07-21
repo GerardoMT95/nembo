@@ -46,8 +46,8 @@ public class CUNEMBO251ModificaOD extends BaseController
   {
     Procedimento procedimento = getProcedimentoFromSession(session);
 
-    if (procedimento.getIdStatoOggetto() < (new Long("10")).longValue()
-        || procedimento.getIdStatoOggetto() > (new Long("90")).longValue())
+    if (procedimento.getIdStatoOggetto() < 10L
+        || procedimento.getIdStatoOggetto() > 90L)
     {
       model.addAttribute("errore",
           "La modifica non pu� essere effettuata in base allo stato del procedimento.");

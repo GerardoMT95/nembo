@@ -921,7 +921,7 @@ public class RicercaDAO extends BaseDAO
           }
 
           vct = (ArrayList<Long>) pair.getValue();
-          if (vct.contains(new Long(0))) // Non Presente --> 0
+          if (vct.contains(0L)) // Non Presente --> 0
           {
             SELECT.append(" " + sep + " NOT EXISTS ( "
                 + "	SELECT "
@@ -990,10 +990,10 @@ public class RicercaDAO extends BaseDAO
           }
 
           vct2 = (ArrayList<Long>) pair.getValue();
-          if (vct2.contains(new Long(-1))) // Aperto --> -1
+          if (vct2.contains(-1L)) // Aperto --> -1
             tmp2 = " OR PO2.ID_ESITO IS NULL";
 
-          if (vct2.contains(new Long(0))) // Non Presente --> 0
+          if (vct2.contains(0L)) // Non Presente --> 0
           {
             SELECT.append(" " + sep2 + " NOT EXISTS ( "
                 + "	SELECT "
@@ -2211,7 +2211,7 @@ public class RicercaDAO extends BaseDAO
           }
 
           vct = (ArrayList<Long>) pair.getValue();
-          if (vct.contains(new Long(0))) // Non Presente --> 0
+          if (vct.contains(0L)) // Non Presente --> 0
           {
             SELECT.append(" " + sep + " NOT EXISTS ( "
                 + "	SELECT "
@@ -2282,10 +2282,10 @@ public class RicercaDAO extends BaseDAO
           }
 
           vct2 = (ArrayList<Long>) pair.getValue();
-          if (vct2.contains(new Long(-1))) // Aperto --> -1
+          if (vct2.contains(-1LL)) // Aperto --> -1
             tmp2 = " OR PO2.ID_ESITO IS NULL";
 
-          if (vct2.contains(new Long(0))) // Non Presente --> 0
+          if (vct2.contains(0L)) // Non Presente --> 0
           {
             SELECT.append(" " + sep2 + " NOT EXISTS ( "
                 + "	SELECT "

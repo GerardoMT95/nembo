@@ -403,7 +403,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 		List<DanniDTO> listDanni = dao.getListDanniByProcedimentoOggettoAndArrayIdDannoAtm(arrayIdDannoAtm, idProcedimentoOggetto, idProcedimentoAgricoltura);
 		if(listDanni==null)
 		{
-			listDanni=new ArrayList<DanniDTO>();	
+			listDanni=new ArrayList<>();	
 		}
 		return listDanni;
 	}
@@ -649,7 +649,7 @@ public class QuadroNemboEJB extends NemboAbstractEJB<QuadroNemboDAO> implements 
 	{
 		if(arrayIdUtilizzoDichiarato == null)
 		{
-			return new ArrayList<ParticelleDanniDTO>();
+			return new ArrayList<>();
 		}
 		List<ParticelleDanniDTO> lista = 
 				dao.getListConduzioniDannoSelezionate(

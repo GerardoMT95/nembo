@@ -138,7 +138,7 @@ public class Errors extends HashMap<String, String>
   {
     try
     {
-      return new Long(fieldValue.trim()).longValue();
+      return fieldValue.trim().longValue();
     }
     catch (Exception e)
     {
@@ -365,7 +365,7 @@ public class Errors extends HashMap<String, String>
       if (value < min)
       {
         addError(fieldName,
-            "Valore non permesso, il valore minimo ammesso è " + min);
+            "Valore non permesso, il valore minimo ammesso ï¿½ " + min);
         return null;
       }
       else
@@ -373,7 +373,7 @@ public class Errors extends HashMap<String, String>
         if (value > max)
         {
           addError(fieldName,
-              "Valore non permesso, il valore massimo ammesso è " + max);
+              "Valore non permesso, il valore massimo ammesso ï¿½ " + max);
           return null;
         }
       }
@@ -424,7 +424,7 @@ public class Errors extends HashMap<String, String>
 
       if (min != null && value.compareTo(min) < 0)
       {
-        addError(fieldName, "Valore non permesso, il valore minimo ammesso è "
+        addError(fieldName, "Valore non permesso, il valore minimo ammesso ï¿½ "
             + min.toString().replace(".", ","));
         return null;
       }
@@ -433,7 +433,7 @@ public class Errors extends HashMap<String, String>
         if (max != null && value.compareTo(max) > 0)
         {
           addError(fieldName,
-              "Valore non permesso, il valore massimo ammesso è "
+              "Valore non permesso, il valore massimo ammesso ï¿½ "
                   + max.toString().replace(".", ","));
           return null;
         }

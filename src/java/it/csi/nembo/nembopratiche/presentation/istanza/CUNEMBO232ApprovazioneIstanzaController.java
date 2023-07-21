@@ -284,7 +284,7 @@ public class CUNEMBO232ApprovazioneIstanzaController extends BaseController
     }
     else
       if (procedimentoOggetto.getIdStatoOggetto()
-          .longValue() <= (new Long("10")).longValue())
+          .longValue() <= 10L)
       {
         return "l'oggetto selezionato non risulta essere nello stato corretto.";
       }

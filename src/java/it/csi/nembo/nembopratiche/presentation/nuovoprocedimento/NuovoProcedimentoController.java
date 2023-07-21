@@ -869,7 +869,7 @@ public class NuovoProcedimentoController extends BaseController
       HttpSession session, String note) throws InternalUnexpectedException
   {
     ArrayList<Long> vLong = new ArrayList<>();
-    vLong.add(new Long(idAzienda));
+    vLong.add(idAzienda);
 
     List<AziendaDTO> vAziende = nuovoProcedimento.getDettaglioAziendeById(vLong,
         idBando);

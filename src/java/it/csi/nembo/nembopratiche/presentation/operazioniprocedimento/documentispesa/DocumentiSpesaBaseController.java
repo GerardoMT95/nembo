@@ -481,7 +481,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
         {
           model.addAttribute("cuaa", piva);
           list = new ArrayList<>();
-          list.add(new DecodificaDTO<Long>(new Long(-1),
+          list.add(new DecodificaDTO<Long>(-1L,
               "Servizio di consultazione SIAN al momento non disponibile. Qualora non sia gi� presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, � possibile inserirli a mano mediante il pulsante \"inserisci\""));
           list.addAll(quadroEJB.geElencoFornitori(piva));
           return list;
@@ -539,7 +539,7 @@ public abstract class DocumentiSpesaBaseController extends BaseController
     }
     // aggiungo sempre tutto lo storico che c'� sul nostro db
     list = new ArrayList<>();
-    list.add(new DecodificaDTO<Long>(new Long(-1),
+    list.add(new DecodificaDTO<Long>(-1L,
         "Qualora non sia gi� presente in elenco il fornitore con i dati coincidenti a quelli riportati nel documento di spesa allegato, � possibile inserirli a mano mediante il pulsante \"inserisci\""));
     list.addAll(
         (ArrayList<DecodificaDTO<Long>>) quadroEJB.geElencoFornitori(piva));

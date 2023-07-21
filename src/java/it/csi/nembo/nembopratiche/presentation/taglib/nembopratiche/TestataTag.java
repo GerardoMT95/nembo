@@ -569,7 +569,7 @@ public class TestataTag extends BaseTag
           && procedimentoOggetto
               .getIdEsito() == NemboConstants.PROCEDIMENTO_OGGETTO.ESITO.POSITIVO
           && procedimentoOggetto.getIdStatoOggetto()
-              .longValue() < (new Long("10")).longValue())
+              .longValue() < 10L)
       {
         appendIconTrasmettiIstanza(sb, oggettoIconaDTO);
       }

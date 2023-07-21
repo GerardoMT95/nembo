@@ -50,7 +50,7 @@ public class ReportVO implements Serializable
     cellReportVO.setV("Work");
     listRow.add(cellReportVO);
     cellReportVO = new CellReportVO();
-    cellReportVO.setV(new Long("11"));
+    cellReportVO.setV(11L);
     listRow.add(cellReportVO);
     rowsReportVO.addRowReport(listRow);
     rowValues.add(rowsReportVO);
@@ -61,7 +61,7 @@ public class ReportVO implements Serializable
     cellReportVO.setV("Eat");
     listRow.add(cellReportVO);
     cellReportVO = new CellReportVO();
-    cellReportVO.setV(new Long("2"));
+    cellReportVO.setV(2L);
     listRow.add(cellReportVO);
     rowsReportVO.addRowReport(listRow);
     rowValues.add(rowsReportVO);
@@ -72,7 +72,7 @@ public class ReportVO implements Serializable
     cellReportVO.setV("Commute");
     listRow.add(cellReportVO);
     cellReportVO = new CellReportVO();
-    cellReportVO.setV(new Long("2"));
+    cellReportVO.setV(2L);
     listRow.add(cellReportVO);
     rowsReportVO.addRowReport(listRow);
     rowValues.add(rowsReportVO);
@@ -83,7 +83,7 @@ public class ReportVO implements Serializable
     cellReportVO.setV("In bozza");
     listRow.add(cellReportVO);
     cellReportVO = new CellReportVO();
-    cellReportVO.setV(new Long("7"));
+    cellReportVO.setV(7L);
     listRow.add(cellReportVO);
     rowsReportVO.addRowReport(listRow);
     rowValues.add(rowsReportVO);

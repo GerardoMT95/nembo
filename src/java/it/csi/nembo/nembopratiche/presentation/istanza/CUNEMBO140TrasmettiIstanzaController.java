@@ -151,7 +151,7 @@ public class CUNEMBO140TrasmettiIstanzaController extends BaseController
 		{
 			return "l'oggetto selezionato non risulta chiuso con esito positivo.";
 		}
-		else if(procedimentoOggetto.getIdStatoOggetto().longValue() >= (new Long("10")).longValue())
+		else if(procedimentoOggetto.getIdStatoOggetto().longValue() >= 10L).longValue())
 		{
 			return "l'oggetto selezionato non risulta essere nello stato corretto.";
 		}
